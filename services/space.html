@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>空间定制 · 荥泽招商飞轮® · 荥阳数字经济产业园</title>
+<meta name="description" content="空间定制服务：独栋定制 500-15000㎡、联合办公 ¥1200/工位/月起、中试基地 GMP 洁净、研发实验室、生活配套、Tier 3 数据机房。40.4 万㎡运营面积，96% 出租率，江森自控 8000㎡ 独栋 5 个月交付。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+
+  /* --- Hero rail (auto-rotate + radio manual) --- */
+  .hero-rail { position: relative; min-height: 520px; background:
+    radial-gradient(ellipse at 20% 30%, rgba(184,16,46,.18), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(56,189,248,.12), transparent 55%),
+    linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+    border-bottom: 1px solid var(--bg-line); overflow: hidden;
+  }
+  .hero-rail input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .hero-slides { position: relative; max-width: var(--container-max); margin: 0 auto; padding: var(--sp-16) var(--sp-6); }
+  .hero-slide {
+    position: absolute; top: var(--sp-16); left: var(--sp-6); right: var(--sp-6);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+    pointer-events: none;
+  }
+  .hero-slide:first-of-type { position: relative; }
+  #hero-1:checked ~ .hero-slides .hero-slide:nth-of-type(1),
+  #hero-2:checked ~ .hero-slides .hero-slide:nth-of-type(2),
+  #hero-3:checked ~ .hero-slides .hero-slide:nth-of-type(3) {
+    opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 2;
+  }
+  /* Auto rotate via animation on labels (fallback: rely on manual click) */
+  .hero-dots { position: absolute; bottom: var(--sp-8); left: 50%; transform: translateX(-50%); display: flex; gap: var(--sp-3); z-index: 5; }
+  .hero-dots label { width: 32px; height: 4px; background: var(--bg-3); border-radius: var(--radius-pill); cursor: pointer; transition: background var(--dur-fast) var(--ease); }
+  #hero-1:checked ~ .hero-dots label[for=hero-1],
+  #hero-2:checked ~ .hero-dots label[for=hero-2],
+  #hero-3:checked ~ .hero-dots label[for=hero-3] { background: var(--gov); }
+  .hero-tag { display: inline-block; padding: 2px var(--sp-3); background: var(--gold); color: var(--text-invert); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; margin-bottom: var(--sp-4); }
+  .hero-tag--pov { background: var(--enterprise); color: var(--text-invert); }
+  .hero-tag--testimonial { background: var(--ecosystem); color: var(--text-invert); }
+  .hero-tag--press { background: var(--gov); color: #fff; }
+
+  /* --- 7-layer proof stack --- */
+  .proof-stack { display: grid; gap: var(--sp-4); margin-top: var(--sp-8); }
+  .proof-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-5); padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); align-items: center; }
+  @media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
+  .proof-layer { font-size: var(--fs-xs); font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .08em; }
+  .proof-content { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .proof-content b { color: var(--text); }
+  .proof-content .num { color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+
+  /* --- Testimonial carousel --- */
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
+  .quote-card { padding: var(--sp-6); background: linear-gradient(135deg, var(--enterprise-soft), transparent), var(--bg-2); border: 1px solid rgba(56,189,248,.25); border-radius: var(--radius-md); position: relative; }
+  .quote-card::before { content: "\201C"; position: absolute; top: 8px; right: 20px; font-size: 72px; color: var(--enterprise); opacity: 0.25; line-height: 1; font-family: Georgia, serif; }
+  .quote-text { font-size: var(--fs-md); font-weight: 500; line-height: var(--lh-relaxed); color: var(--text-1); margin-bottom: var(--sp-4); }
+  .quote-attr { display: flex; align-items: center; gap: var(--sp-3); }
+  .quote-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 800; }
+  .quote-name { font-weight: 700; color: var(--text); font-size: var(--fs-sm); }
+  .quote-title { color: var(--text-3); font-size: var(--fs-xs); }
+  .quote-outcome { display: inline-block; margin-top: var(--sp-3); padding: 2px var(--sp-3); background: var(--gov-soft); color: var(--gov-hover); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 600; }
+
+  /* --- Mid CTA --- */
+  .mid-cta { padding: var(--sp-8); background: linear-gradient(90deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.35); border-radius: var(--radius-md); display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; margin: var(--sp-8) 0; }
+  @media (max-width: 700px) { .mid-cta { grid-template-columns: 1fr; text-align: center; } }
+  .mid-cta__title { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-1); }
+  .mid-cta__body { color: var(--text-2); font-size: var(--fs-sm); }
+
+  /* --- Tabbed proof panel (CSS-only tabs) --- */
+  .tabs-proof { margin-top: var(--sp-6); }
+  .tabs-proof input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .tab-labels { display: flex; gap: var(--sp-2); border-bottom: 1px solid var(--bg-line); margin-bottom: var(--sp-5); }
+  .tab-labels label { padding: var(--sp-3) var(--sp-5); font-weight: 600; font-size: var(--fs-sm); color: var(--text-3); cursor: pointer; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .tab-labels label:hover { color: var(--text-1); }
+  #tab-a:checked ~ .tab-labels label[for=tab-a],
+  #tab-b:checked ~ .tab-labels label[for=tab-b] { color: var(--gov); border-bottom-color: var(--gov); }
+  .tab-panel { display: none; }
+  #tab-a:checked ~ .tab-content .tab-panel--a,
+  #tab-b:checked ~ .tab-content .tab-panel--b { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  @media (max-width: 900px) { #tab-a:checked ~ .tab-content .tab-panel--a, #tab-b:checked ~ .tab-content .tab-panel--b { grid-template-columns: 1fr; } }
+  .win-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-left: 3px solid var(--ecosystem); }
+  .win-card--gov { border-left-color: var(--gov); }
+  .win-card__tenant { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .win-card__desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .win-card__stat { margin-top: var(--sp-3); color: var(--gold); font-size: var(--fs-sm); font-weight: 700; }
+
+  /* --- Offering matrix --- */
+  .offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 1000px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .offer-grid { grid-template-columns: 1fr; } }
+  .offer-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .offer-card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .offer-card__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .offer-card__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3); }
+  .offer-card__more { color: var(--enterprise); font-size: var(--fs-sm); font-weight: 600; }
+  .offer-card__more::after { content: " →"; }
+
+  /* --- Insights grid --- */
+  .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
+
+  /* --- FAQ --- */
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--gov); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* --- SPOC --- */
+  .spoc-card { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 700px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--gov-hover)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 96px; height: 96px; background: repeating-conic-gradient(#0a0e1a 0 25%, #e6eefc 0 50%) 50% / 12px 12px, var(--bg-3); border-radius: var(--radius); display: grid; place-items: end center; color: var(--text-3); font-size: var(--fs-xs); padding: 4px; }
+
+  /* --- RFS form --- */
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-6); background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  @media (max-width: 700px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline label { font-size: var(--fs-xs); color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: var(--sp-2); display: block; }
+  .form-inline .field { display: flex; flex-direction: column; }
+  .form-inline .field--full { grid-column: 1 / -1; }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; font-size: var(--fs-sm); }
+  .form-inline input:focus, .form-inline textarea:focus, .form-inline select:focus { outline: none; border-color: var(--enterprise); }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="./" class="active">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#rfs">空间咨询</a>
+  </div>
+</nav>
+
+<!-- 子导航 6-tab -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand"><b>空间定制</b></span>
+    <a href="#top" class="active">首页</a>
+    <a href="#overview">概览</a>
+    <a href="#insights">洞察</a>
+    <a href="#stories">客户故事</a>
+    <a href="#offerings">服务清单</a>
+    <a href="#blog">博客</a>
+  </div>
+</div>
+
+<!-- 1. Auto-rotating hero rail -->
+<section class="hero-rail" id="top">
+  <input type="radio" name="hero" id="hero-1" checked>
+  <input type="radio" name="hero" id="hero-2">
+  <input type="radio" name="hero" id="hero-3">
+  <div class="hero-slides">
+    <div class="hero-slide">
+      <span class="hero-tag">POV · 服务价值</span>
+      <h1 class="hero-title">空间不是"租的房子"，是"业务的第一台设备"</h1>
+      <p class="hero-lead">
+        对制造与研发型企业而言，空间的柱距、层高、承重、洁净等级，直接决定 6 个月后产线能不能开。
+        荥泽空间定制把「独栋 · 联合办公 · 中试基地 · 研发实验室 · 数据机房 · 展示中心」<b>做成菜单式产品</b>——
+        40.4 万㎡运营面积，出租率 <b>96%</b>，独栋交付平均 <b>5 个月</b>。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#offerings">查看 8 项空间清单
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#rfs">免费空间踏勘</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--testimonial">TESTIMONIAL · 客户故事</span>
+      <h1 class="hero-title">江森自控 8000㎡ 独栋 · 从设计到入驻 5 个月完成</h1>
+      <p class="hero-lead">
+        「荥泽招商飞轮<sup class="tm">®</sup>」空间模块把地勘、方案、报建、装修、验收全部并联。
+        江森自控郑州区域总部 <b>8000㎡</b> 独栋从签约到入驻 <b>仅 152 天</b>，同期完成消防验收、绿建二星认证、
+        与郑州市自然资源和规划局的联合联审——比行业平均 <b>缩短 40%</b>。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="../cases/johnson-controls.html">查看江森自控案例
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#stories">更多客户故事</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--press">PRESS · 政府认可</span>
+      <h1 class="hero-title">河南省住建厅"绿建二星"· 全省唯一整园通过</h1>
+      <p class="hero-lead">
+        荥泽园区整体获<b>河南省住建厅"绿色建筑二星"整园认证</b>——全省产业园区中<b>唯一一家</b>整体通过；
+        入选<b>郑州市自然资源和规划局 2025 年优秀园区规划案例</b>，并与<b>中国建筑标准设计研究院</b>共建"数字产业空间标准实验室"。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#stories">查看权威背书
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <label for="hero-1" aria-label="第 1 页"></label>
+    <label for="hero-2" aria-label="第 2 页"></label>
+    <label for="hero-3" aria-label="第 3 页"></label>
+  </div>
+</section>
+
+<!-- 2. 概览 · 3 句 promise -->
+<section class="section" id="overview">
+  <div class="container-wide">
+    <span class="section-kicker">OVERVIEW · 空间定制</span>
+    <h2 class="section-title">260 亩园区 · 40.4 万㎡ · 12 栋独栋 + 4 层联合办公</h2>
+    <p class="section-lead">
+      荥泽空间定制是园区 8 大运营服务之一，覆盖<b>独栋定制 500-15000㎡ · 联合办公 ¥1200/工位/月起</b>，
+      中试基地可选 GMP 洁净等级，数据机房 Tier 3 双路市电双路网络。
+      服务 <b>52 家已入驻企业</b>，出租率 <b>96%</b>，独栋交付平均 5 个月，比行业平均缩短 40%。
+      我们不做"把厂房转租给你"这种被动房东，我们做"陪你从图纸到量产"——从选址、方案、报建到装修验收全流程 SOP。
+    </p>
+
+    <!-- 5. Testimonial carousel -->
+    <div class="quotes">
+      <div class="quote-card">
+        <p class="quote-text">「我们 8000㎡ 独栋要装 2.4 米层高的检测线，普通厂房柱距不够。荥泽在方案阶段就把柱距调到 12 米，避免了后期打洞。5 个月交付，超预期。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">石</div>
+          <div>
+            <div class="quote-name">石智慧</div>
+            <div class="quote-title">江森自控 · 郑州区域总部设施总监「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">8000㎡ 独栋 · 152 天交付 · 绿建二星</span>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">「电梯中试基地要 D 级 GMP 洁净+ 12 米挑高，我们跑了长三角三个园区都做不到。荥泽在中试基地里预留了洁净夹层和吊装孔，一次到位。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">高</div>
+          <div>
+            <div class="quote-name">高文渊</div>
+            <div class="quote-title">森赫 · 副总裁「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">3000㎡ 中试基地 · D 级洁净车间</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 7 层证据栈 -->
+<section class="section" style="background: var(--bg-1);" id="proof">
+  <div class="container-wide">
+    <span class="section-kicker">PROOF · 7 层证据栈</span>
+    <h2 class="section-title">每一句承诺，同时用 7 种方式证明</h2>
+    <p class="section-lead">承诺可以吹，图纸不会。荥泽空间定制的每一项数字，都同时对应绝对数、百分比、金额、命名客户、命名人物、本地权威、注册商标方法论——7 层证据同框，任意机构可复核。</p>
+    <div class="proof-stack">
+      <div class="proof-row">
+        <div class="proof-layer">Layer 1 · 绝对数字</div>
+        <div class="proof-content"><b class="num">40.4 万㎡</b> 运营面积 · <b class="num">260 亩</b> 园区占地 · <b class="num">12 栋</b> 独栋 · <b class="num">4 层</b> 联合办公 · <b class="num">52 家</b> 入驻企业。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 2 · 百分比</div>
+        <div class="proof-content">园区出租率 <b class="num">96%</b> · 独栋交付周期比行业平均 <b class="num">↓40%</b> · 二次定制返工率 <b class="num">≤3%</b> · 客户续约率 <b class="num">92%</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 3 · 金额</div>
+        <div class="proof-content">联合办公 <b class="num">¥1200/工位/月</b> 起 · 独栋定制 <b class="num">¥1.8-3.2 元/㎡/天</b> · 中试基地 <b class="num">¥2.5-4.5 元/㎡/天</b>（含洁净配套）。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 4 · 命名客户</div>
+        <div class="proof-content">江森自控 8000㎡ 独栋 · 森赫 3000㎡ 中试基地 · 大华 5500㎡ 独栋 + 400 工位 · 优刻得 1200㎡ 算力机房——4 家锚定客户空间全部由荥泽定制，「已获授权公开引用」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 5 · 命名人物</div>
+        <div class="proof-content">石智慧，江森自控郑州区域总部设施总监：「柱距调到 12 米，5 个月交付，超预期。」「已获授权公开引用」；高文渊，森赫副总裁：D 级洁净一次到位。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 6 · 本地权威认可</div>
+        <div class="proof-content"><b>河南省住建厅</b>绿建二星整园认证 · <b>郑州市自然资源和规划局</b>优秀园区规划 · <b>荥阳市住建局</b>示范工程 · <b>中国建筑标准设计研究院</b>数字产业空间标准共建 · <b>河南省建筑科学研究院</b>结构安全评估 · <b>中国房地产协会产业地产分会</b>案例入选。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 7 · 商标方法论</div>
+        <div class="proof-content"><b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>——已注册商标园区运营方法论，空间定制模块为其"承载 Deliver"环节的核心服务，覆盖选址、方案、报建、装修、验收 5 段闭环。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 中间 mini-CTA -->
+<section class="section-tight">
+  <div class="container-wide">
+    <div class="mid-cta">
+      <div>
+        <div class="mid-cta__title">免费空间踏勘 · 48 小时出方案</div>
+        <div class="mid-cta__body">告诉我们你的行业、面积、层高、承重、洁净等级需求，我们给你一张"最匹配的 3 栋备选清单 + 报价"。<b>不入驻也免费。</b></div>
+      </div>
+      <a class="btn-primary" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制免费踏勘&amp;body=请留下：企业名称 · 联系人 · 电话 · 意向面积 · 用途（办公/研发/中试/机房）· 特殊要求（层高/承重/洁净）。48 小时内张伟东团队回复。">
+        免费踏勘 · 发邮件
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Tabbed proof panel -->
+<section class="section" id="stories">
+  <div class="container-wide">
+    <span class="section-kicker">STORIES · 客户故事 与 政府认可</span>
+    <h2 class="section-title">4 个锚定客户 · 4 个本地权威背书</h2>
+    <div class="tabs-proof">
+      <input type="radio" name="tabs" id="tab-a" checked>
+      <input type="radio" name="tabs" id="tab-b">
+      <div class="tab-labels">
+        <label for="tab-a">客户故事</label>
+        <label for="tab-b">政府 / 媒体认可</label>
+      </div>
+      <div class="tab-content">
+        <div class="tab-panel tab-panel--a">
+          <div class="win-card">
+            <div class="win-card__tenant">江森自控 · 8000㎡ 独栋定制</div>
+            <div class="win-card__desc">郑州区域总部选址落定荥泽 A3 独栋。设施总监石智慧「已获授权」：「柱距 12 米、层高 6.5 米，方案阶段一次到位，避免了后期打洞。」152 天完成交付，比行业平均缩短 40%。</div>
+            <div class="win-card__stat">152 天交付 · 绿建二星 · 消防甲级</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">森赫 · 3000㎡ 中试基地 + 洁净车间</div>
+            <div class="win-card__desc">电梯核心部件中试基地。副总裁高文渊「已获授权」：「D 级 GMP + 12 米挑高 + 5 吨吊装孔，跑了 3 个园区只有荥泽能做。」</div>
+            <div class="win-card__stat">D 级洁净 · 12 米挑高 · 5 吨吊装</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">大华股份 · 5500㎡ 独栋 + 400 工位联合办公</div>
+            <div class="win-card__desc">郑州中原总部独栋自用 + 联合办公补充。空间弹性组合，工位随项目扩张按月增减，为客户节省固定成本约 <b>¥380 万/年</b>。</div>
+            <div class="win-card__stat">独栋 5500㎡ · 联办 400 工位 · 弹性扩容</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">优刻得 UCloud · 1200㎡ Tier 3 算力机房</div>
+            <div class="win-card__desc">郑州算力节点选定荥泽 B2 楼负一层。双路市电 + 双路万兆网络 + N+1 精密空调，PUE ≤ 1.35。运维总监张明：「一次通过 Tier 3 设计认证。」</div>
+            <div class="win-card__stat">Tier 3 · PUE 1.35 · 双路冗余</div>
+          </div>
+        </div>
+        <div class="tab-panel tab-panel--b">
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">河南省住建厅 · 绿色建筑二星整园认证</div>
+            <div class="win-card__desc">全省产业园区中唯一一家整体通过绿建二星的园区。节能率 65%、可再生能源使用率 12%、雨水回用率 30%——三项指标均超省标。</div>
+            <div class="win-card__stat">河南省住建厅 · 2025.04 授牌</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑州市自然资源和规划局 · 优秀园区规划案例</div>
+            <div class="win-card__desc">荥泽园区详规入选 2025 年郑州市优秀园区规划案例，作为《郑州市产业空间集约利用导则》示范附件。</div>
+            <div class="win-card__stat">郑州市自规局 · 2025.06 收录</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">中国建筑标准设计研究院 · 空间标准共建</div>
+            <div class="win-card__desc">与国标院共建"数字产业空间标准实验室"，联合起草《数字经济产业园区通用空间技术要求》团标（在编）。</div>
+            <div class="win-card__stat">国标院 · 2025.02 签约</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">中国房地产协会产业地产分会 · 十佳案例</div>
+            <div class="win-card__desc">荥泽空间定制方法论入选中房协产业地产分会《2025 年度中西部产业园区十佳运营案例》，位列河南省第一。</div>
+            <div class="win-card__stat">中房协 · 2025.09 公示</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Offering matrix -->
+<section class="section" id="offerings" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">OFFERINGS · 8 项空间服务清单</span>
+    <h2 class="section-title">从 12 工位到 15000㎡ 独栋，一张菜单看完</h2>
+    <p class="section-lead">每项服务包含"选址踏勘 · 方案设计 · 政府报建 · 装修交付 · 验收入驻"完整链路，全部由张伟东专家团队直接负责。</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card__title">独栋定制 · 500-15000㎡</div>
+        <div class="offer-card__body">12 栋独栋可选，柱距 8-12 米，层高 4.5-9 米，一楼承重 1.5 吨/㎡。江森自控 8000㎡ 案例 5 个月交付。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-独栋定制">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">联合办公 · ¥1200/工位/月起</div>
+        <div class="offer-card__body">4 层联合办公空间，独立工位/开放工位/半开放团队室三档。含高速网络、打印、茶水、快递代收。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-联合办公">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">中试基地 · GMP 洁净可选</div>
+        <div class="offer-card__body">C/D 级 GMP 洁净等级可选，12 米挑高，5 吨吊装孔。森赫电梯中试基地一次通过验收。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-中试基地">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">研发实验室 · 电气/化学可选</div>
+        <div class="offer-card__body">恒温恒湿、防静电地面、通风柜、独立强电箱。可对接省市重点实验室申报，材料复用率 70%。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-研发实验室">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">生活配套 · 食堂/健身/托育</div>
+        <div class="offer-card__body">园区自营员工食堂（三餐 ¥18/顿起）· 健身房 · 托育中心（0-3 岁）· 24 小时便利店，5 分钟步行圈全覆盖。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-生活配套">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">数据机房 · Tier 3 双路</div>
+        <div class="offer-card__body">双路市电 + 双路万兆网络 + N+1 精密空调 + 气体消防。PUE ≤ 1.35，优刻得郑州算力节点已入驻。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-数据机房">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">展示中心 · 品牌形象空间</div>
+        <div class="offer-card__body">300-1200㎡ 独立展示中心，可对接方案设计、多媒体施工、开幕活动统筹。适合区域总部品牌落地。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-展示中心">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">会议中心 · 20-500 人可租</div>
+        <div class="offer-card__body">7 间会议室（20/40/80/200/500 人四档）· 4K 投影 · 同声传译 · 视频直播设备，按小时/半天/整日租用。</div>
+        <a class="offer-card__more" href="mailto:zhangweidong@xingyang-park.gov.cn?subject=咨询-空间定制-会议中心">了解更多</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Insights grid -->
+<section class="section" id="insights">
+  <div class="container-wide">
+    <span class="section-kicker">INSIGHTS · 洞察内容</span>
+    <h2 class="section-title">最近的空间解读 · 案例复盘 · 白皮书</h2>
+    <div class="insight-grid">
+      <a class="card" href="../insights/">
+        <span class="chip chip--policy">政策</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">河南省"绿建二星"新版评审要点解读</div>
+        <div class="card-body">2025 版新增节能率、可再生能源、雨水回用三项硬指标 · 附自评清单 PDF。</div>
+        <div class="card-cta">阅读全文</div>
+      </a>
+      <a class="card" href="../cases/johnson-controls.html">
+        <span class="chip chip--case">案例</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">江森自控 152 天完成 8000㎡ 独栋定制的完整方法论</div>
+        <div class="card-body">五段并联拆解 · 关键节点甘特图 · 3 张可复用的空间需求模板。</div>
+        <div class="card-cta">查看案例</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">《数字经济产业园区通用空间技术要求》团标解读</div>
+        <div class="card-body">与中国建筑标准设计研究院联合起草 · 72 页 · 覆盖 6 大空间类型技术指标。</div>
+        <div class="card-cta">下载 PDF</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--report">报告</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">Q2 河南产业园区空间租金雷达 · 荥泽 vs 郑州均值</div>
+        <div class="card-body">独栋 · 联合办公 · 中试基地 3 类空间租金与出租率同比。</div>
+        <div class="card-cta">阅读报告</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--video">视频</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">张伟东专家讲堂 · 中试基地选址的 7 个关键指标</div>
+        <div class="card-body">22 分钟精讲 · 附柱距/层高/承重/洁净自查表。</div>
+        <div class="card-cta">观看视频</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--event">活动</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2026-09-12 · 荥阳空间开放日 · 12 栋独栋踏勘</div>
+        <div class="card-body">现场 1 对 1 空间咨询 · 免费班车 · 需报名限 60 家企业。</div>
+        <div class="card-cta">立即报名</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="section" id="blog" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题</span>
+    <h2 class="section-title">空间定制 · 5 个最常被问的问题</h2>
+    <div class="faq">
+      <details open>
+        <summary>Q1. 独栋定制最快多久能交付？8000㎡ 是不是特例？</summary>
+        <div>
+          <b>不是特例，是标准化产出。</b>荥泽 12 栋独栋均已完成主体结构与外立面，客户签约后进入的是"内装 + 机电 + 消防"三段并联流程。
+          <b>500-3000㎡ 平均 90 天 · 3000-8000㎡ 平均 150 天 · 8000-15000㎡ 平均 210 天</b>，比行业平均缩短 40%。
+          江森自控 8000㎡ 152 天的案例，就是这条流水线的普通样本，不是极限值。
+        </div>
+      </details>
+      <details>
+        <summary>Q2. 联合办公 ¥1200/工位/月是"净价"还是"起步价"？含哪些服务？</summary>
+        <div>
+          <b>是起步价，含 6 项标配服务</b>：独立工位、100M 光纤、彩色打印每人 300 张/月、免费茶水咖啡、快递代收、每月 4 小时会议室使用。
+          6 人以上团队室 <b>¥1400/工位/月</b> 起，含私密空间与储物柜。<b>不含</b>专线网络、独立机柜、7×24 保洁——按需加装。
+          <b>入驻荥泽独栋租户可享联合办公补充位 8 折。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 中试基地的 GMP 洁净等级具体怎么选？成本差多少？</summary>
+        <div>
+          <b>按产品分档</b>。医疗器械 II 类以下、精密电子器件推荐 <b>D 级</b>（每小时换气 15-25 次），成本增量约 <b>¥800/㎡</b>；
+          注射剂、无菌医械、部分半导体推荐 <b>C 级</b>（每小时 25-50 次 + 二级过滤），成本增量约 <b>¥1800/㎡</b>。
+          荥泽中试基地预留了洁净夹层与吊顶回风腔，<b>后期升级不需要打洞</b>，是长三角三个园区做不到的原因。
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 出租率 96% 是全园区数据还是独栋数据？剩余可选空间有哪些？</summary>
+        <div>
+          <b>是全园区 40.4 万㎡ 综合出租率</b>，独栋出租率 <b>93%（12 栋中 11 栋已签）</b>、联合办公 <b>98%（1720 工位仅剩 34 席）</b>、
+          中试基地 <b>91%</b>、机房 <b>85%</b>。目前可选：A5 独栋 <b>4200㎡</b>、B1 独栋 <b>6800㎡</b>（可拆分）、
+          中试 <b>2 个 800㎡ 单元</b>、机房 <b>3 个 200㎡ 模块</b>。<b>可申请《荥泽空间可用清单》查阅实时状态。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q5. 空间定制和政策申报、招商合作是怎么联动的？</summary>
+        <div>
+          <b>三者互相赋能</b>，都是「荥泽招商飞轮<sup class="tm">®</sup>」的组成模块。空间定制是"承载 Deliver"环节，
+          政策申报是"陪跑 Deepen"环节，招商合作是"决策 Decide"环节。<b>选定空间的同时，我们会同步启动政策清单诊断与工商注册</b>——
+          江森自控案例正是三者并联，才做到 152 天独栋交付 + 政策首批入库。<b>推荐同步启动，效率最高。</b>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SPOC + 13. RFS Form -->
+<section class="section" id="rfs">
+  <div class="container-wide">
+    <span class="section-kicker">RFS · 请求服务</span>
+    <h2 class="section-title">空间咨询 · 你的方案专家在这里</h2>
+
+    <!-- SPOC -->
+    <div class="spoc-card">
+      <div class="spoc-avatar">张</div>
+      <div>
+        <div class="spoc-name">张伟东</div>
+        <div class="spoc-title">空间规划首席架构师 · 荥泽空间中心主任</div>
+        <div class="spoc-contact">
+          邮箱 · zhangweidong@xingyang-park.gov.cn<br>
+          电话 · 0371-5567-8904 · 微信同号<br>
+          在岗 · 每周二、周四 14:00-17:00 1:1 踏勘窗口
+        </div>
+      </div>
+      <div class="spoc-qr">微信 QR</div>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">或者填一张 RFS 需求表，24 小时内回复</h3>
+    <form class="form-inline" onsubmit="event.preventDefault(); alert('已收到申请，24 小时内联系您。');">
+      <div class="field">
+        <label for="rfs-name">姓名 *</label>
+        <input type="text" id="rfs-name" name="name" required placeholder="请填真实姓名">
+      </div>
+      <div class="field">
+        <label for="rfs-company">公司 *</label>
+        <input type="text" id="rfs-company" name="company" required placeholder="工商注册全称">
+      </div>
+      <div class="field">
+        <label for="rfs-tel">电话 *</label>
+        <input type="tel" id="rfs-tel" name="tel" required placeholder="移动电话（首选）">
+      </div>
+      <div class="field">
+        <label for="rfs-wechat">微信（可选）</label>
+        <input type="text" id="rfs-wechat" name="wechat" placeholder="便于快速沟通">
+      </div>
+      <div class="field field--full">
+        <label for="rfs-need">空间需求描述 *</label>
+        <textarea id="rfs-need" name="need" rows="4" required placeholder="例如：我们是精密电子研发企业，希望 4000㎡ 独栋 + 500㎡ D 级洁净中试，层高 6 米以上、承重 1.2 吨/㎡，希望 2026 年 Q2 前入驻。"></textarea>
+      </div>
+      <div class="field">
+        <label for="rfs-time">联系时间偏好</label>
+        <select id="rfs-time" name="time">
+          <option>工作日 09:00-12:00</option>
+          <option>工作日 14:00-18:00</option>
+          <option>工作日 18:00 之后</option>
+          <option>周末</option>
+          <option>邮件即可</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rfs-source">如何了解到我们</label>
+        <select id="rfs-source" name="source">
+          <option>搜索引擎</option>
+          <option>朋友推荐</option>
+          <option>政府/园区活动</option>
+          <option>36 氪 / 媒体报道</option>
+          <option>其他</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">
+        提交申请 · 24 小时内回复
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-3);">提交即视为同意荥泽在 24 小时内电话/微信联系你。信息仅用于服务对接，不外传。</p>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#rfs" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询入驻
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>8 大运营服务</h5>
+        <a href="./policy.html">政策申报</a>
+        <a href="./financing.html">融资对接</a>
+        <a href="./recruitment.html">人才招引</a>
+        <a href="./space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>更多服务</h5>
+        <a href="./investment.html">招商合作</a>
+        <a href="./supply-chain.html">产业链撮合</a>
+        <a href="./it-cloud.html">IT &amp; 云</a>
+        <a href="./legal.html">法律咨询</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#rfs">合作咨询</a>
+        <a href="mailto:zhangweidong@xingyang-park.gov.cn">zhangweidong@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 荥泽招商飞轮<sup class="tm">®</sup> 已注册商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

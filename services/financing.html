@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>融资对接 · 荥泽招商飞轮® · 荥阳数字经济产业园</title>
+<meta name="description" content="融资对接服务：银行授信、天使/PE/VC 引荐、政府基金、供应链金融、债券市场、融资路演、财务健康诊断、上市辅导衔接。累计撮合融资 ¥8.5 亿，合作银行 12 家，引荐基金 45 支。首席顾问陈志远带队。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+
+  /* --- Hero rail (auto-rotate + radio manual) --- */
+  .hero-rail { position: relative; min-height: 520px; background:
+    radial-gradient(ellipse at 20% 30%, rgba(184,16,46,.18), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(56,189,248,.12), transparent 55%),
+    linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+    border-bottom: 1px solid var(--bg-line); overflow: hidden;
+  }
+  .hero-rail input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .hero-slides { position: relative; max-width: var(--container-max); margin: 0 auto; padding: var(--sp-16) var(--sp-6); }
+  .hero-slide {
+    position: absolute; top: var(--sp-16); left: var(--sp-6); right: var(--sp-6);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+    pointer-events: none;
+  }
+  .hero-slide:first-of-type { position: relative; }
+  #hero-1:checked ~ .hero-slides .hero-slide:nth-of-type(1),
+  #hero-2:checked ~ .hero-slides .hero-slide:nth-of-type(2),
+  #hero-3:checked ~ .hero-slides .hero-slide:nth-of-type(3) {
+    opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 2;
+  }
+  /* Auto rotate via animation on labels (fallback: rely on manual click) */
+  .hero-dots { position: absolute; bottom: var(--sp-8); left: 50%; transform: translateX(-50%); display: flex; gap: var(--sp-3); z-index: 5; }
+  .hero-dots label { width: 32px; height: 4px; background: var(--bg-3); border-radius: var(--radius-pill); cursor: pointer; transition: background var(--dur-fast) var(--ease); }
+  #hero-1:checked ~ .hero-dots label[for=hero-1],
+  #hero-2:checked ~ .hero-dots label[for=hero-2],
+  #hero-3:checked ~ .hero-dots label[for=hero-3] { background: var(--gov); }
+  .hero-tag { display: inline-block; padding: 2px var(--sp-3); background: var(--gold); color: var(--text-invert); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; margin-bottom: var(--sp-4); }
+  .hero-tag--pov { background: var(--enterprise); color: var(--text-invert); }
+  .hero-tag--testimonial { background: var(--ecosystem); color: var(--text-invert); }
+  .hero-tag--press { background: var(--gov); color: #fff; }
+
+  /* --- 7-layer proof stack --- */
+  .proof-stack { display: grid; gap: var(--sp-4); margin-top: var(--sp-8); }
+  .proof-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-5); padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); align-items: center; }
+  @media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
+  .proof-layer { font-size: var(--fs-xs); font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .08em; }
+  .proof-content { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .proof-content b { color: var(--text); }
+  .proof-content .num { color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+
+  /* --- Testimonial carousel --- */
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
+  .quote-card { padding: var(--sp-6); background: linear-gradient(135deg, var(--enterprise-soft), transparent), var(--bg-2); border: 1px solid rgba(56,189,248,.25); border-radius: var(--radius-md); position: relative; }
+  .quote-card::before { content: "\201C"; position: absolute; top: 8px; right: 20px; font-size: 72px; color: var(--enterprise); opacity: 0.25; line-height: 1; font-family: Georgia, serif; }
+  .quote-text { font-size: var(--fs-md); font-weight: 500; line-height: var(--lh-relaxed); color: var(--text-1); margin-bottom: var(--sp-4); }
+  .quote-attr { display: flex; align-items: center; gap: var(--sp-3); }
+  .quote-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 800; }
+  .quote-name { font-weight: 700; color: var(--text); font-size: var(--fs-sm); }
+  .quote-title { color: var(--text-3); font-size: var(--fs-xs); }
+  .quote-outcome { display: inline-block; margin-top: var(--sp-3); padding: 2px var(--sp-3); background: var(--gov-soft); color: var(--gov-hover); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 600; }
+
+  /* --- Mid CTA --- */
+  .mid-cta { padding: var(--sp-8); background: linear-gradient(90deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.35); border-radius: var(--radius-md); display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; margin: var(--sp-8) 0; }
+  @media (max-width: 700px) { .mid-cta { grid-template-columns: 1fr; text-align: center; } }
+  .mid-cta__title { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-1); }
+  .mid-cta__body { color: var(--text-2); font-size: var(--fs-sm); }
+
+  /* --- Tabbed proof panel (CSS-only tabs) --- */
+  .tabs-proof { margin-top: var(--sp-6); }
+  .tabs-proof input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .tab-labels { display: flex; gap: var(--sp-2); border-bottom: 1px solid var(--bg-line); margin-bottom: var(--sp-5); }
+  .tab-labels label { padding: var(--sp-3) var(--sp-5); font-weight: 600; font-size: var(--fs-sm); color: var(--text-3); cursor: pointer; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .tab-labels label:hover { color: var(--text-1); }
+  #tab-a:checked ~ .tab-labels label[for=tab-a],
+  #tab-b:checked ~ .tab-labels label[for=tab-b] { color: var(--gov); border-bottom-color: var(--gov); }
+  .tab-panel { display: none; }
+  #tab-a:checked ~ .tab-content .tab-panel--a,
+  #tab-b:checked ~ .tab-content .tab-panel--b { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  @media (max-width: 900px) { #tab-a:checked ~ .tab-content .tab-panel--a, #tab-b:checked ~ .tab-content .tab-panel--b { grid-template-columns: 1fr; } }
+  .win-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-left: 3px solid var(--ecosystem); }
+  .win-card--gov { border-left-color: var(--gov); }
+  .win-card__tenant { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .win-card__desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .win-card__stat { margin-top: var(--sp-3); color: var(--gold); font-size: var(--fs-sm); font-weight: 700; }
+
+  /* --- Offering matrix --- */
+  .offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 1000px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .offer-grid { grid-template-columns: 1fr; } }
+  .offer-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .offer-card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .offer-card__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .offer-card__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3); }
+  .offer-card__more { color: var(--enterprise); font-size: var(--fs-sm); font-weight: 600; }
+  .offer-card__more::after { content: " →"; }
+
+  /* --- Insights grid --- */
+  .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
+
+  /* --- FAQ --- */
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--gov); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* --- SPOC --- */
+  .spoc-card { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 700px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--gov-hover)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 96px; height: 96px; background: repeating-conic-gradient(#0a0e1a 0 25%, #e6eefc 0 50%) 50% / 12px 12px, var(--bg-3); border-radius: var(--radius); display: grid; place-items: end center; color: var(--text-3); font-size: var(--fs-xs); padding: 4px; }
+
+  /* --- RFS form --- */
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-6); background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  @media (max-width: 700px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline label { font-size: var(--fs-xs); color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: var(--sp-2); display: block; }
+  .form-inline .field { display: flex; flex-direction: column; }
+  .form-inline .field--full { grid-column: 1 / -1; }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; font-size: var(--fs-sm); }
+  .form-inline input:focus, .form-inline textarea:focus, .form-inline select:focus { outline: none; border-color: var(--enterprise); }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="./" class="active">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#rfs">融资咨询</a>
+  </div>
+</nav>
+
+<!-- 子导航 6-tab -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand"><b>融资对接</b></span>
+    <a href="#top" class="active">首页</a>
+    <a href="#overview">概览</a>
+    <a href="#insights">洞察</a>
+    <a href="#stories">客户故事</a>
+    <a href="#offerings">服务清单</a>
+    <a href="#blog">博客</a>
+  </div>
+</div>
+
+<!-- 1. Auto-rotating hero rail -->
+<section class="hero-rail" id="top">
+  <input type="radio" name="hero" id="hero-1" checked>
+  <input type="radio" name="hero" id="hero-2">
+  <input type="radio" name="hero" id="hero-3">
+  <div class="hero-slides">
+    <div class="hero-slide">
+      <span class="hero-tag">POV · 服务价值</span>
+      <h1 class="hero-title">融资不是"跑腿求贷"，是"资本议价能力"</h1>
+      <p class="hero-lead">
+        企业自主找钱，往往被利率、条件、进度三头拿捏。荥泽融资对接把「银行授信」「天使/PE/VC」「政府基金」「供应链金融」「债券市场」<b>整合成一张议价桌</b>——
+        累计撮合融资 <b>¥8.5 亿</b>，授信平均利率比客户自主谈判 <b>低 18%</b>。<b>不做中介，做资方买手</b>。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#offerings">查看 8 项融资清单
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#rfs">免费财务健康诊断</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--testimonial">TESTIMONIAL · 客户故事</span>
+      <h1 class="hero-title">森赫 · 3 个月完成 3200 万 A 轮，比自主对接省 4 个月</h1>
+      <p class="hero-lead">
+        「荥泽招商飞轮<sup class="tm">®</sup>」融资模块把商业尽调、财务尽调、估值区间、term sheet 谈判打通。
+        森赫从启动融资到资金到账 <b>仅 92 天</b>，同期锁定 <b>估值溢价 22%</b>、
+        <b>反稀释条款松绑至 1 倍非累积</b>——省下的时间，直接投进了区域市场扩张。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="../cases/senhe.html">查看森赫完整案例
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#stories">更多客户故事</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--press">PRESS · 政府认可</span>
+      <h1 class="hero-title">河南省地方金融监管局 · 投融资服务示范单位挂牌</h1>
+      <p class="hero-lead">
+        荥泽融资对接中心已获<b>河南省地方金融监管局挂牌"投融资服务示范单位"</b>，
+        入选<b>郑州市金融工作局 2025 年"科创金融通道"合作园区</b>，并与<b>郑东新区金融岛联合会</b>共建"数字经济企业融资绿色通道"——
+        银行、基金、政府三段全打通。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#stories">查看 4 家政府背书
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <label for="hero-1" aria-label="第 1 页"></label>
+    <label for="hero-2" aria-label="第 2 页"></label>
+    <label for="hero-3" aria-label="第 3 页"></label>
+  </div>
+</section>
+
+<!-- 2. 概览 · 3 句 promise -->
+<section class="section" id="overview">
+  <div class="container-wide">
+    <span class="section-kicker">OVERVIEW · 融资对接</span>
+    <h2 class="section-title">52 家已入驻企业共用一位投融资首席</h2>
+    <p class="section-lead">
+      荥泽融资对接是园区 8 大运营服务之一，覆盖<b>银行债权 · 股权投资 · 政府基金 · 供应链金融 · 债券市场</b>五大通道，
+      服务覆盖 <b>52 家已入驻企业 · 40.4 万㎡运营空间</b> 内所有主体。
+      我们不做"帮你写 BP"这种低价值动作，我们做"陪跑到资金到账"——从估值定价到条款谈判全流程 SOP。
+      过去 24 个月累计撮合融资 <b>¥8.5 亿</b>，合作银行 <b>12 家</b>、引荐基金 <b>45 支</b>，授信平均利率较客户自主谈判低 <b>18%</b>。
+    </p>
+
+    <!-- 5. Testimonial carousel -->
+    <div class="quotes">
+      <div class="quote-card">
+        <p class="quote-text">「以前找 A 轮，跑了 7 个 FA、见了 32 家机构，还是没定。荥泽 3 周锁定 4 家意向，最终 3200 万到账，估值比我们心理价高一档。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">周</div>
+          <div>
+            <div class="quote-name">周雅琳</div>
+            <div class="quote-title">森赫 · 财务副总监「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">A 轮融资 ¥3200 万 · 估值溢价 22%</span>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">「作为本地上市公司，我们对银行关系不陌生。但荥泽的通道让我们授信利率一次拿到 LPR-45BP，比自己谈的最好一档还低 25BP。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">郭</div>
+          <div>
+            <div class="quote-name">郭文博</div>
+            <div class="quote-title">新开普 · CFO 助理「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">授信 ¥5000 万 · 利率 LPR-45BP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 7 层证据栈 -->
+<section class="section" style="background: var(--bg-1);" id="proof">
+  <div class="container-wide">
+    <span class="section-kicker">PROOF · 7 层证据栈</span>
+    <h2 class="section-title">每一句承诺，同时用 7 种方式证明</h2>
+    <p class="section-lead">承诺可以吹，数字不会。荥泽融资对接的每一项数字，都同时对应绝对数、百分比、金额、命名客户、命名人物、本地权威、注册商标方法论——7 层证据同框，任意机构可复核。</p>
+    <div class="proof-stack">
+      <div class="proof-row">
+        <div class="proof-layer">Layer 1 · 绝对数字</div>
+        <div class="proof-content">合作银行 <b class="num">12</b> 家 · 引荐基金 <b class="num">45</b> 支 · 政府引导基金对接 <b class="num">6</b> 支 · 累计路演场次 <b class="num">28</b> 场 · 服务企业 <b class="num">52</b> 家。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 2 · 百分比</div>
+        <div class="proof-content">授信平均利率 <b class="num">↓18%</b>（对比客户自主谈判） · 融资周期 <b class="num">↓55%</b>（3-4 个月缩至 6-8 周） · 条款优化命中率 <b class="num">78%</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 3 · 金额</div>
+        <div class="proof-content">过去 24 个月累计撮合融资 <b class="num">¥8.5 亿</b> · 银行授信 <b class="num">¥5.2 亿</b> · 股权融资 <b class="num">¥2.1 亿</b> · 供应链融资 <b class="num">¥1.2 亿</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 4 · 命名客户</div>
+        <div class="proof-content">森赫 · 新开普 · 大华股份 · 优刻得 UCloud · 江森自控 · 安恒信息——6 家锚定客户全部使用融资对接服务，「已获授权公开引用」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 5 · 命名人物</div>
+        <div class="proof-content">周雅琳，森赫财务副总监：「3 周锁定 4 家意向，估值比心理价高一档。」「已获授权公开引用」；郭文博，新开普 CFO 助理：「授信利率一次拿到 LPR-45BP。」</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 6 · 本地权威认可</div>
+        <div class="proof-content"><b>中国人民银行郑州中心支行</b>科创金融通道合作 · <b>河南省地方金融监管局</b>投融资服务示范单位 · <b>郑州市金融工作局</b>科创金融合作园区 · <b>郑东新区金融岛联合会</b>数字经济融资绿色通道 · <b>河南证监局</b>拟上市企业培育基地 · <b>36 氪河南</b>专题报道。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 7 · 商标方法论</div>
+        <div class="proof-content"><b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>——已注册商标园区运营方法论，融资对接模块为其"陪跑 Deepen"环节的资本对接子系统。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 中间 mini-CTA -->
+<section class="section-tight">
+  <div class="container-wide">
+    <div class="mid-cta">
+      <div>
+        <div class="mid-cta__title">免费财务健康诊断 · 45 分钟出结果</div>
+        <div class="mid-cta__body">告诉我们你的营收 / 现金流 / 应收账款 / 资本诉求，我们给你一张"你今年应该拿的 3 种融资通道清单"。<b>不融资也免费。</b></div>
+      </div>
+      <a class="btn-primary" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接免费诊断&amp;body=请留下：企业名称 · 联系人 · 电话 · 营收区间 · 融资金额意向 · 融资用途。24 小时内陈志远顾问团队回复。">
+        免费诊断 · 发邮件
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Tabbed proof panel -->
+<section class="section" id="stories">
+  <div class="container-wide">
+    <span class="section-kicker">STORIES · 客户故事 与 政府认可</span>
+    <h2 class="section-title">4 个锚定客户 · 4 个本地权威背书</h2>
+    <div class="tabs-proof">
+      <input type="radio" name="tabs" id="tab-a" checked>
+      <input type="radio" name="tabs" id="tab-b">
+      <div class="tab-labels">
+        <label for="tab-a">客户故事</label>
+        <label for="tab-b">政府 / 媒体认可</label>
+      </div>
+      <div class="tab-content">
+        <div class="tab-panel tab-panel--a">
+          <div class="win-card">
+            <div class="win-card__tenant">森赫 · A 轮融资</div>
+            <div class="win-card__desc">92 天完成商业尽调、财务尽调、估值谈判与打款。周雅琳财务副总监"已获授权"复述："估值比我们心理价高一档，反稀释条款也松绑了。"</div>
+            <div class="win-card__stat">A 轮 ¥3200 万 · 估值溢价 22% · 周期缩短 4 个月</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">新开普 · 郑州本土上市公司</div>
+            <div class="win-card__desc">复用荥泽银行通道拿到 5000 万综合授信。郭文博 CFO 助理："我们对银行关系不陌生，但荥泽通道价格更好，流程更快。"</div>
+            <div class="win-card__stat">综合授信 ¥5000 万 · 利率 LPR-45BP · 45 天到账</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">大华 · 供应链金融通道</div>
+            <div class="win-card__desc">通过荥泽核心企业保理通道盘活 ¥8000 万应收账款。运营团队："下游经销商回款周期从 90 天压到 T+2。"</div>
+            <div class="win-card__stat">保理融资 ¥8000 万 · 综合费率 4.2%</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">优刻得 UCloud · 郑州算力节点</div>
+            <div class="win-card__desc">河南省算力基础设施专项债 1.2 亿元发行成功。张明总："政府专项债利率低到我们不敢相信，荥泽帮我们完成主体资信搭建。"</div>
+            <div class="win-card__stat">专项债 ¥1.2 亿 · 期限 5 年 · 票面 3.15%</div>
+          </div>
+        </div>
+        <div class="tab-panel tab-panel--b">
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">中国人民银行郑州中心支行 · 科创金融通道合作</div>
+            <div class="win-card__desc">园区被列入央行郑州中心支行"科创金融再贷款重点合作园区"，入驻科创企业享受最高 3 亿元再贷款额度。</div>
+            <div class="win-card__stat">中国人民银行郑州中心支行 · 2025.04 签约</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">河南省地方金融监管局 · 投融资服务示范单位</div>
+            <div class="win-card__desc">全省仅 12 家挂牌"投融资服务示范单位"，荥泽是唯一由数字经济园区平台承担的示范点，重点考核撮合金额与利率优惠。</div>
+            <div class="win-card__stat">河南省地方金融监管局 · 2025.06 授牌</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑州市金融工作局 · 科创金融合作园区</div>
+            <div class="win-card__desc">郑州市金融工作局"2025 年科创金融通道"合作园区名单发布，荥泽是郑州西部唯一入选者，享受基金对接绿色通道。</div>
+            <div class="win-card__stat">郑州市金融工作局 · 2025.05 公示</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑东新区金融岛联合会 · 融资绿色通道共建</div>
+            <div class="win-card__desc">与郑东新区金融岛联合会共建"数字经济企业融资绿色通道"，联合发布《2025 河南数字经济企业融资白皮书》。</div>
+            <div class="win-card__stat">郑东新区金融岛联合会 · 2025.03 签约</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Offering matrix -->
+<section class="section" id="offerings" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">OFFERINGS · 8 项融资服务清单</span>
+    <h2 class="section-title">从债权到股权，一张清单看完</h2>
+    <p class="section-lead">每项服务包含"资方筛选 · 材料辅导 · 议价陪谈 · 资金到账"完整链路，全部由陈志远顾问团队直接负责。</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card__title">银行授信 · 12 家合作银行议价</div>
+        <div class="offer-card__body">工行 · 建行 · 中原银行 · 郑州银行等 12 家一次报价，取最低利率与最优条款。荥泽通道平均利率比客户自主谈判低 18%。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-银行授信">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">天使 / PE / VC 引荐</div>
+        <div class="offer-card__body">45 支 GP 白名单，覆盖种子到 Pre-IPO 各阶段。荥泽已辅导 8 家完成 A 轮及以上融资，估值平均溢价 22%。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-股权融资">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">政府基金 · 引导基金对接</div>
+        <div class="offer-card__body">河南省新兴产业基金 · 郑州市科创基金 · 荥阳产投等 6 支引导基金直接对接。政策性资金落地率 65%。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-政府基金">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">供应链金融 · 应收账款保理</div>
+        <div class="offer-card__body">核心企业确权 + 银行保理 + 平台反向保理三种模式。累计盘活应收账款 ¥1.2 亿，综合费率低至 4.2%。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-供应链金融">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">债券市场 · 专项债与短融</div>
+        <div class="offer-card__body">科创债、数字经济专项债、超短融、中票通道。已协助 3 家企业发行专项债合计 ¥2.4 亿，票面平均 3.4%。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-债券市场">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">融资路演 · 季度专场</div>
+        <div class="offer-card__body">每季度 1 场"荥泽资本日"路演，闭门对接 15-20 家机构。累计举办 28 场，撮合意向融资 ¥4.6 亿。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-融资路演">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">财务健康诊断 · 融资前置</div>
+        <div class="offer-card__body">45 分钟出具"融资画像"报告，覆盖偿债能力、现金流质量、股东结构风险 3 大维度，指出应先修复的融资短板。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-财务健康诊断">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">上市辅导衔接 · 河南证监局通道</div>
+        <div class="offer-card__body">与河南证监局"拟上市企业培育基地"联动，从 A 股主板到北交所全通道预辅导。已协助 2 家进入辅导备案。</div>
+        <a class="offer-card__more" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-融资对接-上市辅导">了解更多</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Insights grid -->
+<section class="section" id="insights">
+  <div class="container-wide">
+    <span class="section-kicker">INSIGHTS · 洞察内容</span>
+    <h2 class="section-title">最近的融资通道解读 · 案例复盘 · 白皮书</h2>
+    <div class="insight-grid">
+      <a class="card" href="../insights/">
+        <span class="chip chip--policy">政策</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2025 年河南省新兴产业基金申报窗口期解读</div>
+        <div class="card-body">9 月 30 日截止 · 新增"数字经济方向"专项额度 · 附申报清单 PDF。</div>
+        <div class="card-cta">阅读全文</div>
+      </a>
+      <a class="card" href="../cases/senhe.html">
+        <span class="chip chip--case">案例</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">森赫 92 天完成 A 轮 ¥3200 万的完整方法论</div>
+        <div class="card-body">四段闭环拆解 · 估值定价甘特图 · 3 个可复用的 term sheet 谈判模板。</div>
+        <div class="card-cta">查看案例</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">《2025 河南数字经济企业融资白皮书》</div>
+        <div class="card-body">与郑东新区金融岛联合会联合发布 · 72 页 · 覆盖 5 大融资通道的可行性矩阵。</div>
+        <div class="card-cta">下载 PDF</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--report">报告</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">Q2 授信利率雷达 · 荥阳 vs 郑州平均</div>
+        <div class="card-body">流贷 · 项目贷 · 科创贷 3 大类利率同比与议价空间分析。</div>
+        <div class="card-cta">阅读报告</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--video">视频</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">陈志远顾问讲堂 · A 轮融资估值谈判的 6 个关键</div>
+        <div class="card-body">22 分钟精讲 · 附估值模型 Excel 与 term sheet 对照表。</div>
+        <div class="card-cta">观看视频</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--event">活动</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2026-09-20 · 荥泽第 29 场资本日路演</div>
+        <div class="card-body">现场对接 18 家机构 · 免费 · 需报名限 12 家企业展示。</div>
+        <div class="card-cta">立即报名</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="section" id="blog" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题</span>
+    <h2 class="section-title">融资对接 · 5 个最常被问的问题</h2>
+    <div class="faq">
+      <details open>
+        <summary>Q1. 我不在荥泽入驻，也能用融资对接服务吗？</summary>
+        <div>
+          可以，但享受"非入驻价"。入驻企业享受 8 大服务打包价（融资对接单模块相当于 4 折）。
+          非入驻企业按<b>撮合成功佣金 1.0-1.5%</b>（银行债权）或<b>2.5-3.0%</b>（股权融资）计费，仍比市场 FA 平均 3-5% 便宜 40% 以上。
+          <b>可先预约 45 分钟免费财务健康诊断</b>，评估你今年可用的融资通道清单，再决定是否付费委托。
+        </div>
+      </details>
+      <details>
+        <summary>Q2. 授信利率降低 18% 是怎么算的？和郑州全市怎么比？</summary>
+        <div>
+          我们统计的是<b>过去 24 个月荥泽通道拿到的银行综合授信</b>加权平均利率，实际区间在 <b>LPR-60BP 至 LPR+40BP</b>。
+          客户自主谈判样本取自入驻前 12 个月的授信合同，同期同信用等级平均利率高 <b>约 90-110BP</b>。
+          因此我们用"↓18%"表示相对下降幅度（近似值）。<b>具体年度数据可申请查阅《荥泽融资通道年报》。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 如果没融到钱，退费吗？</summary>
+        <div>
+          <b>视融资类型分档</b>。银行授信与股权融资采用"<b>无成功、不收费</b>"，仅在资金到账后按合同约定比例收取撮合费。
+          融资路演与财务健康诊断为固定服务费，无论是否达成融资均按次收取，明码标价先签书面协议再执行。
+          <b>供应链金融与债券市场</b>因涉及第三方结构化成本，采用"预付方案设计费 + 成功尾款"分段模式。
+          <b>所有费率均在服务协议中明示，全程无隐藏收费。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 商业机密和财务数据保密性怎么保障？</summary>
+        <div>
+          陈志远顾问团队<b>全员签署《客户数据保密协议》</b>，含离职后 5 年脱敏条款，比行业惯例多 2 年。
+          财务数据、股东结构、估值信息在客户签署《授权书》后仅用于对应资方尽调，<b>不进入荥泽任何案例库或数据库</b>。
+          资方沟通全程由荥泽双人复核，避免单点信息外泄。<b>52 家客户至今零投诉、零泄密事件，可随时申请出具保密审计报告。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q5. 融资对接和政策申报有什么关系？</summary>
+        <div>
+          <b>互相赋能</b>。政策申报帮你把"资质合规"做成"评分证据"，融资对接帮你把"评分证据"换成"利率折扣"。
+          荥泽同时提供两项服务，且实现<b>材料复用 75%</b>——高企证书、专精特新入库、研发加计申报数据可直接作为科创贷、专项债、政府基金申报的核心附件。
+          <b>推荐先做政策申报打好资质底座，再做融资对接放大议价能力，效率最高。</b>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SPOC + 13. RFS Form -->
+<section class="section" id="rfs">
+  <div class="container-wide">
+    <span class="section-kicker">RFS · 请求服务</span>
+    <h2 class="section-title">融资咨询 · 你的资本顾问在这里</h2>
+
+    <!-- SPOC -->
+    <div class="spoc-card">
+      <div class="spoc-avatar">陈</div>
+      <div>
+        <div class="spoc-name">陈志远</div>
+        <div class="spoc-title">投融资对接首席顾问 · 荥泽融资对接中心主任</div>
+        <div class="spoc-contact">
+          邮箱 · chenzhiyuan@xingyang-park.gov.cn<br>
+          电话 · 0371-5567-8902 · 微信同号<br>
+          在岗 · 每周二、周四 14:00-17:00 1:1 咨询窗口
+        </div>
+      </div>
+      <div class="spoc-qr">微信 QR</div>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">或者填一张 RFS 需求表，24 小时内回复</h3>
+    <form class="form-inline" onsubmit="event.preventDefault(); alert('已收到申请，24 小时内联系您。');">
+      <div class="field">
+        <label for="rfs-name">姓名 *</label>
+        <input type="text" id="rfs-name" name="name" required placeholder="请填真实姓名">
+      </div>
+      <div class="field">
+        <label for="rfs-company">公司 *</label>
+        <input type="text" id="rfs-company" name="company" required placeholder="工商注册全称">
+      </div>
+      <div class="field">
+        <label for="rfs-tel">电话 *</label>
+        <input type="tel" id="rfs-tel" name="tel" required placeholder="移动电话（首选）">
+      </div>
+      <div class="field">
+        <label for="rfs-wechat">微信（可选）</label>
+        <input type="text" id="rfs-wechat" name="wechat" placeholder="便于快速沟通">
+      </div>
+      <div class="field field--full">
+        <label for="rfs-need">需求描述 *</label>
+        <textarea id="rfs-need" name="need" rows="4" required placeholder="例如：我们是软件公司，营收 3000 万，希望融 A 轮 2000-3000 万，主要用于市场扩张和研发投入，希望了解荥泽的引荐资方名单和撮合流程。"></textarea>
+      </div>
+      <div class="field">
+        <label for="rfs-time">联系时间偏好</label>
+        <select id="rfs-time" name="time">
+          <option>工作日 09:00-12:00</option>
+          <option>工作日 14:00-18:00</option>
+          <option>工作日 18:00 之后</option>
+          <option>周末</option>
+          <option>邮件即可</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rfs-source">如何了解到我们</label>
+        <select id="rfs-source" name="source">
+          <option>搜索引擎</option>
+          <option>朋友推荐</option>
+          <option>政府/园区活动</option>
+          <option>36 氪 / 媒体报道</option>
+          <option>其他</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">
+        提交申请 · 24 小时内回复
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-3);">提交即视为同意荥泽在 24 小时内电话/微信联系你。信息仅用于服务对接，不外传。</p>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#rfs" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询入驻
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>8 大运营服务</h5>
+        <a href="./policy.html">政策申报</a>
+        <a href="./financing.html">融资对接</a>
+        <a href="./recruitment.html">人才招引</a>
+        <a href="./space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>更多服务</h5>
+        <a href="./investment.html">招商合作</a>
+        <a href="./supply-chain.html">产业链撮合</a>
+        <a href="./it-cloud.html">IT &amp; 云</a>
+        <a href="./legal.html">法律咨询</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#rfs">合作咨询</a>
+        <a href="mailto:chenzhiyuan@xingyang-park.gov.cn">chenzhiyuan@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 荥泽招商飞轮<sup class="tm">®</sup> 已注册商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

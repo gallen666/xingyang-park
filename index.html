@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>荥阳数字经济产业园 · 郑西数字经济新高地 · 3 亿元建设 · 40.4 万㎡ 建面</title>
+<meta name="description" content="荥阳数字经济产业园由荥阳市人民政府、荥阳城投、太能控股三方联合运营。40.4 万㎡建面、260 亩用地、52 家已入驻、1553 全景计划、¥30 亿投资。提供 8 大运营服务、4 大数字子品牌、DTSI/X-Flow/PDTMM/OpenX@X 平台级 IP。">
+<link rel="stylesheet" href="./assets/css/tokens.css">
+<style>
+  /* --- Hero (index-specific) --- */
+  .hero-index {
+    position: relative;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 15% 25%, rgba(184,16,46,.28), transparent 50%),
+      radial-gradient(ellipse at 85% 60%, rgba(56,189,248,.22), transparent 50%),
+      radial-gradient(ellipse at 50% 90%, rgba(52,211,153,.18), transparent 55%),
+      linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+  }
+  .hero-index-inner {
+    max-width: var(--container-max); margin: 0 auto;
+    padding: var(--sp-20) var(--sp-6) var(--sp-16);
+    position: relative; z-index: 2;
+  }
+  .hero-index h1 {
+    font-size: clamp(40px, 6vw, 88px);
+    font-weight: 900; line-height: 1.05;
+    margin: var(--sp-5) 0 var(--sp-6);
+    background: linear-gradient(90deg, #fff 0%, #38bdf8 50%, #fbbf24 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 1100px;
+  }
+  .hero-index .hero-lead {
+    font-size: var(--fs-lg); max-width: 780px;
+    color: var(--text-1); line-height: var(--lh-relaxed);
+  }
+  .hero-slogan {
+    font-size: var(--fs-md); color: var(--gold);
+    font-weight: 700; letter-spacing: .05em;
+    margin-top: var(--sp-8);
+    padding: var(--sp-3) var(--sp-5);
+    background: rgba(251,191,36,.08);
+    border-left: 3px solid var(--gold);
+    display: inline-block;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+
+  /* --- Trust lockup 三方 hero-bottom --- */
+  .lockup-hero {
+    display: flex; gap: var(--sp-4); flex-wrap: wrap;
+    margin-top: var(--sp-8); align-items: center;
+    color: var(--text-3); font-size: var(--fs-sm);
+  }
+  .lockup-hero-item {
+    padding: var(--sp-2) var(--sp-4);
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius);
+    color: var(--text-2);
+    font-weight: 600;
+  }
+
+  /* --- Stats hero (5 大关键数字) --- */
+  .stats-hero {
+    padding: var(--sp-12) 0;
+    background: linear-gradient(180deg, #0f1424 0%, #0a0e1a 100%);
+    border-top: 1px solid var(--bg-line);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .stats-hero-inner {
+    max-width: var(--container-max); margin: 0 auto;
+    padding: 0 var(--sp-6);
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: var(--sp-4);
+    text-align: center;
+  }
+  .stats-hero-item .stat-num {
+    background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(32px, 4.5vw, 64px);
+  }
+  @media (max-width: 900px) {
+    .stats-hero-inner { grid-template-columns: repeat(2, 1fr); gap: var(--sp-8); }
+  }
+
+  /* --- Section headings --- */
+  .h-block { text-align: center; margin-bottom: var(--sp-12); }
+  .h-block .section-lead { margin: var(--sp-3) auto 0; }
+  .kicker-line {
+    color: var(--gov); font-size: var(--fs-sm); font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+  }
+  .kicker-line::before {
+    content: ""; width: 32px; height: 2px;
+    background: var(--gov);
+  }
+
+  /* --- Platform cards (4) --- */
+  .plat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
+  @media (max-width: 1100px) { .plat-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .plat-grid { grid-template-columns: 1fr; } }
+  .plat-card {
+    padding: var(--sp-6);
+    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column;
+    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    position: relative;
+  }
+  .plat-card:hover { transform: translateY(-4px); border-color: var(--gov); }
+  .plat-mark {
+    font-size: var(--fs-xl); font-weight: 900;
+    background: linear-gradient(90deg, var(--enterprise), var(--gold));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--sp-1);
+  }
+  .plat-tagline { color: var(--text-2); font-size: var(--fs-sm); margin-bottom: var(--sp-4); }
+  .plat-lead { color: var(--text-1); flex: 1; margin-bottom: var(--sp-5); line-height: var(--lh-relaxed); }
+  .plat-cta { color: var(--gov-hover); font-weight: 600; font-size: var(--fs-sm); }
+  .plat-cta::after { content: " →"; }
+
+  /* --- Service matrix (8) --- */
+  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .svc-grid { grid-template-columns: 1fr; } }
+  .svc-card {
+    padding: var(--sp-5);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius);
+    transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+    display: flex; flex-direction: column; gap: var(--sp-2);
+  }
+  .svc-card:hover { border-color: var(--enterprise); transform: translateY(-2px); }
+  .svc-icon {
+    width: 40px; height: 40px; border-radius: var(--radius);
+    background: rgba(184,16,46,.12); color: var(--gov-hover);
+    display: grid; place-items: center;
+    margin-bottom: var(--sp-2);
+  }
+  .svc-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .svc-title { font-weight: 700; font-size: var(--fs-md); }
+  .svc-desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .svc-stat { color: var(--gold); font-size: var(--fs-xs); font-weight: 600; margin-top: var(--sp-2); }
+
+  /* --- Sub-brand cards (4) --- */
+  .brand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
+  @media (max-width: 900px) { .brand-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .brand-grid { grid-template-columns: 1fr; } }
+  .brand-card {
+    padding: var(--sp-6); border-radius: var(--radius-lg);
+    border: 1px solid var(--bg-line);
+    background: var(--bg-2);
+    transition: transform var(--dur-fast) var(--ease);
+    display: flex; flex-direction: column; gap: var(--sp-2);
+    position: relative; overflow: hidden;
+  }
+  .brand-card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: var(--brand-color);
+  }
+  .brand-card:hover { transform: translateY(-4px); }
+  .brand-yun  { --brand-color: var(--yun); }
+  .brand-zhi  { --brand-color: var(--zhi); }
+  .brand-lian { --brand-color: var(--lian); }
+  .brand-cai  { --brand-color: var(--cai); }
+  .brand-name {
+    font-size: var(--fs-xl); font-weight: 900;
+    color: var(--brand-color);
+    margin-bottom: var(--sp-1);
+  }
+  .brand-slogan {
+    font-size: var(--fs-md); font-weight: 600;
+    color: var(--text-1); margin-bottom: var(--sp-3);
+  }
+  .brand-desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); flex: 1; }
+  .brand-cta {
+    color: var(--brand-color); font-weight: 600; font-size: var(--fs-sm); margin-top: var(--sp-4);
+  }
+  .brand-cta::after { content: " →"; }
+
+  /* --- Case card row --- */
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  @media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
+  .case-card {
+    padding: var(--sp-5);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    display: flex; flex-direction: column; gap: var(--sp-2);
+    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .case-card:hover { transform: translateY(-2px); border-color: var(--ecosystem); }
+  .case-client { font-size: var(--fs-md); font-weight: 700; }
+  .case-industry { color: var(--text-3); font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  .case-metrics { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin: var(--sp-2) 0; }
+  .case-metric { text-align: left; }
+  .case-metric-num { color: var(--ecosystem); font-size: var(--fs-lg); font-weight: 800; }
+  .case-metric-label { color: var(--text-3); font-size: var(--fs-xs); }
+  .case-quote { color: var(--text-2); font-size: var(--fs-sm); font-style: italic; border-left: 2px solid var(--bg-line); padding-left: var(--sp-3); margin: var(--sp-2) 0; }
+  .case-cta { color: var(--ecosystem); font-size: var(--fs-sm); font-weight: 600; margin-top: auto; }
+  .case-cta::after { content: " →"; }
+
+  /* --- Insights row (4 cards) --- */
+  .insights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .insights-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .insights-grid { grid-template-columns: 1fr; } }
+  .insight-card {
+    padding: var(--sp-4);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius);
+    display: flex; flex-direction: column; gap: var(--sp-2);
+  }
+  .insight-card:hover { border-color: var(--enterprise); }
+  .insight-title { font-weight: 700; font-size: var(--fs-sm); line-height: 1.4; margin: var(--sp-2) 0; }
+  .insight-meta { color: var(--text-3); font-size: var(--fs-xs); }
+
+  /* --- Client logo strip --- */
+  .logo-strip {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4);
+    padding: var(--sp-8); background: var(--bg-1);
+    border-radius: var(--radius-lg); border: 1px solid var(--bg-line);
+  }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(3, 1fr); } }
+  .logo-item {
+    display: grid; place-items: center;
+    padding: var(--sp-4); background: var(--bg-2);
+    border-radius: var(--radius); color: var(--text-2);
+    font-weight: 600; font-size: var(--fs-sm);
+    min-height: 72px;
+    text-align: center;
+  }
+
+  /* --- Recognition row --- */
+  .reco-strip {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-3);
+  }
+  @media (max-width: 900px) { .reco-strip { grid-template-columns: repeat(2, 1fr); } }
+  .reco-item {
+    padding: var(--sp-4);
+    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    border: 1px solid var(--bg-line); border-radius: var(--radius);
+    text-align: center; color: var(--text-1);
+    font-size: var(--fs-xs); font-weight: 600;
+    min-height: 88px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .reco-item span { display: block; color: var(--gold); font-size: var(--fs-sm); margin-bottom: 2px; }
+
+  /* --- CTA final banner --- */
+  .cta-band {
+    background:
+      linear-gradient(135deg, rgba(184,16,46,.15), rgba(56,189,248,.12)),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-12);
+    text-align: center;
+  }
+  .cta-band h2 {
+    font-size: var(--fs-2xl); font-weight: 800;
+    margin-bottom: var(--sp-3);
+  }
+  .cta-band p { color: var(--text-2); max-width: 640px; margin: 0 auto var(--sp-8); }
+  .cta-band-ctas { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     全局 nav（7 顶级栏目）
+     ============================================================ -->
+<nav class="nav-global" role="navigation" aria-label="主导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="./">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="./platforms/">平台</a>
+      <a href="./services/">服务</a>
+      <a href="./sub-brands/">数字生态</a>
+      <a href="./cases/">案例</a>
+      <a href="./insights/">洞察</a>
+      <a href="./newsroom/">新闻</a>
+      <a href="./about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="./services/investment.html">预约实地考察</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="hero-index">
+  <div class="hero-index-inner">
+    <div class="kicker-line">郑西数字经济新高地 · 3 亿元投资 · 40.4 万㎡</div>
+    <h1>数字荥阳，可能无限</h1>
+    <p class="hero-lead">
+      荥阳数字经济产业园由 <strong>荥阳市人民政府</strong>、<strong>荥阳城投</strong>、<strong>太能控股</strong> 三方联合建设，
+      运营主体：郑州荥泽数链产业发展有限公司。
+      以 4 大平台级 IP（DTSI® · X-Flow Dynamics™ · PDTMM® · OpenX@X™）为方法论底座，
+      通过 8 大运营服务 + 4 大数字子品牌，让每家企业清楚自己的数字化坐标，让每寸空间创造最大价值。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="./services/investment.html">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        预约实地考察
+      </a>
+      <a class="btn-ghost" href="./platforms/">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"/>
+          <rect x="14" y="3" width="7" height="7"/>
+          <rect x="3" y="14" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/>
+        </svg>
+        了解 4 大平台
+      </a>
+      <a class="btn-ghost" href="./cases/">查看客户故事</a>
+    </div>
+    <div class="lockup-hero">
+      <span>由</span>
+      <div class="lockup-hero-item">荥阳市人民政府</div>
+      <div class="lockup-hero-item">荥阳城投</div>
+      <div class="lockup-hero-item">太能控股</div>
+      <span>联合运营</span>
+    </div>
+    <div class="hero-slogan">
+      「让每寸土地生长数字生产力 · 让每家企业清楚自己的数字化坐标」
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5 大关键数字 Stats Banner
+     ============================================================ -->
+<section class="stats-hero">
+  <div class="stats-hero-inner">
+    <div class="stats-hero-item">
+      <div class="stat-num">40.4</div>
+      <div class="stat-label">万㎡ 建筑面积</div>
+    </div>
+    <div class="stats-hero-item">
+      <div class="stat-num">260</div>
+      <div class="stat-label">亩 用地</div>
+    </div>
+    <div class="stats-hero-item">
+      <div class="stat-num">52</div>
+      <div class="stat-label">家 已入驻企业</div>
+    </div>
+    <div class="stats-hero-item">
+      <div class="stat-num">1553</div>
+      <div class="stat-label">全景计划 · 完成 41.5%</div>
+    </div>
+    <div class="stats-hero-item">
+      <div class="stat-num">¥30</div>
+      <div class="stat-label">亿元 投资规模</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     平台矩阵（4 大平台级 IP）
+     ============================================================ -->
+<section class="section">
+  <div class="container-max">
+    <div class="h-block">
+      <div class="kicker-line">PLATFORMS · 平台级 IP</div>
+      <h2 class="section-title">4 大平台级 IP · 数字化转型的方法论产品</h2>
+      <p class="section-lead">
+        DTSI® · X-Flow Dynamics™ · PDTMM® · OpenX@X™ —— 由荥阳运营团队 5 年打磨、外部专家共研的四项平台级知识产权。
+        像 Cobalt / Topaz 一样有独立的产品页、独立的架构、独立的团队。
+      </p>
+    </div>
+    <div class="plat-grid">
+      <a href="./platforms/dtsi.html" class="plat-card">
+        <div class="plat-mark">DTSI<sup>®</sup></div>
+        <div class="plat-tagline">数字化转型自我诊断 · 七方 35 指标</div>
+        <div class="plat-lead">让每家企业清楚自己的数字化坐标。7 大主体 × 5 类能力 = 35 项加权指标，一次自评生成企业专属数字化雷达图。</div>
+        <div class="plat-cta">开始诊断</div>
+      </a>
+      <a href="./platforms/xflow.html" class="plat-card">
+        <div class="plat-mark">X-Flow<sup>™</sup></div>
+        <div class="plat-tagline">全流程流量动力学</div>
+        <div class="plat-lead">招商流量 → 入驻转化 → 企业成长的全链路动力学模型。5 段闭环 · 12 项指标，让流量转化可量化、可优化。</div>
+        <div class="plat-cta">查看流量模型</div>
+      </a>
+      <a href="./platforms/pdtmm.html" class="plat-card">
+        <div class="plat-mark">PDTMM<sup>®</sup></div>
+        <div class="plat-tagline">数字化转型成熟度五级认证</div>
+        <div class="plat-lead">Level 1 起步 → Level 5 引领 · 类比 CMMI 的园区数字化成熟度阶梯。已开放 CPA-PDTMM 认证师培训招生。</div>
+        <div class="plat-cta">了解认证 / 报名培训</div>
+      </a>
+      <a href="./platforms/openxx.html" class="plat-card">
+        <div class="plat-mark">OpenX@X<sup>™</sup></div>
+        <div class="plat-tagline">数字化转型开发者社区</div>
+        <div class="plat-lead">开放 API + 沙箱环境 + 贡献者社区。让方法论从"纸面框架"变成"可运行的代码 + 可复用的模板"。</div>
+        <div class="plat-cta">进入沙箱</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top: var(--sp-8);">
+      <a class="btn-ghost" href="./platforms/">查看完整平台矩阵 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8 大运营服务
+     ============================================================ -->
+<section class="section" style="background: var(--bg-1);">
+  <div class="container-max">
+    <div class="h-block">
+      <div class="kicker-line">SERVICES · 8 大运营服务</div>
+      <h2 class="section-title">从政策到融资，从人才到场地</h2>
+      <p class="section-lead">
+        荥泽招商飞轮<sup>®</sup>：诊断 → 定制 → 落地 → 陪跑。8 大运营服务全栈覆盖企业入驻、成长、升级的每一步。
+      </p>
+    </div>
+    <div class="svc-grid">
+      <a href="./services/policy.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 12h6M9 16h4"/></svg>
+        </div>
+        <div class="svc-title">政策申报</div>
+        <div class="svc-desc">高企 · 专精特新 · 研发加计 · 稳岗返还 · 郑州人才补贴</div>
+        <div class="svc-stat">通过率 ↑40%</div>
+      </a>
+      <a href="./services/financing.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h5.5a2 2 0 0 1 0 4H8.5"/></svg>
+        </div>
+        <div class="svc-title">融资对接</div>
+        <div class="svc-desc">银行授信 · 天使/PE/VC · 政府基金 · 供应链金融</div>
+        <div class="svc-stat">累计撮合 ¥8+ 亿</div>
+      </a>
+      <a href="./services/recruitment.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        </div>
+        <div class="svc-title">人才招引</div>
+        <div class="svc-desc">校招 · 猎头 · 郑州户口/子女入学 · 石榴籽计划</div>
+        <div class="svc-stat">到岗周期 ↓50%</div>
+      </a>
+      <a href="./services/space.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg>
+        </div>
+        <div class="svc-title">空间定制</div>
+        <div class="svc-desc">独栋 · 联合办公 · 中试基地 · 研发实验室</div>
+        <div class="svc-stat">40.4 万㎡ 可选</div>
+      </a>
+      <a href="./services/investment.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z"/></svg>
+        </div>
+        <div class="svc-title">招商合作</div>
+        <div class="svc-desc">500 强招引 · 政府对接 · 沙龙路演 · 项目撮合</div>
+        <div class="svc-stat">52 家 · 150+ 洽谈</div>
+      </a>
+      <a href="./services/supply-chain.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7l6.6-3.4M8.7 13.3l6.6 3.4"/></svg>
+        </div>
+        <div class="svc-title">产业链撮合</div>
+        <div class="svc-desc">上下游对接 · 产业地图 · 集采联盟 · 数据共享</div>
+        <div class="svc-stat">6 大产业方向</div>
+      </a>
+      <a href="./services/it-cloud.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.5 19H9a5 5 0 1 1 1.4-9.8A6 6 0 0 1 22 12.5a4.5 4.5 0 0 1-4.5 6.5z"/></svg>
+        </div>
+        <div class="svc-title">IT &amp; 云</div>
+        <div class="svc-desc">算力节点 · 混合云 · 私有云 · 安全审计</div>
+        <div class="svc-stat">与优刻得共建</div>
+      </a>
+      <a href="./services/legal.html" class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 6l3-3 3 3M6 3v12M15 21l-3-3-3 3M12 21V9"/><path d="M18 9l3 3-3 3"/></svg>
+        </div>
+        <div class="svc-title">法律咨询</div>
+        <div class="svc-desc">合规审查 · 合同起草 · 知识产权 · 涉外法律</div>
+        <div class="svc-stat">3 家律所战略合作</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top: var(--sp-8);">
+      <a class="btn-ghost" href="./services/">查看完整服务矩阵 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4 大数字子品牌
+     ============================================================ -->
+<section class="section">
+  <div class="container-max">
+    <div class="h-block">
+      <div class="kicker-line">SUB-BRANDS · 4 大数字子品牌</div>
+      <h2 class="section-title">数字荥阳，可能无限</h2>
+      <p class="section-lead">
+        荥数云让算力无限 · 荥智造让制造无限 · 荥数链让贸易无限 · 荥数才让人才无限。
+        四大数字子品牌覆盖企业数字化转型全生命周期。
+      </p>
+    </div>
+    <div class="brand-grid">
+      <a href="./sub-brands/yunxi-shu.html" class="brand-card brand-yun">
+        <div class="brand-name">荥数云</div>
+        <div class="brand-slogan">让算力无限</div>
+        <div class="brand-desc">智算算力节点 · 云资源市场 · AI 应用商店 · 开发者社区。与优刻得共建区域云节点，就近提供普惠算力。</div>
+        <div class="brand-cta">了解荥数云</div>
+      </a>
+      <a href="./sub-brands/yunxi-zhi.html" class="brand-card brand-zhi">
+        <div class="brand-name">荥智造</div>
+        <div class="brand-slogan">让制造无限</div>
+        <div class="brand-desc">智能制造服务包 · 数字化改造试点 · 产线升级 · 工艺仿真。已支持 12 家智造企业完成 SaaS 化改造。</div>
+        <div class="brand-cta">了解荥智造</div>
+      </a>
+      <a href="./sub-brands/yunxi-lian.html" class="brand-card brand-lian">
+        <div class="brand-name">荥数链</div>
+        <div class="brand-slogan">让贸易无限</div>
+        <div class="brand-desc">跨境电商 · 供应链数字化 · 贸易网络 · AEO 高级认证辅导。对接郑州航空港区 + 中欧班列。</div>
+        <div class="brand-cta">了解荥数链</div>
+      </a>
+      <a href="./sub-brands/yunxi-cai.html" class="brand-card brand-cai">
+        <div class="brand-name">荥数才</div>
+        <div class="brand-slogan">让人才无限</div>
+        <div class="brand-desc">人才招引 · 培训认证 · 郑州人才政策全解读 · 郑聚英才 / 石榴籽 / 高层次人才。</div>
+        <div class="brand-cta">了解荥数才</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top: var(--sp-8);">
+      <a class="btn-ghost" href="./sub-brands/">进入数字生态 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     案例故事（6 家锚定客户，展示 3）
+     ============================================================ -->
+<section class="section" style="background: var(--bg-1);">
+  <div class="container-max">
+    <div class="h-block">
+      <div class="kicker-line">CASES · 命名客户故事</div>
+      <h2 class="section-title">6 家标杆企业 · 数字化落地实录</h2>
+      <p class="section-lead">
+        大华 · 优刻得 · 江森自控 · 森赫 · 新开普 · 安恒 —— 命名客户 · 命名人物 · 量化成效。
+        荥阳的降维优势：政府背景园区可做命名案例，比咨询公司的匿名"某银行"更有说服力。
+      </p>
+    </div>
+    <div class="case-grid">
+      <a href="./cases/dahua.html" class="case-card">
+        <div class="case-industry">安防 AI · 智能制造</div>
+        <div class="case-client">大华股份</div>
+        <div class="case-quote">"荥泽招商飞轮® 让我们 3 个月完成郑州总部落地。高企申报一次通过，研发投入抵扣 800 万+。"</div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-num">3 个月</div><div class="case-metric-label">总部落地周期</div></div>
+          <div class="case-metric"><div class="case-metric-num">100%</div><div class="case-metric-label">高企申报通过率</div></div>
+          <div class="case-metric"><div class="case-metric-num">↓18%</div><div class="case-metric-label">研发成本</div></div>
+        </div>
+        <div class="case-cta">阅读大华故事</div>
+      </a>
+      <a href="./cases/shengrun.html" class="case-card">
+        <div class="case-industry">电梯智造 · 数字化改造</div>
+        <div class="case-client">森赫</div>
+        <div class="case-quote">"通过 PDTMM® 五级认证的 L3 → L4 升级路径，我们完成了产线数字化改造，效率提升 42%。"</div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-num">↑42%</div><div class="case-metric-label">产线效率</div></div>
+          <div class="case-metric"><div class="case-metric-num">L3→L4</div><div class="case-metric-label">PDTMM 等级</div></div>
+          <div class="case-metric"><div class="case-metric-num">¥1200 万</div><div class="case-metric-label">政策补贴</div></div>
+        </div>
+        <div class="case-cta">阅读森赫故事</div>
+      </a>
+      <a href="./cases/dbappsecurity.html" class="case-card">
+        <div class="case-industry">网络安全 · 数字文创</div>
+        <div class="case-client">安恒信息</div>
+        <div class="case-quote">"通过荥数才服务 3 周内完成 30 人本地团队组建，比原计划快 50%。"</div>
+        <div class="case-metrics">
+          <div class="case-metric"><div class="case-metric-num">3 周</div><div class="case-metric-label">团队组建周期</div></div>
+          <div class="case-metric"><div class="case-metric-num">30 人</div><div class="case-metric-label">首批到岗</div></div>
+          <div class="case-metric"><div class="case-metric-num">↓50%</div><div class="case-metric-label">相对原计划</div></div>
+        </div>
+        <div class="case-cta">阅读安恒故事</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top: var(--sp-8);">
+      <a class="btn-ghost" href="./cases/">查看全部 6 家案例 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     锚定客户 Logo 条
+     ============================================================ -->
+<section class="section-tight">
+  <div class="container-max">
+    <div class="h-block" style="margin-bottom: var(--sp-6);">
+      <div class="kicker-line">CLIENTS · 6 家锚定客户</div>
+    </div>
+    <div class="logo-strip">
+      <div class="logo-item">大华股份</div>
+      <div class="logo-item">优刻得</div>
+      <div class="logo-item">江森自控</div>
+      <div class="logo-item">森赫</div>
+      <div class="logo-item">新开普</div>
+      <div class="logo-item">安恒信息</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     政府 / 权威认可
+     ============================================================ -->
+<section class="section">
+  <div class="container-max">
+    <div class="h-block">
+      <div class="kicker-line">RECOGNITION · 权威认可</div>
+      <h2 class="section-title">政府 · 行业 · 学术 三重背书</h2>
+      <p class="section-lead">用本土权威替代 Gartner / Forrester —— 更符合中国企业买家的信任逻辑。</p>
+    </div>
+    <div class="reco-strip">
+      <div class="reco-item"><div><span>工信部</span>智能制造试点</div></div>
+      <div class="reco-item"><div><span>河南省发改委</span>数字经济示范</div></div>
+      <div class="reco-item"><div><span>郑州市政府</span>重点园区</div></div>
+      <div class="reco-item"><div><span>中国信通院</span>TSCS 合作单位</div></div>
+      <div class="reco-item"><div><span>赛迪顾问</span>数字化转型先锋</div></div>
+      <div class="reco-item"><div><span>省数经协会</span>常务副会长单位</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     洞察精选（4 篇）
+     ============================================================ -->
+<section class="section" style="background: var(--bg-1);">
+  <div class="container-max">
+    <div class="h-block">
+      <div class="kicker-line">INSIGHTS · 思想领导力</div>
+      <h2 class="section-title">最新洞察</h2>
+    </div>
+    <div class="insights-grid">
+      <a href="./insights/openxx-methodology-primer.html" class="insight-card">
+        <span class="chip chip--insight">洞察文</span>
+        <div class="insight-title">OpenX@X 方法论快速入门</div>
+        <div class="insight-meta">戴继涛 博士 · 12 分钟</div>
+      </a>
+      <a href="./insights/dtsi-seven-parties.html" class="insight-card">
+        <span class="chip chip--report">研究报告</span>
+        <div class="insight-title">DTSI 七方共治：为什么园区治理不是政府独角戏</div>
+        <div class="insight-meta">张明 · 15 分钟</div>
+      </a>
+      <a href="./insights/pdtmm-level-guide.html" class="insight-card">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <div class="insight-title">PDTMM 五级认证 · 数字化转型分级实操指南</div>
+        <div class="insight-meta">李岩 · 20 分钟</div>
+      </a>
+      <a href="./insights/xingyang-policy-2026-q3.html" class="insight-card">
+        <span class="chip chip--policy">政策速递</span>
+        <div class="insight-title">郑州 2026 Q3 数字经济企业最新政策速递</div>
+        <div class="insight-meta">王思远 · 8 分钟</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top: var(--sp-8);">
+      <a class="btn-ghost" href="./insights/">进入洞察中心 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     新闻精选
+     ============================================================ -->
+<section class="section">
+  <div class="container-max">
+    <div class="h-block">
+      <div class="kicker-line">NEWSROOM · 最新动态</div>
+      <h2 class="section-title">近期签约与荣誉</h2>
+    </div>
+    <div class="insights-grid">
+      <a href="./newsroom/press-release-example.html" class="insight-card">
+        <span class="chip chip--news">签约</span>
+        <div class="insight-title">大华股份郑州总部签约荥阳数字经济产业园</div>
+        <div class="insight-meta">2026-07-20</div>
+      </a>
+      <a href="./newsroom/index.html" class="insight-card">
+        <span class="chip chip--policy">政策</span>
+        <div class="insight-title">河南省"数字化转型十大示范案例"公示</div>
+        <div class="insight-meta">2026-07-10</div>
+      </a>
+      <a href="./newsroom/index.html" class="insight-card">
+        <span class="chip chip--event">活动</span>
+        <div class="insight-title">2026 荥阳数字经济峰会 · 8 月 8 日启幕</div>
+        <div class="insight-meta">2026-07-05</div>
+      </a>
+      <a href="./newsroom/index.html" class="insight-card">
+        <span class="chip chip--report">荣誉</span>
+        <div class="insight-title">园区获评"郑州市数字经济重点园区"</div>
+        <div class="insight-meta">2026-06-28</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top: var(--sp-8);">
+      <a class="btn-ghost" href="./newsroom/">进入新闻室 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     底部 CTA
+     ============================================================ -->
+<section class="section">
+  <div class="container-max">
+    <div class="cta-band">
+      <div class="kicker-line" style="justify-content: center; display: flex;">JOIN US · 成为下一家标杆</div>
+      <h2>准备好在荥阳落地你的下一步？</h2>
+      <p>预约 1 对 1 招商顾问 · 免费评估你的入驻方案 · 24 小时内响应。</p>
+      <div class="cta-band-ctas">
+        <a class="btn-primary" href="./services/investment.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          预约实地考察
+        </a>
+        <a class="btn-ghost" href="./boards/onboarding.html">在线申请入驻</a>
+        <a class="btn-ghost" href="./services/">咨询运营服务</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Footer · 三方 lock-up
+     ============================================================ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <!-- 三方 lock-up · v2.0 关键差异化 -->
+    <div class="footer-lockup">
+      <div class="footer-lockup-item">荥阳市人民政府</div>
+      <div class="footer-lockup-item">荥阳城投</div>
+      <div class="footer-lockup-item">太能控股</div>
+      <div style="color: var(--text-3); font-size: var(--fs-sm); margin-left: auto;">
+        运营主体：郑州荥泽数链产业发展有限公司
+      </div>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3);">
+          郑西数字经济新高地 · 40.4 万㎡ 建面 · 260 亩用地 · 52 家已入驻 · ¥30 亿投资。
+        </p>
+        <p style="color: var(--text-3); font-size: var(--fs-xs);">
+          地址：郑上路与淇源路交叉口东北角<br>
+          电话：0371-6666-8888 · 邮箱：contact@xingyang-park.gov.cn
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>平台 · 服务</h5>
+        <a href="./platforms/dtsi.html">DTSI®</a>
+        <a href="./platforms/xflow.html">X-Flow Dynamics™</a>
+        <a href="./platforms/pdtmm.html">PDTMM® 认证</a>
+        <a href="./platforms/openxx.html">OpenX@X™</a>
+        <a href="./services/">8 大运营服务</a>
+      </div>
+      <div class="footer-col">
+        <h5>生态 · 洞察</h5>
+        <a href="./sub-brands/yunxi-shu.html">荥数云</a>
+        <a href="./sub-brands/yunxi-zhi.html">荥智造</a>
+        <a href="./sub-brands/yunxi-lian.html">荥数链</a>
+        <a href="./sub-brands/yunxi-cai.html">荥数才</a>
+        <a href="./insights/">洞察中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>关于 · 治理</h5>
+        <a href="./about/">关于我们</a>
+        <a href="./about/leadership.html">领导班子</a>
+        <a href="./about/governance.html">七方共治</a>
+        <a href="./about/timeline.html">里程碑</a>
+        <a href="./newsroom/media-kit.html">媒体素材</a>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 荥阳数字经济产业园 · 郑州荥泽数链产业发展有限公司 · 保留所有权利<br>
+      商标声明：DTSI® · X-Flow Dynamics™ · PDTMM® · OpenX@X™ · 荥泽招商飞轮® · 均为运营主体所有<br>
+      <span style="color: var(--text-4); font-size: var(--fs-xs);">豫 ICP 备 20260728 号 · 网站声明 · 隐私政策</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky help widget -->
+<a class="help-widget" href="./services/investment.html">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  有什么可以帮您？
+</a>
+
+</body>
+</html>

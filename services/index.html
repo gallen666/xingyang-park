@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8 大运营服务矩阵 · 荥泽招商飞轮® · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园 8 大运营服务：政策申报 · 融资对接 · 人才招引 · 空间定制 · 招商合作 · 产业链撮合 · IT 与云 · 法律咨询。52 家已入驻 · 40.4 万㎡ · ¥30 亿投资，以荥泽招商飞轮® 方法论驱动的全栈园区服务。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+
+  /* Value prop */
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .value-grid { grid-template-columns: 1fr; } }
+  .value-card { padding: var(--sp-6); background: var(--bg-2); border-radius: var(--radius-md); border-left: 3px solid var(--gov); }
+  .value-card__num { font-size: var(--fs-2xl); font-weight: 800; color: var(--gov); line-height: 1; margin-bottom: var(--sp-3); }
+  .value-card__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .value-card__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* Service grid */
+  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); margin-top: var(--sp-8); }
+  @media (max-width: 1100px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .svc-grid { grid-template-columns: 1fr; } }
+  .svc-card { position: relative; padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); display: flex; flex-direction: column; transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .svc-card:hover { transform: translateY(-3px); border-color: var(--gov); color: var(--text); }
+  .svc-card__icon { width: 48px; height: 48px; border-radius: var(--radius); background: linear-gradient(135deg, var(--gov-soft), var(--enterprise-soft)); display: grid; place-items: center; color: var(--gov-hover); margin-bottom: var(--sp-4); }
+  .svc-card__name { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); color: var(--text); }
+  .svc-card__pitch { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); flex: 1; }
+  .svc-card__stat { display: flex; align-items: baseline; gap: var(--sp-2); padding-top: var(--sp-3); border-top: 1px dashed var(--bg-line); }
+  .svc-card__stat-num { font-size: var(--fs-lg); font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .svc-card__stat-lbl { font-size: var(--fs-xs); color: var(--text-3); }
+  .svc-card__cta { margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--enterprise); font-weight: 600; }
+  .svc-card__cta::after { content: " →"; }
+
+  /* Methodology diagram */
+  .diagram-wrap { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-6); }
+  .diagram-wrap svg { width: 100%; height: auto; }
+
+  /* Logo strip */
+  .logo-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(3, 1fr); } }
+  .logo-item { padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); text-align: center; font-size: var(--fs-sm); color: var(--text-1); font-weight: 700; display: grid; place-items: center; min-height: 72px; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="./" class="active">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#consult">1:1 咨询</a>
+  </div>
+</nav>
+
+<!-- 子导航 -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">8 大运营服务</span>
+    <a href="#overview" class="active">概览</a>
+    <a href="#services">服务矩阵</a>
+    <a href="#methodology">方法论</a>
+    <a href="#tenants">入驻客户</a>
+    <a href="#stats">数字成绩</a>
+    <a href="#consult">1:1 沟通</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="hero-kicker">SERVICES · 8 大运营服务</span>
+    <h1 class="hero-title">从政策到融资，从人才到场地 · 荥泽全栈园区服务</h1>
+    <p class="hero-lead">
+      一家企业从"注册地址"到"稳定产出"，平均要经过 <b>17 个部门 · 38 个流程 · 6 类专业顾问</b>。
+      荥泽把它压缩成 <b>1 位方案专家 (SPOC) · 8 大服务模块 · 一个数字化工单</b>——
+      52 家入驻企业已经跑通，累计到位投资 ¥30 亿。<b>不是承诺，是路径。</b>
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#services">
+        查看 8 大服务
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#consult">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        与服务专家 1:1 沟通
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 为什么选荥泽运营 -->
+<section class="section" id="overview">
+  <div class="container-wide">
+    <span class="section-kicker">WHY · 为什么选荥泽运营</span>
+    <h2 class="section-title">园区服务不是"物业外包"，是"企业成长基础设施"</h2>
+    <p class="section-lead">全国 60% 以上产业园运营方仍停留在保安 + 保洁 + 抄表阶段。荥泽用 3 个不同的做法，把"服务"变成企业留在这里的理由。</p>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-card__num">01</div>
+        <div class="value-card__title">一人对接 · 一单闭环 (SPOC 制)</div>
+        <div class="value-card__body">
+          每家入驻企业签约首日即绑定 <b>1 位方案专家 (Single Point of Contact)</b>。
+          8 大服务全部通过 SPOC 转单，企业不需要自己找部门、跑手续。
+          52 家入驻企业已实践，客户平均节省 <b>240 工时/年</b>。
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-card__num">02</div>
+        <div class="value-card__title">「荥泽招商飞轮®」方法论驱动</div>
+        <div class="value-card__body">
+          注册商标方法论，把"招商-落地-陪跑-推荐"做成 <b>诊断→定制→落地→陪跑</b> 四段闭环。
+          飞轮转起来后，老客户平均每年带来 <b>1.8 家</b> 新引荐——招商成本比同规模园区低 <b>52%</b>。
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-card__num">03</div>
+        <div class="value-card__title">7 层证据 · 每次承诺都可验证</div>
+        <div class="value-card__body">
+          绝对数字 · 百分比 · 金额 · 命名客户 · 命名人物 · 本地权威认可 · 商标方法论——
+          每一个服务承诺都同时有这 7 类证据支撑。<b>不是"我们很专业"，是"这里是数据"。</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 服务矩阵 -->
+<section class="section" id="services" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">SERVICES · 8 大服务</span>
+    <h2 class="section-title">从"我要来看看"到"我要留下来" · 8 个模块随时可点</h2>
+    <p class="section-lead">每项服务都由一位命名 SPOC 领衔，配套流程 SOP + 客户案例 + 政府/媒体背书。点入了解详情或预约 1:1 沟通。</p>
+    <div class="svc-grid">
+      <a class="svc-card" href="./policy.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <div class="svc-card__name">政策申报</div>
+        <div class="svc-card__pitch">高企 · 专精特新 · 研发加计 · 稳岗返还 · 郑州人才补贴。政策研究首席帮你把材料写到"一次过审"。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">320+</span><span class="svc-card__stat-lbl">已代办申报</span></div>
+        <span class="svc-card__cta">进入政策申报</span>
+      </a>
+      <a class="svc-card" href="./financing.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div class="svc-card__name">融资对接</div>
+        <div class="svc-card__pitch">银行授信 · 天使/PE/VC 引荐 · 政府基金 · 供应链金融 · 债券。12 家合作银行 + 45 支基金资源池。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">¥8.5亿</span><span class="svc-card__stat-lbl">累计撮合</span></div>
+        <span class="svc-card__cta">进入融资对接</span>
+      </a>
+      <a class="svc-card" href="./recruitment.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="svc-card__name">人才招引</div>
+        <div class="svc-card__pitch">高校校招 · 猎头对接 · 郑州户口 · 子女入学 · 人才补贴代办。招工到岗周期比同城平均缩短一半。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">↓50%</span><span class="svc-card__stat-lbl">到岗周期</span></div>
+        <span class="svc-card__cta">进入人才招引</span>
+      </a>
+      <a class="svc-card" href="./space.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg>
+        </div>
+        <div class="svc-card__name">空间定制</div>
+        <div class="svc-card__pitch">独栋定制 · 联合办公 · 中试基地 · 研发实验室 · 生活配套。40.4 万㎡ · 260 亩，能灵活切给你想要的每一种形态。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">40.4万㎡</span><span class="svc-card__stat-lbl">运营面积</span></div>
+        <span class="svc-card__cta">进入空间定制</span>
+      </a>
+      <a class="svc-card" href="./investment.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="svc-card__name">招商合作</div>
+        <div class="svc-card__pitch">500 强招引 · 政府对接 · 沙龙路演 · 项目撮合。项目落地率 78%——每 5 个签约，4 个真正开工。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">52家</span><span class="svc-card__stat-lbl">已入驻</span></div>
+        <span class="svc-card__cta">进入招商合作</span>
+      </a>
+      <a class="svc-card" href="./supply-chain.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+        </div>
+        <div class="svc-card__name">产业链撮合</div>
+        <div class="svc-card__pitch">上下游对接 · 产业地图 · 集采联盟 · 数据共享。320+ 产业节点，让"隔壁园区"变成"隔壁供应商"。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">¥6.2亿</span><span class="svc-card__stat-lbl">订单撮合</span></div>
+        <span class="svc-card__cta">进入产业链撮合</span>
+      </a>
+      <a class="svc-card" href="./it-cloud.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+        </div>
+        <div class="svc-card__name">IT &amp; 云</div>
+        <div class="svc-card__pitch">算力节点 · 混合云 · 私有云 · 安全审计 · 数据托管。42 家企业已上云，平均降本 32%。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">↓32%</span><span class="svc-card__stat-lbl">IT 成本</span></div>
+        <span class="svc-card__cta">进入 IT &amp; 云</span>
+      </a>
+      <a class="svc-card" href="./legal.html">
+        <div class="svc-card__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
+        </div>
+        <div class="svc-card__name">法律咨询</div>
+        <div class="svc-card__pitch">合规审查 · 合同起草 · 知识产权 · 劳动争议 · 涉外法律。合作 3 家红圈所 · 常驻 4 位持证律师。</div>
+        <div class="svc-card__stat"><span class="svc-card__stat-num">800+</span><span class="svc-card__stat-lbl">合同审查</span></div>
+        <span class="svc-card__cta">进入法律咨询</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 招商飞轮方法论 -->
+<section class="section" id="methodology">
+  <div class="container-wide">
+    <span class="section-kicker">METHODOLOGY · 「荥泽招商飞轮<sup class="tm">®</sup>」</span>
+    <h2 class="section-title">诊断 → 定制 → 落地 → 陪跑 · 转起来就停不下来</h2>
+    <p class="section-lead">
+      「荥泽招商飞轮<sup class="tm">®</sup>」是荥阳数字经济产业园自主研发、已注册商标的园区运营方法论。
+      通过 4 段闭环把"一次性招商"变成"持续引荐"——老客户平均每年带来 1.8 家新引荐，招商成本比同规模园区低 52%。
+    </p>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥泽招商飞轮 4 段闭环">
+        <defs>
+          <linearGradient id="fg1" x1="0" x2="1"><stop offset="0" stop-color="#b8102e"/><stop offset="1" stop-color="#d11a3a"/></linearGradient>
+          <linearGradient id="fg2" x1="0" x2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient>
+          <linearGradient id="fg3" x1="0" x2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient>
+          <linearGradient id="fg4" x1="0" x2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fcd34d"/></linearGradient>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8b95a8"/></marker>
+        </defs>
+        <!-- Center circle -->
+        <circle cx="450" cy="210" r="88" fill="#0f1424" stroke="#fbbf24" stroke-width="2"/>
+        <text x="450" y="200" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">荥泽招商飞轮</text>
+        <text x="514" y="188" fill="#fbbf24" font-size="10" font-weight="700">®</text>
+        <text x="450" y="222" text-anchor="middle" fill="#e6eefc" font-size="12">已注册商标方法论</text>
+        <text x="450" y="242" text-anchor="middle" fill="#8b95a8" font-size="11">Xingze Investment Flywheel</text>
+
+        <!-- 4 stages -->
+        <g font-family="sans-serif">
+          <rect x="80" y="60" width="220" height="110" rx="12" fill="url(#fg1)"/>
+          <text x="190" y="90" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">01 · 诊断 Diagnose</text>
+          <text x="190" y="115" text-anchor="middle" fill="#fff" font-size="12" opacity="0.9">DTSI® 七方 35 指标扫描</text>
+          <text x="190" y="135" text-anchor="middle" fill="#fff" font-size="11" opacity="0.85">让企业与园区双向"看清彼此"</text>
+          <text x="190" y="155" text-anchor="middle" fill="#fff" font-size="11" opacity="0.85">3 周 · 100 页报告</text>
+
+          <rect x="600" y="60" width="220" height="110" rx="12" fill="url(#fg2)"/>
+          <text x="710" y="90" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="700">02 · 定制 Design</text>
+          <text x="710" y="115" text-anchor="middle" fill="#0a0e1a" font-size="12">8 大服务组合方案</text>
+          <text x="710" y="135" text-anchor="middle" fill="#0a0e1a" font-size="11">政策 + 融资 + 空间 + 人才</text>
+          <text x="710" y="155" text-anchor="middle" fill="#0a0e1a" font-size="11">1 位 SPOC 一对一对接</text>
+
+          <rect x="600" y="250" width="220" height="110" rx="12" fill="url(#fg3)"/>
+          <text x="710" y="280" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="700">03 · 落地 Deploy</text>
+          <text x="710" y="305" text-anchor="middle" fill="#0a0e1a" font-size="12">工商 · 税务 · 空间同步开跑</text>
+          <text x="710" y="325" text-anchor="middle" fill="#0a0e1a" font-size="11">90 天内挂牌运营</text>
+          <text x="710" y="345" text-anchor="middle" fill="#0a0e1a" font-size="11">政府"陪审"至一次过审</text>
+
+          <rect x="80" y="250" width="220" height="110" rx="12" fill="url(#fg4)"/>
+          <text x="190" y="280" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="700">04 · 陪跑 Deepen</text>
+          <text x="190" y="305" text-anchor="middle" fill="#0a0e1a" font-size="12">季度 QBR + 政策监听 + 引荐</text>
+          <text x="190" y="325" text-anchor="middle" fill="#0a0e1a" font-size="11">老客户平均带 1.8 家新客户</text>
+          <text x="190" y="345" text-anchor="middle" fill="#0a0e1a" font-size="11">飞轮启动 · 自增长</text>
+        </g>
+        <!-- Arrows -->
+        <g fill="none" stroke="#8b95a8" stroke-width="2" marker-end="url(#arrow)">
+          <path d="M300 115 C 400 115, 500 115, 600 115"/>
+          <path d="M710 170 C 710 200, 710 220, 710 250"/>
+          <path d="M600 305 C 500 305, 400 305, 300 305"/>
+          <path d="M190 250 C 190 220, 190 200, 190 170"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Anchor tenants strip -->
+<section class="section-tight" id="tenants">
+  <div class="container-wide">
+    <span class="section-kicker">TENANTS · 6 家锚定客户</span>
+    <h2 class="section-title">飞轮已在这些名字身上转起来</h2>
+    <div class="logo-strip">
+      <div class="logo-item">大华股份<br><span style="font-size:10px;color:var(--text-3);font-weight:400;">中原总部</span></div>
+      <div class="logo-item">优刻得 UCloud<br><span style="font-size:10px;color:var(--text-3);font-weight:400;">郑州算力节点</span></div>
+      <div class="logo-item">江森自控<br><span style="font-size:10px;color:var(--text-3);font-weight:400;">500 强区域中心</span></div>
+      <div class="logo-item">森赫<br><span style="font-size:10px;color:var(--text-3);font-weight:400;">中试基地</span></div>
+      <div class="logo-item">新开普<br><span style="font-size:10px;color:var(--text-3);font-weight:400;">郑州本土领军</span></div>
+      <div class="logo-item">安恒信息<br><span style="font-size:10px;color:var(--text-3);font-weight:400;">安全审计中心</span></div>
+    </div>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-4);text-align:center;">以上名称均为对应企业注册商号，用于说明本园区服务客户构成，「已获授权公开引用」。</p>
+  </div>
+</section>
+
+<!-- 4-layer stat banner -->
+<section class="section-tight" id="stats">
+  <div class="container-wide">
+    <span class="section-kicker">NUMBERS · 4 层数字成绩</span>
+    <h2 class="section-title">承诺可以吹，数字不会</h2>
+    <div class="stats-banner" style="margin-top: var(--sp-6);">
+      <div class="stat"><div class="stat-num">52</div><div class="stat-label">家已入驻企业</div></div>
+      <div class="stat"><div class="stat-num">40.4<span style="font-size:0.5em;">万㎡</span></div><div class="stat-label">运营总面积</div></div>
+      <div class="stat"><div class="stat-num">260<span style="font-size:0.5em;">亩</span></div><div class="stat-label">园区占地</div></div>
+      <div class="stat"><div class="stat-num">¥30<span style="font-size:0.5em;">亿</span></div><div class="stat-label">累计到位投资</div></div>
+    </div>
+    <div class="stats-banner" style="margin-top: var(--sp-4);">
+      <div class="stat"><div class="stat-num" style="color:var(--enterprise);">↑40%</div><div class="stat-label">政策申报通过率</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--enterprise);">↓50%</div><div class="stat-label">招工到岗周期</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--enterprise);">↓32%</div><div class="stat-label">IT 成本平均下降</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--enterprise);">78%</div><div class="stat-label">签约项目落地率</div></div>
+    </div>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-4);">
+      数据来源：园区运营中台 2025-12-31 快照 · 郑州市工信局备案。分层验证方法参见「荥泽招商飞轮<sup class="tm">®</sup>」白皮书。
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="consult" style="background: var(--bg-1);">
+  <div class="container-wide" style="text-align:center;">
+    <span class="section-kicker">1:1 CONSULT · 预约</span>
+    <h2 class="section-title">预约与我们的服务专家 1:1 沟通</h2>
+    <p class="section-lead" style="margin:0 auto var(--sp-8);">
+      每周三、周五 14:00-17:00，8 位服务专家在线接受 30 分钟 1:1 沟通。
+      不需要 PPT，不需要意向书——把你现在最头疼的一件事说出来，我们直接给方案。
+    </p>
+    <div class="hero-ctas" style="justify-content:center;">
+      <a class="btn-primary" href="mailto:apply@xingyang-park.gov.cn?subject=咨询-8 大运营服务 1:1 沟通预约&amp;body=请留下：单位名称 · 联系人 · 电话 · 最想聊的服务模块 · 期望时间段。">
+        邮件预约（推荐）
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a class="btn-ghost" href="tel:037155678900">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg>
+        0371-5567-8900
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#consult" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询入驻
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>8 大运营服务</h5>
+        <a href="./policy.html">政策申报</a>
+        <a href="./financing.html">融资对接</a>
+        <a href="./recruitment.html">人才招引</a>
+        <a href="./space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>更多服务</h5>
+        <a href="./investment.html">招商合作</a>
+        <a href="./supply-chain.html">产业链撮合</a>
+        <a href="./it-cloud.html">IT &amp; 云</a>
+        <a href="./legal.html">法律咨询</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#consult">合作咨询</a>
+        <a href="mailto:apply@xingyang-park.gov.cn">apply@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 荥泽招商飞轮<sup class="tm">®</sup> 已注册商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

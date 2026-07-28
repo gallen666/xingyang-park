@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>关于我们 · 三方共治 · 郑西数字经济新高地 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园 · 荥阳市人民政府 + 荥阳城投 + 太能控股三方共治，40.4 万㎡ 建筑规模、260 亩占地、52 家入驻企业，郑州西 30 分钟半径的数字经济新高地。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ===== 三方 lock-up 主秀 ===== */
+  .lockup-hero {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6); margin-top: var(--sp-8);
+  }
+  .lockup-card {
+    position: relative; padding: var(--sp-8) var(--sp-6);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg); overflow: hidden;
+    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .lockup-card:hover { transform: translateY(-3px); }
+  .lockup-card--gov::before,
+  .lockup-card--asset::before,
+  .lockup-card--ops::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  }
+  .lockup-card--gov::before   { background: var(--gov); }
+  .lockup-card--asset::before { background: var(--enterprise); }
+  .lockup-card--ops::before   { background: var(--ecosystem); }
+  .lockup-card--gov:hover   { border-color: var(--gov); }
+  .lockup-card--asset:hover { border-color: var(--enterprise); }
+  .lockup-card--ops:hover   { border-color: var(--ecosystem); }
+
+  .lockup-badge { width: 72px; height: 72px; margin-bottom: var(--sp-4); }
+  .lockup-role { font-size: var(--fs-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: var(--sp-2); }
+  .lockup-card--gov   .lockup-role { color: var(--gov-hover); }
+  .lockup-card--asset .lockup-role { color: var(--enterprise-hover); }
+  .lockup-card--ops   .lockup-role { color: var(--ecosystem); }
+  .lockup-name { font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-3); }
+  .lockup-pos { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .lockup-bio { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); padding-top: var(--sp-4); border-top: 1px dashed var(--bg-line); }
+  .lockup-link { display: inline-block; margin-top: var(--sp-4); font-size: var(--fs-sm); color: var(--enterprise); }
+
+  @media (max-width: 900px) { .lockup-hero { grid-template-columns: 1fr; } }
+
+  /* ===== 使命愿景价值观 ===== */
+  .mvv-card { padding: var(--sp-8); border-radius: var(--radius-lg); background: var(--bg-2); border: 1px solid var(--bg-line); }
+  .mvv-icon { width: 40px; height: 40px; margin-bottom: var(--sp-4); }
+  .mvv-label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .12em; color: var(--gold); font-weight: 700; margin-bottom: var(--sp-3); }
+  .mvv-body { font-size: var(--fs-md); line-height: var(--lh-relaxed); color: var(--text-1); font-weight: 500; }
+  .values-list { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-3); }
+  .value-pill {
+    display: inline-block; padding: var(--sp-2) var(--sp-4);
+    background: var(--bg-3); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-pill);
+    font-size: var(--fs-sm); font-weight: 600; color: var(--text-1);
+    transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  }
+  .value-pill:hover { border-color: var(--enterprise); background: var(--bg-1); }
+
+  /* ===== 入口卡片 ===== */
+  .entry-card { display: flex; flex-direction: column; height: 100%; }
+  .entry-card .card-title { font-size: var(--fs-xl); margin-top: var(--sp-2); }
+  .entry-card .entry-stat { color: var(--gold); font-size: var(--fs-2xl); font-weight: 800; margin: var(--sp-3) 0; font-variant-numeric: tabular-nums; }
+
+  /* ===== 联系卡片 ===== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-info { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
+  .contact-info dt { color: var(--text-3); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .08em; margin-top: var(--sp-4); }
+  .contact-info dd { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-top: var(--sp-1); }
+  .contact-form { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); display: grid; gap: var(--sp-3); }
+  .contact-form input, .contact-form textarea, .contact-form select {
+    padding: var(--sp-3); border-radius: var(--radius);
+    border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font: inherit;
+  }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="./" class="active">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#contact">咨询入驻</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">关于我们</span>
+    <a href="./" class="active">关于我们</a>
+    <a href="./leadership.html">领导班子</a>
+    <a href="./governance.html">七方共治</a>
+    <a href="./timeline.html">里程碑</a>
+    <a href="#contact">联系</a>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <span class="hero-kicker">ABOUT · 关于我们</span>
+    <h1 class="hero-title">荥阳数字经济产业园 · 郑西数字经济新高地</h1>
+    <p class="hero-lead">
+      荥阳市人民政府 · 荥阳城投 · 太能控股 <b>三方共治</b>，40.4 万㎡ 建筑规模、260 亩占地、
+      郑州西 30 分钟半径。以 4 大平台级 IP 为方法论内核，2026 年累计入驻 52 家企业，
+      正在把"传统园区数字化转型"沉淀为可复制的中国样本。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#lockup">
+        了解三方共治
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="./governance.html">查看七方治理架构</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 三方 lock-up ============ -->
+<section class="section" id="lockup">
+  <div class="container-wide">
+    <span class="section-kicker">TRIPARTITE · 三方共治</span>
+    <h2 class="section-title">谁在办这个园区</h2>
+    <p class="section-lead">
+      政府 · 城投 · 运营方 三方以不同角色共同背书。政府定方向、城投持资产、太能控股跑运营——
+      这不是"招商外包"，也不是"国资独舞"，而是把 <b>政策 / 资产 / 服务</b> 三条价值链正式解耦的中国式共治样板。
+    </p>
+    <div class="lockup-hero">
+      <!-- 政府 -->
+      <div class="lockup-card lockup-card--gov">
+        <svg class="lockup-badge" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-label="荥阳市人民政府 徽标">
+          <defs><linearGradient id="ghGov" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8102e"/><stop offset="1" stop-color="#d11a3a"/></linearGradient></defs>
+          <path d="M36 4 L64 16 L64 40 Q64 58 36 68 Q8 58 8 40 L8 16 Z" fill="url(#ghGov)" stroke="#fbbf24" stroke-width="1.5"/>
+          <path d="M22 30 L36 20 L50 30 L50 46 L22 46 Z" fill="none" stroke="#fff" stroke-width="1.8"/>
+          <rect x="30" y="34" width="12" height="12" fill="#fff" opacity="0.9"/>
+          <text x="36" y="60" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">GOV</text>
+        </svg>
+        <div class="lockup-role">Governor · 主管</div>
+        <h3 class="lockup-name">荥阳市人民政府</h3>
+        <p class="lockup-pos">
+          <b>定位：</b>政策供给方 · 行政审批绿通 · 监管方 · 产业方向共识提供者。
+          分管市领导直接坐镇园区双周例会，涉及产业政策、税收优惠、土地供应、人才引进等一揽子事项的"最后一公里"由市政府统一签发。
+        </p>
+        <div class="lockup-bio">
+          荥阳市，郑州都市圈西部核心，2024 年 GDP 突破 900 亿元。市委市政府将数字经济列为"十四五"三大主导产业之一，
+          于 2019 年正式立项建设本园区，2023 年出台《荥阳市数字经济发展三年行动计划》定向支持。
+        </div>
+        <a class="lockup-link" href="https://www.xingyang.gov.cn" target="_blank" rel="noopener">官方链接 · xingyang.gov.cn →</a>
+      </div>
+
+      <!-- 城投 -->
+      <div class="lockup-card lockup-card--asset">
+        <svg class="lockup-badge" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-label="荥阳城投 徽标">
+          <defs><linearGradient id="ghAsset" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs>
+          <circle cx="36" cy="36" r="30" fill="url(#ghAsset)"/>
+          <rect x="14" y="30" width="8" height="26" fill="#0a0e1a" opacity="0.7"/>
+          <rect x="24" y="24" width="8" height="32" fill="#0a0e1a" opacity="0.8"/>
+          <rect x="34" y="18" width="8" height="38" fill="#0a0e1a" opacity="0.85"/>
+          <rect x="44" y="26" width="8" height="30" fill="#0a0e1a" opacity="0.8"/>
+          <rect x="54" y="32" width="6" height="24" fill="#0a0e1a" opacity="0.7"/>
+          <text x="36" y="14" text-anchor="middle" fill="#0a0e1a" font-size="9" font-weight="800">ASSET</text>
+        </svg>
+        <div class="lockup-role">Asset Holder · 资产</div>
+        <h3 class="lockup-name">荥阳城投</h3>
+        <p class="lockup-pos">
+          <b>定位：</b>土地/建筑资产持有方 · 长期投资承担者 · 与政府共同背书。
+          持有园区 260 亩土地一级使用权及 40.4 万㎡ 全部建筑资产，
+          按 30 年长期视角进行分期投入，2019-2026 年累计投资超 30 亿元。
+        </p>
+        <div class="lockup-bio">
+          荥阳市城市建设投资集团有限公司，成立于 2010 年，市国资委 100% 持股。
+          主体信用评级 AA+，累计管理资产超 480 亿元。是园区"资产不动、资金不动"的底层保障方，
+          也是 REITs / IPO 长期路径的资产托底方。
+        </div>
+        <a class="lockup-link" href="#" onclick="return false;">官方链接 · 待挂网 →</a>
+      </div>
+
+      <!-- 太能 -->
+      <div class="lockup-card lockup-card--ops">
+        <svg class="lockup-badge" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" aria-label="太能控股 徽标">
+          <defs><linearGradient id="ghOps" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
+          <path d="M36 6 L66 22 L66 50 L36 66 L6 50 L6 22 Z" fill="url(#ghOps)"/>
+          <circle cx="36" cy="36" r="16" fill="none" stroke="#0a0e1a" stroke-width="2.5"/>
+          <path d="M28 36 L36 44 L48 30" fill="none" stroke="#0a0e1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="36" y="60" text-anchor="middle" fill="#0a0e1a" font-size="8" font-weight="800">TAIWA OPS</text>
+        </svg>
+        <div class="lockup-role">Operator · 运营</div>
+        <h3 class="lockup-name">太能控股</h3>
+        <p class="lockup-pos">
+          <b>定位：</b>平台化运营方 · 招商执行方 · DTSI®/PDTMM® 方法论落地方 · 数字化服务提供者。
+          派出运营主体"郑州荥泽数链产业发展有限公司"作为园区日常运营公司，
+          负责招商、企业服务、政策申报、产业链撮合等 8 大运营服务全线交付。
+        </p>
+        <div class="lockup-bio">
+          太能控股，戴继涛博士 2016 年创立的产业园区运营专业机构。旗下 4 大数字子品牌（荥数云 / 荥智造 / 荥数链 / 荥数才）
+          支撑 8 大服务矩阵，累计运营国家级/省级园区 5 家、CPA-PDTMM 认证师累计 300+ 人。
+        </div>
+        <a class="lockup-link" href="../sub-brands/">官方链接 · 数字子品牌矩阵 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 大关键数字 ============ -->
+<section class="section-tight" id="key-numbers">
+  <div class="container-wide">
+    <span class="section-kicker">KEY NUMBERS · 关键数字</span>
+    <h2 class="section-title">用 5 个数字说明荥阳的当前位置</h2>
+    <div class="stats-banner" style="margin-top: var(--sp-8);">
+      <div class="stat"><div class="stat-num">40.4<span style="font-size:.5em;color:var(--text-2);">万㎡</span></div><div class="stat-label">园区建筑总规模</div></div>
+      <div class="stat"><div class="stat-num">260<span style="font-size:.5em;color:var(--text-2);">亩</span></div><div class="stat-label">占地面积</div></div>
+      <div class="stat"><div class="stat-num">52<span style="font-size:.5em;color:var(--text-2);">家</span></div><div class="stat-label">累计入驻企业（截至 2026 Q2）</div></div>
+      <div class="stat"><div class="stat-num">1,553</div><div class="stat-label">郑聚英才计划名额</div></div>
+      <div class="stat"><div class="stat-num">¥30<span style="font-size:.5em;color:var(--text-2);">亿</span></div><div class="stat-label">累计投资额</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 使命 · 愿景 · 价值观 ============ -->
+<section class="section" id="mvv">
+  <div class="container-wide">
+    <span class="section-kicker">MISSION · VISION · VALUES</span>
+    <h2 class="section-title">我们相信什么</h2>
+    <p class="section-lead">
+      作为中西部第一批把"三方共治 + 平台化运营"写进园区章程的运营主体，我们把三个词放在办公室最显眼的位置：
+      使命 · 愿景 · 价值观。
+    </p>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+
+      <div class="mvv-card">
+        <svg class="mvv-icon" viewBox="0 0 40 40" fill="none" stroke="var(--gov)" stroke-width="2">
+          <circle cx="20" cy="20" r="16"/>
+          <circle cx="20" cy="20" r="8"/>
+          <circle cx="20" cy="20" r="2" fill="var(--gov)"/>
+        </svg>
+        <div class="mvv-label">MISSION · 使命</div>
+        <p class="mvv-body">
+          让每一家河南企业，都能享受一线园区的数字化服务。
+        </p>
+        <p style="color:var(--text-3);font-size:var(--fs-sm);margin-top:var(--sp-4);line-height:var(--lh-relaxed);">
+          我们相信，中西部企业与长三角、粤港澳的差距，不在意愿也不在能力，而在服务基础设施。
+          荥阳愿意把这套基础设施补齐、把方法论开源、把认证师带出来。
+        </p>
+      </div>
+
+      <div class="mvv-card">
+        <svg class="mvv-icon" viewBox="0 0 40 40" fill="none" stroke="var(--enterprise)" stroke-width="2">
+          <path d="M4 20 Q10 6 20 6 Q30 6 36 20 Q30 34 20 34 Q10 34 4 20Z"/>
+          <circle cx="20" cy="20" r="4" fill="var(--enterprise)"/>
+        </svg>
+        <div class="mvv-label">VISION · 愿景</div>
+        <p class="mvv-body">
+          2028 年成为中国中部数字经济第一园区，输出可复制的三方共治 + 平台化运营范式。
+        </p>
+        <p style="color:var(--text-3);font-size:var(--fs-sm);margin-top:var(--sp-4);line-height:var(--lh-relaxed);">
+          不只是"荥阳园区"，而是"荥阳范式"——DTSI 诊断、X-Flow 推演、PDTMM 认证、OpenX@X 开放，
+          让其他省市可以拿来直接用。
+        </p>
+      </div>
+
+      <div class="mvv-card">
+        <svg class="mvv-icon" viewBox="0 0 40 40" fill="none" stroke="var(--ecosystem)" stroke-width="2">
+          <path d="M20 4 L28 12 L36 20 L28 28 L20 36 L12 28 L4 20 L12 12 Z"/>
+          <path d="M20 12 L20 28 M12 20 L28 20"/>
+        </svg>
+        <div class="mvv-label">VALUES · 价值观</div>
+        <p class="mvv-body" style="font-size:var(--fs-sm);color:var(--text-2);margin-bottom:var(--sp-2);">
+          6 个关键词，写在每一份合同和每一次考核里。
+        </p>
+        <div class="values-list">
+          <span class="value-pill">共治</span>
+          <span class="value-pill">严谨</span>
+          <span class="value-pill">数据驱动</span>
+          <span class="value-pill">长期主义</span>
+          <span class="value-pill">生态</span>
+          <span class="value-pill">创新</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 个入口卡 ============ -->
+<section class="section" id="entries">
+  <div class="container-wide">
+    <span class="section-kicker">EXPLORE · 深入了解</span>
+    <h2 class="section-title">三条进入荥阳的路径</h2>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+
+      <a href="./leadership.html" class="card entry-card">
+        <span class="card-tag">TEAM</span>
+        <h3 class="card-title">领导班子</h3>
+        <div class="entry-stat">15<span style="font-size:.5em;color:var(--text-3);">+ 位</span></div>
+        <p class="card-body">政府代表 · 城投代表 · 太能代表 · 6 大部门总监 · 4 位学术顾问——三方治理架构下的完整领导团队。</p>
+        <span class="card-cta">查看全部 bio</span>
+      </a>
+
+      <a href="./governance.html" class="card entry-card">
+        <span class="card-tag card-tag--gov">GOVERNANCE</span>
+        <h3 class="card-title">七方共治</h3>
+        <div class="entry-stat">7<span style="font-size:.5em;color:var(--text-3);"> 方</span></div>
+        <p class="card-body">政府 25.7% · 资产 18.7% · 运营 14.3% · 企业 12.0% · 科研 11.0% · 员工 9.3% · 居民 9.0%——AHP 权重经 300+ 专家验证。</p>
+        <span class="card-cta">查看治理架构图</span>
+      </a>
+
+      <a href="./timeline.html" class="card entry-card">
+        <span class="card-tag card-tag--case">TIMELINE</span>
+        <h3 class="card-title">里程碑</h3>
+        <div class="entry-stat">2019 → 2026</div>
+        <p class="card-body">从战略框架签署到 52 家企业入驻 · 4 大平台级 IP 发布 · 累计投资 30 亿 · 迈向 2028 中部第一园区。</p>
+        <span class="card-cta">查看时间线</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 联系我们 ============ -->
+<section class="section" id="contact">
+  <div class="container-wide">
+    <span class="section-kicker">CONTACT · 联系我们</span>
+    <h2 class="section-title">来一次实地对话</h2>
+    <p class="section-lead">
+      我们每周三 · 每周五 下午设有园区开放日，媒体、投资人、意向入驻企业、政府考察团均可预约。
+      也欢迎线上留言，48 小时内运营团队直接对接。
+    </p>
+    <div class="contact-grid" style="margin-top: var(--sp-8);">
+
+      <dl class="contact-info">
+        <dt>园区地址</dt>
+        <dd>河南省郑州市荥阳市索河路 96 号 · 荥阳数字经济产业园 A 座 8 层运营中心</dd>
+        <dt>接待电话</dt>
+        <dd>0371-6425-8899（工作日 9:00-18:00）</dd>
+        <dt>入驻咨询</dt>
+        <dd>invest@xingyang-park.gov.cn</dd>
+        <dt>媒体合作</dt>
+        <dd>press@xingyang-park.gov.cn</dd>
+        <dt>学术合作</dt>
+        <dd>academic@xingyang-park.gov.cn</dd>
+        <dt>交通</dt>
+        <dd>郑州东站驱车 42 分钟 · 郑州新郑国际机场 55 分钟 · 高铁郑州西站接驳巴士 15 分钟</dd>
+      </dl>
+
+      <form class="contact-form" action="#" method="post">
+        <p style="font-size:var(--fs-md);font-weight:700;">留下您的信息</p>
+        <input type="text" name="org" placeholder="单位 / 公司名称" required>
+        <input type="text" name="name" placeholder="联系人姓名" required>
+        <input type="email" name="email" placeholder="邮箱" required>
+        <input type="tel" name="phone" placeholder="手机号">
+        <select name="topic">
+          <option value="invest">意向入驻园区</option>
+          <option value="platform">平台级 IP 合作（DTSI / PDTMM 等）</option>
+          <option value="media">媒体采访</option>
+          <option value="academic">学术研究合作</option>
+          <option value="visit">政府/投资人考察</option>
+          <option value="other">其他</option>
+        </select>
+        <textarea name="msg" rows="3" placeholder="简述贵单位诉求 · 48 小时内回复"></textarea>
+        <button type="submit" class="btn-primary">提交</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sticky 咨询 ============ -->
+<a class="help-widget" href="#contact" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询
+</a>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>关于我们</h5>
+        <a href="./">总览</a>
+        <a href="./leadership.html">领导班子</a>
+        <a href="./governance.html">七方共治</a>
+        <a href="./timeline.html">里程碑</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="#contact">合作咨询</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+        <a href="tel:0371-6425-8899">0371-6425-8899</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

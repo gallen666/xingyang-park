@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<title>智慧园区运营中枢 · 荥阳数字经济产业园</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏗%3C/text%3E%3C/svg%3E">
+<style>
+  :root{--bg:#050810;--panel:#0a1024;--panel2:#0f172e;--line:rgba(56,189,248,.15);--text:#e6eefc;--muted:#8b95a8;--accent:#38bdf8;--gold:#fbbf24;--green:#34d399;--red:#fb7185;--purple:#a78bfa;--orange:#fb923c;--cyan:#22d3ee}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:radial-gradient(ellipse at top,#0a1024,#050810 60%);color:var(--text);font-size:13px;line-height:1.6;min-height:100vh;padding-bottom:40px}
+
+  /* Top nav */
+  .topnav{background:rgba(10,16,36,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:0 24px;position:sticky;top:0;z-index:100}
+  .nav-inner{max-width:1600px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:60px}
+  .brand{font-size:16px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:10px}
+  .nav-links{display:flex;gap:20px;list-style:none}
+  .nav-links a{color:var(--text);font-size:12.5px;padding:6px 0;text-decoration:none;border-bottom:2px solid transparent}
+  .nav-links a.active,.nav-links a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+  .live-indicator{display:flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(52,211,153,.15);border-radius:12px;font-size:11px}
+  .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse-live 1.5s infinite}
+  @keyframes pulse-live{0%,100%{opacity:1}50%{opacity:.4}}
+
+  /* Container */
+  main{max-width:1600px;margin:0 auto;padding:20px 24px}
+
+  /* Header */
+  .page-header{margin-bottom:20px}
+  .page-title{font-size:28px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+  .page-sub{color:var(--muted);font-size:13.5px}
+
+  /* KPI hero */
+  .kpi-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .kpi-hero-card{padding:20px;background:linear-gradient(135deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:12px;position:relative;overflow:hidden}
+  .kpi-hero-card::after{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:radial-gradient(circle,rgba(56,189,248,.1) 0%,transparent 70%);pointer-events:none}
+  .kpi-hero-icon{font-size:28px;margin-bottom:8px}
+  .kpi-hero-value{font-size:32px;font-weight:700;line-height:1.1}
+  .kpi-hero-unit{font-size:14px;color:var(--muted)}
+  .kpi-hero-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+  .kpi-hero-change{font-size:11px;margin-top:4px}
+  .kpi-hero-change.up{color:var(--green)}
+  .kpi-hero-change.down{color:var(--red)}
+
+  /* Layout */
+  .grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid-32{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+  .grid-23{display:grid;grid-template-columns:1fr 2fr;gap:14px}
+
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}
+  .panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .panel-title{font-size:14px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}
+  .panel-title .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent)}
+  .panel-sub{font-size:11px;color:var(--muted)}
+
+  /* 5G section */
+  .cell-tower-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+  .cell-tower{padding:10px 6px;background:var(--panel2);border-radius:6px;border-left:3px solid var(--green);text-align:center}
+  .cell-tower.warn{border-left-color:var(--gold)}
+  .cell-tower.critical{border-left-color:var(--red)}
+  .tower-name{font-size:11px;color:var(--muted);margin-bottom:4px}
+  .tower-signal{font-size:16px;font-weight:700;color:var(--green)}
+  .tower-signal.warn{color:var(--gold)}
+  .tower-signal.critical{color:var(--red)}
+
+  /* Cloud stats */
+  .cloud-usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .usage-card{padding:14px;background:var(--panel2);border-radius:6px}
+  .usage-label{font-size:11px;color:var(--muted);margin-bottom:6px}
+  .usage-bar{height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;margin:8px 0}
+  .usage-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--cyan));transition:width 1s}
+  .usage-percent{font-size:16px;font-weight:700;color:var(--accent)}
+  .usage-detail{font-size:11px;color:var(--muted);float:right}
+
+  /* IoT devices */
+  .iot-devices{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+  .iot-device{padding:12px;background:var(--panel2);border-radius:6px;text-align:center;position:relative}
+  .iot-icon{font-size:22px}
+  .iot-count{font-size:20px;font-weight:700;color:var(--gold);margin:4px 0}
+  .iot-name{font-size:10px;color:var(--muted)}
+  .iot-status{position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green)}
+  .iot-status.warn{background:var(--gold);box-shadow:0 0 6px var(--gold)}
+
+  /* Security */
+  .security-cams{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .cam-view{aspect-ratio:16/9;background:linear-gradient(135deg,#050810,#0a1024);border-radius:6px;position:relative;overflow:hidden;border:1px solid var(--line)}
+  .cam-label{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.6);padding:2px 6px;border-radius:3px;font-size:10px;color:var(--green)}
+  .cam-rec{position:absolute;top:6px;right:6px;display:flex;align-items:center;gap:4px;background:rgba(200,16,46,.8);padding:2px 6px;border-radius:3px;font-size:9px}
+  .cam-rec-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse-live 1.5s infinite}
+  .cam-content{position:absolute;bottom:0;left:0;right:0;padding:6px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);font-size:10px;color:var(--text)}
+
+  /* Alert list */
+  .alert-item{display:flex;gap:10px;padding:10px;background:var(--panel2);border-radius:6px;margin-bottom:6px;border-left:3px solid transparent}
+  .alert-item.critical{border-left-color:var(--red)}
+  .alert-item.warn{border-left-color:var(--gold)}
+  .alert-item.info{border-left-color:var(--accent)}
+  .alert-item.resolved{border-left-color:var(--green);opacity:.7}
+  .alert-time{font-size:10px;color:var(--muted);min-width:50px}
+  .alert-content{flex:1;font-size:12px}
+  .alert-tag{display:inline-block;padding:1px 6px;background:rgba(251,113,133,.15);color:var(--red);border-radius:3px;font-size:10px;margin-right:6px}
+  .alert-tag.warn{background:rgba(251,191,36,.15);color:var(--gold)}
+  .alert-tag.info{background:rgba(56,189,248,.15);color:var(--accent)}
+  .alert-tag.resolved{background:rgba(52,211,153,.15);color:var(--green)}
+
+  /* Energy chart */
+  .energy-chart{height:180px;position:relative}
+  .chart-bars{display:flex;align-items:flex-end;justify-content:space-between;height:150px;gap:6px;padding:0 4px}
+  .bar-col{flex:1;background:linear-gradient(180deg,var(--gold),rgba(251,191,36,.2));border-radius:3px 3px 0 0;position:relative}
+  .bar-label{position:absolute;bottom:-16px;left:0;right:0;text-align:center;font-size:10px;color:var(--muted)}
+
+  /* Visitor */
+  .visitor-list{max-height:280px;overflow-y:auto}
+  .visitor-item{display:flex;gap:10px;padding:10px;background:var(--panel2);border-radius:6px;margin-bottom:6px;align-items:center}
+  .visitor-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px}
+  .visitor-info{flex:1}
+  .visitor-name{font-size:12px;color:var(--text)}
+  .visitor-meta{font-size:10px;color:var(--muted)}
+
+  /* Building floors */
+  .building{padding:12px;background:var(--panel2);border-radius:6px;margin-bottom:10px}
+  .building-name{font-size:13px;color:var(--gold);font-weight:600;margin-bottom:8px}
+  .floors{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+  .floor{padding:6px 4px;background:rgba(255,255,255,.03);border-radius:3px;text-align:center;font-size:10px}
+  .floor.full{background:rgba(52,211,153,.15);color:var(--green)}
+  .floor.busy{background:rgba(251,191,36,.15);color:var(--gold)}
+  .floor.available{background:rgba(56,189,248,.15);color:var(--accent)}
+  .floor.empty{background:rgba(139,149,168,.1);color:var(--muted)}
+
+  /* Environment */
+  .env-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .env-metric{padding:12px;background:var(--panel2);border-radius:6px;text-align:center}
+  .env-value{font-size:22px;font-weight:700;color:var(--cyan)}
+  .env-unit{font-size:11px;color:var(--muted)}
+  .env-label{font-size:11px;color:var(--muted);margin-top:4px}
+  .env-status{margin-top:6px;padding:2px 6px;border-radius:3px;font-size:10px;display:inline-block}
+  .env-status.good{background:rgba(52,211,153,.15);color:var(--green)}
+  .env-status.warn{background:rgba(251,191,36,.15);color:var(--gold)}
+
+  @media(max-width:900px){
+    .kpi-hero,.grid-4,.grid-2,.grid-32,.grid-23{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Global nav (v2.0) -->
+<nav class="nav-global" role="navigation" aria-label="主导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="../services/investment.html">预约实地考察</a>
+  </div>
+</nav>
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Board D · 智慧运营</span>
+    <a href="#overview" class="active">概览</a>
+    <a href="#services">服务矩阵</a>
+    <a href="#stories">客户故事</a>
+    <a href="#insights">洞察</a>
+    <a href="#contact">联系</a>
+  </div>
+</div>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <a href="./index.html" class="brand">🏗 智慧园区运营中枢</a>
+    <ul class="nav-links">
+      <li><a href="./index.html">首页</a></li>
+      <li><a href="./onboarding.html">入驻</a></li>
+      <li><a href="./enterprise-workspace.html">企业专区</a></li>
+      <li><a href="./smart-park-ops.html" class="active">🏗 智慧运营</a></li>
+      <li><a href="./industrial-ecosystem.html">产业生态</a></li>
+      <li><a href="./admin-console.html">治理中枢</a></li>
+    </ul>
+    <div class="live-indicator">
+      <span class="live-dot"></span>
+      <span>实时数据流 · <span id="clock"></span></span>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="page-header">
+    <div class="page-title">智慧园区运营中枢 · Smart Park Ops</div>
+    <div class="page-sub">5G 专网 · 云端智核 · 智联万物 · 智盾护航 四大能力实时监控</div>
+  </div>
+
+  <!-- KPI Hero -->
+  <div class="kpi-hero">
+    <div class="kpi-hero-card">
+      <div class="kpi-hero-icon">🌐</div>
+      <div class="kpi-hero-value">99.8<span class="kpi-hero-unit">%</span></div>
+      <div class="kpi-hero-label">5G 网络在线率</div>
+      <div class="kpi-hero-change up">↑ 24h SLA 达标</div>
+    </div>
+    <div class="kpi-hero-card">
+      <div class="kpi-hero-icon">☁️</div>
+      <div class="kpi-hero-value">67<span class="kpi-hero-unit">%</span></div>
+      <div class="kpi-hero-label">云平台负载</div>
+      <div class="kpi-hero-change">2.4K vCPU 使用中</div>
+    </div>
+    <div class="kpi-hero-card">
+      <div class="kpi-hero-icon">📡</div>
+      <div class="kpi-hero-value">8,247</div>
+      <div class="kpi-hero-label">IoT 在线设备</div>
+      <div class="kpi-hero-change up">↑ 12 台新增</div>
+    </div>
+    <div class="kpi-hero-card">
+      <div class="kpi-hero-icon">🛡</div>
+      <div class="kpi-hero-value">0</div>
+      <div class="kpi-hero-label">今日安全事件</div>
+      <div class="kpi-hero-change up">运行平稳</div>
+    </div>
+  </div>
+
+  <!-- 5G + Cloud row -->
+  <div class="grid-2">
+    <!-- 5G 专网 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--accent);box-shadow:0 0 8px var(--accent)"></span>5G 专网状态</div>
+        <div class="panel-sub">6 座基站 · 40.4 万 m² 全覆盖</div>
+      </div>
+      <div class="cell-tower-grid">
+        <div class="cell-tower"><div class="tower-name">A 座</div><div class="tower-signal">99%</div></div>
+        <div class="cell-tower"><div class="tower-name">B 座</div><div class="tower-signal">98%</div></div>
+        <div class="cell-tower warn"><div class="tower-name">C 座</div><div class="tower-signal warn">87%</div></div>
+        <div class="cell-tower"><div class="tower-name">D 座</div><div class="tower-signal">99%</div></div>
+        <div class="cell-tower"><div class="tower-name">裙楼</div><div class="tower-signal">97%</div></div>
+        <div class="cell-tower"><div class="tower-name">室外</div><div class="tower-signal">95%</div></div>
+      </div>
+
+      <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+        <div class="usage-card">
+          <div class="usage-label">当前接入设备</div>
+          <div class="usage-percent">3,842<span style="font-size:11px;color:var(--muted)"> 台</span></div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-label">带宽使用</div>
+          <div class="usage-percent">42%<span class="usage-detail">4.2/10Gbps</span></div>
+          <div class="usage-bar"><div class="usage-fill" style="width:42%"></div></div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-label">MEC 延迟</div>
+          <div class="usage-percent">4.3<span style="font-size:11px;color:var(--muted)"> ms</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 云端智核 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--gold);box-shadow:0 0 8px var(--gold)"></span>云端智核 · 算力与数据</div>
+        <div class="panel-sub">高性能云平台 + PB 级数据中心</div>
+      </div>
+
+      <div class="cloud-usage-grid">
+        <div class="usage-card">
+          <div class="usage-label">🖥 CPU 使用率</div>
+          <div class="usage-percent">67%<span class="usage-detail">2.4K/3.6K vCPU</span></div>
+          <div class="usage-bar"><div class="usage-fill" style="width:67%"></div></div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-label">💾 内存使用率</div>
+          <div class="usage-percent">54%<span class="usage-detail">18/33 TB</span></div>
+          <div class="usage-bar"><div class="usage-fill" style="width:54%;background:linear-gradient(90deg,var(--purple),var(--accent))"></div></div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-label">💽 存储使用率</div>
+          <div class="usage-percent">38%<span class="usage-detail">190/500 TB</span></div>
+          <div class="usage-bar"><div class="usage-fill" style="width:38%;background:linear-gradient(90deg,var(--green),var(--cyan))"></div></div>
+        </div>
+        <div class="usage-card">
+          <div class="usage-label">⚡ GPU 使用率</div>
+          <div class="usage-percent">82%<span class="usage-detail">65/80 卡</span></div>
+          <div class="usage-bar"><div class="usage-fill" style="width:82%;background:linear-gradient(90deg,var(--red),var(--gold))"></div></div>
+        </div>
+      </div>
+
+      <div style="padding:12px;background:var(--panel2);border-radius:6px">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px">🚀 <b style="color:var(--text)">正在运行的任务</b></div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.9">
+          · 大华股份 AI 训练任务（3 GPU × 12h）<br>
+          · 安恒信息安全审计（2 vCPU × 持续）<br>
+          · 优刻得云原生开发（16 vCPU × 6h）<br>
+          · 园区能耗数据分析（8 vCPU × 每 15min）
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IoT + Security row -->
+  <div class="grid-2">
+    <!-- IoT 设备 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--green);box-shadow:0 0 8px var(--green)"></span>智联万物 · IoT 设备总台</div>
+        <div class="panel-sub">8,247 设备在线 · 99.4% SLA</div>
+      </div>
+      <div class="iot-devices">
+        <div class="iot-device"><div class="iot-icon">💡</div><div class="iot-count">2,340</div><div class="iot-name">智能照明</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">🌡</div><div class="iot-count">1,876</div><div class="iot-name">温湿度传感</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">📹</div><div class="iot-count">1,240</div><div class="iot-name">安防摄像头</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">🚪</div><div class="iot-count">648</div><div class="iot-name">智能门禁</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">🔥</div><div class="iot-count">592</div><div class="iot-name">烟感消防</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">💧</div><div class="iot-count">328</div><div class="iot-name">水质监测</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">⚡</div><div class="iot-count">412</div><div class="iot-name">智能电表</div><div class="iot-status warn"></div></div>
+        <div class="iot-device"><div class="iot-icon">🌫</div><div class="iot-count">156</div><div class="iot-name">空气质量</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">🚗</div><div class="iot-count">543</div><div class="iot-name">停车传感</div><div class="iot-status"></div></div>
+        <div class="iot-device"><div class="iot-icon">🚦</div><div class="iot-count">112</div><div class="iot-name">交通信号</div><div class="iot-status"></div></div>
+      </div>
+    </div>
+
+    <!-- 智盾护航 · 视频监控 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--red);box-shadow:0 0 8px var(--red)"></span>智盾护航 · 实时安防</div>
+        <div class="panel-sub">1,240 摄像头 · AI 智能分析中</div>
+      </div>
+      <div class="security-cams">
+        <div class="cam-view">
+          <span class="cam-label">📷 A 座大门</span>
+          <span class="cam-rec"><span class="cam-rec-dot"></span>REC</span>
+          <div style="width:100%;height:100%;background:linear-gradient(45deg,#0a1024,#1a2340);opacity:.5;position:relative">
+            <div style="position:absolute;bottom:30%;left:20%;width:8%;height:20%;background:rgba(56,189,248,.4);border:1px solid var(--accent)"></div>
+            <div style="position:absolute;bottom:35%;left:60%;width:10%;height:25%;background:rgba(52,211,153,.4);border:1px solid var(--green)"></div>
+          </div>
+          <div class="cam-content">👥 3 人通行 · 人脸识别通过</div>
+        </div>
+        <div class="cam-view">
+          <span class="cam-label">📷 B 座大厅</span>
+          <span class="cam-rec"><span class="cam-rec-dot"></span>REC</span>
+          <div style="width:100%;height:100%;background:linear-gradient(45deg,#1a2340,#0a1024);opacity:.5"></div>
+          <div class="cam-content">✓ 环境正常</div>
+        </div>
+        <div class="cam-view">
+          <span class="cam-label">📷 停车场 A</span>
+          <span class="cam-rec"><span class="cam-rec-dot"></span>REC</span>
+          <div style="width:100%;height:100%;background:linear-gradient(90deg,#0a1024,#1a2340);opacity:.5;position:relative">
+            <div style="position:absolute;top:20%;left:10%;width:12%;height:15%;background:rgba(251,191,36,.4);border:1px solid var(--gold)"></div>
+            <div style="position:absolute;top:20%;left:30%;width:12%;height:15%;background:rgba(52,211,153,.4);border:1px solid var(--green)"></div>
+            <div style="position:absolute;top:20%;left:50%;width:12%;height:15%;background:rgba(56,189,248,.4);border:1px solid var(--accent)"></div>
+          </div>
+          <div class="cam-content">🚗 剩余车位：42 个</div>
+        </div>
+        <div class="cam-view">
+          <span class="cam-label">📷 D 座数据中心</span>
+          <span class="cam-rec"><span class="cam-rec-dot"></span>REC</span>
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1024,#22d3ee20);opacity:.5"></div>
+          <div class="cam-content">🔒 授权访问 · 温度 22℃</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding:10px;background:var(--panel2);border-radius:6px;font-size:11px;color:var(--muted)">
+        <div style="color:var(--green);font-weight:600;margin-bottom:6px">🛡 AI 智能监控运行中</div>
+        · 人员识别：<b style="color:var(--text)">1,240/1,240 摄像头正常</b><br>
+        · 异常行为检测：<b style="color:var(--green)">0 起</b><br>
+        · 车辆识别：<b style="color:var(--text)">今日进出 3,842 次</b><br>
+        · 烟火 / 消防：<b style="color:var(--green)">正常</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- Energy + Buildings row -->
+  <div class="grid-23">
+    <!-- 能耗管理 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--orange);box-shadow:0 0 8px var(--orange)"></span>能耗实时</div>
+        <div class="panel-sub">今日总用电</div>
+      </div>
+      <div style="text-align:center;padding:14px 0">
+        <div style="font-size:34px;font-weight:700;color:var(--orange)">42.6<span style="font-size:14px;color:var(--muted)">MWh</span></div>
+        <div style="font-size:11px;color:var(--green);margin-top:4px">↓ 环比 -8% · 节能达标</div>
+      </div>
+      <div class="env-metrics">
+        <div class="env-metric"><div class="env-value" style="color:var(--gold)">28</div><div class="env-label">碳排(tCO₂)</div></div>
+        <div class="env-metric"><div class="env-value" style="color:var(--green)">92</div><div class="env-label">PUE</div></div>
+      </div>
+    </div>
+
+    <!-- Building floors -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--purple);box-shadow:0 0 8px var(--purple)"></span>各楼宇实时占用</div>
+        <div class="panel-sub">当前在楼人数：2,847</div>
+      </div>
+
+      <div class="building">
+        <div class="building-name">🏢 A 座 · 数字经济总部中心（30F · 12 万 m²）</div>
+        <div class="floors">
+          <div class="floor full">1F</div><div class="floor full">2F</div><div class="floor full">3F</div><div class="floor busy">4F</div>
+          <div class="floor full">5F</div><div class="floor full">6F</div><div class="floor busy">7F</div><div class="floor full">8F</div>
+          <div class="floor busy">9F</div><div class="floor available">10F</div><div class="floor available">11F</div><div class="floor busy">12F</div>
+          <div class="floor empty">13F</div><div class="floor empty">14F</div><div class="floor empty">15F</div><div class="floor empty">16F</div>
+        </div>
+      </div>
+
+      <div class="building">
+        <div class="building-name">🚀 B 座 · 科技创新创业中心（22F · 9 万 m²）</div>
+        <div class="floors">
+          <div class="floor full">1F</div><div class="floor busy">2F</div><div class="floor full">3F</div><div class="floor busy">4F</div>
+          <div class="floor available">5F</div><div class="floor busy">6F</div><div class="floor available">7F</div><div class="floor empty">8F</div>
+          <div class="floor empty">9F</div><div class="floor empty">10F</div><div class="floor empty">11F</div><div class="floor empty">12F</div>
+        </div>
+      </div>
+
+      <div class="building">
+        <div class="building-name">🖼 C 座 · 展示中心 · 🔬 D 座 · 数字经济研究院</div>
+        <div class="floors">
+          <div class="floor busy">C1F</div><div class="floor available">C2F</div><div class="floor available">C3F</div><div class="floor empty">C4F</div>
+          <div class="floor full">D1F</div><div class="floor full">D2F</div><div class="floor busy">D3F</div><div class="floor busy">D4F</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:12px;font-size:10px;color:var(--muted)">
+        <span><span style="display:inline-block;width:12px;height:8px;background:rgba(52,211,153,.15);margin-right:4px"></span>密集</span>
+        <span><span style="display:inline-block;width:12px;height:8px;background:rgba(251,191,36,.15);margin-right:4px"></span>繁忙</span>
+        <span><span style="display:inline-block;width:12px;height:8px;background:rgba(56,189,248,.15);margin-right:4px"></span>宽松</span>
+        <span><span style="display:inline-block;width:12px;height:8px;background:rgba(139,149,168,.1);margin-right:4px"></span>空置</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerts + Visitors + Environment -->
+  <div class="grid-4" style="grid-template-columns:1.5fr 1fr 1fr">
+    <!-- 告警中心 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--red);box-shadow:0 0 8px var(--red)"></span>告警中心</div>
+        <div class="panel-sub">今日 6 起 · 已处理 5</div>
+      </div>
+      <div class="alert-item warn">
+        <div class="alert-time">14:32</div>
+        <div class="alert-content"><span class="alert-tag warn">警告</span>C 座 5G 基站信号强度下降至 87%，建议巡检</div>
+      </div>
+      <div class="alert-item info">
+        <div class="alert-time">13:15</div>
+        <div class="alert-content"><span class="alert-tag info">信息</span>D 座 3F 智能电表用电峰值超阈值</div>
+      </div>
+      <div class="alert-item resolved">
+        <div class="alert-time">10:20</div>
+        <div class="alert-content"><span class="alert-tag resolved">已解决</span>B 座 7F 空调温度异常（已复位）</div>
+      </div>
+      <div class="alert-item resolved">
+        <div class="alert-time">08:47</div>
+        <div class="alert-content"><span class="alert-tag resolved">已解决</span>停车场 B 门禁短暂离线（3 分钟后恢复）</div>
+      </div>
+      <div class="alert-item resolved">
+        <div class="alert-time">07:15</div>
+        <div class="alert-content"><span class="alert-tag resolved">已解决</span>A 座大厅访客登记系统重启完成</div>
+      </div>
+      <div class="alert-item resolved">
+        <div class="alert-time">02:30</div>
+        <div class="alert-content"><span class="alert-tag resolved">已解决</span>数据中心备份任务完成</div>
+      </div>
+    </div>
+
+    <!-- 访客管理 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--cyan);box-shadow:0 0 8px var(--cyan)"></span>今日访客</div>
+        <div class="panel-sub">共 128 位</div>
+      </div>
+      <div class="visitor-list">
+        <div class="visitor-item">
+          <div class="visitor-avatar">李</div>
+          <div class="visitor-info">
+            <div class="visitor-name">李先生 · 商务洽谈</div>
+            <div class="visitor-meta">A 座 8F · 大华股份 · 14:00 入</div>
+          </div>
+        </div>
+        <div class="visitor-item">
+          <div class="visitor-avatar">王</div>
+          <div class="visitor-info">
+            <div class="visitor-name">王教授 · 产学研合作</div>
+            <div class="visitor-meta">D 座 2F · 郑州大学 · 13:30 入</div>
+          </div>
+        </div>
+        <div class="visitor-item">
+          <div class="visitor-avatar">张</div>
+          <div class="visitor-info">
+            <div class="visitor-name">张女士 · 招商咨询</div>
+            <div class="visitor-meta">C 座 1F · 荥泽数链 · 11:00 入</div>
+          </div>
+        </div>
+        <div class="visitor-item">
+          <div class="visitor-avatar">陈</div>
+          <div class="visitor-info">
+            <div class="visitor-name">陈总 · 意向企业考察</div>
+            <div class="visitor-meta">全楼参观 · 10:30 入 · 12:30 出</div>
+          </div>
+        </div>
+        <div class="visitor-item">
+          <div class="visitor-avatar">刘</div>
+          <div class="visitor-info">
+            <div class="visitor-name">刘书记 · 领导视察</div>
+            <div class="visitor-meta">A 座 · 荥阳市府 · 09:00 入 · 11:30 出</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 环境监测 -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title"><span class="dot" style="background:var(--cyan);box-shadow:0 0 8px var(--cyan)"></span>环境监测</div>
+        <div class="panel-sub">园区综合</div>
+      </div>
+      <div class="env-metrics" style="grid-template-columns:1fr 1fr">
+        <div class="env-metric">
+          <div class="env-value">23<span class="env-unit">℃</span></div>
+          <div class="env-label">园区温度</div>
+          <div class="env-status good">舒适</div>
+        </div>
+        <div class="env-metric">
+          <div class="env-value">54<span class="env-unit">%</span></div>
+          <div class="env-label">湿度</div>
+          <div class="env-status good">正常</div>
+        </div>
+        <div class="env-metric">
+          <div class="env-value">42</div>
+          <div class="env-label">PM 2.5</div>
+          <div class="env-status good">优</div>
+        </div>
+        <div class="env-metric">
+          <div class="env-value">385</div>
+          <div class="env-label">CO₂ (ppm)</div>
+          <div class="env-status good">优</div>
+        </div>
+        <div class="env-metric">
+          <div class="env-value">42</div>
+          <div class="env-label">噪声 (dB)</div>
+          <div class="env-status good">安静</div>
+        </div>
+        <div class="env-metric">
+          <div class="env-value">280</div>
+          <div class="env-label">光照 (lux)</div>
+          <div class="env-status good">适宜</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Work orders -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="panel-title"><span class="dot"></span>物业工单闭环</div>
+      <div class="panel-sub">今日新增 12 单 · 已完成 9 单 · 平均响应 18 分钟</div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <thead>
+        <tr style="border-bottom:1px solid var(--line)">
+          <th style="text-align:left;padding:8px;color:var(--muted);font-size:11px">工单号</th>
+          <th style="text-align:left;padding:8px;color:var(--muted);font-size:11px">类型</th>
+          <th style="text-align:left;padding:8px;color:var(--muted);font-size:11px">位置</th>
+          <th style="text-align:left;padding:8px;color:var(--muted);font-size:11px">报单人</th>
+          <th style="text-align:left;padding:8px;color:var(--muted);font-size:11px">状态</th>
+          <th style="text-align:left;padding:8px;color:var(--muted);font-size:11px">响应</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">WO-2026-0728-012</td><td>🔧 设施维修</td><td>A 座 8F 大会议室</td><td>大华股份</td><td><span style="background:rgba(251,191,36,.15);color:var(--gold);padding:2px 6px;border-radius:3px;font-size:10px">进行中</span></td><td>12 分钟</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">WO-2026-0728-011</td><td>💡 照明</td><td>B 座 5F 走廊</td><td>物业巡检</td><td><span style="background:rgba(52,211,153,.15);color:var(--green);padding:2px 6px;border-radius:3px;font-size:10px">已完成</span></td><td>8 分钟</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">WO-2026-0728-010</td><td>🌡 空调</td><td>C 座 3F 展厅</td><td>优刻得</td><td><span style="background:rgba(52,211,153,.15);color:var(--green);padding:2px 6px;border-radius:3px;font-size:10px">已完成</span></td><td>15 分钟</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">WO-2026-0728-009</td><td>🚻 卫生</td><td>裙楼 1F 洗手间</td><td>访客反馈</td><td><span style="background:rgba(52,211,153,.15);color:var(--green);padding:2px 6px;border-radius:3px;font-size:10px">已完成</span></td><td>6 分钟</td></tr>
+        <tr><td style="padding:8px">WO-2026-0728-008</td><td>🔒 门禁</td><td>停车场 B</td><td>系统告警</td><td><span style="background:rgba(52,211,153,.15);color:var(--green);padding:2px 6px;border-radius:3px;font-size:10px">已完成</span></td><td>3 分钟</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<script>
+function updateClock(){
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('clock').textContent = h + ':' + m + ':' + s;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// 生成能耗柱状图（如果有对应容器则填充）
+// 添加数据实时波动模拟
+setInterval(() => {
+  document.querySelectorAll('.tower-signal').forEach(el => {
+    if (!el.classList.contains('warn') && !el.classList.contains('critical')) {
+      const base = parseInt(el.textContent);
+      const flux = Math.floor(Math.random() * 3) - 1;
+      el.textContent = Math.min(99, Math.max(90, base + flux)) + '%';
+    }
+  });
+}, 3000);
+</script>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item">荥阳市人民政府</div>
+      <div class="footer-lockup-item">荥阳城投</div>
+      <div class="footer-lockup-item">太能控股</div>
+      <div style="color: var(--text-3); font-size: var(--fs-sm); margin-left: auto;">
+        运营主体：郑州荥泽数链产业发展有限公司
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed);">
+          郑西数字经济新高地 · 40.4 万㎡ · 260 亩 · 52 家已入驻 · ¥30 亿投资
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>平台 · 服务</h5>
+        <a href="../platforms/dtsi.html">DTSI®</a>
+        <a href="../platforms/xflow.html">X-Flow Dynamics™</a>
+        <a href="../platforms/pdtmm.html">PDTMM® 认证</a>
+        <a href="../platforms/openxx.html">OpenX@X™</a>
+        <a href="../services/">8 大运营服务</a>
+      </div>
+      <div class="footer-col">
+        <h5>生态 · 洞察</h5>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../insights/">洞察中心</a>
+        <a href="../newsroom/">新闻室</a>
+      </div>
+      <div class="footer-col">
+        <h5>关于 · 治理</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../about/leadership.html">领导班子</a>
+        <a href="../about/governance.html">七方共治</a>
+        <a href="../about/timeline.html">里程碑</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 荥阳数字经济产业园 · 郑州荥泽数链产业发展有限公司 · 保留所有权利<br>
+      商标：DTSI® · X-Flow Dynamics™ · PDTMM® · OpenX@X™ · 荥泽招商飞轮®
+    </div>
+  </div>
+</footer>
+<a class="help-widget" href="../services/investment.html">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  有什么可以帮您？
+</a>
+
+</body>
+</html>

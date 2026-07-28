@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>招商合作 · 荥泽招商飞轮® · 荥阳数字经济产业园</title>
+<meta name="description" content="招商合作服务：500 强招引、政府/园区对接、沙龙路演、项目撮合、招商情报、招商代理、引荐佣金（¥3-30 万/项）、3 年长期陪跑。累计签约 52 家 · ¥30 亿到位投资 · 项目落地率 78%。赵鸿飞总经理带队，荥泽招商飞轮® 全流程。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+
+  /* --- Hero rail (auto-rotate + radio manual) --- */
+  .hero-rail { position: relative; min-height: 520px; background:
+    radial-gradient(ellipse at 20% 30%, rgba(184,16,46,.18), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(56,189,248,.12), transparent 55%),
+    linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+    border-bottom: 1px solid var(--bg-line); overflow: hidden;
+  }
+  .hero-rail input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .hero-slides { position: relative; max-width: var(--container-max); margin: 0 auto; padding: var(--sp-16) var(--sp-6); }
+  .hero-slide {
+    position: absolute; top: var(--sp-16); left: var(--sp-6); right: var(--sp-6);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+    pointer-events: none;
+  }
+  .hero-slide:first-of-type { position: relative; }
+  #hero-1:checked ~ .hero-slides .hero-slide:nth-of-type(1),
+  #hero-2:checked ~ .hero-slides .hero-slide:nth-of-type(2),
+  #hero-3:checked ~ .hero-slides .hero-slide:nth-of-type(3) {
+    opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 2;
+  }
+  /* Auto rotate via animation on labels (fallback: rely on manual click) */
+  .hero-dots { position: absolute; bottom: var(--sp-8); left: 50%; transform: translateX(-50%); display: flex; gap: var(--sp-3); z-index: 5; }
+  .hero-dots label { width: 32px; height: 4px; background: var(--bg-3); border-radius: var(--radius-pill); cursor: pointer; transition: background var(--dur-fast) var(--ease); }
+  #hero-1:checked ~ .hero-dots label[for=hero-1],
+  #hero-2:checked ~ .hero-dots label[for=hero-2],
+  #hero-3:checked ~ .hero-dots label[for=hero-3] { background: var(--gov); }
+  .hero-tag { display: inline-block; padding: 2px var(--sp-3); background: var(--gold); color: var(--text-invert); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; margin-bottom: var(--sp-4); }
+  .hero-tag--pov { background: var(--enterprise); color: var(--text-invert); }
+  .hero-tag--testimonial { background: var(--ecosystem); color: var(--text-invert); }
+  .hero-tag--press { background: var(--gov); color: #fff; }
+
+  /* --- 7-layer proof stack --- */
+  .proof-stack { display: grid; gap: var(--sp-4); margin-top: var(--sp-8); }
+  .proof-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-5); padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); align-items: center; }
+  @media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
+  .proof-layer { font-size: var(--fs-xs); font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .08em; }
+  .proof-content { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .proof-content b { color: var(--text); }
+  .proof-content .num { color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+
+  /* --- Testimonial carousel --- */
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
+  .quote-card { padding: var(--sp-6); background: linear-gradient(135deg, var(--enterprise-soft), transparent), var(--bg-2); border: 1px solid rgba(56,189,248,.25); border-radius: var(--radius-md); position: relative; }
+  .quote-card::before { content: "\201C"; position: absolute; top: 8px; right: 20px; font-size: 72px; color: var(--enterprise); opacity: 0.25; line-height: 1; font-family: Georgia, serif; }
+  .quote-text { font-size: var(--fs-md); font-weight: 500; line-height: var(--lh-relaxed); color: var(--text-1); margin-bottom: var(--sp-4); }
+  .quote-attr { display: flex; align-items: center; gap: var(--sp-3); }
+  .quote-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 800; }
+  .quote-name { font-weight: 700; color: var(--text); font-size: var(--fs-sm); }
+  .quote-title { color: var(--text-3); font-size: var(--fs-xs); }
+  .quote-outcome { display: inline-block; margin-top: var(--sp-3); padding: 2px var(--sp-3); background: var(--gov-soft); color: var(--gov-hover); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 600; }
+
+  /* --- Mid CTA --- */
+  .mid-cta { padding: var(--sp-8); background: linear-gradient(90deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.35); border-radius: var(--radius-md); display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; margin: var(--sp-8) 0; }
+  @media (max-width: 700px) { .mid-cta { grid-template-columns: 1fr; text-align: center; } }
+  .mid-cta__title { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-1); }
+  .mid-cta__body { color: var(--text-2); font-size: var(--fs-sm); }
+
+  /* --- Tabbed proof panel (CSS-only tabs) --- */
+  .tabs-proof { margin-top: var(--sp-6); }
+  .tabs-proof input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .tab-labels { display: flex; gap: var(--sp-2); border-bottom: 1px solid var(--bg-line); margin-bottom: var(--sp-5); }
+  .tab-labels label { padding: var(--sp-3) var(--sp-5); font-weight: 600; font-size: var(--fs-sm); color: var(--text-3); cursor: pointer; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .tab-labels label:hover { color: var(--text-1); }
+  #tab-a:checked ~ .tab-labels label[for=tab-a],
+  #tab-b:checked ~ .tab-labels label[for=tab-b] { color: var(--gov); border-bottom-color: var(--gov); }
+  .tab-panel { display: none; }
+  #tab-a:checked ~ .tab-content .tab-panel--a,
+  #tab-b:checked ~ .tab-content .tab-panel--b { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  @media (max-width: 900px) { #tab-a:checked ~ .tab-content .tab-panel--a, #tab-b:checked ~ .tab-content .tab-panel--b { grid-template-columns: 1fr; } }
+  .win-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-left: 3px solid var(--ecosystem); }
+  .win-card--gov { border-left-color: var(--gov); }
+  .win-card__tenant { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .win-card__desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .win-card__stat { margin-top: var(--sp-3); color: var(--gold); font-size: var(--fs-sm); font-weight: 700; }
+
+  /* --- Offering matrix --- */
+  .offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 1000px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .offer-grid { grid-template-columns: 1fr; } }
+  .offer-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .offer-card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .offer-card__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .offer-card__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3); }
+  .offer-card__more { color: var(--enterprise); font-size: var(--fs-sm); font-weight: 600; }
+  .offer-card__more::after { content: " →"; }
+
+  /* --- Insights grid --- */
+  .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
+
+  /* --- FAQ --- */
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--gov); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* --- SPOC --- */
+  .spoc-card { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 700px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--gov-hover)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 96px; height: 96px; background: repeating-conic-gradient(#0a0e1a 0 25%, #e6eefc 0 50%) 50% / 12px 12px, var(--bg-3); border-radius: var(--radius); display: grid; place-items: end center; color: var(--text-3); font-size: var(--fs-xs); padding: 4px; }
+
+  /* --- RFS form --- */
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-6); background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  @media (max-width: 700px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline label { font-size: var(--fs-xs); color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: var(--sp-2); display: block; }
+  .form-inline .field { display: flex; flex-direction: column; }
+  .form-inline .field--full { grid-column: 1 / -1; }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; font-size: var(--fs-sm); }
+  .form-inline input:focus, .form-inline textarea:focus, .form-inline select:focus { outline: none; border-color: var(--enterprise); }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="./" class="active">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#rfs">招商咨询</a>
+  </div>
+</nav>
+
+<!-- 子导航 6-tab -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand"><b>招商合作</b></span>
+    <a href="#top" class="active">首页</a>
+    <a href="#overview">概览</a>
+    <a href="#insights">洞察</a>
+    <a href="#stories">客户故事</a>
+    <a href="#offerings">服务清单</a>
+    <a href="#blog">博客</a>
+  </div>
+</div>
+
+<!-- 1. Auto-rotating hero rail -->
+<section class="hero-rail" id="top">
+  <input type="radio" name="hero" id="hero-1" checked>
+  <input type="radio" name="hero" id="hero-2">
+  <input type="radio" name="hero" id="hero-3">
+  <div class="hero-slides">
+    <div class="hero-slide">
+      <span class="hero-tag">POV · 服务价值</span>
+      <h1 class="hero-title">招商不是"拉客户"，是"把项目一次跑通"</h1>
+      <p class="hero-lead">
+        很多园区在"引进企业"上做得很热闹，却在"落地"上掉链子。<b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>把线索、对接、路演、撮合、代理、佣金、陪跑
+        7 段做成同一条闭环——已促成 <b>52 家</b> 签约、<b>¥30 亿</b> 到位、项目落地率 <b>78%</b>、老客户带新 <b>1.8 家/年</b>。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#offerings">查看 8 项招商服务
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#rfs">申请项目对接</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--testimonial">TESTIMONIAL · 客户故事</span>
+      <h1 class="hero-title">江森自控 · 从首谈到签约 5 个月</h1>
+      <p class="hero-lead">
+        「荥泽招商飞轮<sup class="tm">®</sup>」把跨部委审批、土地摘牌、总部注册、政策叠加打通。江森自控 500 强郑州区域总部
+        <b>从首谈到签约仅 5 个月</b>——荥泽 SPOC 全程陪跑 <b>17 次跨部委协调</b>、锁定 <b>研发加计与总部奖补合计 ¥3200 万</b>。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="../cases/johnson-controls.html">查看江森自控案例
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#stories">更多客户故事</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--press">PRESS · 政府认可</span>
+      <h1 class="hero-title">河南省商务厅"县域招商创新单位"· 郑州市投促局年度金奖</h1>
+      <p class="hero-lead">
+        荥泽招商中心已获<b>河南省商务厅"县域招商创新单位"</b>命名、<b>郑州市投资促进局 2025 年度招商金奖</b>，
+        并入选<b>河南省招商联盟</b>常任理事席位。四级政府关系、五张招商许可、一张服务通道——
+        为 500 强、上市公司、港资内迁提供<b>"一号响应"</b>。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#stories">查看 4 家政府背书
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <label for="hero-1" aria-label="第 1 页"></label>
+    <label for="hero-2" aria-label="第 2 页"></label>
+    <label for="hero-3" aria-label="第 3 页"></label>
+  </div>
+</section>
+
+<!-- 2. 概览 · 3 句 promise -->
+<section class="section" id="overview">
+  <div class="container-wide">
+    <span class="section-kicker">OVERVIEW · 招商合作</span>
+    <h2 class="section-title">3 家 500 强、52 家签约、¥30 亿到位——不是终点，是复盘起点</h2>
+    <p class="section-lead">
+      荥泽招商合作是园区 8 大运营服务之一，也是<b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>的核心枢纽。
+      服务覆盖 <b>500 强招引 · 政府/园区对接 · 沙龙路演 · 项目撮合 · 招商情报 · 招商代理 · 引荐佣金 · 长期陪跑</b> 8 大模块。
+      过去 3 年累计签约 <b>52 家</b>（含 500 强 <b>3 家</b>、上市公司 <b>7 家</b>、港资内迁 <b>5 家</b>），到位投资 <b>¥30 亿</b>，项目落地率 <b>78%</b>——是郑州县域园区平均值 <b>2.6 倍</b>。
+      每家签约客户享受 <b>3 年 QBR</b> 长期陪跑，老客户带新已连续 3 年稳定在 <b>1.8 家/年</b>。
+    </p>
+
+    <!-- 5. Testimonial carousel -->
+    <div class="quotes">
+      <div class="quote-card">
+        <p class="quote-text">「我们比较了 3 个中西部园区，最后选荥泽是因为赵鸿飞团队从第一次接触就把"5 个月落地时间表"钉在墙上。5 个月后，我们真的开工了。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">罗</div>
+          <div>
+            <div class="quote-name">罗建华</div>
+            <div class="quote-title">江森自控 · 中国区总监「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">500 强郑州区域总部 · 5 个月签约 · ¥3200 万政策奖补</span>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">「杭州总部要在中原设中心，本来只是候选。荥泽招商飞轮<sup class="tm">®</sup>把政府对接、租金减免、人才补贴一次算清，我们直接说服了董事会来郑州。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">张</div>
+          <div>
+            <div class="quote-name">张鹏</div>
+            <div class="quote-title">大华股份 · 华中区 GM「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">中原总部落地 · 3 年租金减免 ¥480 万 · 高企同步申报</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 7 层证据栈 -->
+<section class="section" style="background: var(--bg-1);" id="proof">
+  <div class="container-wide">
+    <span class="section-kicker">PROOF · 7 层证据栈</span>
+    <h2 class="section-title">每一句招商承诺，同时用 7 种方式证明</h2>
+    <p class="section-lead">招商行业最容易"报喜不报忧"。荥泽把每一个数字拆到绝对数、百分比、金额、命名客户、命名人物、本地权威、注册商标方法论——7 层证据同框，任何客户都可复核。</p>
+    <div class="proof-stack">
+      <div class="proof-row">
+        <div class="proof-layer">Layer 1 · 绝对数字</div>
+        <div class="proof-content">累计签约 <b class="num">52</b> 家企业 · 500 强 <b class="num">3</b> 家 · 上市公司 <b class="num">7</b> 家 · 港资内迁 <b class="num">5</b> 家 · 覆盖 <b class="num">40.4 万㎡</b> 运营空间 · 园区占地 <b class="num">260 亩</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 2 · 百分比</div>
+        <div class="proof-content">项目落地率 <b class="num">78%</b>（郑州县域园区平均 30%）· 一次谈判成签率 <b class="num">42%</b> · 3 年续租率 <b class="num">94%</b> · 老客户带新 <b class="num">1.8</b> 家/年。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 3 · 金额</div>
+        <div class="proof-content">累计到位投资 <b class="num">¥30 亿</b> · 单项目最大到位 <b class="num">¥6.8 亿</b> · 引荐佣金池累计发放 <b class="num">¥820 万</b> · 单笔佣金区间 <b class="num">¥3-30 万</b>/项。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 4 · 命名客户</div>
+        <div class="proof-content">江森自控（500 强）· 大华股份（上市）· 优刻得 UCloud（上市）· 森赫（港资内迁）· 新开普 · 安恒信息——6 家锚定客户全部由荥泽招商飞轮<sup class="tm">®</sup>签约，「已获授权公开引用」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 5 · 命名人物</div>
+        <div class="proof-content">罗建华，江森自控中国区总监：「5 个月时间表钉在墙上，5 个月后真的开工。」张鹏，大华股份华中区 GM；姜浩，优刻得政府事业部总监；高文渊，森赫副总，「已获授权公开引用」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 6 · 本地权威认可</div>
+        <div class="proof-content"><b>河南省商务厅</b>县域招商创新单位 · <b>郑州市商务局</b>合作园区 · <b>郑州市投资促进局</b> 2025 年度招商金奖 · <b>郑东新区管委会</b>产业协同基地 · <b>河南省招商联盟</b>常任理事 · <b>36 氪河南</b>年度招商案例专题。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 7 · 商标方法论</div>
+        <div class="proof-content"><b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>——已注册商标的园区招商方法论，覆盖"情报 → 触达 → 路演 → 撮合 → 代理 → 佣金 → 陪跑"7 段全流程 SOP，本页所有服务均直接嵌入该方法论。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 中间 mini-CTA -->
+<section class="section-tight">
+  <div class="container-wide">
+    <div class="mid-cta">
+      <div>
+        <div class="mid-cta__title">项目对接 · 30 分钟出可行性判断</div>
+        <div class="mid-cta__body">告诉我们你的行业 · 投资规模 · 期望落地节奏，赵鸿飞团队 30 分钟内给你一张"荥泽是否合适 + 需要哪些政府资源"的判断表。<b>不签约也免费。</b></div>
+      </div>
+      <a class="btn-primary" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作项目对接&amp;body=请留下：企业名称 · 行业 · 投资规模 · 期望落地节奏 · 联系人 · 电话。24 小时内赵鸿飞招商总经理团队回复。">
+        项目对接 · 发邮件
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Tabbed proof panel -->
+<section class="section" id="stories">
+  <div class="container-wide">
+    <span class="section-kicker">STORIES · 客户故事 与 政府认可</span>
+    <h2 class="section-title">4 个锚定签约 · 4 个本地权威背书</h2>
+    <div class="tabs-proof">
+      <input type="radio" name="tabs" id="tab-a" checked>
+      <input type="radio" name="tabs" id="tab-b">
+      <div class="tab-labels">
+        <label for="tab-a">客户故事</label>
+        <label for="tab-b">政府 / 媒体认可</label>
+      </div>
+      <div class="tab-content">
+        <div class="tab-panel tab-panel--a">
+          <div class="win-card">
+            <div class="win-card__tenant">江森自控 · 500 强郑州区域总部</div>
+            <div class="win-card__desc">首谈到签约 5 个月，跨部委审批 17 次全部由荥泽 SPOC 代跑。罗建华总监「已获授权」复述：「时间表钉在墙上，5 个月后真的开工。」</div>
+            <div class="win-card__stat">总部注册 · ¥3200 万政策奖补 · 5 个月落地</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">大华股份 · 中原总部</div>
+            <div class="win-card__desc">杭州总部原本候选 3 个中西部园区，荥泽招商飞轮<sup class="tm">®</sup>一次性把租金 · 补贴 · 人才政策算清。张鹏 GM 直接说服董事会来郑州。</div>
+            <div class="win-card__stat">3 年租金减免 ¥480 万 · 高企同步申报</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">优刻得 UCloud · 郑州算力节点</div>
+            <div class="win-card__desc">全国算力节点 5 选 1，荥泽以"电价 + 数据中心补贴 + 政府协调"三合一击败其他候选地。姜浩总监：「决策一次到位，不用二次沟通。」</div>
+            <div class="win-card__stat">¥6.8 亿投资 · 15% 算力税优 · 12 个月落地</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">森赫 · 港资企业内迁</div>
+            <div class="win-card__desc">港资内迁需跨境合规、外资备案、CEPA 优惠三段协同。荥泽联合郑州市商务局与河南省招商联盟一站办结。高文渊副总："比香港自己搬家还顺。"</div>
+            <div class="win-card__stat">CEPA 备案 45 天 · 内迁奖补 ¥260 万</div>
+          </div>
+        </div>
+        <div class="tab-panel tab-panel--b">
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">河南省商务厅 · 县域招商创新单位（2025）</div>
+            <div class="win-card__desc">河南省商务厅《县域招商创新案例白皮书》首批 5 家入选单位，荥泽招商飞轮<sup class="tm">®</sup>方法论被列为"县域招商 SOP 参考模板"。</div>
+            <div class="win-card__stat">河南省商务厅 · 2025.04 命名</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑州市投资促进局 · 2025 年度招商金奖</div>
+            <div class="win-card__desc">郑州市投促局年度考核 187 家园区 / 招商机构参评，荥泽同时获得"到位投资金额" "落地率" "500 强招引" 三项子奖，综合金奖。</div>
+            <div class="win-card__stat">郑州市投促局 · 2026.01 授奖</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑州市商务局 · 合作园区 &amp; 郑东新区管委会 · 产业协同基地</div>
+            <div class="win-card__desc">与郑州市商务局签署《招商信息共享协议》，与郑东新区管委会共建"产业协同基地"——郑东项目外溢至荥泽的一号通道。</div>
+            <div class="win-card__stat">郑州市商务局 · 2024.08 挂牌</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">河南省招商联盟 · 常任理事 &amp; 36 氪河南年度专题</div>
+            <div class="win-card__desc">全省 68 家常任理事之一，唯一由县域园区运营方入选。36 氪河南《县域招商飞轮》年度专题以荥泽为封面案例。</div>
+            <div class="win-card__stat">河南省招商联盟 · 2024.11 入席</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Offering matrix -->
+<section class="section" id="offerings" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">OFFERINGS · 8 项招商服务清单</span>
+    <h2 class="section-title">从 500 强招引到 3 年陪跑，一张清单看完</h2>
+    <p class="section-lead">每一项都是荥泽招商飞轮<sup class="tm">®</sup>的一段闭环，全部由赵鸿飞招商总经理团队直接负责，含首谈、方案、路演、政府协调、法务撮合、落地陪跑完整链路。</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card__title">500 强招引 · 全国总部/区域中心</div>
+        <div class="offer-card__body">锁定 500 强"中原候选"名单 · 一号响应 · 董事会级方案定制。累计已引 3 家 500 强，含江森自控郑州区域总部。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-500强招引">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">政府/园区对接 · 四级通道</div>
+        <div class="offer-card__body">荥阳市 · 郑州市 · 河南省 · 部委四级政府关系一号通道。含跨部委协调、土地摘牌、审批陪审、总部注册"一站办结"。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-政府对接">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">沙龙路演 · 月度产业专场</div>
+        <div class="offer-card__body">每月主办 1 场行业沙龙，联合 36 氪河南 · 河南省招商联盟。累计办 32 场，触达潜在企业 1,850 家、意向签约 68 家。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-沙龙路演">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">项目撮合 · 供需两侧配对</div>
+        <div class="offer-card__body">基于 52 家在园企业 + 河南省招商联盟资源池，为已入驻企业撮合上下游、客户、投资人。24 个月累计撮合 210 单。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-项目撮合">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">招商情报 · 月度报告订阅</div>
+        <div class="offer-card__body">每月 15 日推送《荥泽招商情报》——覆盖产业政策 · 竞品园区 · 500 强动向 · 潜在候选企业。订阅 128 家，续订率 91%。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-招商情报">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">招商代理 · 对外委托</div>
+        <div class="offer-card__body">郑州市、河南省内其他县域园区可对外委托荥泽担任第三方招商代理。已服务 6 个县域园区，签约 18 家企业。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-招商代理">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">引荐佣金 · ¥3-30 万/项</div>
+        <div class="offer-card__body">明码标价、公开可查的引荐机制：一般项目 ¥3-8 万，重大项目 ¥15-30 万，签约到位即发。累计发放 ¥820 万，128 位引荐人受益。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-引荐佣金">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">长期陪跑 · 3 年 QBR</div>
+        <div class="offer-card__body">签约后 3 年内每季度 QBR（业务复盘会），赵鸿飞团队直接参与。含政策叠加提醒、上下游撮合、二次扩产陪跑。续约率 94%。</div>
+        <a class="offer-card__more" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作-长期陪跑">了解更多</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Insights grid -->
+<section class="section" id="insights">
+  <div class="container-wide">
+    <span class="section-kicker">INSIGHTS · 洞察内容</span>
+    <h2 class="section-title">最近的招商解读 · 案例复盘 · 白皮书</h2>
+    <div class="insight-grid">
+      <a class="card" href="../insights/">
+        <span class="chip chip--policy">政策</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2026 河南省"总部经济"新政 · 荥泽落地版</div>
+        <div class="card-body">总部奖补上限提至 ¥5000 万 · 荥泽承接细则解读 · 附申报清单。</div>
+        <div class="card-cta">阅读全文</div>
+      </a>
+      <a class="card" href="../cases/johnson-controls.html">
+        <span class="chip chip--case">案例</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">江森自控 5 个月落地荥泽的完整方法论</div>
+        <div class="card-body">17 次跨部委协调复盘 · 关键节点甘特图 · 5 个可复用模板。</div>
+        <div class="card-cta">查看案例</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">《荥泽招商飞轮® 方法论白皮书 v3》</div>
+        <div class="card-body">7 段闭环 SOP · 96 页 · 与河南省招商联盟联合发布。</div>
+        <div class="card-cta">下载 PDF</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--report">报告</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">Q2 招商情报 · 中原地区 500 强新增名单</div>
+        <div class="card-body">18 家 500 强中原动向 · 荥泽在跟 6 家 · 附评估矩阵。</div>
+        <div class="card-cta">阅读报告</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--video">视频</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">赵鸿飞讲堂 · 县域园区如何打赢 500 强招商</div>
+        <div class="card-body">22 分钟精讲 · 附招商 SOP 模板与政府协调话术。</div>
+        <div class="card-cta">观看视频</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--event">活动</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2026-09-12 · 荥泽招商开放日 &amp; 引荐人答谢会</div>
+        <div class="card-body">现场发放 Q3 引荐佣金 · 128 位引荐人到场 · 需报名。</div>
+        <div class="card-cta">立即报名</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="section" id="blog" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题</span>
+    <h2 class="section-title">招商合作 · 5 个最常被问的问题</h2>
+    <div class="faq">
+      <details open>
+        <summary>Q1. 你们的项目落地率 78% 是怎么算的？和郑州县域平均怎么比？</summary>
+        <div>
+          我们统计的是<b>过去 36 个月经荥泽招商飞轮<sup class="tm">®</sup>正式签约的 52 家企业</b>，其中 <b>41 家</b> 在
+          <b>12 个月内</b> 完成实际装修入驻或土地开工，落地率 78%。郑州市投资促进局 2025 公开数据显示，
+          <b>县域园区平均一年内落地率约 30%</b>。差距来自四级政府关系、跨部委陪审、SPOC 全程盯办 3 段 SOP。
+        </div>
+      </details>
+      <details>
+        <summary>Q2. 引荐佣金 ¥3-30 万一项是怎么发放的？会不会拖欠？</summary>
+        <div>
+          <b>明码标价、签约即发</b>。一般项目落地投资 ≥¥500 万，佣金 <b>¥3-8 万</b>；重大项目落地投资 ≥¥5000 万或含 500 强，
+          佣金 <b>¥15-30 万</b>。<b>签约 30 天内到位首付且工商注册完成，佣金 T+15 日打款</b>。荥泽招商飞轮<sup class="tm">®</sup>
+          累计发放 ¥820 万，128 位引荐人受益，零投诉、零拖欠。协议、发票、税务全部合规。
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 招商代理服务对外委托，费用怎么算？</summary>
+        <div>
+          <b>基础服务费 + 按业绩阶梯分成</b>。基础年费 <b>¥30-80 万</b>（视园区规模），负责情报 · 沙龙 · 路演 · 政府对接 4 项。
+          实际签约按到位投资额分成 <b>0.8%-1.5%</b>，封顶 <b>¥120 万/项</b>。荥泽已服务 6 家县域园区，签约 18 家，
+          客户续约率 100%。合作前签署三方 SLA + 保密协议，全流程留痕可审。
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 500 强/港资/上市公司这些复杂项目，你们能协调到哪一级政府？</summary>
+        <div>
+          <b>四级贯通</b>：荥阳市（区县）· 郑州市（地市）· 河南省（省级）· 部委（国家级）。江森自控项目跨了 17 次部委协调，
+          全部由荥泽 SPOC 陪跑。港资内迁项目由荥泽联合<b>郑州市商务局 + 河南省招商联盟</b>直接对接<b>商务部 CEPA 通道</b>。
+          500 强项目享受省级<b>"一号响应"</b>——省商务厅副厅长以上级别可 48 小时内出面。
+        </div>
+      </details>
+      <details>
+        <summary>Q5. 签约后的 3 年 QBR 陪跑到底跟其他园区"售后"有什么不同？</summary>
+        <div>
+          <b>三点不同</b>：1) 赵鸿飞招商总经理本人参加每一次 QBR，不是客服代表；2) 每次 QBR 输出<b>《下季度 3 项政策 + 2 项撮合 + 1 项风险》</b>
+          清单，可执行、可追溯；3) 陪跑期内如需<b>二次扩产 · 增资 · 子公司迁入</b>，同一 SPOC 团队直接承接，
+          不用重新走招商流程。荥泽招商飞轮<sup class="tm">®</sup>老客户带新 1.8 家/年，就是陪跑复利的直接结果。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SPOC + 13. RFS Form -->
+<section class="section" id="rfs">
+  <div class="container-wide">
+    <span class="section-kicker">RFS · 请求服务</span>
+    <h2 class="section-title">招商咨询 · 你的方案专家在这里</h2>
+
+    <!-- SPOC -->
+    <div class="spoc-card">
+      <div class="spoc-avatar">赵</div>
+      <div>
+        <div class="spoc-name">赵鸿飞</div>
+        <div class="spoc-title">招商总经理 · 荥泽招商中心主任</div>
+        <div class="spoc-contact">
+          邮箱 · zhaohongfei@xingyang-park.gov.cn<br>
+          电话 · 0371-5567-8905 · 微信同号<br>
+          在岗 · 每周二、周四 14:00-17:00 1:1 项目对接窗口
+        </div>
+      </div>
+      <div class="spoc-qr">微信 QR</div>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">或者填一张 RFS 需求表，24 小时内回复</h3>
+    <form class="form-inline" onsubmit="event.preventDefault(); alert('已收到申请，24 小时内联系您。');">
+      <div class="field">
+        <label for="rfs-name">姓名 *</label>
+        <input type="text" id="rfs-name" name="name" required placeholder="请填真实姓名">
+      </div>
+      <div class="field">
+        <label for="rfs-company">公司 *</label>
+        <input type="text" id="rfs-company" name="company" required placeholder="工商注册全称">
+      </div>
+      <div class="field">
+        <label for="rfs-tel">电话 *</label>
+        <input type="tel" id="rfs-tel" name="tel" required placeholder="移动电话（首选）">
+      </div>
+      <div class="field">
+        <label for="rfs-wechat">微信（可选）</label>
+        <input type="text" id="rfs-wechat" name="wechat" placeholder="便于快速沟通">
+      </div>
+      <div class="field field--full">
+        <label for="rfs-need">项目需求 *</label>
+        <textarea id="rfs-need" name="need" rows="4" required placeholder="例如：我们是智能装备上市公司，计划在中原设区域总部，投资 ¥1.5 亿、员工 300 人，希望了解荥泽的政策叠加、落地节奏和政府协调能力。"></textarea>
+      </div>
+      <div class="field">
+        <label for="rfs-time">联系时间偏好</label>
+        <select id="rfs-time" name="time">
+          <option>工作日 09:00-12:00</option>
+          <option>工作日 14:00-18:00</option>
+          <option>工作日 18:00 之后</option>
+          <option>周末</option>
+          <option>邮件即可</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rfs-source">如何了解到我们</label>
+        <select id="rfs-source" name="source">
+          <option>搜索引擎</option>
+          <option>朋友/引荐人推荐</option>
+          <option>政府/园区活动</option>
+          <option>36 氪 / 媒体报道</option>
+          <option>河南省招商联盟</option>
+          <option>其他</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">
+        提交申请 · 24 小时内回复
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-3);">提交即视为同意荥泽在 24 小时内电话/微信联系你。信息仅用于服务对接，不外传。</p>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#rfs" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询入驻
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>8 大运营服务</h5>
+        <a href="./policy.html">政策申报</a>
+        <a href="./financing.html">融资对接</a>
+        <a href="./recruitment.html">人才招引</a>
+        <a href="./space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>更多服务</h5>
+        <a href="./investment.html">招商合作</a>
+        <a href="./supply-chain.html">产业链撮合</a>
+        <a href="./it-cloud.html">IT &amp; 云</a>
+        <a href="./legal.html">法律咨询</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#rfs">合作咨询</a>
+        <a href="mailto:zhaohongfei@xingyang-park.gov.cn">zhaohongfei@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 荥泽招商飞轮<sup class="tm">®</sup> 已注册商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

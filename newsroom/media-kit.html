@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>媒体素材包 · Media Kit · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园官方媒体素材包：三方 lock-up 品牌指南、6 款 Logo 下载、高清照片库、Fact Sheet、领导演讲照片、园区实拍——供机构记者、媒体、生态合作方使用。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* Media Kit 专属样式 */
+  .breadcrumb {
+    padding: var(--sp-4) 0;
+    color: var(--text-3); font-size: var(--fs-sm);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .breadcrumb a { color: var(--text-2); }
+  .breadcrumb a:hover { color: var(--enterprise); }
+  .breadcrumb .sep { color: var(--text-4); margin: 0 var(--sp-2); }
+  .breadcrumb .current { color: var(--text); }
+
+  .kit-section {
+    padding: var(--sp-12) 0;
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .kit-section-head {
+    display: flex; align-items: baseline; gap: var(--sp-3);
+    margin-bottom: var(--sp-8);
+  }
+  .kit-section-num {
+    display: inline-block;
+    width: 40px; height: 40px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--gov), var(--gov-hover));
+    color: #fff; font-weight: 800;
+    display: grid; place-items: center;
+    font-size: var(--fs-md);
+    flex-shrink: 0;
+  }
+  .kit-section-title {
+    font-size: var(--fs-2xl); font-weight: 700;
+    line-height: var(--lh-tight);
+  }
+  .kit-section-sub {
+    color: var(--text-2); font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--sp-6);
+    max-width: 720px;
+    margin-left: 56px;
+    margin-top: calc(var(--sp-2) * -1);
+  }
+
+  /* Section 1 - Lock-up guidelines */
+  .lockup-preview {
+    padding: var(--sp-10);
+    background: var(--bg-1);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    display: grid; place-items: center;
+    margin-bottom: var(--sp-6);
+  }
+  .lockup-svg { max-width: 640px; width: 100%; }
+  .lockup-rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .lockup-rules { grid-template-columns: 1fr; } }
+  .rule-item {
+    padding: var(--sp-5);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius);
+    display: flex; gap: var(--sp-4);
+  }
+  .rule-item__icon {
+    width: 32px; height: 32px; border-radius: var(--radius-sm);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .rule-item--do .rule-item__icon { background: rgba(52,211,153,.15); color: var(--ecosystem); }
+  .rule-item--dont .rule-item__icon { background: var(--gov-soft); color: var(--gov-hover); }
+  .rule-item__body { font-size: var(--fs-sm); color: var(--text-1); line-height: var(--lh-relaxed); }
+  .rule-item__label { font-weight: 700; margin-bottom: var(--sp-1); }
+
+  .color-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .color-strip { grid-template-columns: 1fr; } }
+  .color-chip {
+    padding: var(--sp-5);
+    border-radius: var(--radius-md);
+    color: #fff; font-weight: 600;
+  }
+  .color-chip__name { font-size: var(--fs-md); font-weight: 700; }
+  .color-chip__hex { font-family: var(--font-mono); font-size: var(--fs-sm); opacity: 0.9; }
+  .color-chip__usage { font-size: var(--fs-xs); margin-top: var(--sp-3); opacity: 0.85; }
+
+  /* Section 2 - Logo downloads */
+  .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .logo-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .logo-grid { grid-template-columns: 1fr; } }
+  .logo-tile {
+    padding: var(--sp-5);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+  }
+  .logo-tile__preview {
+    background: var(--bg-1);
+    border: 1px dashed var(--bg-line);
+    border-radius: var(--radius);
+    padding: var(--sp-5);
+    height: 120px;
+    display: grid; place-items: center;
+  }
+  .logo-tile__preview svg { max-height: 80px; width: auto; }
+  .logo-tile__name { font-size: var(--fs-sm); font-weight: 700; }
+  .logo-tile__dl { color: var(--enterprise); font-size: var(--fs-xs); font-family: var(--font-mono); }
+
+  /* Section 3 - Photo gallery */
+  .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .photo-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .photo-grid { grid-template-columns: 1fr; } }
+  .photo-card {
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .photo-card:hover { border-color: var(--enterprise); }
+  .photo-card__meta { padding: var(--sp-3) var(--sp-4); }
+  .photo-card__caption { font-size: var(--fs-sm); font-weight: 600; margin-bottom: var(--sp-1); }
+  .photo-card__dl { font-size: var(--fs-xs); color: var(--text-3); font-family: var(--font-mono); }
+
+  /* Section 4 - Fact sheet */
+  .fact-table {
+    width: 100%;
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+  }
+  .fact-table th, .fact-table td {
+    padding: var(--sp-4) var(--sp-5);
+    text-align: left;
+    font-size: var(--fs-sm);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .fact-table tr:last-child th, .fact-table tr:last-child td { border-bottom: 0; }
+  .fact-table th {
+    color: var(--text-3); font-weight: 600;
+    width: 240px;
+    background: var(--bg-1);
+  }
+  .fact-table td { color: var(--text); font-variant-numeric: tabular-nums; }
+  .fact-table td b { color: var(--gold); }
+
+  /* Section 5, 6 speaker/park photos - reuse .photo-grid */
+
+  /* Authorization + Contact card */
+  .auth-block {
+    padding: var(--sp-8);
+    background: var(--bg-1);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-8);
+    margin: var(--sp-8) 0;
+  }
+  @media (max-width: 900px) { .auth-block { grid-template-columns: 1fr; } }
+  .auth-block h3 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-4); }
+  .auth-block p, .auth-block li {
+    color: var(--text-2); font-size: var(--fs-sm);
+    line-height: var(--lh-relaxed);
+  }
+  .auth-block ol { padding-left: var(--sp-5); }
+  .auth-block li { margin-bottom: var(--sp-2); }
+
+  .contact-mini {
+    padding: var(--sp-5);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+  }
+  .contact-mini h4 { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-3); }
+  .contact-mini dl { display: grid; grid-template-columns: 60px 1fr; gap: var(--sp-2) var(--sp-3); font-size: var(--fs-sm); }
+  .contact-mini dt { color: var(--text-3); }
+  .contact-mini dd { color: var(--text-1); }
+
+  /* Icon */
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="./" class="active">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#contact">媒体联系</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">新闻中心</span>
+    <a href="./">新闻首页</a>
+    <a href="./#in-the-news">新闻发布</a>
+    <a href="./media-kit.html" class="active">媒体素材</a>
+    <a href="./#press-resources">记者资源</a>
+    <a href="#contact">联系</a>
+  </div>
+</div>
+
+<!-- ============ 面包屑 ============ -->
+<div class="container-wide">
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="./">新闻</a>
+    <span class="sep">›</span>
+    <span class="current">媒体素材</span>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">MEDIA KIT · 媒体素材包</span>
+    <h1 class="hero-title">媒体素材包 · Media Kit</h1>
+    <p class="hero-lead">
+      面向机构记者、行业媒体、生态合作方的一站式素材下载中心——
+      三方 lock-up 品牌指南、Logo 矢量图、园区高清照片、Fact Sheet、领导演讲照片、园区实拍。
+      所有素材在保留完整署名的前提下可自由用于新闻报道。素材版本更新至 2026-07-28。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#logos">
+        进入 Logo 下载
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      </a>
+      <a class="btn-ghost" href="#fact-sheet">Fact Sheet</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1. 三方 lock-up 品牌指南 ============ -->
+<section class="kit-section" id="lockup">
+  <div class="container-wide">
+    <div class="kit-section-head">
+      <span class="kit-section-num">01</span>
+      <h2 class="kit-section-title">三方 lock-up 品牌指南</h2>
+    </div>
+    <p class="kit-section-sub">
+      三方 lock-up 是荥阳数字经济产业园品牌体系的核心元素——政府红、企业蓝、生态绿三色并置，
+      对应"政府 · 城投 · 运营方"三方共治机制。任何脱离三方并置的呈现都不符合本园品牌规范。
+    </p>
+
+    <!-- Lock-up preview -->
+    <div class="lockup-preview">
+      <svg class="lockup-svg" viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="三方 lock-up 标准范例">
+        <!-- Governance -->
+        <rect x="0"   y="40" width="200" height="80" rx="8" fill="#b8102e"/>
+        <text x="100" y="80" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">荥阳市人民政府</text>
+        <text x="100" y="102" text-anchor="middle" fill="#fff" font-size="12" opacity="0.85">主管 · Governance</text>
+        <!-- Enterprise -->
+        <rect x="220" y="40" width="200" height="80" rx="8" fill="#38bdf8"/>
+        <text x="320" y="80" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="700">荥阳城投</text>
+        <text x="320" y="102" text-anchor="middle" fill="#0a0e1a" font-size="12" opacity="0.8">资产 · Assets</text>
+        <!-- Ecosystem -->
+        <rect x="440" y="40" width="200" height="80" rx="8" fill="#34d399"/>
+        <text x="540" y="80" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="700">太能控股</text>
+        <text x="540" y="102" text-anchor="middle" fill="#0a0e1a" font-size="12" opacity="0.8">运营 · Operator</text>
+        <!-- Clearspace guides -->
+        <line x1="0"   y1="20" x2="640" y2="20"  stroke="#6b7280" stroke-dasharray="2 3" stroke-width="1"/>
+        <line x1="0"   y1="140" x2="640" y2="140" stroke="#6b7280" stroke-dasharray="2 3" stroke-width="1"/>
+        <text x="640" y="14" text-anchor="end" fill="#6b7280" font-size="10">clearspace ≥ 8px</text>
+      </svg>
+    </div>
+
+    <!-- Rules -->
+    <div class="lockup-rules">
+      <div class="rule-item rule-item--do">
+        <div class="rule-item__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 10 17 20 7"/></svg>
+        </div>
+        <div class="rule-item__body">
+          <div class="rule-item__label">最小尺寸</div>
+          三方 lock-up 整体宽度不小于 240px（数字介质）/ 60mm（印刷介质）——保证三方文字可读。
+        </div>
+      </div>
+      <div class="rule-item rule-item--do">
+        <div class="rule-item__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 12 10 17 20 7"/></svg>
+        </div>
+        <div class="rule-item__body">
+          <div class="rule-item__label">Clearspace</div>
+          lock-up 四周保留 8px（数字）/ 2mm（印刷）以上的最小空白区，任何图形/文字不得进入此区域。
+        </div>
+      </div>
+      <div class="rule-item rule-item--dont">
+        <div class="rule-item__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+        </div>
+        <div class="rule-item__body">
+          <div class="rule-item__label">禁止变形</div>
+          不得对 lock-up 进行拉伸、扭曲、透视变换、颜色替换或应用滤镜——包括加阴影、加光晕、加描边等。
+        </div>
+      </div>
+      <div class="rule-item rule-item--dont">
+        <div class="rule-item__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+        </div>
+        <div class="rule-item__body">
+          <div class="rule-item__label">禁止拆分三方</div>
+          三方 lock-up 必须作为整体使用——不得单独呈现其中一方或两方，也不得改变三方排列顺序或色块比例。
+        </div>
+      </div>
+    </div>
+
+    <!-- Color strip -->
+    <h3 style="font-size: var(--fs-md); font-weight: 700; margin-top: var(--sp-10); margin-bottom: var(--sp-3);">标准配色</h3>
+    <div class="color-strip">
+      <div class="color-chip" style="background:#b8102e;">
+        <div class="color-chip__name">政府红 · Governance</div>
+        <div class="color-chip__hex">--gov · #b8102e</div>
+        <div class="color-chip__usage">用于代表荥阳市人民政府与荥阳城投（政府侧权威色）</div>
+      </div>
+      <div class="color-chip" style="background:#38bdf8;color:#0a0e1a;">
+        <div class="color-chip__name">企业蓝 · Enterprise</div>
+        <div class="color-chip__hex">--enterprise · #38bdf8</div>
+        <div class="color-chip__usage">用于代表太能控股（运营方 · 数字/科技标识）</div>
+      </div>
+      <div class="color-chip" style="background:#34d399;color:#0a0e1a;">
+        <div class="color-chip__name">生态绿 · Ecosystem</div>
+        <div class="color-chip__hex">--ecosystem · #34d399</div>
+        <div class="color-chip__usage">用于代表 IABCDGN 生态圈层与增长信号</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. Logo 下载 ============ -->
+<section class="kit-section" id="logos">
+  <div class="container-wide">
+    <div class="kit-section-head">
+      <span class="kit-section-num">02</span>
+      <h2 class="kit-section-title">Logo 下载</h2>
+    </div>
+    <p class="kit-section-sub">
+      提供主 logo、三方 lock-up、四子品牌 4 款 logo 共 6 款——SVG（矢量印刷首选）/ PNG（数字与社交媒体）/ PDF（印刷厂交付）三种格式。
+    </p>
+
+    <div class="logo-grid">
+
+      <!-- 主 logo -->
+      <div class="logo-tile">
+        <div class="logo-tile__preview">
+          <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥阳数字经济产业园主 logo">
+            <rect x="4" y="12" width="56" height="56" rx="8" fill="#b8102e"/>
+            <text x="32" y="52" text-anchor="middle" fill="#fff" font-size="32" font-weight="900">荥</text>
+            <text x="72" y="42" fill="#e6eefc" font-size="16" font-weight="700">荥阳数字经济产业园</text>
+            <text x="72" y="60" fill="#8b95a8" font-size="10" font-family="monospace">XINGYANG · DIGITAL PARK</text>
+          </svg>
+        </div>
+        <div class="logo-tile__name">主 logo · 荥阳数字经济产业园</div>
+        <div class="logo-tile__dl">下载 SVG / PNG / PDF</div>
+      </div>
+
+      <!-- 三方 lock-up -->
+      <div class="logo-tile">
+        <div class="logo-tile__preview">
+          <svg viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="三方 lock-up logo">
+            <rect x="4"   y="12" width="66" height="36" rx="4" fill="#b8102e"/>
+            <text x="37" y="35" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">荥阳市政府</text>
+            <rect x="76"  y="12" width="66" height="36" rx="4" fill="#38bdf8"/>
+            <text x="109" y="35" text-anchor="middle" fill="#0a0e1a" font-size="10" font-weight="700">荥阳城投</text>
+            <rect x="148" y="12" width="66" height="36" rx="4" fill="#34d399"/>
+            <text x="181" y="35" text-anchor="middle" fill="#0a0e1a" font-size="10" font-weight="700">太能控股</text>
+          </svg>
+        </div>
+        <div class="logo-tile__name">三方 lock-up · 官方共治标识</div>
+        <div class="logo-tile__dl">下载 SVG / PNG / PDF</div>
+      </div>
+
+      <!-- 荥数云 -->
+      <div class="logo-tile">
+        <div class="logo-tile__preview">
+          <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥数云子品牌 logo">
+            <rect x="4" y="12" width="56" height="56" rx="8" fill="#38bdf8"/>
+            <path d="M18 45 Q20 32 32 32 Q44 32 46 42 Q54 42 54 50 Q54 58 46 58 L20 58 Q10 58 10 50 Q10 42 18 45 Z" fill="#0a0e1a" opacity="0.85"/>
+            <text x="72" y="42" fill="#e6eefc" font-size="16" font-weight="700">荥数云</text>
+            <text x="72" y="60" fill="#8b95a8" font-size="10" font-family="monospace">XING · CLOUD</text>
+          </svg>
+        </div>
+        <div class="logo-tile__name">荥数云 · 数字底座子品牌</div>
+        <div class="logo-tile__dl">下载 SVG / PNG / PDF</div>
+      </div>
+
+      <!-- 荥智造 -->
+      <div class="logo-tile">
+        <div class="logo-tile__preview">
+          <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥智造子品牌 logo">
+            <rect x="4" y="12" width="56" height="56" rx="8" fill="#f59e0b"/>
+            <g transform="translate(32,40)" fill="#0a0e1a" opacity="0.85">
+              <circle r="10" fill="none" stroke="#0a0e1a" stroke-width="2"/>
+              <circle r="3"/>
+              <line x1="0" y1="-16" x2="0" y2="-11" stroke="#0a0e1a" stroke-width="2"/>
+              <line x1="0" y1="11" x2="0" y2="16"  stroke="#0a0e1a" stroke-width="2"/>
+              <line x1="-16" y1="0" x2="-11" y2="0" stroke="#0a0e1a" stroke-width="2"/>
+              <line x1="11" y1="0" x2="16" y2="0"  stroke="#0a0e1a" stroke-width="2"/>
+            </g>
+            <text x="72" y="42" fill="#e6eefc" font-size="16" font-weight="700">荥智造</text>
+            <text x="72" y="60" fill="#8b95a8" font-size="10" font-family="monospace">XING · SMART MFG</text>
+          </svg>
+        </div>
+        <div class="logo-tile__name">荥智造 · 智能制造子品牌</div>
+        <div class="logo-tile__dl">下载 SVG / PNG / PDF</div>
+      </div>
+
+      <!-- 荥数链 -->
+      <div class="logo-tile">
+        <div class="logo-tile__preview">
+          <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥数链子品牌 logo">
+            <rect x="4" y="12" width="56" height="56" rx="8" fill="#34d399"/>
+            <g transform="translate(32,40)" stroke="#0a0e1a" stroke-width="2.5" fill="none" opacity="0.85">
+              <rect x="-14" y="-6" width="14" height="12" rx="4"/>
+              <rect x="0" y="-6" width="14" height="12" rx="4"/>
+              <line x1="-2" y1="0" x2="2" y2="0"/>
+            </g>
+            <text x="72" y="42" fill="#e6eefc" font-size="16" font-weight="700">荥数链</text>
+            <text x="72" y="60" fill="#8b95a8" font-size="10" font-family="monospace">XING · CHAIN</text>
+          </svg>
+        </div>
+        <div class="logo-tile__name">荥数链 · 供应链协同子品牌</div>
+        <div class="logo-tile__dl">下载 SVG / PNG / PDF</div>
+      </div>
+
+      <!-- 荥数才 -->
+      <div class="logo-tile">
+        <div class="logo-tile__preview">
+          <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥数才子品牌 logo">
+            <rect x="4" y="12" width="56" height="56" rx="8" fill="#a78bfa"/>
+            <g transform="translate(32,40)" fill="#0a0e1a" opacity="0.85">
+              <circle cx="0" cy="-6" r="5"/>
+              <path d="M-10 10 Q0 -2 10 10 Z"/>
+            </g>
+            <text x="72" y="42" fill="#e6eefc" font-size="16" font-weight="700">荥数才</text>
+            <text x="72" y="60" fill="#8b95a8" font-size="10" font-family="monospace">XING · TALENT</text>
+          </svg>
+        </div>
+        <div class="logo-tile__name">荥数才 · 数字人才子品牌</div>
+        <div class="logo-tile__dl">下载 SVG / PNG / PDF</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 高清照片 gallery ============ -->
+<section class="kit-section" id="photos">
+  <div class="container-wide">
+    <div class="kit-section-head">
+      <span class="kit-section-num">03</span>
+      <h2 class="kit-section-title">高清照片 Gallery</h2>
+    </div>
+    <p class="kit-section-sub">
+      6 张园区代表性场景照片——3000×1687 分辨率原图可下载，适用于机构媒体版面、行业媒体专题、社交媒体传播。
+    </p>
+
+    <div class="photo-grid">
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="ph1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#ph1)"/>
+          <!-- Building skyline -->
+          <rect x="60" y="90"  width="60" height="130" fill="#2a3352"/>
+          <rect x="130" y="60" width="70" height="160" fill="#3a4460"/>
+          <rect x="210" y="80" width="55" height="140" fill="#2a3352"/>
+          <rect x="275" y="110" width="70" height="110" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">园区外景 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">园区外景 · 综合园区全景</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="ph2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#ph2)"/>
+          <!-- Service hall interior -->
+          <rect x="40" y="140" width="320" height="60" fill="#2a3352"/>
+          <rect x="60" y="120" width="50" height="20" fill="#3a4460"/>
+          <rect x="130" y="120" width="50" height="20" fill="#3a4460"/>
+          <rect x="200" y="120" width="50" height="20" fill="#3a4460"/>
+          <rect x="270" y="120" width="50" height="20" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">综合服务大厅 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">综合服务大厅 · 一站式服务窗口</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="ph3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#ph3)"/>
+          <g fill="#3a4460">
+            <circle cx="120" cy="130" r="16"/>
+            <circle cx="170" cy="120" r="18"/>
+            <circle cx="220" cy="120" r="18"/>
+            <circle cx="270" cy="130" r="16"/>
+            <path d="M100 200 Q120 155 140 200 Z"/>
+            <path d="M150 200 Q170 148 190 200 Z"/>
+            <path d="M200 200 Q220 148 240 200 Z"/>
+            <path d="M250 200 Q270 155 290 200 Z"/>
+          </g>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">领导班子合影 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">领导班子合影 · 三方共治委员会</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="ph4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#ph4)"/>
+          <!-- Sign / signage -->
+          <rect x="80" y="80" width="240" height="70" rx="4" fill="#b8102e" opacity="0.6"/>
+          <rect x="90" y="90" width="220" height="50" rx="2" fill="#0f1424"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">产业园招牌 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">产业园招牌 · 主入口标识</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="ph5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#ph5)"/>
+          <!-- Auditorium seats -->
+          <g fill="#3a4460">
+            <rect x="40" y="150" width="30" height="10"/>
+            <rect x="75" y="150" width="30" height="10"/>
+            <rect x="110" y="150" width="30" height="10"/>
+            <rect x="145" y="150" width="30" height="10"/>
+            <rect x="180" y="150" width="30" height="10"/>
+            <rect x="215" y="150" width="30" height="10"/>
+            <rect x="250" y="150" width="30" height="10"/>
+            <rect x="285" y="150" width="30" height="10"/>
+            <rect x="320" y="150" width="30" height="10"/>
+            <rect x="40" y="170" width="30" height="10"/>
+            <rect x="75" y="170" width="30" height="10"/>
+            <rect x="110" y="170" width="30" height="10"/>
+            <rect x="145" y="170" width="30" height="10"/>
+            <rect x="180" y="170" width="30" height="10"/>
+            <rect x="215" y="170" width="30" height="10"/>
+            <rect x="250" y="170" width="30" height="10"/>
+            <rect x="285" y="170" width="30" height="10"/>
+            <rect x="320" y="170" width="30" height="10"/>
+          </g>
+          <rect x="140" y="60" width="120" height="50" fill="#0a0e1a" stroke="#3a4460" stroke-width="1"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">年度峰会现场 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">年度峰会现场 · 2026 数字化转型峰会</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="ph6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#ph6)"/>
+          <!-- Signing table + two people -->
+          <rect x="120" y="160" width="160" height="10" fill="#3a4460"/>
+          <rect x="140" y="170" width="12" height="40" fill="#3a4460"/>
+          <rect x="248" y="170" width="12" height="40" fill="#3a4460"/>
+          <circle cx="175" cy="130" r="14" fill="#3a4460"/>
+          <path d="M150 160 Q175 138 200 160" fill="#3a4460"/>
+          <circle cx="225" cy="130" r="14" fill="#3a4460"/>
+          <path d="M200 160 Q225 138 250 160" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">与企业签约现场 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">与企业签约现场 · 三方框架协议</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. Fact Sheet ============ -->
+<section class="kit-section" id="fact-sheet">
+  <div class="container-wide">
+    <div class="kit-section-head">
+      <span class="kit-section-num">04</span>
+      <h2 class="kit-section-title">Fact Sheet · 关键事实</h2>
+    </div>
+    <p class="kit-section-sub">
+      核心运营数据一览，供记者与分析师快速引用。数据更新截至 2026-06-30，下季度将在 2026-10-15 更新。
+    </p>
+
+    <table class="fact-table">
+      <tbody>
+        <tr><th>建园时间</th><td><b>2019</b> 年 · 迄今第 <b>7</b> 年</td></tr>
+        <tr><th>占地面积</th><td><b>260</b> 亩</td></tr>
+        <tr><th>建筑面积</th><td><b>40.4</b> 万 ㎡</td></tr>
+        <tr><th>入驻企业</th><td><b>52</b> 家（含 3 家上市公司、8 家高企、5 家专精特新）</td></tr>
+        <tr><th>在园员工</th><td><b>3800+</b> 人</td></tr>
+        <tr><th>累计营收</th><td><b>¥30 亿</b>（截至 2025 年底）</td></tr>
+        <tr><th>治理机制</th><td>三方共治 · 荥阳市人民政府（主管） · 荥阳城投（资产） · 太能控股（运营）</td></tr>
+        <tr><th>平台级 IP</th><td><b>4</b> 项 · DTSI® · X-Flow Dynamics™ · PDTMM® · OpenX@X™</td></tr>
+        <tr><th>子品牌</th><td><b>4</b> 个 · 荥数云 · 荥智造 · 荥数链 · 荥数才</td></tr>
+        <tr><th>荣誉认证</th><td>河南省首批 5G+ 工业互联网示范园区（2026）· 郑州市数字经济示范基地（2024）</td></tr>
+        <tr><th>联系方式</th><td><a href="mailto:contact@xingyang-park.gov.cn" style="color:var(--enterprise);">contact@xingyang-park.gov.cn</a> · +86 371 6899 xxxx</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: var(--sp-6); display: flex; gap: var(--sp-3); flex-wrap: wrap;">
+      <a class="btn-primary" href="#">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        下载 PDF Fact Sheet
+      </a>
+      <a class="btn-ghost" href="#">下载 XLSX（含历年数据）</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. 领导演讲照片 ============ -->
+<section class="kit-section" id="speaker-photos">
+  <div class="container-wide">
+    <div class="kit-section-head">
+      <span class="kit-section-num">05</span>
+      <h2 class="kit-section-title">领导演讲照片</h2>
+    </div>
+    <p class="kit-section-sub">
+      主要领导公开演讲照片 3 张——适用于访谈稿、评论文章、峰会报道等场景。
+    </p>
+
+    <div class="grid grid-3">
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="sp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#sp1)"/>
+          <!-- Podium + speaker -->
+          <rect x="170" y="130" width="60" height="80" fill="#2a3352"/>
+          <circle cx="200" cy="100" r="20" fill="#3a4460"/>
+          <path d="M170 130 Q200 105 230 130" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">郑志强 · 荥阳市常务副市长</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">郑志强 · 2026 年度峰会主旨发言</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="sp2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#sp2)"/>
+          <rect x="170" y="130" width="60" height="80" fill="#2a3352"/>
+          <circle cx="200" cy="100" r="20" fill="#3a4460"/>
+          <path d="M170 130 Q200 105 230 130" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">戴继涛博士 · 学术委员</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">戴继涛博士 · OpenX@X 方法论主题演讲</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="sp3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#sp3)"/>
+          <rect x="170" y="130" width="60" height="80" fill="#2a3352"/>
+          <circle cx="200" cy="100" r="20" fill="#3a4460"/>
+          <path d="M170 130 Q200 105 230 130" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">李岩 · 园区总经理</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">李 岩 · 三方共治机制发布现场</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. 园区实拍 ============ -->
+<section class="kit-section" id="park-photos">
+  <div class="container-wide">
+    <div class="kit-section-head">
+      <span class="kit-section-num">06</span>
+      <h2 class="kit-section-title">园区实拍照片</h2>
+    </div>
+    <p class="kit-section-sub">
+      园区各功能区域实拍——6 张场景照，覆盖研发楼、企业公共空间、创客咖啡、路演厅、数据中心机房、员工餐厅。
+    </p>
+
+    <div class="grid grid-3">
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="pk1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#pk1)"/>
+          <rect x="70" y="60" width="260" height="140" fill="#2a3352"/>
+          <g fill="#3a4460">
+            <rect x="90"  y="80" width="30" height="24"/>
+            <rect x="130" y="80" width="30" height="24"/>
+            <rect x="170" y="80" width="30" height="24"/>
+            <rect x="210" y="80" width="30" height="24"/>
+            <rect x="250" y="80" width="30" height="24"/>
+            <rect x="290" y="80" width="30" height="24"/>
+            <rect x="90"  y="115" width="30" height="24"/>
+            <rect x="130" y="115" width="30" height="24"/>
+            <rect x="170" y="115" width="30" height="24"/>
+            <rect x="210" y="115" width="30" height="24"/>
+            <rect x="250" y="115" width="30" height="24"/>
+            <rect x="290" y="115" width="30" height="24"/>
+          </g>
+          <text x="200" y="180" text-anchor="middle" fill="#6b7280" font-size="12" font-family="sans-serif">研发楼 A3 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">研发楼 A3 · 大华郑州总部所在楼栋</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="pk2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#pk2)"/>
+          <rect x="40" y="140" width="320" height="60" fill="#2a3352"/>
+          <circle cx="120" cy="170" r="10" fill="#3a4460"/>
+          <circle cx="200" cy="170" r="10" fill="#3a4460"/>
+          <circle cx="280" cy="170" r="10" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">企业公共空间 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">企业公共空间 · 跨企业协同工位</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="pk3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#pk3)"/>
+          <!-- Coffee cups -->
+          <rect x="80"  y="130" width="30" height="40" rx="3" fill="#3a4460"/>
+          <rect x="150" y="130" width="30" height="40" rx="3" fill="#3a4460"/>
+          <rect x="220" y="130" width="30" height="40" rx="3" fill="#3a4460"/>
+          <rect x="290" y="130" width="30" height="40" rx="3" fill="#3a4460"/>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">创客咖啡 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">创客咖啡 · 24 小时开放交流空间</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="pk4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#pk4)"/>
+          <rect x="120" y="60" width="160" height="60" fill="#0a0e1a" stroke="#3a4460"/>
+          <g fill="#3a4460">
+            <rect x="60"  y="150" width="60" height="10"/>
+            <rect x="130" y="150" width="60" height="10"/>
+            <rect x="200" y="150" width="60" height="10"/>
+            <rect x="270" y="150" width="60" height="10"/>
+            <rect x="60"  y="170" width="60" height="10"/>
+            <rect x="130" y="170" width="60" height="10"/>
+            <rect x="200" y="170" width="60" height="10"/>
+            <rect x="270" y="170" width="60" height="10"/>
+          </g>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">路演厅 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">路演厅 · 300 座多功能报告厅</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="pk5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#pk5)"/>
+          <g fill="#2a3352">
+            <rect x="60"  y="60" width="30" height="140"/>
+            <rect x="100" y="60" width="30" height="140"/>
+            <rect x="140" y="60" width="30" height="140"/>
+            <rect x="180" y="60" width="30" height="140"/>
+            <rect x="220" y="60" width="30" height="140"/>
+            <rect x="260" y="60" width="30" height="140"/>
+            <rect x="300" y="60" width="30" height="140"/>
+          </g>
+          <g fill="#38bdf8" opacity="0.6">
+            <circle cx="75"  cy="90"  r="2"/>
+            <circle cx="115" cy="120" r="2"/>
+            <circle cx="155" cy="90"  r="2"/>
+            <circle cx="195" cy="130" r="2"/>
+            <circle cx="235" cy="100" r="2"/>
+            <circle cx="275" cy="140" r="2"/>
+            <circle cx="315" cy="110" r="2"/>
+          </g>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">数据中心机房 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">数据中心机房 · 优刻得云节点二期</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs><linearGradient id="pk6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2138"/><stop offset="100%" stop-color="#0f1424"/></linearGradient></defs>
+          <rect width="400" height="225" fill="url(#pk6)"/>
+          <g fill="#3a4460">
+            <rect x="60"  y="140" width="80" height="14" rx="4"/>
+            <rect x="160" y="140" width="80" height="14" rx="4"/>
+            <rect x="260" y="140" width="80" height="14" rx="4"/>
+            <rect x="60"  y="170" width="80" height="14" rx="4"/>
+            <rect x="160" y="170" width="80" height="14" rx="4"/>
+            <rect x="260" y="170" width="80" height="14" rx="4"/>
+          </g>
+          <text x="200" y="115" text-anchor="middle" fill="#6b7280" font-size="14" font-family="sans-serif">员工餐厅 · 高清照片位</text>
+        </svg>
+        <div class="photo-card__meta">
+          <div class="photo-card__caption">员工餐厅 · 可容纳 800 人的自助餐厅</div>
+          <div class="photo-card__dl">3000×1687 · 下载 JPG</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 授权使用 + 联系人 ============ -->
+<section class="section" id="authorization">
+  <div class="container-wide">
+    <span class="section-kicker">AUTHORIZATION · 授权使用协议</span>
+    <h2 class="section-title">素材使用规则</h2>
+    <div class="auth-block">
+      <div>
+        <h3>本媒体素材包遵循以下授权协议</h3>
+        <ol>
+          <li>本页所提供的所有 Logo、照片、Fact Sheet、视频截图等素材，允许在<b>新闻报道、行业分析、学术研究</b>用途下自由使用，无需事先申请。</li>
+          <li>使用时须保留完整版权署名——"素材来源：荥阳数字经济产业园（xingyang-park.gov.cn）"。</li>
+          <li>不得对三方 lock-up 进行拆分、变形、颜色替换、遮挡等违反品牌规范的处理。</li>
+          <li>用于<b>商业推广、广告投放、产品包装</b>等商业用途，须事先获得书面授权（联系新闻部）。</li>
+          <li>照片中若涉及自然人肖像，仅可用于新闻报道用途，不得用于任何商业推广。</li>
+          <li>本页素材的最终解释权归荥阳数字经济产业园所有。争议以中华人民共和国法律为准。</li>
+        </ol>
+      </div>
+      <div class="contact-mini" id="contact">
+        <h4>媒体联系人</h4>
+        <div style="font-size:var(--fs-md);font-weight:700;margin-bottom:var(--sp-3);">王思远</div>
+        <dl>
+          <dt>职务</dt><dd>新闻部负责人</dd>
+          <dt>邮箱</dt><dd><a href="mailto:press@xingyang-park.gov.cn" style="color:var(--enterprise);">press@xingyang-park.gov.cn</a></dd>
+          <dt>电话</dt><dd>+86 371 6899 xxxx</dd>
+          <dt>响应</dt><dd>工作日 4 小时内</dd>
+          <dt>地址</dt><dd>荥阳数字经济产业园综合服务大厅 3F</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sticky 咨询 ============ -->
+<a class="help-widget" href="#contact" aria-label="联系新闻部">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  联系新闻部
+</a>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>新闻中心</h5>
+        <a href="./">新闻首页</a>
+        <a href="./#in-the-news">新闻发布</a>
+        <a href="./media-kit.html">媒体素材</a>
+        <a href="./#press-resources">记者资源</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">平台矩阵</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="mailto:press@xingyang-park.gov.cn">press@xingyang-park.gov.cn</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+        <a href="./#subscribe">订阅通讯</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 素材版本 2026-07-28</div>
+  </div>
+</footer>
+
+</body>
+</html>

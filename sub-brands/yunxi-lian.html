@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>荥数链® · 让贸易无限 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥数链® —— 数字荥阳的跨境贸易与供应链子品牌。480 家跨境电商 · 32 覆盖国家 · ¥54 亿年 GMV。联合郑州海关智慧口岸、河南自贸区打通结算与合规。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .sb { --accent: #34d399; --accent-dark: #059669; --accent-soft: rgba(52,211,153,.14); }
+  .sb-header { position: sticky; top: 64px; z-index: 900; background: rgba(15,20,36,.94); backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid var(--bg-line); }
+  .sb-header-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--sp-6); height: 52px; display: flex; align-items: center; gap: var(--sp-6); }
+  .sb-wordmark { display: flex; align-items: baseline; gap: var(--sp-2); font-weight: 800; font-size: var(--fs-md); padding-right: var(--sp-4); border-right: 1px solid var(--bg-line); }
+  .sb-wordmark .cjk { color: var(--accent); }
+  .sb-wordmark .tm { color: var(--accent); font-size: 10px; vertical-align: super; }
+  .sb-wordmark .py { color: var(--text-3); font-size: var(--fs-xs); font-family: var(--font-mono); }
+  .sb-anchors { display: flex; gap: var(--sp-2); overflow-x: auto; flex: 1; }
+  .sb-anchors a { padding: var(--sp-2) var(--sp-3); font-size: var(--fs-sm); color: var(--text-2); border-radius: var(--radius-sm); white-space: nowrap; }
+  .sb-anchors a:hover { background: var(--bg-3); color: var(--text); }
+  .sb-cta-inline { padding: var(--sp-2) var(--sp-4); background: var(--accent); color: #0a0e1a; border-radius: var(--radius); font-weight: 700; font-size: var(--fs-sm); white-space: nowrap; }
+  .sb-cta-inline:hover { color: #0a0e1a; opacity: .9; }
+
+  .sb-hero { position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(52,211,153,.28), transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(52,211,153,.14), transparent 50%),
+      linear-gradient(160deg, #041a11 0%, #0a1a14 60%, #0a0e1a 100%);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .sb-hero-inner { max-width: var(--container-max); margin: 0 auto; padding: var(--sp-16) var(--sp-6); min-height: 480px; position: relative; }
+  .slider input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .slides { position: relative; min-height: 380px; }
+  .slide { position: absolute; top: 0; left: 0; right: 0; opacity: 0; transform: translateY(12px); transition: opacity 400ms ease, transform 400ms ease; pointer-events: none; }
+  .slider #s1:checked ~ .slides .slide-1, .slider #s2:checked ~ .slides .slide-2, .slider #s3:checked ~ .slides .slide-3 { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .slide-kicker { display: inline-block; padding: 4px var(--sp-4); border-radius: var(--radius-pill); background: var(--accent-soft); color: var(--accent); font-size: var(--fs-sm); font-weight: 600; border: 1px solid rgba(52,211,153,.35); margin-bottom: var(--sp-5); }
+  .slide-master { color: var(--text-3); font-size: var(--fs-sm); letter-spacing: .1em; text-transform: uppercase; margin-bottom: var(--sp-3); }
+  .slide-title { font-size: var(--fs-3xl); font-weight: 800; line-height: var(--lh-tight); margin-bottom: var(--sp-4); max-width: 780px; }
+  .slide-sub { color: var(--text-2); font-size: var(--fs-lg); line-height: var(--lh-relaxed); max-width: 700px; margin-bottom: var(--sp-8); }
+  .btn-accent { padding: var(--sp-3) var(--sp-6); background: var(--accent); color: #0a0e1a; border-radius: var(--radius); font-weight: 700; display: inline-flex; align-items: center; gap: var(--sp-2); transition: transform var(--dur-fast) var(--ease); }
+  .btn-accent:hover { transform: translateY(-1px); color: #0a0e1a; }
+  .slider-dots { display: flex; gap: var(--sp-3); margin-top: var(--sp-8); position: absolute; bottom: 32px; left: var(--sp-6); }
+  .slider-dots label { width: 40px; height: 4px; background: var(--bg-3); cursor: pointer; border-radius: 2px; transition: background var(--dur-fast) var(--ease); }
+  .slider-dots label:hover { background: var(--text-3); }
+  .slider #s1:checked ~ .slider-dots label[for=s1], .slider #s2:checked ~ .slider-dots label[for=s2], .slider #s3:checked ~ .slider-dots label[for=s3] { background: var(--accent); }
+
+  .positioning { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--sp-8); align-items: start; }
+  @media (max-width: 900px) { .positioning { grid-template-columns: 1fr; } }
+  .positioning p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .positioning .pos-mid { text-align: center; padding: var(--sp-6); border-left: 1px solid var(--bg-line); border-right: 1px solid var(--bg-line); }
+  @media (max-width: 900px) { .positioning .pos-mid { border-left: 0; border-right: 0; border-top: 1px solid var(--bg-line); border-bottom: 1px solid var(--bg-line); padding: var(--sp-6) 0; } }
+  .slogan-big { font-size: clamp(32px, 4.5vw, 56px); font-weight: 900; line-height: 1.15; background: linear-gradient(90deg, var(--accent), var(--text)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .slogan-master { color: var(--text-3); font-size: var(--fs-sm); letter-spacing: .1em; margin-bottom: var(--sp-2); }
+
+  .video-report { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-6); }
+  @media (max-width: 900px) { .video-report { grid-template-columns: 1fr; } }
+  .video-box { aspect-ratio: 16/9; background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); position: relative; overflow: hidden; display: grid; place-items: center; }
+  .video-box::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(52,211,153,.2), transparent 55%), radial-gradient(circle at 70% 60%, rgba(52,211,153,.14), transparent 55%); }
+  .play-btn { width: 84px; height: 84px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; box-shadow: 0 8px 32px rgba(52,211,153,.4); position: relative; z-index: 1; }
+  .play-btn::after { content: ""; width: 0; height: 0; border-left: 22px solid #0a0e1a; border-top: 14px solid transparent; border-bottom: 14px solid transparent; margin-left: 6px; }
+  .video-caption { position: absolute; bottom: var(--sp-5); left: var(--sp-5); right: var(--sp-5); z-index: 1; }
+  .video-caption .kicker { color: var(--accent); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .video-caption .title { color: var(--text); font-size: var(--fs-md); font-weight: 700; margin-top: 4px; }
+  .report-card { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-4); }
+  .report-card .doc-icon { width: 48px; height: 56px; border-radius: 4px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); display: grid; place-items: center; color: #0a0e1a; font-weight: 900; font-size: 14px; }
+  .report-card h4 { font-size: var(--fs-md); font-weight: 700; }
+  .report-card p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); flex: 1; }
+  .report-meta { display: flex; gap: var(--sp-3); font-size: var(--fs-xs); color: var(--text-3); }
+
+  .beliefs-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--sp-8); align-items: center; }
+  @media (max-width: 900px) { .beliefs-wrap { grid-template-columns: 1fr; } }
+  .beliefs-svg { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-6); }
+  .whitepaper { padding: var(--sp-8); background: var(--bg-2); border: 1px solid var(--accent-soft); border-radius: var(--radius-lg); border-left: 3px solid var(--accent); }
+  .whitepaper .chip { background: var(--accent-soft); color: var(--accent); }
+  .whitepaper h3 { font-size: var(--fs-xl); font-weight: 700; margin: var(--sp-3) 0; }
+  .whitepaper p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-5); }
+
+  .why-2col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-10); }
+  @media (max-width: 900px) { .why-2col { grid-template-columns: 1fr; } }
+  .why-block h3 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-3); color: var(--accent); }
+  .why-block p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+
+  .stats-tinted { background: var(--bg-1); border-left: 3px solid var(--accent); }
+  .stats-tinted .stat-num { color: var(--accent); }
+
+  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+  @media (max-width: 900px) { .diff-grid { grid-template-columns: repeat(2, 1fr); } }
+  .diff-item { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .diff-item:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .diff-icon { width: 48px; height: 48px; margin-bottom: var(--sp-4); color: var(--accent); }
+  .diff-item h4 { font-size: var(--fs-md); font-weight: 700; line-height: var(--lh-tight); }
+  .diff-item p { color: var(--text-3); font-size: var(--fs-xs); margin-top: 6px; }
+
+  .outcomes { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .outcomes { grid-template-columns: repeat(2, 1fr); } }
+  .outcome-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-top: 3px solid var(--accent); }
+  .outcome-metric { font-size: var(--fs-xl); font-weight: 800; color: var(--accent); line-height: 1.1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+  .outcome-caption { color: var(--text-2); font-size: var(--fs-xs); line-height: var(--lh-normal); }
+
+  .portfolio { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-4); }
+  @media (max-width: 1100px) { .portfolio { grid-template-columns: repeat(2, 1fr); } }
+  .pf-card { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease); }
+  .pf-card:hover { border-color: var(--accent); }
+  .pf-num { color: var(--accent); font-family: var(--font-mono); font-size: var(--fs-sm); }
+  .pf-title { font-size: var(--fs-md); font-weight: 700; margin: var(--sp-2) 0 var(--sp-3); }
+  .pf-body { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
+
+  .logo-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4); padding: var(--sp-8) 0; }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(3, 1fr); } }
+  .logo-tile { height: 64px; display: grid; place-items: center; background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); color: var(--text-2); font-size: var(--fs-sm); font-weight: 700; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .logo-tile:hover { color: var(--accent); border-color: var(--accent); }
+
+  .quote-block { padding: var(--sp-10); background: var(--bg-1); border-left: 4px solid var(--accent); border-radius: var(--radius-md); display: grid; grid-template-columns: 100px 1fr; gap: var(--sp-6); align-items: start; }
+  @media (max-width: 900px) { .quote-block { grid-template-columns: 1fr; } }
+  .avatar { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); display: grid; place-items: center; color: #0a0e1a; font-weight: 900; font-size: 32px; }
+  .quote-body q { font-size: var(--fs-lg); color: var(--text); line-height: var(--lh-relaxed); display: block; margin-bottom: var(--sp-4); }
+  .quote-body q::before { content: "「"; color: var(--accent); }
+  .quote-body q::after { content: "」"; color: var(--accent); }
+  .quote-attr { color: var(--text-2); font-size: var(--fs-sm); }
+  .quote-attr strong { color: var(--text); font-size: var(--fs-md); }
+  .quote-note { color: var(--text-4); font-size: var(--fs-xs); margin-top: var(--sp-3); }
+
+  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .res-grid { grid-template-columns: repeat(2, 1fr); } }
+  .res-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); }
+  .res-card:hover { border-color: var(--accent); }
+  .res-card .chip { margin-bottom: var(--sp-3); }
+  .res-card h4 { font-size: var(--fs-sm); font-weight: 700; line-height: var(--lh-normal); margin-bottom: var(--sp-2); }
+  .res-card p { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
+
+  .form-box { padding: var(--sp-10); background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); border-top: 3px solid var(--accent); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+  @media (max-width: 900px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-field { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .form-field label { font-size: var(--fs-sm); color: var(--text-1); font-weight: 600; }
+  .form-field input, .form-field select { padding: var(--sp-3); background: var(--bg-2); color: var(--text); border: 1px solid var(--bg-line); border-radius: var(--radius); font: inherit; font-size: var(--fs-sm); transition: border-color var(--dur-fast) var(--ease); }
+  .form-field input:focus, .form-field select:focus { outline: none; border-color: var(--accent); }
+  .form-opt { display: flex; align-items: center; gap: var(--sp-2); padding: var(--sp-4) 0; font-size: var(--fs-sm); color: var(--text-2); }
+  .form-opt input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--accent); }
+  .form-submit { padding: var(--sp-3) var(--sp-8); background: var(--accent); color: #0a0e1a; border-radius: var(--radius); font-weight: 700; font-size: var(--fs-md); }
+
+  .help-widget.help-accent { background: var(--accent); color: #0a0e1a; box-shadow: 0 8px 32px rgba(52,211,153,.4); }
+  .help-widget.help-accent:hover { color: #0a0e1a; }
+</style>
+</head>
+<body class="sb">
+
+<nav class="nav-global" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a href="../index.html" class="nav-brand"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="./" class="active">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a href="../about/#contact" class="nav-cta">入园咨询</a>
+  </div>
+</nav>
+
+<div class="sb-header">
+  <div class="sb-header-inner">
+    <div class="sb-wordmark">
+      <span class="cjk">荥数链</span><span class="tm">®</span>
+      <span class="py">yunxi-lian</span>
+    </div>
+    <div class="sb-anchors">
+      <a href="#hero">承诺</a>
+      <a href="#positioning">定位</a>
+      <a href="#video">介绍</a>
+      <a href="#beliefs">核心信念</a>
+      <a href="#why">为什么</a>
+      <a href="#differ">差异化</a>
+      <a href="#outcomes">成效</a>
+      <a href="#portfolio">子产品</a>
+      <a href="#cases">案例</a>
+      <a href="#resources">资源</a>
+      <a href="#contact">咨询</a>
+    </div>
+    <a href="#contact" class="sb-cta-inline">对接跨境通道</a>
+  </div>
+</div>
+
+<section id="hero" class="sb-hero">
+  <div class="sb-hero-inner">
+    <div class="slider">
+      <input type="radio" name="slider" id="s1" checked>
+      <input type="radio" name="slider" id="s2">
+      <input type="radio" name="slider" id="s3">
+      <div class="slides">
+        <div class="slide slide-1">
+          <div class="slide-master">数字荥阳，可能无限 · 荥数链®</div>
+          <span class="slide-kicker">品牌承诺 · Brand Promise</span>
+          <h1 class="slide-title">让贸易无限 —— 一条通道打通郑州航空港与全球 32 国</h1>
+          <p class="slide-sub">
+            依托郑州航空港「一带一路」枢纽、中欧班列郑州集结中心与河南自贸区，
+            为跨境电商、供应链金融、产业链撮合提供订单-通关-结算-合规的一站式数字化通道。
+            480 家在通、¥54 亿年 GMV、32 个国家。
+          </p>
+          <a href="#contact" class="btn-accent">对接跨境通道 →</a>
+        </div>
+        <div class="slide slide-2">
+          <div class="slide-master">数字荥阳，可能无限 · 荥数链®</div>
+          <span class="slide-kicker">客户案例 · Customer Story</span>
+          <h1 class="slide-title">新开普 · 通过荥数链跨境结算 —— 通关时效 ↑ 3.2×，回款周期 ↓ 46%</h1>
+          <p class="slide-sub">
+            新开普跨境校园卡业务通过荥数链接入郑州海关智慧口岸单一窗口 + 招商银行链上结算，
+            替代原有 5 家代理逐国报关的分散模式。首批 12 国上线，SLA 24 小时通关率 ≥ 98%。
+          </p>
+          <a href="../cases/newcapec.html" class="btn-accent">查看完整案例 →</a>
+        </div>
+        <div class="slide slide-3">
+          <div class="slide-master">数字荥阳，可能无限 · 荥数链®</div>
+          <span class="slide-kicker">政府认可 · Recognition</span>
+          <h1 class="slide-title">河南自贸区数字贸易示范平台 · 郑州海关智慧口岸首批共建单位</h1>
+          <p class="slide-sub">
+            荥数链是河南自贸试验区数字贸易 2025 示范平台、郑州海关智慧口岸首批共建单位，
+            并与商务部跨境电商综试区备案对接。累计撬动出口 ¥54 亿元、进口 ¥12 亿元。
+          </p>
+          <a href="#beliefs" class="btn-accent">查看认证详情 →</a>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <label for="s1" aria-label="品牌承诺"></label>
+        <label for="s2" aria-label="客户案例"></label>
+        <label for="s3" aria-label="政府认可"></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="positioning" class="section">
+  <div class="container-max">
+    <div class="positioning">
+      <div>
+        <span class="section-kicker" style="color:var(--accent);">Where</span>
+        <h3 style="font-size:var(--fs-lg); margin:var(--sp-2) 0 var(--sp-4);">从郑州出海，比从上海近 800 公里</h3>
+        <p>郑州航空港是内陆离欧亚最近的枢纽。中欧班列 12 天到杜伊斯堡，卡航 3.6 天到法兰克福，比经上海转口平均节省 800 公里陆运与 2 天海运。荥数链把这条物理通道翻译成数字通道。</p>
+      </div>
+      <div class="pos-mid">
+        <div class="slogan-master">数字荥阳，可能无限</div>
+        <div class="slogan-big">让贸易无限</div>
+        <p style="color:var(--text-3); font-size:var(--fs-sm); margin-top:var(--sp-4);">Trade without borders.</p>
+      </div>
+      <div>
+        <span class="section-kicker" style="color:var(--accent);">For Whom</span>
+        <h3 style="font-size:var(--fs-lg); margin:var(--sp-2) 0 var(--sp-4);">为豫西出海的中小企业与产业带</h3>
+        <p>从年出口 500 万起步的中小电商、有出海计划的传统外贸厂商、需要供应链金融的品牌方，到希望撮合上下游的产业链链主 —— 荥数链把订单、通关、结算、合规打包成一条 API 调用。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">3 分钟看懂</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-8);">荥数链核心能力介绍视频</h2>
+    <div class="video-report">
+      <div class="video-box">
+        <button class="play-btn" aria-label="播放介绍视频"></button>
+        <div class="video-caption">
+          <div class="kicker">Video · 03:28</div>
+          <div class="title">荥数链 3 分钟 —— 从下单到跨境回款的完整链路</div>
+        </div>
+      </div>
+      <div class="report-card">
+        <div class="doc-icon">PDF</div>
+        <div style="display:flex; gap:var(--sp-2); flex-wrap:wrap;">
+          <span class="chip chip--report">报告</span>
+          <span class="chip chip--whitepaper">白皮书</span>
+        </div>
+        <h4>豫商出海 2026 数字化通道白皮书</h4>
+        <p>92 页，含 32 国合规矩阵、8 大品类通关数据、¥54 亿 GMV 结构分析与 15 个匿名出海案例。</p>
+        <div class="report-meta"><span>2026 · 07 · 92 页</span><span>·</span><span>下载 11.6 MB</span></div>
+        <a href="#contact" class="btn-accent">立即下载 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beliefs" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Core Beliefs · 核心信念</span>
+    <h2 class="section-title">我们相信跨境贸易的四条链路</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">订单-物流-结算-合规 —— 缺一条就出不了海。荥数链的核心，是让这四条链条以数据形式合流。</p>
+
+    <div class="beliefs-wrap">
+      <div class="beliefs-svg">
+        <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥数链四链路">
+          <defs>
+            <linearGradient id="ylian-g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#059669"/></linearGradient>
+          </defs>
+          <!-- 4 chain nodes horizontal -->
+          <g>
+            <rect x="30" y="150" width="130" height="110" rx="12" fill="#0f1424" stroke="#34d399" stroke-width="2"/>
+            <text x="95" y="185" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">① 订单</text>
+            <text x="95" y="210" text-anchor="middle" fill="#c8d0e0" font-size="10">Order</text>
+            <text x="95" y="230" text-anchor="middle" fill="#8b95a8" font-size="10">全渠道聚合</text>
+            <text x="95" y="245" text-anchor="middle" fill="#8b95a8" font-size="10">Amazon · TikTok · Temu</text>
+          </g>
+          <g>
+            <rect x="210" y="150" width="130" height="110" rx="12" fill="#0f1424" stroke="#34d399" stroke-width="2"/>
+            <text x="275" y="185" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">② 物流</text>
+            <text x="275" y="210" text-anchor="middle" fill="#c8d0e0" font-size="10">Logistics</text>
+            <text x="275" y="230" text-anchor="middle" fill="#8b95a8" font-size="10">中欧班列 · 卡航</text>
+            <text x="275" y="245" text-anchor="middle" fill="#8b95a8" font-size="10">郑州航空港</text>
+          </g>
+          <g>
+            <rect x="390" y="150" width="130" height="110" rx="12" fill="#0f1424" stroke="#34d399" stroke-width="2"/>
+            <text x="455" y="185" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">③ 结算</text>
+            <text x="455" y="210" text-anchor="middle" fill="#c8d0e0" font-size="10">Settlement</text>
+            <text x="455" y="230" text-anchor="middle" fill="#8b95a8" font-size="10">链上结算</text>
+            <text x="455" y="245" text-anchor="middle" fill="#8b95a8" font-size="10">招商 · 建行 · 中信</text>
+          </g>
+          <g>
+            <rect x="570" y="150" width="100" height="110" rx="12" fill="#0f1424" stroke="#34d399" stroke-width="2"/>
+            <text x="620" y="185" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">④ 合规</text>
+            <text x="620" y="210" text-anchor="middle" fill="#c8d0e0" font-size="10">Compliance</text>
+            <text x="620" y="230" text-anchor="middle" fill="#8b95a8" font-size="10">32 国税/清关</text>
+          </g>
+
+          <!-- Arrows -->
+          <line x1="160" y1="205" x2="205" y2="205" stroke="#34d399" stroke-width="2" marker-end="url(#lianArrow)"/>
+          <line x1="340" y1="205" x2="385" y2="205" stroke="#34d399" stroke-width="2" marker-end="url(#lianArrow)"/>
+          <line x1="520" y1="205" x2="565" y2="205" stroke="#34d399" stroke-width="2" marker-end="url(#lianArrow)"/>
+          <defs>
+            <marker id="lianArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,0 L0,8 L8,4 z" fill="#34d399"/>
+            </marker>
+          </defs>
+
+          <!-- Top title -->
+          <text x="350" y="90" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800">让数据比货物先到</text>
+          <text x="350" y="115" text-anchor="middle" fill="#8b95a8" font-size="12">Data arrives before the container</text>
+
+          <!-- Bottom principle -->
+          <rect x="90" y="310" width="520" height="60" rx="8" fill="#12172a" stroke="#34d399" stroke-dasharray="5,5"/>
+          <text x="350" y="335" text-anchor="middle" fill="#34d399" font-size="13" font-weight="700">一次上链，四方共见</text>
+          <text x="350" y="355" text-anchor="middle" fill="#8b95a8" font-size="11">出口商 · 承运方 · 银行 · 海关 —— 数据不再重复录入</text>
+        </svg>
+      </div>
+      <aside class="whitepaper">
+        <span class="chip">白皮书 · 10 页导读</span>
+        <h3>《豫商出海：荥数链四链合一方法论》</h3>
+        <p>由荥数链联合河南自贸区、郑州海关智慧口岸办公室共同撰写，含 32 国合规矩阵、单一窗口对接指引与 8 大品类通关数据。</p>
+        <a href="#contact" class="btn-accent">获取完整版 →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Why Yunxi Lian</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-10);">为什么选择荥数链</h2>
+    <div class="why-2col">
+      <div class="why-block">
+        <h3>因为它是政企共建的、不是纯商业的</h3>
+        <p>荥数链的四方共建方包括：河南自贸区（政策）、郑州海关智慧口岸（通关）、招商/建行/中信（结算）、太能控股 + 城投（运营）。这意味着单一窗口的备案、跨境人民币结算试点、海关 AEO 高级认证等资源，可以以合规而非「打擦边球」的方式落地到 480 家在通企业。</p>
+      </div>
+      <div class="why-block">
+        <h3>因为它是「一条 API 」不是「一堆表格」</h3>
+        <p>过去豫商出海要跑 5-8 家代理，重复录入订单、报关单、报检单、税单。荥数链把整个流程抽象为 4 个 API 端点，一次数据录入自动同步四方。首批 12 国上线的新开普跨境结算实践显示，回款周期从平均 41 天压缩到 22 天。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-max">
+    <div class="stats-banner stats-tinted">
+      <div class="stat"><div class="stat-num">480</div><div class="stat-label">在通跨境电商</div></div>
+      <div class="stat"><div class="stat-num">32</div><div class="stat-label">覆盖国家</div></div>
+      <div class="stat"><div class="stat-num">¥54 亿</div><div class="stat-label">年 GMV</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">主推品类</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="differ" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">8 大差异化能力</span>
+    <h2 class="section-title">荥数链 vs. 跨境 SaaS 与传统外贸代理</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">对准豫西中小外贸商与跨境电商的 8 个真实断点。</p>
+    <div class="diff-grid">
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2c4 4 4 16 0 20-4-4-4-16 0-20"/></svg>
+        <h4>32 国合规覆盖</h4>
+        <p>欧盟 · 北美 · 东南亚 · 拉美 · 中亚</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+        <h4>海关单一窗口</h4>
+        <p>郑州海关智慧口岸原生对接</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <h4>跨境人民币结算</h4>
+        <p>招商 · 建行 · 中信三行链上</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="10" rx="2"/><path d="M7 8V6a5 5 0 0 1 10 0v2"/></svg>
+        <h4>供应链金融</h4>
+        <p>基于订单-回款上链数据放款</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="3"/></svg>
+        <h4>中欧班列直连</h4>
+        <p>12 天到杜伊斯堡</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 12M21 6l-3 12M6 6l9 12M9 6l9 12"/></svg>
+        <h4>产业链撮合</h4>
+        <p>1,553 全景招商计划中挑品类链主</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h4>AEO 高级认证支持</h4>
+        <p>协助客户申请海关信用等级</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16M4 4h16M4 12h12M4 20h16"/></svg>
+        <h4>4 API 一次接入</h4>
+        <p>订单 · 物流 · 结算 · 合规统一 SDK</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <div class="stats-banner stats-tinted">
+      <div class="stat"><div class="stat-num">19</div><div class="stat-label">授权专利</div></div>
+      <div class="stat"><div class="stat-num">480</div><div class="stat-label">在通企业</div></div>
+      <div class="stat"><div class="stat-num">河南自贸</div><div class="stat-label">数字贸易示范平台</div></div>
+      <div class="stat"><div class="stat-num">郑州海关</div><div class="stat-label">智慧口岸首批共建</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="outcomes" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Core Outcomes · 核心成效</span>
+    <h2 class="section-title">8 个数字，说明荥数链在做什么</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">下列指标来自 2026 上半年 480 家在通企业匿名汇总数据。</p>
+    <div class="outcomes">
+      <div class="outcome-card"><div class="outcome-metric">↑ 3.2×</div><div class="outcome-caption">通关时效 —— 某郑州校园卡跨境业务</div></div>
+      <div class="outcome-card"><div class="outcome-metric">↓ 46%</div><div class="outcome-caption">回款周期 —— 同企业首批 12 国上线数据</div></div>
+      <div class="outcome-card"><div class="outcome-metric">98%</div><div class="outcome-caption">24h 通关成功率 —— 荥数链 2026 Q2 SLA</div></div>
+      <div class="outcome-card"><div class="outcome-metric">¥54 亿</div><div class="outcome-caption">年 GMV —— 480 家在通企业 T12 汇总</div></div>
+      <div class="outcome-card"><div class="outcome-metric">¥12 亿</div><div class="outcome-caption">进口撬动 —— 中欧班列反向物流</div></div>
+      <div class="outcome-card"><div class="outcome-metric">22 天</div><div class="outcome-caption">跨境结算平均回款周期</div></div>
+      <div class="outcome-card"><div class="outcome-metric">4 → 1</div><div class="outcome-caption">代理数量简化 —— 单一窗口 API 化前后对比</div></div>
+      <div class="outcome-card"><div class="outcome-metric">AEO 高级</div><div class="outcome-caption">21 家在通企业已通过海关信用高级认证</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Portfolio · 子产品矩阵</span>
+    <h2 class="section-title">荥数链下的 5 条产品线</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">从跨境订单到供应链金融，4 API + 1 生态服务全覆盖。</p>
+    <div class="portfolio">
+      <div class="pf-card"><span class="pf-num">01</span><div class="pf-title">Lian-Order</div><p class="pf-body">全渠道跨境订单聚合：Amazon · TikTok · Temu · Shopee · 独立站统一接单。</p></div>
+      <div class="pf-card"><span class="pf-num">02</span><div class="pf-title">Lian-Logistics</div><p class="pf-body">物流数字化：中欧班列 + 卡航 + 空运舱位可视化、订舱、追踪。</p></div>
+      <div class="pf-card"><span class="pf-num">03</span><div class="pf-title">Lian-Pay</div><p class="pf-body">跨境结算：招商 · 建行 · 中信三行链上结算，本币出海。</p></div>
+      <div class="pf-card"><span class="pf-num">04</span><div class="pf-title">Lian-Compliance</div><p class="pf-body">32 国税/清关/知识产权合规矩阵，AEO 认证辅导。</p></div>
+      <div class="pf-card"><span class="pf-num">05</span><div class="pf-title">Lian-Match</div><p class="pf-body">产业链撮合：1,553 全景招商计划中的品类链主对接与联合出海。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-max">
+    <div style="text-align:center; color:var(--text-3); font-size:var(--fs-sm); text-transform:uppercase; letter-spacing:.1em;">已服务锚定客户</div>
+    <div class="logo-strip">
+      <div class="logo-tile">新开普</div>
+      <div class="logo-tile">大华股份</div>
+      <div class="logo-tile">江森自控</div>
+      <div class="logo-tile">安 恒</div>
+      <div class="logo-tile">优刻得</div>
+      <div class="logo-tile">森 赫</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-max">
+    <div class="quote-block">
+      <div class="avatar">杨</div>
+      <div class="quote-body">
+        <q>做跨境校园卡业务，我们最难的不是产品，而是每到一个国家就要重新找一家代理、重新填一遍报关单。荥数链把这套流程 API 化以后，我们前 6 个月上线了 12 个国家 —— 换在过去，这至少需要 18 个月和三倍的人力。</q>
+        <div class="quote-attr">
+          <strong>杨维龙</strong> · 新开普电子股份有限公司 · 跨境业务 GM
+        </div>
+        <div class="quote-note">* 已获客户方授权公开引用 · 引用于 2026 年 4 月郑州跨境电商大会</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases" class="section">
+  <div class="container-max">
+    <div style="display:flex; align-items:end; justify-content:space-between; margin-bottom:var(--sp-8);">
+      <div><span class="section-kicker" style="color:var(--accent);">案例</span><h2 class="section-title">3 个已授权公开引用的客户故事</h2></div>
+      <a href="../cases/" class="btn-ghost">查看全部案例 →</a>
+    </div>
+    <div class="grid grid-3">
+      <a href="../cases/newcapec.html" class="card">
+        <span class="card-tag card-tag--case">跨境结算</span>
+        <h3 class="card-title">新开普 · 跨境校园卡 12 国上线</h3>
+        <p class="card-body">通关时效 ↑ 3.2x，回款周期 ↓ 46%，首批 12 国 6 个月完成上线，SLA 24h 通关率 ≥ 98%。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+      <a href="../cases/dahua.html" class="card">
+        <span class="card-tag card-tag--case">出海物流</span>
+        <h3 class="card-title">大华股份 · 中欧班列品牌专列</h3>
+        <p class="card-body">大华与荥数链联合在中欧班列上开设「工业视觉品牌专列」，每月一列直达德国杜伊斯堡。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+      <a href="../cases/dbappsecurity.html" class="card">
+        <span class="card-tag card-tag--case">供应链金融</span>
+        <h3 class="card-title">安恒 · 出海供应链融资</h3>
+        <p class="card-body">基于荥数链上链数据，安恒获招商银行 ¥8,000 万授信用于东南亚安全服务出口应收账款融资。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="resources" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">资源中心</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-8);">下载 · 观看 · 阅读</h2>
+    <div class="res-grid">
+      <a href="#contact" class="res-card"><span class="chip chip--report">报告</span><h4>豫商出海 2026 数字化通道白皮书</h4><p>92 页，含 32 国合规矩阵与 15 个匿名出海案例。</p></a>
+      <a href="#contact" class="res-card"><span class="chip chip--whitepaper">白皮书</span><h4>四链合一方法论</h4><p>与河南自贸区、郑州海关智慧口岸联合发布。</p></a>
+      <a href="#video" class="res-card"><span class="chip chip--video">视频</span><h4>3 分钟看懂荥数链</h4><p>从下单到跨境回款的完整链路演示。</p></a>
+      <a href="../insights/" class="res-card"><span class="chip chip--insight">博客</span><h4>豫商出海东南亚合规避坑</h4><p>荥数链合规团队与律师联合执笔。</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container-max">
+    <div class="form-box">
+      <span class="section-kicker" style="color:var(--accent);">咨询表单</span>
+      <h2 class="section-title" style="margin-bottom:var(--sp-3);">对接跨境通道 · 免费评估</h2>
+      <p class="section-lead" style="margin-bottom:var(--sp-8);">留下联系方式，荥数链跨境顾问将在 1 个工作日内联系您，评估您的出海路径。</p>
+      <form onsubmit="event.preventDefault(); alert('已收到您的申请，我们会在 1 个工作日内联系您');">
+        <div class="form-grid">
+          <div class="form-field"><label for="name">姓名 <span style="color:var(--alert);">*</span></label><input type="text" id="name" name="name" required placeholder="您的姓名"></div>
+          <div class="form-field"><label for="company">公司 <span style="color:var(--alert);">*</span></label><input type="text" id="company" name="company" required placeholder="您所在公司"></div>
+          <div class="form-field"><label for="phone">手机号 <span style="color:var(--alert);">*</span></label><input type="tel" id="phone" name="phone" required placeholder="+86"></div>
+          <div class="form-field"><label for="demand">需求类型 <span style="color:var(--alert);">*</span></label>
+            <select id="demand" name="demand" required>
+              <option value="">请选择</option>
+              <option>跨境订单聚合 (Lian-Order)</option>
+              <option>物流数字化 (Lian-Logistics)</option>
+              <option>跨境结算 (Lian-Pay)</option>
+              <option>32 国合规 (Lian-Compliance)</option>
+              <option>供应链金融</option>
+              <option>产业链撮合 (Lian-Match)</option>
+              <option>其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-opt"><input type="checkbox" id="wechat" name="wechat"><label for="wechat">同意通过微信接收出海政策与合规更新（可随时退订）</label></div>
+        <button type="submit" class="form-submit">提交咨询 →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<a href="#contact" class="help-widget help-accent" aria-label="联系我们">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span>有什么可以帮您？</span>
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov);">荥阳市人民政府</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov-hover);">荥阳城投</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--enterprise);">太能控股</div>
+      <div style="color:var(--text-3); font-size:var(--fs-sm); margin-left:auto;">运营主体：郑州荥泽数链产业发展有限公司</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h5>数字生态</h5>
+        <a href="./yunxi-shu.html">荥数云 · 让算力无限</a>
+        <a href="./yunxi-zhi.html">荥智造 · 让制造无限</a>
+        <a href="./yunxi-lian.html">荥数链 · 让贸易无限</a>
+        <a href="./yunxi-cai.html">荥数才 · 让人才无限</a>
+      </div>
+      <div class="footer-col"><h5>平台</h5>
+        <a href="../platforms/dtsi.html">DTSI®</a>
+        <a href="../platforms/xflow.html">X-Flow Dynamics™</a>
+        <a href="../platforms/pdtmm.html">PDTMM® 五级认证</a>
+        <a href="../platforms/openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col"><h5>服务</h5>
+        <a href="../services/policy.html">政策申报</a>
+        <a href="../services/financing.html">融资对接</a>
+        <a href="../services/recruitment.html">人才招引</a>
+        <a href="../services/space.html">空间定制</a>
+      </div>
+      <div class="footer-col"><h5>关于</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../about/governance.html">七方共治</a>
+        <a href="../newsroom/">新闻室</a>
+        <a href="../about/#contact">联系我们</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2020-2026 郑州荥泽数链产业发展有限公司 · 豫 ICP 备 2024xxxxxxx 号 · 荥数云®、荥智造®、荥数链®、荥数才®、DTSI®、PDTMM® 及 X-Flow Dynamics™、OpenX@X™ 为运营主体之注册或申请中商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>洞察中心 · Insights · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园洞察中心：把戴继涛博士 242 页 DBA 论文与荥阳一线运营经验，拆成决策者 5 分钟能读完的洞察。DTSI · X-Flow · PDTMM · OpenX@X · 七方共治 · 政策速递。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ---------- Insights Hub 专属样式 ---------- */
+  .filter-block {
+    background: var(--bg-1);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-6);
+    margin-bottom: var(--sp-10);
+  }
+  .filter-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--sp-4);
+    align-items: start;
+    padding: var(--sp-3) 0;
+    border-bottom: 1px dashed var(--bg-line);
+  }
+  .filter-row:last-child { border-bottom: 0; }
+  .filter-label {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    font-weight: 600;
+    padding-top: var(--sp-2);
+  }
+  .filter-label b { color: var(--gold); }
+  .filter-pills {
+    display: flex; flex-wrap: wrap; gap: var(--sp-2);
+  }
+  .filter-pill input { display: none; }
+  .filter-pill label {
+    display: inline-block;
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: var(--radius-pill);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
+    user-select: none;
+  }
+  .filter-pill label:hover { border-color: var(--enterprise); color: var(--text); }
+  .filter-pill input:checked + label {
+    background: var(--gov-soft);
+    border-color: var(--gov);
+    color: var(--text);
+    box-shadow: 0 0 0 1px var(--gov) inset;
+  }
+
+  /* ---------- Insight Cards ---------- */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    margin-top: var(--sp-6);
+  }
+  @media (max-width: 1100px) { .insight-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) { .insight-grid { grid-template-columns: 1fr; } }
+  .insight-card {
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .insight-card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .insight-card.muted { opacity: .55; }
+  .insight-hero {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--bg-3), var(--bg-1));
+    display: grid; place-items: center;
+    border-bottom: 1px solid var(--bg-line);
+    position: relative;
+    overflow: hidden;
+  }
+  .insight-hero svg { width: 100%; height: 100%; }
+  .insight-body { padding: var(--sp-5); display: flex; flex-direction: column; flex: 1; }
+  .insight-chips { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-3); }
+  .insight-title {
+    font-size: var(--fs-md); font-weight: 700;
+    line-height: var(--lh-tight);
+    margin-bottom: var(--sp-3);
+    color: var(--text);
+  }
+  .insight-summary {
+    font-size: var(--fs-sm); color: var(--text-2);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--sp-4);
+    flex: 1;
+  }
+  .insight-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: var(--fs-xs); color: var(--text-3);
+    padding-top: var(--sp-3);
+    border-top: 1px dashed var(--bg-line);
+  }
+  .insight-author { display: flex; align-items: center; gap: var(--sp-2); }
+  .avatar-mini {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gov), var(--enterprise));
+    display: grid; place-items: center;
+    color: #fff; font-size: 10px; font-weight: 700;
+  }
+
+  /* ---------- 订阅表单 ---------- */
+  .subscribe-card {
+    max-width: 780px; margin: 0 auto;
+    background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2);
+    border: 1px solid rgba(184,16,46,.35);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-10);
+  }
+  .subscribe-form { display: grid; gap: var(--sp-4); margin-top: var(--sp-6); }
+  .subscribe-form input[type="email"] {
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius);
+    border: 1px solid var(--bg-line);
+    background: var(--bg-1);
+    color: var(--text);
+    font-size: var(--fs-md);
+  }
+  .interest-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--sp-3);
+  }
+  .interest-item {
+    display: flex; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-3);
+    background: var(--bg-1);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius);
+    font-size: var(--fs-sm);
+    color: var(--text-1);
+    cursor: pointer;
+  }
+  .interest-item input { accent-color: var(--gov); }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="./" class="active">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#subscribe">订阅洞察</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Insights · 洞察中心</span>
+    <a href="./" class="active">洞察首页</a>
+    <a href="#themes">主题分类</a>
+    <a href="#authors">作者档案</a>
+    <a href="#subscribe">订阅</a>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">INSIGHTS · 数字经济思想领导力</span>
+    <h1 class="hero-title">洞察中心 · Insights</h1>
+    <p class="hero-lead">
+      把戴继涛博士 242 页 DBA 论文与荥阳一线运营经验，
+      拆成决策者 5 分钟能读完的洞察——每一篇都锚定一个真实决策场景：诊断分数、认证准入、政策申报、七方协同。
+      不做营销赠品，只做能被引用、被复盘、被下一次决策直接使用的知识资产。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#latest">
+        阅读最新洞察
+        <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#subscribe">订阅月刊</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 维过滤器 + 内容网格 ============ -->
+<section class="section" id="latest">
+  <div class="container-wide">
+    <span class="section-kicker">FILTERS · 3 维筛选</span>
+    <h2 class="section-title">按产业方向 · 主题 · 内容类型筛选</h2>
+    <p class="section-lead">
+      三个维度独立筛选——想看"数字经济方向"下与"PDTMM"相关的"白皮书"，或者"AI"方向下的"政策速递"，都能在同一张网格里精准命中。
+    </p>
+
+    <div class="filter-block" style="margin-top: var(--sp-8);">
+      <!-- 维度 A · 产业方向 -->
+      <div class="filter-row">
+        <div class="filter-label">维度 <b>A</b><br>产业方向</div>
+        <div class="filter-pills">
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-all" checked><label for="a-all">全部</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-digital"><label for="a-digital">数字经济</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-mfg"><label for="a-mfg">智能制造</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-cul"><label for="a-cul">数字文创</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-ec"><label for="a-ec">电商</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-ai"><label for="a-ai">AI</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-bio"><label for="a-bio">生物医药</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-a" id="a-nrg"><label for="a-nrg">新能源</label></span>
+        </div>
+      </div>
+      <!-- 维度 B · 主题 -->
+      <div class="filter-row">
+        <div class="filter-label">维度 <b>B</b><br>主题</div>
+        <div class="filter-pills">
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-all" checked><label for="b-all">全部</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-dtsi"><label for="b-dtsi">DTSI</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-xflow"><label for="b-xflow">X-Flow</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-pdtmm"><label for="b-pdtmm">PDTMM</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-openxx"><label for="b-openxx">OpenX@X</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-5step"><label for="b-5step">平台化五步法</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-7party"><label for="b-7party">七方共治</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-policy"><label for="b-policy">政策解读</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-b" id="b-case"><label for="b-case">案例分析</label></span>
+        </div>
+      </div>
+      <!-- 维度 C · 内容类型 -->
+      <div class="filter-row">
+        <div class="filter-label">维度 <b>C</b><br>内容类型</div>
+        <div class="filter-pills">
+          <span class="filter-pill"><input type="radio" name="dim-c" id="c-all" checked><label for="c-all">全部</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-c" id="c-ins"><label for="c-ins">洞察文</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-c" id="c-rpt"><label for="c-rpt">报告</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-c" id="c-wp"><label for="c-wp">白皮书</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-c" id="c-vid"><label for="c-vid">视频</label></span>
+          <span class="filter-pill"><input type="radio" name="dim-c" id="c-pol"><label for="c-pol">政策速递</label></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 洞察网格 12+ ============ -->
+    <div class="insight-grid" id="themes">
+
+      <!-- 卡片 1 · OpenX@X 方法论快速入门 -->
+      <a href="./openxx-methodology-primer.html" class="insight-card">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8102e" stop-opacity=".7"/><stop offset="1" stop-color="#38bdf8" stop-opacity=".6"/></linearGradient></defs>
+            <rect width="400" height="225" fill="url(#g1)"/>
+            <g stroke="#fff" stroke-width="2" fill="none" opacity=".85">
+              <circle cx="80" cy="112" r="20"/><circle cx="150" cy="112" r="20"/><circle cx="220" cy="112" r="20"/><circle cx="290" cy="112" r="20"/><circle cx="360" cy="112" r="20"/>
+              <path d="M100 112h30M170 112h30M240 112h30M310 112h30"/>
+            </g>
+            <text x="200" y="200" text-anchor="middle" fill="#fff" font-size="16" font-weight="700" font-family="PingFang SC">5 步法 · 识别→目标→指数→仿真→调整</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--insight">洞察文</span>
+            <span class="chip">OpenX@X</span>
+            <span class="chip">数字经济</span>
+          </div>
+          <h3 class="insight-title">OpenX@X 方法论快速入门</h3>
+          <p class="insight-summary">从 3 主体到 7 主体的认知跃迁，5 分钟看完 OpenX@X 5 步法为什么能让 40 分老园区在 36 个月内涨到 55+ 分。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">戴</span><span>戴继涛 博士</span></div>
+            <span>阅读 6 分钟</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 2 · DTSI 七方共治 -->
+      <a href="./dtsi-seven-parties.html" class="insight-card">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8102e" stop-opacity=".55"/><stop offset="1" stop-color="#34d399" stop-opacity=".5"/></linearGradient></defs>
+            <rect width="400" height="225" fill="url(#g2)"/>
+            <g stroke="#fff" fill="none" stroke-width="1.5" opacity=".9">
+              <polygon points="200,55 275,95 275,155 200,195 125,155 125,95" fill="rgba(255,255,255,.06)"/>
+              <line x1="200" y1="55" x2="200" y2="195"/><line x1="125" y1="95" x2="275" y2="155"/><line x1="125" y1="155" x2="275" y2="95"/>
+              <line x1="200" y1="125" x2="200" y2="55"/>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="PingFang SC">7 主体 AHP 权重 · CR=0.0283</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--report">洞察文</span>
+            <span class="chip">七方共治</span>
+            <span class="chip">DTSI</span>
+          </div>
+          <h3 class="insight-title">DTSI 七方共治：为什么园区治理不是政府的独角戏</h3>
+          <p class="insight-summary">政府权重 25.7% 而非 50%，居民主体的地基作用——AHP 层次分析法如何把"共治"从口号变成可复算的权重表。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">张</span><span>张明</span></div>
+            <span>阅读 7 分钟</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 3 · PDTMM 五级 -->
+      <a href="./pdtmm-level-guide.html" class="insight-card">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity=".55"/><stop offset="1" stop-color="#fbbf24" stop-opacity=".6"/></linearGradient></defs>
+            <rect width="400" height="225" fill="url(#g3)"/>
+            <g fill="#fff" opacity=".9">
+              <rect x="60" y="160" width="50" height="30"/>
+              <rect x="130" y="130" width="50" height="60"/>
+              <rect x="200" y="100" width="50" height="90"/>
+              <rect x="270" y="70" width="50" height="120"/>
+              <rect x="340" y="40" width="30" height="150"/>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="PingFang SC">L1 → L2 → L3 → L4 → L5</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--whitepaper">实操指南</span>
+            <span class="chip">PDTMM</span>
+            <span class="chip">智能制造</span>
+          </div>
+          <h3 class="insight-title">PDTMM 五级认证 · 数字化转型成熟度分级实操指南</h3>
+          <p class="insight-summary">L1 起步到 L5 生态引领，每级的典型企业画像、认证材料、通过后的政策与融资红利——一张表看清升级路径。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">李</span><span>李岩</span></div>
+            <span>阅读 8 分钟</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 4 · 郑州 2026 Q3 政策速递 -->
+      <a href="./xingyang-policy-2026-q3.html" class="insight-card">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity=".65"/><stop offset="1" stop-color="#b8102e" stop-opacity=".55"/></linearGradient></defs>
+            <rect width="400" height="225" fill="url(#g4)"/>
+            <g stroke="#fff" fill="none" stroke-width="2" opacity=".9">
+              <rect x="80" y="60" width="240" height="130" rx="4"/>
+              <line x1="80" y1="90" x2="320" y2="90"/>
+              <line x1="110" y1="110" x2="290" y2="110"/><line x1="110" y1="130" x2="290" y2="130"/>
+              <line x1="110" y1="150" x2="240" y2="150"/><line x1="110" y1="170" x2="270" y2="170"/>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="PingFang SC">郑州 2026 Q3 · 政策速递</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--policy">政策速递</span>
+            <span class="chip">政策解读</span>
+            <span class="chip">数字经济</span>
+          </div>
+          <h3 class="insight-title">郑州 2026 Q3 数字经济企业最新政策速递</h3>
+          <p class="insight-summary">郑聚英才计划 2026 · 研发费用加计扣除新规 · 数字经济发展基金二期——申报窗口、材料清单与荥阳区叠加红包一次说清。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">王</span><span>王思远</span></div>
+            <span>阅读 6 分钟</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 5 · 即将发布 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#1a2138"/>
+            <g stroke="#38bdf8" stroke-width="1.5" fill="none" opacity=".7">
+              <path d="M40 180 Q120 80 200 120 T360 60"/>
+              <circle cx="40" cy="180" r="4" fill="#38bdf8"/><circle cx="200" cy="120" r="4" fill="#38bdf8"/><circle cx="360" cy="60" r="4" fill="#38bdf8"/>
+            </g>
+            <text x="200" y="115" text-anchor="middle" fill="#8b95a8" font-size="14" font-family="PingFang SC">X-Flow 60 月仿真曲线</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--insight">洞察文</span>
+            <span class="chip">X-Flow</span>
+            <span class="chip">数字经济</span>
+          </div>
+          <h3 class="insight-title">X-Flow Dynamics：把政策变化的 60 月影响放到一张图</h3>
+          <p class="insight-summary">系统动力学如何解决"我做了 X，要等多久才看到 Y"的传统盲点——园区 C 实测 M0→M36 演化轨迹全解读。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">戴</span><span>戴继涛 博士</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 6 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#12172a"/>
+            <g stroke="#a78bfa" fill="none" stroke-width="1.5" opacity=".8">
+              <rect x="60" y="60" width="80" height="50" rx="4"/><rect x="180" y="60" width="80" height="50" rx="4"/><rect x="300" y="60" width="60" height="50" rx="4"/>
+              <rect x="60" y="140" width="80" height="50" rx="4"/><rect x="180" y="140" width="80" height="50" rx="4"/><rect x="300" y="140" width="60" height="50" rx="4"/>
+              <line x1="140" y1="85" x2="180" y2="85"/><line x1="260" y1="85" x2="300" y2="85"/>
+              <line x1="140" y1="165" x2="180" y2="165"/><line x1="260" y1="165" x2="300" y2="165"/>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#8b95a8" font-size="14" font-family="PingFang SC">AI 治理框架</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--insight">洞察文</span>
+            <span class="chip">AI</span>
+            <span class="chip">DTSI</span>
+          </div>
+          <h3 class="insight-title">生成式 AI 如何嵌入 DTSI 诊断：3 个真实实验</h3>
+          <p class="insight-summary">当 GPT-5、通义千问、DeepSeek 走进园区诊断问卷——我们做了 3 组对照实验，看看 AI 能替代多少专家评分。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">张</span><span>张明</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 7 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#0f1424"/>
+            <g fill="#fbbf24" opacity=".85">
+              <circle cx="80" cy="120" r="30"/><circle cx="200" cy="120" r="45"/><circle cx="320" cy="120" r="20"/>
+            </g>
+            <g fill="#0a0e1a" font-family="PingFang SC" font-weight="700" font-size="14" text-anchor="middle">
+              <text x="80" y="125">A</text><text x="200" y="125">B</text><text x="320" y="125">C</text>
+            </g>
+            <text x="200" y="200" text-anchor="middle" fill="#c8d0e0" font-size="13" font-family="PingFang SC">园区 REITs 估值三层框架</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--report">报告</span>
+            <span class="chip">PDTMM</span>
+            <span class="chip">数字经济</span>
+          </div>
+          <h3 class="insight-title">从 PDTMM 到 REITs：数字化成熟度如何反哺资产估值</h3>
+          <p class="insight-summary">L4 及以上园区如何用 PDTMM 报告接入公募 REITs 材料——3 个真实案例的估值溢价拆解。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">李</span><span>李岩</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 8 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#12172a"/>
+            <g stroke="#34d399" fill="none" stroke-width="2" opacity=".85">
+              <path d="M40 190 L100 130 L160 160 L220 90 L280 120 L340 60"/>
+              <circle cx="100" cy="130" r="3" fill="#34d399"/><circle cx="220" cy="90" r="3" fill="#34d399"/><circle cx="340" cy="60" r="3" fill="#34d399"/>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#c8d0e0" font-size="13" font-family="PingFang SC">郑州电商产业数据</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--report">报告</span>
+            <span class="chip">案例分析</span>
+            <span class="chip">电商</span>
+          </div>
+          <h3 class="insight-title">郑州跨境电商综试区 5 年数据复盘：DTSI 指数视角</h3>
+          <p class="insight-summary">把郑州跨境电商综试区 2021-2026 五年运营数据装进 DTSI 框架，看主体协同度如何解释 GMV 增速差异。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">王</span><span>王思远</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 9 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#0f1424"/>
+            <g stroke="#f472b6" fill="none" stroke-width="1.5" opacity=".85">
+              <rect x="60" y="50" width="280" height="130" rx="6"/>
+              <line x1="200" y1="50" x2="200" y2="180"/>
+              <line x1="60" y1="115" x2="340" y2="115"/>
+            </g>
+            <g fill="#f472b6" font-family="PingFang SC" font-size="12">
+              <text x="130" y="88" text-anchor="middle" fill="#e6eefc">政策力</text>
+              <text x="270" y="88" text-anchor="middle" fill="#e6eefc">资产力</text>
+              <text x="130" y="150" text-anchor="middle" fill="#e6eefc">运营力</text>
+              <text x="270" y="150" text-anchor="middle" fill="#e6eefc">创新力</text>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#c8d0e0" font-size="13" font-family="PingFang SC">四力模型</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--whitepaper">白皮书</span>
+            <span class="chip">平台化五步法</span>
+            <span class="chip">数字文创</span>
+          </div>
+          <h3 class="insight-title">数字文创园区的平台化五步法白皮书</h3>
+          <p class="insight-summary">把 OpenX@X 5 步法迁移到"版权 · 内容 · 流量 · 商业化"四链条上——文创园区如何绕开重资产陷阱。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">戴</span><span>戴继涛 博士</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 10 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#12172a"/>
+            <g stroke="#f87171" fill="none" stroke-width="2" opacity=".8">
+              <circle cx="200" cy="112" r="70"/>
+              <path d="M200 42 L200 182 M130 112 L270 112 M150 62 L250 162 M250 62 L150 162" stroke-dasharray="3,3"/>
+            </g>
+            <text x="200" y="118" text-anchor="middle" fill="#e6eefc" font-size="14" font-weight="700" font-family="PingFang SC">生物医药</text>
+            <text x="200" y="215" text-anchor="middle" fill="#c8d0e0" font-size="13" font-family="PingFang SC">研审平台协同度</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--video">视频</span>
+            <span class="chip">DTSI</span>
+            <span class="chip">生物医药</span>
+          </div>
+          <h3 class="insight-title">戴继涛博士访谈：生物医药园区的 DTSI 校准差异</h3>
+          <p class="insight-summary">同样是 DTSI 指数，为什么生物医药园区的"科研"权重要重新校准？20 分钟视频解读一个特殊场景。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">戴</span><span>戴继涛 博士</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 11 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#0f1424"/>
+            <g stroke="#38bdf8" fill="none" stroke-width="2" opacity=".85">
+              <path d="M60 130 Q100 60 140 130 T220 130 T300 130 T380 130"/>
+              <path d="M60 160 Q100 100 140 160 T220 160 T300 160 T380 160" stroke="#34d399"/>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#c8d0e0" font-size="13" font-family="PingFang SC">新能源园区能耗曲线</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--report">报告</span>
+            <span class="chip">新能源</span>
+            <span class="chip">案例分析</span>
+          </div>
+          <h3 class="insight-title">新能源园区绿电结算模型：3 个华中园区对比</h3>
+          <p class="insight-summary">碳中和背景下，新能源产业园区如何用 DTSI 框架监测绿电占比、储能利用率、碳减排量三大关键指标。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">张</span><span>张明</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 12 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#12172a"/>
+            <g fill="#2dd4bf" opacity=".85">
+              <rect x="70" y="90" width="60" height="80" rx="4"/>
+              <rect x="150" y="60" width="60" height="110" rx="4"/>
+              <rect x="230" y="40" width="60" height="130" rx="4"/>
+              <rect x="310" y="70" width="30" height="100" rx="4"/>
+            </g>
+            <text x="200" y="215" text-anchor="middle" fill="#c8d0e0" font-size="13" font-family="PingFang SC">M0→M6→M12→M24→M36</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--whitepaper">白皮书</span>
+            <span class="chip">OpenX@X</span>
+            <span class="chip">智能制造</span>
+          </div>
+          <h3 class="insight-title">OpenX@X 5 步法在智能制造园区的落地节奏表</h3>
+          <p class="insight-summary">M0 诊断 · M6 接入 · M12 重构 · M24 协同 · M36 演化——把方法论落地成一张 36 个月的行动日历。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">李</span><span>李岩</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 卡片 13 -->
+      <a href="#" class="insight-card muted">
+        <div class="insight-hero">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="225" fill="#0f1424"/>
+            <g stroke="#fbbf24" fill="none" stroke-width="2" opacity=".85">
+              <circle cx="200" cy="112" r="50"/>
+              <path d="M200 62 L200 162 M150 112 L250 112"/>
+            </g>
+            <text x="200" y="118" text-anchor="middle" fill="#fbbf24" font-size="16" font-weight="700" font-family="PingFang SC">Q4</text>
+            <text x="200" y="215" text-anchor="middle" fill="#c8d0e0" font-size="13" font-family="PingFang SC">2026 Q4 政策前瞻</text>
+          </svg>
+        </div>
+        <div class="insight-body">
+          <div class="insight-chips">
+            <span class="chip chip--policy">政策速递</span>
+            <span class="chip">政策解读</span>
+            <span class="chip">数字经济</span>
+          </div>
+          <h3 class="insight-title">2026 Q4 数字经济政策前瞻：3 个待发文件的关键信号</h3>
+          <p class="insight-summary">从央地调研节奏与征求意见稿，识别 Q4 大概率落地的 3 份文件，提前部署申报窗口。</p>
+          <div class="insight-meta">
+            <div class="insight-author"><span class="avatar-mini">王</span><span>王思远</span></div>
+            <span>即将发布</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 作者档案 ============ -->
+<section class="section-tight" id="authors">
+  <div class="container-wide">
+    <span class="section-kicker">AUTHORS · 作者档案</span>
+    <h2 class="section-title">4 位常驻洞察作者</h2>
+    <div class="grid grid-4" style="margin-top: var(--sp-8);">
+      <div class="card">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gov),var(--enterprise));display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;margin-bottom:var(--sp-4);">戴</div>
+        <h4 class="card-title">戴继涛 博士</h4>
+        <p style="color:var(--gold);font-size:var(--fs-sm);margin-bottom:var(--sp-2);">DTSI / OpenX@X 方法论奠基人</p>
+        <p class="card-body">某大学 DBA · 前 IBM 咨询 · 荥阳数字经济产业园 首席方法论专家</p>
+      </div>
+      <div class="card">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--enterprise),var(--ecosystem));display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;margin-bottom:var(--sp-4);">张</div>
+        <h4 class="card-title">张 明</h4>
+        <p style="color:var(--gold);font-size:var(--fs-sm);margin-bottom:var(--sp-2);">DTSI® 首席方法论专家</p>
+        <p class="card-body">前信通院工业互联网所主任研究员 · 10+ 年产业园区数字化实战</p>
+      </div>
+      <div class="card">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gov));display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;margin-bottom:var(--sp-4);">李</div>
+        <h4 class="card-title">李 岩</h4>
+        <p style="color:var(--gold);font-size:var(--fs-sm);margin-bottom:var(--sp-2);">PDTMM® 首席评估师</p>
+        <p class="card-body">郑州荥泽数链高级合伙人 · 主导 CPA-PDTMM 认证师体系设计</p>
+      </div>
+      <div class="card">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--ecosystem),var(--gold));display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px;margin-bottom:var(--sp-4);">王</div>
+        <h4 class="card-title">王思远</h4>
+        <p style="color:var(--gold);font-size:var(--fs-sm);margin-bottom:var(--sp-2);">政策研究总监</p>
+        <p class="card-body">前郑州市工信局政策处 · 深耕数字经济政策落地与申报辅导</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 订阅月刊 ============ -->
+<section class="section" id="subscribe">
+  <div class="container">
+    <div class="subscribe-card">
+      <span class="section-kicker">SUBSCRIBE · 订阅洞察月刊</span>
+      <h3 class="section-title" style="font-size:var(--fs-xl);">每月 1 期，把最新洞察送到您邮箱</h3>
+      <p class="section-lead" style="margin-top:var(--sp-2);">
+        每期约 4-6 篇长文摘要 · 1 篇独家白皮书 · 2 条政策速递——不做营销推送，仅内容与关键窗口通知。
+      </p>
+      <form class="subscribe-form" action="#" method="post">
+        <input type="email" name="email" placeholder="您的工作邮箱（如 name@company.com）" required>
+        <div>
+          <p style="color:var(--text-1);font-size:var(--fs-sm);font-weight:600;margin-bottom:var(--sp-3);">意向领域（可多选）</p>
+          <div class="interest-grid">
+            <label class="interest-item"><input type="checkbox" name="interest" value="policy"> 数字经济政策</label>
+            <label class="interest-item"><input type="checkbox" name="interest" value="dtsi"> DTSI 方法论</label>
+            <label class="interest-item"><input type="checkbox" name="interest" value="xflow"> X-Flow 仿真更新</label>
+            <label class="interest-item"><input type="checkbox" name="interest" value="pdtmm"> PDTMM 认证</label>
+            <label class="interest-item"><input type="checkbox" name="interest" value="cases"> 案例研究</label>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" style="justify-self:start;">订阅月刊</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sticky 咨询 ============ -->
+<a class="help-widget" href="#subscribe" aria-label="订阅洞察">
+  <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+  订阅
+</a>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>洞察</h5>
+        <a href="./openxx-methodology-primer.html">OpenX@X 方法论</a>
+        <a href="./dtsi-seven-parties.html">七方共治</a>
+        <a href="./pdtmm-level-guide.html">PDTMM 五级</a>
+        <a href="./xingyang-policy-2026-q3.html">政策速递</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../newsroom/">新闻中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="#subscribe">订阅月刊</a>
+        <a href="mailto:insights@xingyang-park.gov.cn">insights@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

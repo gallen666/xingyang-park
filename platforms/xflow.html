@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>X-Flow Dynamics™ 全流程流量动力学 · 荥阳数字经济产业园</title>
+<meta name="description" content="X-Flow Dynamics™——面向 7 主体的招商-入驻-成长-回流全链路系统动力学仿真引擎。3 分钟看到 60 月演化，让每一个决策变化都能被量化。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .narrative { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .narrative { grid-template-columns: 1fr; } }
+  .narrative__block { padding: var(--sp-6); background: var(--bg-2); border-radius: var(--radius-md); border-left: 3px solid var(--enterprise); }
+  .narrative__num { font-size: var(--fs-2xl); font-weight: 800; color: var(--enterprise); line-height: 1; margin-bottom: var(--sp-3); }
+  .narrative__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .narrative__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .diagram-wrap { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-6); }
+  .diagram-wrap svg { width: 100%; height: auto; }
+
+  /* Flow stages */
+  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .stages { grid-template-columns: 1fr 1fr; } }
+  .stage-card { padding: var(--sp-5); background: var(--bg-2); border-radius: var(--radius-md); border: 1px solid var(--bg-line); border-top: 3px solid var(--enterprise); }
+  .stage-card .num { color: var(--enterprise); font-weight: 800; font-size: var(--fs-lg); margin-bottom: var(--sp-2); }
+  .stage-card .name { font-weight: 700; margin-bottom: var(--sp-2); }
+  .stage-card .body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .stage-card .kpi { color: var(--gold); font-family: var(--font-mono); font-size: var(--fs-xs); margin-top: var(--sp-3); padding-top: var(--sp-2); border-top: 1px dashed var(--bg-line); }
+
+  /* Loop table */
+  .loops { margin-top: var(--sp-6); }
+  .loops table { width: 100%; border-collapse: collapse; background: var(--bg-2); border-radius: var(--radius-md); overflow: hidden; }
+  .loops th, .loops td { padding: var(--sp-3) var(--sp-4); text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--bg-line); }
+  .loops th { background: var(--bg-3); color: var(--gold); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .05em; }
+  .loop-r { color: var(--ecosystem); font-weight: 700; }
+  .loop-b { color: var(--alert); font-weight: 700; }
+
+  /* Pain/Sol */
+  .pain-sol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .pain-sol { grid-template-columns: 1fr; } }
+  .ps-col h4 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-4); display: flex; align-items: center; gap: var(--sp-2); }
+  .ps-col--pain h4 { color: var(--alert); }
+  .ps-col--sol h4 { color: var(--ecosystem); }
+  .ps-list { list-style: none; padding: 0; }
+  .ps-list li { padding: var(--sp-4); background: var(--bg-2); border-radius: var(--radius); margin-bottom: var(--sp-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: var(--text-2); }
+  .ps-list li b { color: var(--text); }
+  .ps-col--pain li { border-left: 3px solid var(--alert); }
+  .ps-col--sol li { border-left: 3px solid var(--ecosystem); }
+
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } }
+  .team-card { background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  .team-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--enterprise), var(--gov)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 22px; margin-bottom: var(--sp-4); }
+  .team-name { font-size: var(--fs-lg); font-weight: 700; }
+  .team-title { color: var(--gold); font-size: var(--fs-sm); margin: var(--sp-1) 0 var(--sp-3); }
+  .team-bio { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .logo-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(2, 1fr); } }
+  .logo-item { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); text-align: center; font-size: var(--fs-sm); color: var(--text-2); font-weight: 600; display: grid; place-items: center; min-height: 72px; }
+  .logo-item svg { margin-bottom: var(--sp-2); }
+
+  .spoc-card { background: linear-gradient(135deg, rgba(56,189,248,.15), transparent), var(--bg-2); border: 1px solid rgba(56,189,248,.3); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--enterprise), var(--enterprise-hover)); display: grid; place-items: center; color: #0a0e1a; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 80px; height: 80px; background: var(--bg-3); border-radius: var(--radius); display: grid; place-items: center; color: var(--text-3); font-size: var(--fs-xs); text-align: center; }
+
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::after { content: "+"; color: var(--enterprise); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-4); }
+  @media (max-width: 900px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; }
+  .form-inline textarea { grid-column: 1 / -1; }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="./" class="active">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#consult">申请沙盘 Demo</a>
+  </div>
+</nav>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">X-Flow Dynamics<sup class="tm">™</sup></span>
+    <a href="#overview" class="active">概览</a>
+    <a href="#architecture">架构</a>
+    <a href="#applications">应用场景</a>
+    <a href="#certification">认证/培训</a>
+    <a href="#team">团队</a>
+    <a href="#downloads">下载</a>
+  </div>
+</div>
+
+<!-- 1. Hero -->
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <span class="hero-kicker">PLATFORM · X-FLOW DYNAMICS<sup class="tm">™</sup></span>
+    <h1 class="hero-title">3 分钟看见你的园区未来 60 个月</h1>
+    <p class="hero-lead">
+      X-Flow Dynamics<sup class="tm">™</sup>——面向 7 主体的<b>全流程流量动力学</b>仿真引擎。
+      从"招商流量 → 入驻转化 → 企业成长 → 数据回流"构建 4 阶段闭环模型，
+      把政策力度、投入结构、服务改造做成可拖动的滑杆，实时看到 DTSI 60 月演化曲线。
+      让"我做了 X，要等多久才看到 Y"这个传统盲点从此消失。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#consult">
+        申请沙盘 Demo
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#downloads">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        下载参数模板
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. What -->
+<section class="section">
+  <div class="container-wide">
+    <span class="section-kicker">WHAT · 什么是 X-Flow Dynamics</span>
+    <h2 class="section-title">从静态诊断到动态推演</h2>
+    <p class="section-lead">
+      DTSI<sup class="tm">®</sup> 告诉你今天在哪里；X-Flow Dynamics<sup class="tm">™</sup> 告诉你 <b>36 个月后可能在哪里</b>——
+      基于系统动力学差分方程 + 7 主体收敛速率 + 5 大反馈回路。
+    </p>
+    <div class="narrative">
+      <div class="narrative__block">
+        <div class="narrative__num">01</div>
+        <div class="narrative__title">全链路建模（Full-Flow）</div>
+        <div class="narrative__body">
+          不再割裂"招商组、企服组、物业组"孤立汇报——一个统一模型覆盖<b>招商流量→入驻转化→企业成长→数据回流→政策优化</b>
+          5 大阶段，35 个 KPI 之间的因果链完全暴露。<b>看到"招商 KPI 好但满意度崩盘"的因果链条。</b>
+        </div>
+      </div>
+      <div class="narrative__block">
+        <div class="narrative__num">02</div>
+        <div class="narrative__title">系统动力学（Dynamics）</div>
+        <div class="narrative__body">
+          借鉴 En-ROADS / Vensim 系统动力学传统，用差分方程刻画每个主体的<b>存量、流量、收敛速率</b>——
+          政府/运营快（0.6-0.9 月延迟），科研/资产慢（最长 3 年时滞）。真实反映"政策见效慢"的现实节奏。
+        </div>
+      </div>
+      <div class="narrative__block">
+        <div class="narrative__num">03</div>
+        <div class="narrative__title">可拖动、可回放、可导出</div>
+        <div class="narrative__body">
+          35 个滑杆 + 7 组预设情景（基线 / 保守 / 数字飞轮 / 净零治理 / 激进改革）+ 60 月时间轴。
+          拖任意一根滑杆，立刻看到 DTSI 曲线整体变形。<b>决策者答辩现场就能演示"如果 policy A，那么 KPI B"。</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Architecture SVG -->
+<section class="section" id="architecture">
+  <div class="container-wide">
+    <span class="section-kicker">ARCHITECTURE · 全流程流量动力学模型</span>
+    <h2 class="section-title">4 阶段闭环 + 5 大反馈回路</h2>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="X-Flow 全流程模型">
+        <defs>
+          <marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#38bdf8"/>
+          </marker>
+          <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+          </marker>
+          <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#f87171"/>
+          </marker>
+        </defs>
+
+        <!-- Stage 1: 招商流量 -->
+        <rect x="30" y="100" width="180" height="90" rx="10" fill="#0f1424" stroke="#38bdf8" stroke-width="2"/>
+        <text x="120" y="130" text-anchor="middle" fill="#38bdf8" font-size="16" font-weight="700">① 招商流量</text>
+        <text x="120" y="152" text-anchor="middle" fill="#e6eefc" font-size="11">Inbound Traffic</text>
+        <text x="120" y="172" text-anchor="middle" fill="#8b95a8" font-size="10">政策 · 曝光 · 招商团队</text>
+
+        <!-- Stage 2: 入驻转化 -->
+        <rect x="255" y="100" width="180" height="90" rx="10" fill="#0f1424" stroke="#fbbf24" stroke-width="2"/>
+        <text x="345" y="130" text-anchor="middle" fill="#fbbf24" font-size="16" font-weight="700">② 入驻转化</text>
+        <text x="345" y="152" text-anchor="middle" fill="#e6eefc" font-size="11">Conversion</text>
+        <text x="345" y="172" text-anchor="middle" fill="#8b95a8" font-size="10">拜访 · 谈判 · 签约 · 落地</text>
+
+        <!-- Stage 3: 企业成长 -->
+        <rect x="480" y="100" width="180" height="90" rx="10" fill="#0f1424" stroke="#34d399" stroke-width="2"/>
+        <text x="570" y="130" text-anchor="middle" fill="#34d399" font-size="16" font-weight="700">③ 企业成长</text>
+        <text x="570" y="152" text-anchor="middle" fill="#e6eefc" font-size="11">Growth</text>
+        <text x="570" y="172" text-anchor="middle" fill="#8b95a8" font-size="10">营收 · 员工 · 缴税 · 高企</text>
+
+        <!-- Stage 4: 数据回流 -->
+        <rect x="705" y="100" width="180" height="90" rx="10" fill="#0f1424" stroke="#a78bfa" stroke-width="2"/>
+        <text x="795" y="130" text-anchor="middle" fill="#a78bfa" font-size="16" font-weight="700">④ 数据回流</text>
+        <text x="795" y="152" text-anchor="middle" fill="#e6eefc" font-size="11">Data Feedback</text>
+        <text x="795" y="172" text-anchor="middle" fill="#8b95a8" font-size="10">DTSI ↑ · 权重再校准</text>
+
+        <!-- Arrows between stages -->
+        <path d="M210 145 L255 145" stroke="#38bdf8" stroke-width="2" fill="none" marker-end="url(#ar1)"/>
+        <path d="M435 145 L480 145" stroke="#fbbf24" stroke-width="2" fill="none" marker-end="url(#ar1)"/>
+        <path d="M660 145 L705 145" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#ar1)"/>
+
+        <!-- Loop feedback from Stage 4 back to Stage 1 -->
+        <path d="M795 190 Q 795 260 450 260 T 120 260 L 120 190"
+              stroke="#34d399" stroke-width="2" fill="none" stroke-dasharray="6 4" marker-end="url(#ar2)"/>
+        <text x="450" y="255" text-anchor="middle" fill="#34d399" font-size="12" font-weight="600">R1 数字化—招商正反馈：DTSI ↑ → 招商能力 ↑</text>
+
+        <!-- Feedback loops labels -->
+        <g font-family="sans-serif">
+          <rect x="30" y="330" width="840" height="150" rx="8" fill="#0f1424" stroke="#8b95a8" stroke-width="1" opacity="0.6"/>
+          <text x="450" y="360" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">5 大反馈回路 · 让"因果时滞"可视化</text>
+
+          <text x="70" y="395" fill="#34d399" font-size="12" font-weight="700">R1 正反馈</text>
+          <text x="180" y="395" fill="#e6eefc" font-size="11">数字化—招商：指数升 → 政府背书 → 招商能力升 → 数据回流 → 指数再升</text>
+
+          <text x="70" y="418" fill="#34d399" font-size="12" font-weight="700">R2 正反馈</text>
+          <text x="180" y="418" fill="#e6eefc" font-size="11">人才—产业：员工技能升 → 企业落地升 → 工资升 → 人才升</text>
+
+          <text x="70" y="441" fill="#f87171" font-size="12" font-weight="700">B1 负反馈</text>
+          <text x="180" y="441" fill="#e6eefc" font-size="11">招商—满意度：过度招商 → 配套不足 → 满意度降 → 招商回落</text>
+
+          <text x="70" y="464" fill="#f87171" font-size="12" font-weight="700">B3 负反馈</text>
+          <text x="180" y="464" fill="#e6eefc" font-size="11">治理—满意度：合规过严 → 成本升 → 满意度降</text>
+
+          <text x="600" y="464" fill="#a78bfa" font-size="11">B5 时滞环：科研/资产 3 年慢速传导</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Flow Stages Detail -->
+<section class="section-tight">
+  <div class="container-wide">
+    <span class="section-kicker">STAGES · 4 阶段展开</span>
+    <h2 class="section-title">从"客户线索"到"DTSI 回流"的可拖动全链路</h2>
+    <div class="stages">
+      <div class="stage-card">
+        <div class="num">01</div>
+        <div class="name">招商流量</div>
+        <div class="body">政策力度 · 广告曝光 · 招商团队规模 · 出差密度 · 展会覆盖等 8 个 driver。仿真产出"月度线索 pipeline"。</div>
+        <div class="kpi">KPI: 线索/月 · CPL · 政策转化率</div>
+      </div>
+      <div class="stage-card">
+        <div class="num">02</div>
+        <div class="name">入驻转化</div>
+        <div class="body">拜访效率 · 谈判周期 · 签约转化率 · 落地完成率。可切换"精选招商"vs"广撒网"两种策略预设。</div>
+        <div class="kpi">KPI: 签约率 · 平均周期 · 落地率</div>
+      </div>
+      <div class="stage-card">
+        <div class="num">03</div>
+        <div class="name">企业成长</div>
+        <div class="body">营收增长 · 员工规模 · 高企申报 · 上市成功率 · 税收贡献。<b>3 年慢速传导</b>，需系统动力学表达。</div>
+        <div class="kpi">KPI: 营收 CAGR · 高企占比 · 税收/亩</div>
+      </div>
+      <div class="stage-card">
+        <div class="num">04</div>
+        <div class="name">数据回流</div>
+        <div class="body">企业运营数据 → 数据中台 → DTSI 再评分 → 权重再校准 → 政策再优化。<b>闭合飞轮</b>。</div>
+        <div class="kpi">KPI: 数据接入率 · DTSI 增速</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5-6. Pain/Sol -->
+<section class="section" id="applications">
+  <div class="container-wide">
+    <span class="section-kicker">SITUATION · 你正遇到什么 · 我们如何帮你</span>
+    <h2 class="section-title">四大传统盲点 · 四大动力学破解</h2>
+    <div class="pain-sol">
+      <div class="ps-col ps-col--pain">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          你正遇到什么
+        </h4>
+        <ul class="ps-list">
+          <li><b>1. 政策发布 6 个月了还没见效果，是政策错了还是时滞？</b> 上级追问"到底改还是不改"，凭感觉答不好。</li>
+          <li><b>2. 招商 KPI 每年翻番，可园区满意度反而在跌</b>——两个指标各说各的，管委会内部吵架。</li>
+          <li><b>3. 三个方案摆桌上（保守 / 平衡 / 激进），选哪个？</b> 各家部门站在自己视角推销，决策会开成"谁嗓门大"。</li>
+          <li><b>4. 5 年规划靠"专家预测 + 感觉"</b>——年年重写，年年被现实打脸。</li>
+        </ul>
+      </div>
+      <div class="ps-col ps-col--sol">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          X-Flow Dynamics<sup class="tm">™</sup> 如何帮你
+        </h4>
+        <ul class="ps-list">
+          <li><b>1. 时滞可视化</b>——政府主体收敛速率 0.9 月，科研 3 年——某项政策"生效曲线"直接画出来。看到"再等 4 个月"或"根本不会见效"的分岔。</li>
+          <li><b>2. 招商-满意度耦合建模</b>——招商 KPI ↑ 后配套不足触发 B1 负反馈环，DTSI 曲线会自然回落。<b>模型把"矛盾"变成"数字"</b>。</li>
+          <li><b>3. 情景对比工具</b>——3 个方案同时跑 60 月，导出对比图（DTSI 均值 · 波动率 · 主体极差）。让决策会用图表说话。</li>
+          <li><b>4. 5 年规划的滚动模拟</b>——每季度用最新数据重新拟合仿真参数，规划自动微调。<b>规划从"静态文档"变成"活的模型"</b>。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Loop table -->
+<section class="section-tight">
+  <div class="container-wide">
+    <span class="section-kicker">LOOPS · 5 大反馈回路详解</span>
+    <h2 class="section-title">仿真引擎的因果内核</h2>
+    <div class="loops">
+      <table>
+        <thead>
+          <tr><th>回路</th><th>类型</th><th>因果链</th><th>论文出处</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R1 数字化—招商</td><td class="loop-r">正反馈 R</td><td>指数升 → 政府背书 → 招商吸引力 → 企业入驻 → 数据回流 → 指数再升</td><td>论文 5.4 图 5.6</td></tr>
+          <tr><td>R2 人才—产业</td><td class="loop-r">正反馈 R</td><td>员工技能升 → 企业业务升 → 工资升 → 人才吸引力升 → 员工得分升</td><td>论文 5.2.6 + 5.2.4</td></tr>
+          <tr><td>B1 招商—满意度</td><td class="loop-b">负反馈 B</td><td>过度招商 → 配套不足 → 企业/员工满意度降 → 舆情反弹 → 招商回落</td><td>论文 4.2.5</td></tr>
+          <tr><td>B3 治理—成本</td><td class="loop-b">负反馈 B</td><td>合规过严 → 企业运营成本升 → 企业满意度降 → 产业外流</td><td>论文 5.1.2</td></tr>
+          <tr><td>B5 时滞传导</td><td class="loop-b">时滞环</td><td>资产/科研主体最长 3 年时滞——短期看不出效果，别在第 6 月轻易否定</td><td>论文 5.4 系统动力学</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stats-banner" style="margin-top: var(--sp-10);">
+      <div class="stat"><div class="stat-num">60</div><div class="stat-label">月长周期仿真</div></div>
+      <div class="stat"><div class="stat-num">35</div><div class="stat-label">可拖动滑杆</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">预设情景</div></div>
+      <div class="stat"><div class="stat-num">5 园区</div><div class="stat-label">已跑通实证数据</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Named Cases -->
+<section class="section">
+  <div class="container-wide">
+    <span class="section-kicker">CASES · 已用 X-Flow 做决策的园区</span>
+    <h2 class="section-title">3 个命名案例</h2>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+      <a class="card" href="../cases/dahua.html">
+        <span class="card-tag card-tag--case">安防龙头</span>
+        <h4 class="card-title">大华股份 · 杭州总部</h4>
+        <p class="card-body">用 X-Flow 对比 3 个装修改造方案，最终选中"员工维度优先"方案——36 月模拟 DTSI 从 51 升至 63.4，节省预算 22%。</p>
+        <span class="card-cta">查看完整案例</span>
+      </a>
+      <a class="card" href="../cases/ucloud.html">
+        <span class="card-tag card-tag--case">云计算</span>
+        <h4 class="card-title">优刻得 · 上海总部</h4>
+        <p class="card-body">首次用 X-Flow 演示"总部+3 分部"联邦仿真，帮助 CFO 在董事会现场把年度数字化预算从 8000 万砍到 5300 万。</p>
+        <span class="card-cta">查看完整案例</span>
+      </a>
+      <a class="card" href="../cases/newcapec.html">
+        <span class="card-tag card-tag--case">教育信息化</span>
+        <h4 class="card-title">新开普 · 郑州高新</h4>
+        <p class="card-body">政府维度 6 个月冲高至 61 分——就是 X-Flow 建议的"政策衔接优先"方案的落地结果。Pre-REITs 备案顺利。</p>
+        <span class="card-cta">查看完整案例</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Team -->
+<section class="section" id="team">
+  <div class="container-wide">
+    <span class="section-kicker">TEAM · 仿真引擎团队</span>
+    <h2 class="section-title">系统动力学建模 + 前端可视化 + 领域校准</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">戴</div>
+        <div class="team-name">戴继涛 博士</div>
+        <div class="team-title">学术委员 · 建模原创者</div>
+        <p class="team-bio">
+          在博士论文 5.4 节首次系统提出"X-Flow Dynamics"概念——用系统动力学差分方程刻画 7 主体协同演化。
+          目前主持 X-Flow v2.0 建模——将引入蒙特卡洛不确定性传播 · 让 60 月仿真不仅有均值线，还有置信区间。
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">刘</div>
+        <div class="team-name">刘子渊</div>
+        <div class="team-title">X-Flow<sup class="tm">™</sup> 首席仿真工程师</div>
+        <p class="team-bio">
+          前中科院系统所科研人员 · Vensim / Stella / AnyLogic 认证专家。主持 X-Flow 引擎从
+          MATLAB 原型 → Web JS 差分方程 → 未来的 Rust WASM 版本迁移。60 月仿真本地跑一次 &lt; 30ms。
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">王</div>
+        <div class="team-name">王星辰</div>
+        <div class="team-title">政策沙盘产品经理</div>
+        <p class="team-bio">
+          前腾讯政务云政策研究员。负责 7 组预设情景（基线 / 保守 / 数字飞轮 / 净零治理 / 激进改革 等）
+          的策略校准 · 与地方政府调研中把"决策者语言"翻译成滑杆参数。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Partner logos -->
+<section class="section-tight" id="certification">
+  <div class="container-wide">
+    <span class="section-kicker">PARTNERSHIP · 认证与联合研究</span>
+    <h2 class="section-title">联合实验室与标准合作</h2>
+    <div class="logo-strip">
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--enterprise)" stroke-width="2"><path d="M2 20h20M4 20V8l8-5 8 5v12M9 20v-6h6v6"/></svg>
+        中国信通院<br>(CAICT)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--enterprise)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+        中科院<br>系统科学研究所
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--enterprise)" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+        河南省发改委<br>(HN-NDRC)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--enterprise)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        中国电子信息产业<br>发展研究院 (CCID)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. Downloads -->
+<section class="section" id="downloads">
+  <div class="container-wide">
+    <span class="section-kicker">DOWNLOADS · 参数模板 · 白皮书</span>
+    <h2 class="section-title">X-Flow<sup class="tm">™</sup> 资料库</h2>
+    <div class="grid grid-4" style="margin-top: var(--sp-8);">
+      <div class="card">
+        <span class="card-tag card-tag--report">白皮书</span>
+        <h4 class="card-title">X-Flow<sup class="tm">™</sup> 引擎白皮书</h4>
+        <p class="card-body">36 页 · 系统动力学差分方程完整推导 · 5 大反馈回路数学定义 · 收敛速率参数校准方法。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">工具包</span>
+        <h4 class="card-title">参数模板 v2.1</h4>
+        <p class="card-body">Excel + JSON · 60 月仿真参数一键导入 · 7 组预设情景可直接复用。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">API 文档</span>
+        <h4 class="card-title">X-Flow REST API</h4>
+        <p class="card-body">18 页 · 支持第三方系统提交参数 · 返回 60 月演化 JSON · Python / Node.js SDK。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">教学</span>
+        <h4 class="card-title">政策沙盘教学视频</h4>
+        <p class="card-body">3 小时 · 12 讲 · 从基础概念到 7 组预设情景实操 · 面向政府决策者 · 中英双字幕。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SPOC -->
+<section class="section-tight">
+  <div class="container-wide">
+    <span class="section-kicker">SPOC · 一对一专属对接人</span>
+    <h2 class="section-title">直接联系 X-Flow<sup class="tm">™</sup> 首席仿真工程师</h2>
+    <div class="spoc-card">
+      <div class="spoc-avatar">刘</div>
+      <div>
+        <div class="spoc-name">刘子渊</div>
+        <div class="spoc-title">X-Flow<sup class="tm">™</sup> 首席仿真工程师 · 郑州办公</div>
+        <div class="spoc-contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          liuziyuan@xingyang-park.gov.cn
+        </div>
+        <div class="spoc-contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          400-836-0371 转 X-Flow
+        </div>
+      </div>
+      <div class="spoc-qr"><div>微信 QR<br>扫码添加</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. FAQ + Form -->
+<section class="section" id="consult">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题 + 在线咨询</span>
+    <h2 class="section-title">对 X-Flow<sup class="tm">™</sup> 还有疑问？</h2>
+
+    <div class="faq">
+      <details open>
+        <summary>Q1. 系统动力学仿真是不是"看起来精确其实是拍脑袋"？</summary>
+        <div>
+          仿真的每一个参数都来自 <b>3 类源头</b>：① 5 家实证园区 3 年真实观测拟合出的基线；② 300 位专家 AHP 打分得出的主体权重；
+          ③ Vensim / Stella 领域公开的收敛速率参考区间。<b>输出是"给定假设下的推演"，不是"预言"</b>——所以我们的报告永远给出置信区间而不是单一数字。
+        </div>
+      </details>
+      <details>
+        <summary>Q2. 60 月仿真需要多少数据？我们园区数据不全能用吗？</summary>
+        <div>
+          最少 <b>4 个核心指标 × 12 个月历史数据</b>就能启动仿真。缺失数据用行业均值 + 主体权重加权补齐——
+          我们把这类结果打上"低置信"标记（曲线用虚线呈现），提示决策者用它做定性判断而非精确规划。
+          <b>数据越全越准，但不完美也能开始。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 决策者不会用 Vensim / Stella，看得懂吗？</summary>
+        <div>
+          <b>看得懂。</b>沙盘界面只呈现"滑杆 + 曲线"两个元素——完全不需要理解差分方程或系统动力学理论。
+          我们的政策沙盘产品经理王星辰把所有复杂概念都翻译成决策者语言（如"招商力度"而不是"β 参数"）。
+          Day-1 培训 2 小时就能独立演示。
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 仿真结果和真实数据差距有多大？</summary>
+        <div>
+          5 家实证园区 3 年跟踪结果：<b>DTSI 总分 MAPE = 6.8%</b>（平均绝对百分比误差），
+          个别主体维度（如"科研"）因样本小可能到 12-15%。<b>政府 / 运营 / 企业三大主体 MAPE 均 &lt; 8%</b>——
+          用于决策已经足够。误差主要来自宏观经济、地方政策等外部冲击，我们持续在校准。
+        </div>
+      </details>
+      <details>
+        <summary>Q5. X-Flow 能不能私有部署？</summary>
+        <div>
+          <b>可以。</b>标准部署方式：SaaS 版（含官方沙盘 · 年费 ¥18 万起）；私有部署版（含源码 · 一次性 ¥180 万起 · 含 3 年更新）；
+          联合研究版（免费部署 · 承诺共享数据回流 · 面向国家级园区）。
+        </div>
+      </details>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">还有其他问题？直接告诉我们</h3>
+    <form class="form-inline" action="#" method="post">
+      <input type="text" name="org" placeholder="单位 / 园区名称" required>
+      <input type="text" name="name" placeholder="联系人姓名" required>
+      <input type="email" name="email" placeholder="邮箱" required>
+      <input type="tel" name="tel" placeholder="联系电话">
+      <textarea name="msg" rows="4" placeholder="请描述您想仿真的问题（例如：想对比 3 个装修改造方案 / 想演示 5 年规划滚动更新）"></textarea>
+      <button type="submit" class="btn-primary">提交咨询</button>
+    </form>
+  </div>
+</section>
+
+<a class="help-widget" href="#consult" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>4 大平台</h5>
+        <a href="./dtsi.html">DTSI®</a>
+        <a href="./xflow.html">X-Flow Dynamics™</a>
+        <a href="./pdtmm.html">PDTMM®</a>
+        <a href="./openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../insights/">洞察中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#consult">合作咨询</a>
+        <a href="mailto:liuziyuan@xingyang-park.gov.cn">liuziyuan@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · X-Flow Dynamics™ 商标申请中</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>七方共治 · Governance · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园七方共治治理架构 · 政府 25.7% · 资产持有方 18.7% · 园区运营方 14.3% · 入驻企业 12.0% · 科研院所 11.0% · 员工 9.3% · 周边居民 9.0%——AHP 300+ 专家权重经 CR=0.0283 一致性检验。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ===== SVG 容器 ===== */
+  .diagram-wrap {
+    background: var(--bg-1); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg); padding: var(--sp-8);
+    margin-top: var(--sp-6);
+  }
+  .diagram-wrap svg { width: 100%; height: auto; display: block; }
+
+  /* ===== 七方明细卡片 ===== */
+  .party-card {
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md); padding: var(--sp-6);
+    border-top: 3px solid var(--bg-line);
+    transition: transform var(--dur-fast) var(--ease);
+  }
+  .party-card:hover { transform: translateY(-2px); }
+  .party-card--gov       { border-top-color: #b8102e; }
+  .party-card--asset     { border-top-color: #38bdf8; }
+  .party-card--ops       { border-top-color: #34d399; }
+  .party-card--company   { border-top-color: #a78bfa; }
+  .party-card--research  { border-top-color: #f59e0b; }
+  .party-card--employee  { border-top-color: #f472b6; }
+  .party-card--resident  { border-top-color: #2dd4bf; }
+
+  .party-head { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+  .party-badge { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: #0a0e1a; font-weight: 800; font-size: var(--fs-md); flex-shrink: 0; }
+  .party-badge--gov       { background: #b8102e; color: #fff; }
+  .party-badge--asset     { background: #38bdf8; }
+  .party-badge--ops       { background: #34d399; }
+  .party-badge--company   { background: #a78bfa; }
+  .party-badge--research  { background: #f59e0b; }
+  .party-badge--employee  { background: #f472b6; }
+  .party-badge--resident  { background: #2dd4bf; }
+  .party-name { font-size: var(--fs-lg); font-weight: 800; margin-bottom: 2px; }
+  .party-weight { font-size: var(--fs-xs); color: var(--gold); font-weight: 700; letter-spacing: .05em; }
+
+  .party-section { margin-top: var(--sp-4); }
+  .party-section-label { display: inline-block; padding: 2px var(--sp-2); background: var(--bg-3); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .05em; color: var(--text-1); margin-bottom: var(--sp-2); }
+  .party-section p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* ===== 治理机制 4-mechanism grid ===== */
+  .mech-card {
+    padding: var(--sp-6); background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius-md);
+    display: flex; flex-direction: column;
+  }
+  .mech-icon { width: 40px; height: 40px; margin-bottom: var(--sp-3); }
+  .mech-title { font-size: var(--fs-md); font-weight: 800; margin-bottom: var(--sp-2); }
+  .mech-body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* ===== CTA banner ===== */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--gov-soft), var(--enterprise-soft));
+    border: 1px solid rgba(184,16,46,.3);
+    padding: var(--sp-10); border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="./" class="active">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#join">参与治理</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">关于我们</span>
+    <a href="./">关于我们</a>
+    <a href="./leadership.html">领导班子</a>
+    <a href="./governance.html" class="active">七方共治</a>
+    <a href="./timeline.html">里程碑</a>
+    <a href="./#contact">联系</a>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">GOVERNANCE · 七方共治</span>
+    <h1 class="hero-title">7 主体 · 35 指标 · 一套共治机制</h1>
+    <p class="hero-lead">
+      来自戴继涛博士 242 页 DBA 论文的核心成果——把"产业园"这一复杂经济单元拆解为 7 类主体，
+      通过 AHP 层次分析法在 300+ 专家样本上定量出各主体的话语权重（CR=0.0283，通过一致性检验）。
+      从此，"共治"不再是抽象口号，而是可落地的席位、投票、数据分成、争议裁决机制。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#seven-parties">
+        查看七方图
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#architecture">治理架构</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 七方图 ============ -->
+<section class="section" id="seven-parties">
+  <div class="container-wide">
+    <span class="section-kicker">SEVEN PARTIES · 七方权重图</span>
+    <h2 class="section-title">DTSI® 七方权重分布图</h2>
+    <p class="section-lead">
+      以"DTSI® 共享本体论"为中心，7 类主体环绕分布。连线粗细代表主体与中心方法论的交互强度；
+      节点大小与颜色代表 AHP 权重。所有权重合计 100%，源自戴继涛博士论文表 4.7 与附录 C。
+    </p>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="七方共治权重图">
+        <defs>
+          <radialGradient id="hub" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#fbbf24"/>
+            <stop offset="1" stop-color="#b45309"/>
+          </radialGradient>
+          <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4"><circle cx="5" cy="5" r="3" fill="#fbbf24"/></marker>
+        </defs>
+
+        <!-- 连接线 - 从中心到各节点 -->
+        <g stroke-width="2" opacity="0.5" fill="none">
+          <line x1="400" y1="260" x2="400" y2="80"  stroke="#b8102e" stroke-width="5.14"/>
+          <line x1="400" y1="260" x2="538" y2="134" stroke="#38bdf8" stroke-width="3.74"/>
+          <line x1="400" y1="260" x2="576" y2="290" stroke="#34d399" stroke-width="2.86"/>
+          <line x1="400" y1="260" x2="478" y2="412" stroke="#a78bfa" stroke-width="2.4"/>
+          <line x1="400" y1="260" x2="322" y2="412" stroke="#f59e0b" stroke-width="2.2"/>
+          <line x1="400" y1="260" x2="224" y2="290" stroke="#f472b6" stroke-width="1.86"/>
+          <line x1="400" y1="260" x2="262" y2="134" stroke="#2dd4bf" stroke-width="1.8"/>
+        </g>
+
+        <!-- 中心 hub -->
+        <circle cx="400" cy="260" r="60" fill="url(#hub)" stroke="#fbbf24" stroke-width="2"/>
+        <text x="400" y="248" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="800">DTSI®</text>
+        <text x="400" y="270" text-anchor="middle" fill="#0a0e1a" font-size="11" font-weight="600">共享本体论</text>
+        <text x="400" y="285" text-anchor="middle" fill="#0a0e1a" font-size="10" opacity="0.8">7 主体 × 5 指标</text>
+
+        <!-- 节点 1: 地方政府 25.7% (top) -->
+        <circle cx="400" cy="80" r="52" fill="#b8102e" stroke="#fff" stroke-width="2"/>
+        <text x="400" y="72" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">地方政府</text>
+        <text x="400" y="92" text-anchor="middle" fill="#fff" font-size="18" font-weight="900">25.7%</text>
+
+        <!-- 节点 2: 资产持有方 18.7% -->
+        <circle cx="538" cy="134" r="46" fill="#38bdf8" stroke="#fff" stroke-width="2"/>
+        <text x="538" y="128" text-anchor="middle" fill="#0a0e1a" font-size="13" font-weight="800">资产持有方</text>
+        <text x="538" y="146" text-anchor="middle" fill="#0a0e1a" font-size="16" font-weight="900">18.7%</text>
+
+        <!-- 节点 3: 园区运营方 14.3% -->
+        <circle cx="576" cy="290" r="42" fill="#34d399" stroke="#fff" stroke-width="2"/>
+        <text x="576" y="284" text-anchor="middle" fill="#0a0e1a" font-size="12" font-weight="800">园区运营方</text>
+        <text x="576" y="302" text-anchor="middle" fill="#0a0e1a" font-size="15" font-weight="900">14.3%</text>
+
+        <!-- 节点 4: 入驻企业 12.0% -->
+        <circle cx="478" cy="412" r="40" fill="#a78bfa" stroke="#fff" stroke-width="2"/>
+        <text x="478" y="406" text-anchor="middle" fill="#0a0e1a" font-size="12" font-weight="800">入驻企业</text>
+        <text x="478" y="424" text-anchor="middle" fill="#0a0e1a" font-size="15" font-weight="900">12.0%</text>
+
+        <!-- 节点 5: 科研院所 11.0% -->
+        <circle cx="322" cy="412" r="38" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+        <text x="322" y="406" text-anchor="middle" fill="#0a0e1a" font-size="12" font-weight="800">科研院所</text>
+        <text x="322" y="424" text-anchor="middle" fill="#0a0e1a" font-size="15" font-weight="900">11.0%</text>
+
+        <!-- 节点 6: 员工 9.3% -->
+        <circle cx="224" cy="290" r="36" fill="#f472b6" stroke="#fff" stroke-width="2"/>
+        <text x="224" y="286" text-anchor="middle" fill="#0a0e1a" font-size="13" font-weight="800">员工</text>
+        <text x="224" y="304" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="900">9.3%</text>
+
+        <!-- 节点 7: 周边居民 9.0% -->
+        <circle cx="262" cy="134" r="36" fill="#2dd4bf" stroke="#fff" stroke-width="2"/>
+        <text x="262" y="128" text-anchor="middle" fill="#0a0e1a" font-size="12" font-weight="800">周边居民</text>
+        <text x="262" y="146" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="900">9.0%</text>
+
+        <!-- 底部注释 -->
+        <text x="400" y="520" text-anchor="middle" fill="#8b95a8" font-size="12">
+          AHP 层次分析法 · 300+ 专家样本 · 一致性检验 CR = 0.0283 &lt; 0.10 · 权重可信
+        </text>
+        <text x="400" y="540" text-anchor="middle" fill="#c8d0e0" font-size="13" font-weight="600">
+          总计 100% · 源自戴继涛博士 242 页 DBA 论文
+        </text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 每方的责任 · 权利 · 决策机制 ============ -->
+<section class="section" id="party-detail">
+  <div class="container-wide">
+    <span class="section-kicker">DETAIL · 每方明细</span>
+    <h2 class="section-title">7 类主体的责任 · 权利 · 决策机制</h2>
+    <p class="section-lead">
+      从"谁做什么"到"谁能否决什么"再到"分歧了怎么办"——每方各自有明确的一览表。
+    </p>
+
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+
+      <!-- 1. 地方政府 -->
+      <div class="party-card party-card--gov">
+        <div class="party-head">
+          <div class="party-badge party-badge--gov">政</div>
+          <div>
+            <div class="party-name">地方政府</div>
+            <div class="party-weight">25.7% · 最高权重</div>
+          </div>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">责任</span>
+          <p>政策供给、行政审批绿通、监管边界、产业方向共识、专项资金对接。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">权利</span>
+          <p>董事会 2 席 · 对入驻产业方向具有一票否决权 · 主持季度政策评议会。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">决策机制</span>
+          <p>市委常委会审议 → 市政府常务会决议 → 分管副市长授权园区领导小组执行。</p>
+        </div>
+      </div>
+
+      <!-- 2. 资产持有方 -->
+      <div class="party-card party-card--asset">
+        <div class="party-head">
+          <div class="party-badge party-badge--asset">资</div>
+          <div>
+            <div class="party-name">资产持有方</div>
+            <div class="party-weight">18.7% · 次高权重</div>
+          </div>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">责任</span>
+          <p>土地/建筑长期资产的价值维护、绿建评级、能耗节控、REITs 路径规划。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">权利</span>
+          <p>董事会 2 席 · 对涉及资产处置/抵押/证券化的重大事项拥有一票否决权 · 主持资产管理委员会。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">决策机制</span>
+          <p>荥阳城投董事会决议 → 分管副总经理执行 → 联席工作组与运营方协同。</p>
+        </div>
+      </div>
+
+      <!-- 3. 园区运营方 -->
+      <div class="party-card party-card--ops">
+        <div class="party-head">
+          <div class="party-badge party-badge--ops">运</div>
+          <div>
+            <div class="party-name">园区运营方</div>
+            <div class="party-weight">14.3% · 执行核心</div>
+          </div>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">责任</span>
+          <p>4 大平台 IP 落地 · 8 大服务矩阵日常交付 · 招商引资 · 企业服务 · 数据资产运营。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">权利</span>
+          <p>董事会 2 席 · 主持园区运营决策 · 服务定价权 · 招商指标建议权。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">决策机制</span>
+          <p>郑州荥泽数链管委会周会 → 太能控股 CEO 授权 → 季度对三方汇报。</p>
+        </div>
+      </div>
+
+      <!-- 4. 入驻企业 -->
+      <div class="party-card party-card--company">
+        <div class="party-head">
+          <div class="party-badge party-badge--company">企</div>
+          <div>
+            <div class="party-name">入驻企业</div>
+            <div class="party-weight">12.0% · 用户代表</div>
+          </div>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">责任</span>
+          <p>按合同履约、按 DTSI® 反馈数据、参与年度评议、贡献产业案例样本。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">权利</span>
+          <p>入驻企业代表席位 3 席（每年民选轮换）· 对服务定价/服务标准调整具有集体建议权 · 免费使用 DTSI 诊断。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">决策机制</span>
+          <p>企业代表联席会（半年 1 次）→ 提案 → 董事会审议 → 反馈机制在 45 天内响应。</p>
+        </div>
+      </div>
+
+      <!-- 5. 科研院所 -->
+      <div class="party-card party-card--research">
+        <div class="party-head">
+          <div class="party-badge party-badge--research">研</div>
+          <div>
+            <div class="party-name">科研院所</div>
+            <div class="party-weight">11.0% · 学术权威</div>
+          </div>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">责任</span>
+          <p>方法论学术校验 · CPA-PDTMM 认证师命题 · 年度对标白皮书 · 产学研合作输出。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">权利</span>
+          <p>学术委员会 4 席 · 对方法论迭代拥有最终裁定权 · 独立于日常经营。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">决策机制</span>
+          <p>学术委员会季度评议 → 年度报告直接呈报董事会 → 反对方法论重大变更时提请七方联席。</p>
+        </div>
+      </div>
+
+      <!-- 6. 员工 -->
+      <div class="party-card party-card--employee">
+        <div class="party-head">
+          <div class="party-badge party-badge--employee">员</div>
+          <div>
+            <div class="party-name">员工</div>
+            <div class="party-weight">9.3% · 内部利益方</div>
+          </div>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">责任</span>
+          <p>执行 4 大平台 IP 交付 · 参与年度工会评议 · 贡献员工满意度数据（DTSI 指标之一）。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">权利</span>
+          <p>工会代表席位 1 席 · 对涉及员工薪酬/福利/工作强度的重大调整具有集体协商权。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">决策机制</span>
+          <p>工会代表大会（年 1 次）→ 提案 → 运营公司管委会审议 → 涉及三方合同的进入董事会。</p>
+        </div>
+      </div>
+
+      <!-- 7. 周边居民 -->
+      <div class="party-card party-card--resident">
+        <div class="party-head">
+          <div class="party-badge party-badge--resident">民</div>
+          <div>
+            <div class="party-name">周边居民</div>
+            <div class="party-weight">9.0% · 社区代表</div>
+          </div>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">责任</span>
+          <p>参与年度社区评议 · 反馈园区对周边社区的外部性（交通/噪音/就业机会）。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">权利</span>
+          <p>社区代表席位 1 席（居委会推举）· 对涉及噪音/污染/交通改造的园区行为具有异议提请权。</p>
+        </div>
+        <div class="party-section">
+          <span class="party-section-label">决策机制</span>
+          <p>社区评议会（半年 1 次）→ 与市政府街道办联合审议 → 涉及安全环保的立即启动应急协商。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 治理架构图 (Tree) ============ -->
+<section class="section" id="architecture">
+  <div class="container-wide">
+    <span class="section-kicker">ARCHITECTURE · 治理架构</span>
+    <h2 class="section-title">董事会 → 运营委员会 → 5 大专业委员会</h2>
+    <p class="section-lead">
+      七方共治的顶层是三方组成的董事会（6 席 + 6 席观察员），日常执行由运营委员会驱动，
+      重大专业议题由 5 大专业委员会预审。
+    </p>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="治理架构树">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#8b95a8"/>
+          </marker>
+          <linearGradient id="topBoard" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#b8102e"/><stop offset=".5" stop-color="#38bdf8"/><stop offset="1" stop-color="#34d399"/>
+          </linearGradient>
+        </defs>
+
+        <!-- 顶层：董事会 -->
+        <rect x="330" y="30" width="340" height="80" rx="10" fill="url(#topBoard)"/>
+        <text x="500" y="62" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">园区董事会</text>
+        <text x="500" y="86" text-anchor="middle" fill="#fff" font-size="12" opacity="0.95">政府 2 席 · 城投 2 席 · 太能 2 席 · 6 席观察员</text>
+
+        <!-- 中层：运营委员会 -->
+        <rect x="360" y="180" width="280" height="70" rx="10" fill="#fbbf24" opacity="0.9"/>
+        <text x="500" y="210" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="800">运营委员会</text>
+        <text x="500" y="232" text-anchor="middle" fill="#0a0e1a" font-size="11">郑州荥泽数链管委会周会</text>
+
+        <!-- 顶到中层连线 -->
+        <line x1="500" y1="110" x2="500" y2="175" stroke="#8b95a8" stroke-width="2" marker-end="url(#arr2)"/>
+
+        <!-- 底层：5 大专业委员会 -->
+        <!-- x positions: 30, 220, 410, 600, 790 -->
+        <g font-family="var(--font-sans)">
+          <!-- 招商委员会 -->
+          <rect x="20" y="360" width="180" height="90" rx="8" fill="#f59e0b" opacity="0.85"/>
+          <text x="110" y="392" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="800">招商委员会</text>
+          <text x="110" y="412" text-anchor="middle" fill="#0a0e1a" font-size="10">招商引资 · 目标客户</text>
+          <text x="110" y="428" text-anchor="middle" fill="#0a0e1a" font-size="10">周星辰 · 主任</text>
+
+          <!-- 政策委员会 -->
+          <rect x="220" y="360" width="180" height="90" rx="8" fill="#b8102e"/>
+          <text x="310" y="392" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">政策委员会</text>
+          <text x="310" y="412" text-anchor="middle" fill="#fff" font-size="10">政策申报 · 政策研究</text>
+          <text x="310" y="428" text-anchor="middle" fill="#fff" font-size="10">王思远 · 主任</text>
+
+          <!-- 技术委员会 -->
+          <rect x="420" y="360" width="180" height="90" rx="8" fill="#38bdf8"/>
+          <text x="510" y="392" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="800">技术委员会</text>
+          <text x="510" y="412" text-anchor="middle" fill="#0a0e1a" font-size="10">4 大平台 IP · 数字化基建</text>
+          <text x="510" y="428" text-anchor="middle" fill="#0a0e1a" font-size="10">郭子豪 · 主任</text>
+
+          <!-- 生态委员会 -->
+          <rect x="620" y="360" width="180" height="90" rx="8" fill="#34d399"/>
+          <text x="710" y="392" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="800">生态委员会</text>
+          <text x="710" y="412" text-anchor="middle" fill="#0a0e1a" font-size="10">合作伙伴 · 认证师体系</text>
+          <text x="710" y="428" text-anchor="middle" fill="#0a0e1a" font-size="10">林嘉琪 · 主任</text>
+
+          <!-- 学术委员会 -->
+          <rect x="820" y="360" width="180" height="90" rx="8" fill="#fbbf24"/>
+          <text x="910" y="392" text-anchor="middle" fill="#0a0e1a" font-size="14" font-weight="800">学术委员会</text>
+          <text x="910" y="412" text-anchor="middle" fill="#0a0e1a" font-size="10">方法论校验 · 权威裁定</text>
+          <text x="910" y="428" text-anchor="middle" fill="#0a0e1a" font-size="10">戴继涛 · 主席</text>
+        </g>
+
+        <!-- 中到底连线 -->
+        <g stroke="#8b95a8" stroke-width="1.5" fill="none">
+          <path d="M500 250 L500 320 L110 320 L110 355" marker-end="url(#arr2)"/>
+          <path d="M500 250 L500 320 L310 320 L310 355" marker-end="url(#arr2)"/>
+          <path d="M500 250 L510 355" marker-end="url(#arr2)"/>
+          <path d="M500 250 L500 320 L710 320 L710 355" marker-end="url(#arr2)"/>
+          <path d="M500 250 L500 320 L910 320 L910 355" marker-end="url(#arr2)"/>
+        </g>
+
+        <!-- 底部三方治理联席 -->
+        <rect x="200" y="510" width="600" height="70" rx="10" fill="#0f1424" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="500" y="540" text-anchor="middle" fill="#fbbf24" font-size="16" font-weight="800">七方治理联席会议（季度）</text>
+        <text x="500" y="562" text-anchor="middle" fill="#c8d0e0" font-size="11">7 类主体代表出席 · 重大分歧提请裁决 · 会议纪要向全体入驻企业公开</text>
+
+        <!-- 底部虚线连接 -->
+        <line x1="500" y1="450" x2="500" y2="510" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 七方共治机制 详解 ============ -->
+<section class="section" id="mechanisms">
+  <div class="container-wide">
+    <span class="section-kicker">MECHANISMS · 共治机制</span>
+    <h2 class="section-title">4 大共治机制 · 决策 / 数据 / 收益 / 争议</h2>
+    <p class="section-lead">
+      "共治"不能只有嘴，要有真实的规则。荥阳把机制分成 4 类各自独立又互相耦合的模块——决策怎么做、
+      数据怎么共享、收益怎么分、分歧怎么裁决。以下是每类机制的具体条文。
+    </p>
+    <div class="grid grid-2" style="margin-top: var(--sp-8);">
+
+      <div class="mech-card">
+        <svg class="mech-icon" viewBox="0 0 40 40" fill="none" stroke="var(--gov)" stroke-width="2">
+          <circle cx="20" cy="20" r="16"/><path d="M20 8 L20 32 M8 20 L32 20"/>
+        </svg>
+        <h4 class="mech-title">1 · 决策机制</h4>
+        <p class="mech-body">
+          <b>三层决策 + 一票否决：</b>日常决策由运营委员会（郑州荥泽数链）单方推进；跨方决策进入董事会
+          三方 6 席协商，2/3 通过；涉及产业方向 / 资产处置 / 方法论重大变更的决策进入七方联席，任何一方
+          明确书面反对即停 90 天，进入学术委员会独立评议后再复议。<b>不设"少数服从多数"，允许 7 方对
+          关键议题保留否决空间</b>——这是"共治"的第一原则：不牺牲少数方的核心利益换取多数方的效率。
+        </p>
+      </div>
+
+      <div class="mech-card">
+        <svg class="mech-icon" viewBox="0 0 40 40" fill="none" stroke="var(--enterprise)" stroke-width="2">
+          <rect x="6" y="6" width="10" height="10" rx="2"/><rect x="24" y="6" width="10" height="10" rx="2"/>
+          <rect x="6" y="24" width="10" height="10" rx="2"/><rect x="24" y="24" width="10" height="10" rx="2"/>
+          <line x1="16" y1="11" x2="24" y2="11"/><line x1="16" y1="29" x2="24" y2="29"/>
+          <line x1="11" y1="16" x2="11" y2="24"/><line x1="29" y1="16" x2="29" y2="24"/>
+        </svg>
+        <h4 class="mech-title">2 · 数据共享机制</h4>
+        <p class="mech-body">
+          <b>DTSI® 35 指标数据由 7 方共同贡献 · 共同使用：</b>每季度七方按 AHP 权重比例向园区数据中台
+          上报本方指标数据；数据经区块链存证后进入七方共享池；每一方均可通过 OpenX@X™ API 免费调用
+          全部 35 指标的<b>脱敏聚合数据</b>；涉及本方敏感数据的原始明细仅本方可读；数据权属明确写入
+          《荥阳数字经济产业园数据共享公约》，2025 年由河南省信通院背书发布。
+        </p>
+      </div>
+
+      <div class="mech-card">
+        <svg class="mech-icon" viewBox="0 0 40 40" fill="none" stroke="var(--ecosystem)" stroke-width="2">
+          <path d="M20 6 L28 14 L28 26 L20 34 L12 26 L12 14 Z"/>
+          <path d="M20 14 L20 26 M15 20 L25 20"/>
+        </svg>
+        <h4 class="mech-title">3 · 收益分配机制</h4>
+        <p class="mech-body">
+          <b>非平权分配 · 按贡献 + 按 AHP 权重加权：</b>园区运营净收益（招商佣金、服务费、认证费、
+          平台授权费）先扣除运营成本，余额按"70% 按实际贡献 · 30% 按 AHP 权重"拆分给 7 方。
+          实际贡献口径由学术委员会每年裁定；AHP 权重按 5 年周期复评。<b>2025 年首次分配：</b>运营方
+          获 41.2%（贡献大头），资产方 22.5%，政府（转投再投资）14.8%，其余四方合计 21.5%。
+        </p>
+      </div>
+
+      <div class="mech-card">
+        <svg class="mech-icon" viewBox="0 0 40 40" fill="none" stroke="var(--gold)" stroke-width="2">
+          <path d="M20 4 L34 12 L34 24 Q34 34 20 38 Q6 34 6 24 L6 12 Z"/>
+          <path d="M14 20 L18 24 L26 16"/>
+        </svg>
+        <h4 class="mech-title">4 · 争议裁决机制</h4>
+        <p class="mech-body">
+          <b>三级裁决 + 独立学术仲裁：</b>方内分歧由本方内部解决；方间分歧先协商（30 天），
+          未果进入七方联席仲裁（60 天）；仍未果的进入学术委员会独立评议（30 天），学术委员会
+          出具具约束力的《技术性裁决报告》。<b>2023-2026 累计发生 9 起方间分歧</b>，其中 6 起在
+          协商阶段化解，2 起联席仲裁化解，1 起进入学术评议，最终以书面认可结案，均无对簿公堂案例。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 参与治理 CTA ============ -->
+<section class="section" id="join">
+  <div class="container-wide">
+    <div class="cta-banner">
+      <span class="section-kicker">JOIN · 参与治理</span>
+      <h2 class="section-title" style="margin-top:var(--sp-3);">入驻企业自动获得"入驻企业代表席位"资格</h2>
+      <p class="section-lead" style="margin: var(--sp-4) auto 0; max-width: 720px;">
+        签约入驻后自动进入入驻企业名录 · 每年 6 月民选企业代表 3 席 · 拥有半年 1 次的联席会提案权 ·
+        拥有对服务定价 / 服务标准调整的集体建议权 · 免费使用 DTSI® 诊断 · 参与年度 PDTMM® 联合评级。
+      </p>
+      <div class="hero-ctas" style="justify-content: center; margin-top: var(--sp-8);">
+        <a class="btn-primary" href="./#contact">
+          咨询入驻申请
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="../platforms/dtsi.html">了解 DTSI® 诊断</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sticky 咨询 ============ -->
+<a class="help-widget" href="./#contact" aria-label="联系我们">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  联系
+</a>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>关于我们</h5>
+        <a href="./">总览</a>
+        <a href="./leadership.html">领导班子</a>
+        <a href="./governance.html">七方共治</a>
+        <a href="./timeline.html">里程碑</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="./#contact">合作咨询</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+        <a href="tel:0371-6425-8899">0371-6425-8899</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

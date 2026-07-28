@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenX@X 方法论快速入门 · 洞察 · 荥阳数字经济产业园</title>
+<meta name="description" content="OpenX@X 是"识别 → 目标 → 指数 → 仿真 → 调整"5 步法。戴继涛博士拆解为什么是 7 主体、AHP 权重如何得出、以及 M0→M36 的落地节奏。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ---------- Article 通用 ---------- */
+  .breadcrumb {
+    padding: var(--sp-4) 0;
+    color: var(--text-3); font-size: var(--fs-sm);
+  }
+  .breadcrumb a { color: var(--text-3); }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb .sep { margin: 0 var(--sp-2); color: var(--text-4); }
+
+  .article-header {
+    padding: var(--sp-8) 0 var(--sp-10);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .article-header-chips {
+    display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap;
+    margin-bottom: var(--sp-4);
+  }
+  .article-header-chips .meta-date { color: var(--text-3); font-size: var(--fs-sm); margin-left: var(--sp-2); }
+  .article-title {
+    font-size: var(--fs-3xl); font-weight: 800;
+    line-height: var(--lh-tight);
+    margin-bottom: var(--sp-6);
+    max-width: 920px;
+  }
+  .article-meta-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--sp-6);
+    align-items: center;
+  }
+  .author-mini {
+    display: flex; align-items: center; gap: var(--sp-3);
+  }
+  .avatar-svg {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gov), var(--enterprise));
+    display: grid; place-items: center; color: #fff;
+    font-weight: 700; font-size: var(--fs-md);
+    flex-shrink: 0;
+  }
+  .author-mini-info { display: flex; flex-direction: column; gap: 2px; }
+  .author-mini-name { font-weight: 700; font-size: var(--fs-sm); color: var(--text); }
+  .author-mini-bio { font-size: var(--fs-xs); color: var(--text-3); }
+  .reading-time { font-size: var(--fs-sm); color: var(--text-3); }
+
+  .tldr {
+    background: var(--gov-soft);
+    border: 1px solid rgba(184,16,46,.3);
+    border-left: 4px solid var(--gov);
+    padding: var(--sp-6);
+    border-radius: var(--radius-lg);
+    margin: var(--sp-10) 0;
+  }
+  .tldr-label {
+    color: var(--gov-hover); font-weight: 700;
+    font-size: var(--fs-sm); text-transform: uppercase;
+    letter-spacing: .08em; margin-bottom: var(--sp-3);
+  }
+  .tldr ul { list-style: none; padding: 0; margin: 0; }
+  .tldr li {
+    padding: var(--sp-2) 0 var(--sp-2) var(--sp-6);
+    position: relative;
+    color: var(--text-1);
+    font-size: var(--fs-md); line-height: var(--lh-relaxed);
+  }
+  .tldr li::before {
+    content: "";
+    position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 2px;
+    background: var(--gov);
+  }
+
+  .article-body { max-width: 780px; margin: 0 auto; padding: var(--sp-4) 0 var(--sp-16); }
+  .article-body h2 {
+    font-size: var(--fs-xl); font-weight: 700;
+    margin: var(--sp-10) 0 var(--sp-4);
+    color: var(--text);
+    line-height: var(--lh-tight);
+  }
+  .article-body h3 {
+    font-size: var(--fs-md); font-weight: 600;
+    margin: var(--sp-6) 0 var(--sp-3);
+    color: var(--text-1);
+  }
+  .article-body p {
+    color: var(--text-2); font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--sp-4);
+  }
+  .article-body ul, .article-body ol {
+    color: var(--text-2); font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    padding-left: var(--sp-6);
+    margin-bottom: var(--sp-4);
+  }
+  .article-body li { margin-bottom: var(--sp-2); }
+  .article-body b, .article-body strong { color: var(--text); }
+
+  .divider-svg {
+    display: block; margin: var(--sp-10) auto var(--sp-8);
+    max-width: 600px; width: 100%; height: 18px;
+  }
+
+  .pull-quote {
+    border-left: 4px solid var(--gov);
+    padding: var(--sp-6);
+    margin: var(--sp-8) 0;
+    background: var(--bg-2);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: var(--fs-lg);
+    color: var(--text-1);
+    font-style: italic;
+    font-family: Georgia, "Songti SC", serif;
+    line-height: var(--lh-relaxed);
+    position: relative;
+  }
+  .pull-quote::before {
+    content: "\201C";
+    position: absolute;
+    left: var(--sp-3); top: -12px;
+    font-size: 56px;
+    color: var(--gov);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .pull-quote cite {
+    display: block; margin-top: var(--sp-4);
+    font-size: var(--fs-sm); color: var(--text-3);
+    font-style: normal;
+    font-family: var(--font-sans);
+  }
+
+  .weight-table {
+    width: 100%; border-collapse: collapse;
+    margin: var(--sp-6) 0;
+    background: var(--bg-1); border-radius: var(--radius);
+    overflow: hidden;
+    font-size: var(--fs-sm);
+  }
+  .weight-table th, .weight-table td {
+    padding: var(--sp-3) var(--sp-4);
+    text-align: left;
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .weight-table th {
+    background: var(--bg-3); color: var(--text);
+    font-weight: 700;
+  }
+  .weight-table td { color: var(--text-2); }
+  .weight-table tr:last-child td { border-bottom: 0; }
+  .weight-table td b { color: var(--gold); font-variant-numeric: tabular-nums; }
+
+  /* Author card at bottom */
+  .author-card-large {
+    display: flex; gap: var(--sp-6);
+    padding: var(--sp-6);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    margin-top: var(--sp-12);
+  }
+  .avatar-large {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gov), var(--enterprise));
+    display: grid; place-items: center; color: #fff;
+    font-weight: 700; font-size: 28px;
+    flex-shrink: 0;
+  }
+  .author-card-large h4 {
+    font-size: var(--fs-md); font-weight: 700;
+    margin-bottom: var(--sp-1);
+  }
+  .author-card-large .role {
+    color: var(--gold); font-size: var(--fs-sm);
+    margin-bottom: var(--sp-3);
+  }
+  .author-card-large p {
+    color: var(--text-2); font-size: var(--fs-sm);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--sp-2);
+  }
+
+  /* Related articles */
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+    margin-top: var(--sp-6);
+  }
+  @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+
+  /* Tag pills */
+  .tag-row { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-8); }
+  .tag-row .chip { padding: var(--sp-2) var(--sp-3); }
+
+  /* Bottom subscribe */
+  .subscribe-inline {
+    background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2);
+    border: 1px solid rgba(184,16,46,.3);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-8);
+    margin-top: var(--sp-10);
+  }
+  .subscribe-inline form {
+    display: flex; gap: var(--sp-3);
+    margin-top: var(--sp-4);
+    flex-wrap: wrap;
+  }
+  .subscribe-inline input {
+    flex: 1; min-width: 240px;
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius);
+    border: 1px solid var(--bg-line);
+    background: var(--bg-1); color: var(--text);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="./" class="active">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#subscribe">订阅洞察</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Insights · 洞察中心</span>
+    <a href="./">洞察首页</a>
+    <a href="./#themes">主题分类</a>
+    <a href="./#authors">作者档案</a>
+    <a href="#subscribe">订阅</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a><span class="sep">›</span>
+    <a href="./">洞察</a><span class="sep">›</span>
+    <span>OpenX@X 方法论快速入门</span>
+  </div>
+
+  <!-- Article header -->
+  <header class="article-header">
+    <div class="article-header-chips">
+      <span class="chip chip--insight">洞察文</span>
+      <span class="chip">OpenX@X</span>
+      <span class="chip">平台化五步法</span>
+      <span class="meta-date">发布 2026-06-18</span>
+    </div>
+    <h1 class="article-title">OpenX@X 方法论快速入门：把 40 分老园区在 36 个月内推到 55+ 分的 5 步操作手册</h1>
+    <div class="article-meta-row">
+      <div class="author-mini">
+        <div class="avatar-svg">戴</div>
+        <div class="author-mini-info">
+          <span class="author-mini-name">戴继涛 博士</span>
+          <span class="author-mini-bio">DTSI / OpenX@X 方法论奠基人 · 前 IBM 咨询 · 荥阳数字经济产业园首席方法论专家</span>
+        </div>
+      </div>
+      <div class="reading-time">阅读时长 · 6 分钟</div>
+    </div>
+  </header>
+
+  <!-- Article body -->
+  <div class="article-body">
+
+    <div class="tldr">
+      <div class="tldr-label">TL;DR · 三句话概括</div>
+      <ul>
+        <li>OpenX@X 不是一款软件，而是"识别 7 方需求 → 确立目标 → 7 方 AHP 指数 → X-Flow 系统动力学仿真 → 动态调整"五步闭环方法论。</li>
+        <li>它把"数字化转型"从一次性 IT 采购，重构成一场需要政府 25.7% · 资产 18.7% · 运营 14.3% · 企业 12.0% · 科研 11.0% · 员工 9.3% · 居民 9.0% 权重协同的持续治理动作。</li>
+        <li>M0→M6→M12→M24→M36 是标准落地节奏——园区 C 主案例实测 M0=40.1 起步、M36=55.3 收官，年均 +5.07 分，是"改一个滑杆看见 60 月演化"式的可复算路径。</li>
+      </ul>
+    </div>
+
+    <h2>为什么需要 OpenX@X</h2>
+    <p>大多数园区做数字化转型的第一个动作是"上系统"——招商系统、能耗系统、门禁系统、物业系统。三年下来，摄像头装满、大屏亮起来了，但入驻企业的满意度、亩均税收、科研成果转化率并没有跟着涨。原因不在系统本身，而在<b>治理协同没有跟上系统建设的节奏</b>：政策想引导 A，资产更新在 B，运营团队考核落在 C，企业实际需求在 D——四个方向拉扯，最终每一个动作都被稀释。</p>
+    <p>OpenX@X 方法论的起点是承认这个现实：园区里同时存在 7 类利益主体，任何一次数字化投入都会在 7 个主体之间产生权重不同的收益与摩擦。如果没有一套统一的度量与调度机制，投入就永远无法收敛为可复算的产出。因此 OpenX@X 把重心从"上更多系统"转向"设定 7 方通用坐标系"，让每一次预算、每一份政策、每一次评估都锚定同一把标尺。</p>
+
+    <blockquote class="pull-quote">
+      传统园区数字化转型的最大误区，是把它当作 IT 项目——它其实是一个 7 主体治理协同问题。系统只是治理的载体，治理不改，系统装再多，指数不动。
+      <cite>— 戴继涛，DBA 论文第 4 章导论</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8102e" stop-opacity="0"/><stop offset=".5" stop-color="#b8102e"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d1)" stroke-width="1.5"/>
+      <circle cx="300" cy="9" r="4" fill="#b8102e"/>
+    </svg>
+
+    <h2>5 步法拆解：识别 → 目标 → 指数 → 仿真 → 调整</h2>
+    <p>OpenX@X 把复杂的园区治理动作压缩为 5 个可复制的步骤。每一步都对应一份可交付的物料，避免"讲完就散"的白皮书宿命：</p>
+
+    <h3>步骤 1 · 识别 7 方需求</h3>
+    <p>通过 233 题问卷 + 21 对成对比较访谈，梳理政府、资产、运营、企业、科研、员工、居民 7 方在当前阶段最强烈的 3 项需求。产物是一份"需求矩阵"，标注每项需求的紧迫度、责任主体与影响范围。</p>
+
+    <h3>步骤 2 · 根据需求确立目标</h3>
+    <p>把 7 方需求收敛为 3-5 个未来 36 个月的可度量目标，例如"入驻企业数字化系统覆盖率 ≥ 70%"、"亩均税收提升 30%"、"科研合作项目落地 8 项"。每个目标必须能被拆到 DTSI 的 35 个指标中的至少 3 个。</p>
+
+    <h3>步骤 3 · 7 方 AHP 指数</h3>
+    <p>用 AHP 层次分析法把目标翻译成主体权重与指标权重。300 名专家参与打分、C(7,2)=21 对成对比较，最后得到 <b>CR=0.0283</b> 的一致性比率——远低于 Saaty 1980 年设定的 0.10 阈值，权重可被审计、可被复算。</p>
+
+    <h3>步骤 4 · X-Flow Dynamics 仿真</h3>
+    <p>把权重装进系统动力学模型，形成 5 条关键反馈回路（政府—招商正反馈、资产—运营负反馈、居民—信任加速回路、企业—数据积累回路、科研—人才培育回路）。改变任一政策变量，模型立即输出未来 60 个月的 DTSI 走势。</p>
+
+    <h3>步骤 5 · 动态调整</h3>
+    <p>依据仿真结果做 6 个月一次的政策微调。调整不是"重来一次五步法"，而是<b>沿用同一坐标系微调滑杆</b>——这才是 OpenX@X 与传统"三年规划再评估"最大的差别。</p>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity="0"/><stop offset=".5" stop-color="#38bdf8"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d2)" stroke-width="1.5"/>
+      <rect x="290" y="4" width="20" height="10" fill="#38bdf8" rx="2"/>
+    </svg>
+
+    <h2>为什么是 7 主体不是 3 主体</h2>
+    <p>Freeman 1984 年提出利益相关者理论时用的是"主要 vs 次要"两分法。国内产业园区习惯用"政府—企业—运营"3 主体框架，简单但会掩盖真实的治理张力。DBA 论文经过对 300 名专家的 21 对成对比较，把 7 主体的权重稳定在下表：</p>
+
+    <table class="weight-table">
+      <thead>
+        <tr><th>主体</th><th>AHP 权重</th><th>治理角色定位</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>政府</td><td><b>25.7%</b></td><td>政策制定 · 招商背书 · 合规监督</td></tr>
+        <tr><td>资产（城投）</td><td><b>18.7%</b></td><td>基础设施 · 空间供给 · 资本运作</td></tr>
+        <tr><td>运营</td><td><b>14.3%</b></td><td>日常调度 · 服务交付 · 数据中台</td></tr>
+        <tr><td>企业</td><td><b>12.0%</b></td><td>数字化实践 · 税收贡献 · 用工需求</td></tr>
+        <tr><td>科研</td><td><b>11.0%</b></td><td>技术攻关 · 人才培养 · 成果转化</td></tr>
+        <tr><td>员工</td><td><b>9.3%</b></td><td>技能上升 · 通勤配套 · 归属感</td></tr>
+        <tr><td>居民</td><td><b>9.0%</b></td><td>社区支持 · 环境承受度 · 合法性来源</td></tr>
+      </tbody>
+    </table>
+
+    <p>把居民主体单列 9.0% 是 OpenX@X 相对国内传统框架最关键的一次跃迁。它承认园区不是漂浮在真空里的产业岛，而是嵌在城市社区里的复合体。当园区扩张、通勤压力、环保约束、噪声干扰传导到居民主体时，如果治理坐标系里没有这一维度，冲突会在毫无预警的情况下爆发。</p>
+
+    <blockquote class="pull-quote">
+      3 主体框架能解释"发生了什么"，7 主体框架才能解释"为什么"。少一个主体，你就在一个错误的坐标系里做决策。
+      <cite>— 戴继涛，DBA 论文第 5.2 节</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbbf24" stop-opacity="0"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#b8102e" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d3)" stroke-width="1.5"/>
+      <polygon points="295,3 305,3 300,14" fill="#fbbf24"/>
+    </svg>
+
+    <h2>落地节奏：M0 → M6 → M12 → M24 → M36</h2>
+    <p>方法论若无节奏就是幻灯片。OpenX@X 把 36 个月拆成 5 个可交付节点，每个节点都有明确的 DTSI 目标区间与责任主体：</p>
+    <ul>
+      <li><b>M0（起步基线）</b>：完成 7 方问卷 + AHP 首次评估，输出 DTSI 基线分数与 35 指标热力图。园区 C 主案例 M0=40.1。</li>
+      <li><b>M6（政策共识期）</b>：完成需求—目标匹配，签署 7 方共治协议，明确未来 30 个月每一方的可交付。园区 C M6=43.5，涨 +3.4。</li>
+      <li><b>M12（系统接入期）</b>：数据中台落地，7 方数据接口打通，X-Flow 仿真跑通首个 60 月场景。园区 C M12=47.7，累计 +7.6。</li>
+      <li><b>M24（服务重构期）</b>：SERVQUAL 五维满意度闭环、企业数字能力评级、产学研合作至少 3 个项目落地。园区 C M24=50.3，累计 +10.2。</li>
+      <li><b>M36（生态引领期）</b>：DTSI ≥ 55，进入 PDTMM L4；开始输出方法论至周边园区。园区 C M36=55.3，累计 +15.2。</li>
+    </ul>
+    <p>5 园区 3 年平均涨幅 13.4 分、区间 [10-15]，H3 假设"36 个月年均 ≥ 4 分"被支持。这不是理想化模型，而是可以拿去做投前尽调的证据链。</p>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#34d399" stop-opacity="0"/><stop offset=".5" stop-color="#34d399"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d4)" stroke-width="1.5"/>
+      <circle cx="270" cy="9" r="3" fill="#34d399"/><circle cx="300" cy="9" r="3" fill="#34d399"/><circle cx="330" cy="9" r="3" fill="#34d399"/>
+    </svg>
+
+    <h2>常见误区与关键成功因素</h2>
+    <p>过去两年我们陪跑了 12 个园区，看到 3 类典型误区：</p>
+    <p><b>误区一 · 把 OpenX@X 当成一次性咨询项目。</b>方法论真正的价值在"每 6 个月做一次微调"，只做一次基线诊断就归档，无异于买了跑步机只称一次体重。</p>
+    <p><b>误区二 · 让运营团队独立扛所有权重。</b>7 方权重的意义正是分工——运营团队权重仅 14.3%，若让它承担全部 35 指标的提升责任，模型会立刻失衡。政府、资产、企业必须同时在坐标系里承担对应权重。</p>
+    <p><b>误区三 · 追求满分而不追求协同。</b>DBA 论文 6.4 节的政策杠杆识别公式 ∂DTSI/∂x = W·w 明确指出：不是补最弱的指标，而是补投入产出比最高的指标。追求"每一项都 80 分"往往不如"选 5 项做到 90 分"。</p>
+    <p>关键成功因素同样清晰：园区一把手参与 M0 与 M6 两次会议、财务口预留 6 个月一次的政策微调窗口、7 方共治协议白纸黑字明确 KPI 与退出机制。有了这三样，OpenX@X 就不再是白皮书，而是一台每 6 个月拨动一次的方向盘。</p>
+
+    <!-- Author card at bottom -->
+    <div class="author-card-large">
+      <div class="avatar-large">戴</div>
+      <div>
+        <h4>戴继涛 博士</h4>
+        <div class="role">DTSI / OpenX@X 方法论奠基人</div>
+        <p>某大学 DBA · 前 IBM 咨询 · 荥阳数字经济产业园首席方法论专家。</p>
+        <p>主持 5 家国家级园区 DTSI 完整建模落地，累计输出 242 页 DBA 论文与 4 项已注册商标方法论。</p>
+        <p>联系：<a href="mailto:jitao.dai@xingyang-park.gov.cn" style="color:var(--enterprise);">jitao.dai@xingyang-park.gov.cn</a></p>
+      </div>
+    </div>
+
+    <!-- 相关文章 -->
+    <h2 style="margin-top:var(--sp-12);">相关文章</h2>
+    <div class="related-grid">
+      <a href="./dtsi-seven-parties.html" class="card">
+        <span class="chip chip--report">洞察文</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">DTSI 七方共治</h4>
+        <p class="card-body">为什么政府权重 25.7% 而非 50%——AHP 一致性检验背后的治理逻辑。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./pdtmm-level-guide.html" class="card">
+        <span class="chip chip--whitepaper">实操指南</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">PDTMM 五级认证</h4>
+        <p class="card-body">L1 到 L5 每一级的典型企业画像、认证材料与政策红利。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./xingyang-policy-2026-q3.html" class="card">
+        <span class="chip chip--policy">政策速递</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">郑州 Q3 政策速递</h4>
+        <p class="card-body">郑聚英才 2026 · 研发加计扣除 · 数字经济基金二期。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+    </div>
+
+    <!-- Tags -->
+    <div class="tag-row">
+      <span class="chip chip--insight">#OpenX@X</span>
+      <span class="chip chip--report">#DTSI</span>
+      <span class="chip">#七方共治</span>
+      <span class="chip">#AHP</span>
+      <span class="chip">#X-Flow Dynamics</span>
+      <span class="chip">#PDTMM</span>
+      <span class="chip">#戴继涛</span>
+    </div>
+
+    <!-- Bottom subscribe -->
+    <div class="subscribe-inline" id="subscribe">
+      <span class="section-kicker">SUBSCRIBE · 订阅洞察月刊</span>
+      <h3 class="section-title" style="font-size:var(--fs-lg);">追踪 OpenX@X 每一次方法论迭代</h3>
+      <p style="color:var(--text-2);font-size:var(--fs-sm);">每月 1 期，把最新洞察与政策窗口送到您邮箱。</p>
+      <form action="#" method="post">
+        <input type="email" placeholder="您的工作邮箱" required>
+        <button type="submit" class="btn-primary">订阅</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#subscribe">
+  <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+  订阅
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>洞察</h5>
+        <a href="./openxx-methodology-primer.html">OpenX@X 方法论</a>
+        <a href="./dtsi-seven-parties.html">七方共治</a>
+        <a href="./pdtmm-level-guide.html">PDTMM 五级</a>
+        <a href="./xingyang-policy-2026-q3.html">政策速递</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../newsroom/">新闻中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="#subscribe">订阅月刊</a>
+        <a href="mailto:insights@xingyang-park.gov.cn">insights@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

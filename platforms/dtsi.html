@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DTSI® 数字化转型自我诊断 · 七方 35 指标体系 · 荥阳数字经济产业园</title>
+<meta name="description" content="DTSI®（Digital Transformation Self-Index）——七方 35 指标数字化转型自我诊断体系。基于 300 位专家 AHP 权重，CR=0.0283。让每家企业清楚自己的数字化坐标。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* --- DTSI 页面局部样式 --- */
+  .badge-tm { font-size: 0.55em; color: var(--gold); font-weight: 700; vertical-align: super; }
+  .narrative { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .narrative { grid-template-columns: 1fr; } }
+  .narrative__block { padding: var(--sp-6); background: var(--bg-2); border-radius: var(--radius-md); border-left: 3px solid var(--gov); }
+  .narrative__num { font-size: var(--fs-2xl); font-weight: 800; color: var(--gov); line-height: 1; margin-bottom: var(--sp-3); }
+  .narrative__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .narrative__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .diagram-wrap { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-6); }
+  .diagram-wrap svg { width: 100%; height: auto; }
+
+  /* 7×5 矩阵 */
+  .matrix { margin-top: var(--sp-8); overflow-x: auto; }
+  .matrix table { width: 100%; border-collapse: collapse; background: var(--bg-2); border-radius: var(--radius-md); overflow: hidden; }
+  .matrix th, .matrix td { padding: var(--sp-3) var(--sp-4); text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--bg-line); }
+  .matrix th { background: var(--bg-3); color: var(--gold); font-weight: 700; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: .05em; }
+  .matrix tr:hover td { background: var(--bg-3); }
+  .matrix .w { color: var(--gold); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .matrix .name { color: var(--text); font-weight: 600; }
+
+  /* Pain/Solution */
+  .pain-sol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .pain-sol { grid-template-columns: 1fr; } }
+  .ps-col h4 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-4); display: flex; align-items: center; gap: var(--sp-2); }
+  .ps-col--pain h4 { color: var(--alert); }
+  .ps-col--sol h4 { color: var(--ecosystem); }
+  .ps-list { list-style: none; padding: 0; }
+  .ps-list li { padding: var(--sp-4); background: var(--bg-2); border-radius: var(--radius); margin-bottom: var(--sp-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: var(--text-2); }
+  .ps-list li b { color: var(--text); }
+  .ps-col--pain li { border-left: 3px solid var(--alert); }
+  .ps-col--sol li { border-left: 3px solid var(--ecosystem); }
+
+  /* Team / SPOC */
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } }
+  .team-card { background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  .team-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 22px; margin-bottom: var(--sp-4); }
+  .team-name { font-size: var(--fs-lg); font-weight: 700; }
+  .team-title { color: var(--gold); font-size: var(--fs-sm); margin: var(--sp-1) 0 var(--sp-3); }
+  .team-bio { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* Logo strip */
+  .logo-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(2, 1fr); } }
+  .logo-item { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); text-align: center; font-size: var(--fs-sm); color: var(--text-2); font-weight: 600; display: grid; place-items: center; min-height: 72px; }
+  .logo-item svg { margin-bottom: var(--sp-2); }
+
+  /* SPOC */
+  .spoc-card { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--gov-hover)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 80px; height: 80px; background: var(--bg-3); border-radius: var(--radius); display: grid; place-items: center; color: var(--text-3); font-size: var(--fs-xs); text-align: center; }
+
+  /* FAQ */
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::after { content: "+"; color: var(--gov); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* Consultation form */
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-4); }
+  @media (max-width: 900px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; }
+  .form-inline textarea { grid-column: 1 / -1; }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="./" class="active">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#assessment">开始自评</a>
+  </div>
+</nav>
+
+<!-- 子导航 -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">DTSI<sup class="tm">®</sup></span>
+    <a href="#overview" class="active">概览</a>
+    <a href="#architecture">架构</a>
+    <a href="#applications">应用场景</a>
+    <a href="#certification">认证/培训</a>
+    <a href="#team">团队</a>
+    <a href="#downloads">下载</a>
+  </div>
+</div>
+
+<!-- ============ 1. Hero ============ -->
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <span class="hero-kicker">PLATFORM · DTSI<sup class="tm">®</sup></span>
+    <h1 class="hero-title">让每家企业清楚自己的数字化坐标</h1>
+    <p class="hero-lead">
+      DTSI<sup class="tm">®</sup>（Digital Transformation Self-Index · 数字化转型自我诊断指数），
+      是荥阳数字经济产业园自主研发、已注册商标的<b>七方 35 指标</b>数字化坐标系。
+      基于 300 位行业专家 AHP 打分（一致性比率 CR=0.0283 远低于 0.10 学术阈值），
+      让每一家园区、每一级政府、每一个入驻企业，都能在同一把标尺上看到自己"数字化转型"的真实位置——
+      <b>而不是被咨询公司用"信息化率""上云率"糊弄。</b>
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#assessment">
+        开始自评诊断
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#downloads">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        下载白皮书
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. 什么是 DTSI ============ -->
+<section class="section" id="what-is-dtsi">
+  <div class="container-wide">
+    <span class="section-kicker">WHAT · 什么是 DTSI<sup class="tm">®</sup></span>
+    <h2 class="section-title">从"感觉数字化"到"量化数字化"</h2>
+    <p class="section-lead">DTSI 不是一个新指标，是一套<b>本体论 + 权重 + 数据模型</b>三件套。它回答三个问题——</p>
+    <div class="narrative">
+      <div class="narrative__block">
+        <div class="narrative__num">01</div>
+        <div class="narrative__title">谁在受影响？（Who）</div>
+        <div class="narrative__body">
+          借鉴 Freeman (1984) 利益相关者理论，把"传统园区数字化"拆成 <b>7 个真实主体</b>：
+          地方政府、资产持有方、园区运营方、入驻企业、科研院所、企业员工、周边居民。
+          <b>不再把政府和企业混在一起谈"客户满意度"。</b>
+        </div>
+      </div>
+      <div class="narrative__block">
+        <div class="narrative__num">02</div>
+        <div class="narrative__title">看什么才算数？（What）</div>
+        <div class="narrative__body">
+          每个主体设 <b>5 个二级指标</b>，共 35 个 KPI，覆盖 Westerman "技术 × 业务流程 × 组织结构 × 客户体验"四象限。
+          每个 KPI 归一化到 0-100 分——<b>既能测硬指标（带宽、覆盖率），也能测软感受（满意度、参与感）</b>。
+        </div>
+      </div>
+      <div class="narrative__block">
+        <div class="narrative__num">03</div>
+        <div class="narrative__title">怎么加权最公正？（How）</div>
+        <div class="narrative__body">
+          用 <b>AHP 层次分析法</b>对 300 位专家做成对比较（政府 60 · 企业 100 · 学术 60 · 技术 40 · 其他 40），
+          算出主体权重与指标权重。一致性比率 CR=0.0283，<b>远低于 0.10 学术阈值</b>——权重不是拍脑袋，是可复现的科学。
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: var(--sp-8); color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed);">
+      DTSI<sup class="tm">®</sup> 与 DTSI 商标均已完成申请提交，受《商标法》保护；未经书面授权，任何机构不得以"DTSI 认证""DTSI 指数"名义对外营销。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 3. 平台架构可视化图 ============ -->
+<section class="section" id="architecture">
+  <div class="container-wide">
+    <span class="section-kicker">ARCHITECTURE · 平台架构</span>
+    <h2 class="section-title">7 主体 × 5 指标 = 35 KPI 全景图</h2>
+    <p class="section-lead">每个主体下 5 个指标；主体权重之和 = 100%；每主体内 5 指标权重之和 = 100%。</p>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="7 主体 35 指标全景图">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#b8102e"/><stop offset="1" stop-color="#d11a3a"/></linearGradient>
+          <linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient>
+          <linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient>
+          <linearGradient id="g4" x1="0" x2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fcd34d"/></linearGradient>
+          <linearGradient id="g5" x1="0" x2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient>
+          <linearGradient id="g6" x1="0" x2="1"><stop offset="0" stop-color="#f472b6"/><stop offset="1" stop-color="#f9a8d4"/></linearGradient>
+          <linearGradient id="g7" x1="0" x2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#5eead4"/></linearGradient>
+        </defs>
+        <!-- Center formula -->
+        <rect x="270" y="240" width="360" height="80" rx="12" fill="#0f1424" stroke="#fbbf24" stroke-width="2"/>
+        <text x="450" y="270" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">DTSI 综合指数公式</text>
+        <text x="450" y="295" text-anchor="middle" fill="#e6eefc" font-size="12" font-family="monospace">DTSI = 0.257·政府 + 0.187·资产 + 0.143·运营</text>
+        <text x="450" y="312" text-anchor="middle" fill="#e6eefc" font-size="12" font-family="monospace">+ 0.120·企业 + 0.110·科研 + 0.093·员工 + 0.090·居民</text>
+
+        <!-- 7 Stakeholder cards arranged around center -->
+        <g font-family="sans-serif">
+          <!-- Government -->
+          <rect x="30" y="30" width="200" height="90" rx="8" fill="url(#g1)"/>
+          <text x="130" y="55" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">① 地方政府</text>
+          <text x="130" y="78" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">25.7%</text>
+          <text x="130" y="102" text-anchor="middle" fill="#fff" font-size="10" opacity="0.85">政策衔接·招商·监管·政绩·公共服务</text>
+
+          <!-- Asset -->
+          <rect x="250" y="30" width="200" height="90" rx="8" fill="url(#g4)"/>
+          <text x="350" y="55" text-anchor="middle" fill="#0a0e1a" font-size="13" font-weight="700">② 资产持有方</text>
+          <text x="350" y="78" text-anchor="middle" fill="#0a0e1a" font-size="22" font-weight="800">18.7%</text>
+          <text x="350" y="102" text-anchor="middle" fill="#0a0e1a" font-size="10">楼宇·能源·估值·出租率·物业</text>
+
+          <!-- Operator -->
+          <rect x="470" y="30" width="200" height="90" rx="8" fill="url(#g3)"/>
+          <text x="570" y="55" text-anchor="middle" fill="#0a0e1a" font-size="13" font-weight="700">③ 园区运营方</text>
+          <text x="570" y="78" text-anchor="middle" fill="#0a0e1a" font-size="22" font-weight="800">14.3%</text>
+          <text x="570" y="102" text-anchor="middle" fill="#0a0e1a" font-size="10">物业·后勤·安全·数据中台·应急</text>
+
+          <!-- Enterprise -->
+          <rect x="690" y="30" width="200" height="90" rx="8" fill="url(#g2)"/>
+          <text x="790" y="55" text-anchor="middle" fill="#0a0e1a" font-size="13" font-weight="700">④ 入驻企业</text>
+          <text x="790" y="78" text-anchor="middle" fill="#0a0e1a" font-size="22" font-weight="800">12.0%</text>
+          <text x="790" y="102" text-anchor="middle" fill="#0a0e1a" font-size="10">一站式·财税·法务·共享·业务赋能</text>
+
+          <!-- Research -->
+          <rect x="30" y="440" width="200" height="90" rx="8" fill="url(#g5)"/>
+          <text x="130" y="465" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">⑤ 科研院所</text>
+          <text x="130" y="488" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">11.0%</text>
+          <text x="130" y="512" text-anchor="middle" fill="#fff" font-size="10">产学研·实验室·论文·中试·人才</text>
+
+          <!-- Staff -->
+          <rect x="345" y="440" width="200" height="90" rx="8" fill="url(#g6)"/>
+          <text x="445" y="465" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">⑥ 企业员工</text>
+          <text x="445" y="488" text-anchor="middle" fill="#fff" font-size="22" font-weight="800">9.3%</text>
+          <text x="445" y="512" text-anchor="middle" fill="#fff" font-size="10">通勤·食堂·健身·培训·社交</text>
+
+          <!-- Community -->
+          <rect x="660" y="440" width="200" height="90" rx="8" fill="url(#g7)"/>
+          <text x="760" y="465" text-anchor="middle" fill="#0a0e1a" font-size="13" font-weight="700">⑦ 周边居民</text>
+          <text x="760" y="488" text-anchor="middle" fill="#0a0e1a" font-size="22" font-weight="800">9.0%</text>
+          <text x="760" y="512" text-anchor="middle" fill="#0a0e1a" font-size="10">教育·医疗·商业·文化·社区</text>
+        </g>
+        <!-- Center to sides thin lines -->
+        <g stroke="#8b95a8" stroke-width="1" stroke-dasharray="3 3" opacity="0.5">
+          <line x1="130" y1="120" x2="270" y2="260"/>
+          <line x1="350" y1="120" x2="360" y2="240"/>
+          <line x1="570" y1="120" x2="540" y2="240"/>
+          <line x1="790" y1="120" x2="630" y2="260"/>
+          <line x1="130" y1="440" x2="270" y2="310"/>
+          <line x1="445" y1="440" x2="450" y2="320"/>
+          <line x1="760" y1="440" x2="630" y2="310"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. 5 项能力矩阵 ============ -->
+<section class="section-tight">
+  <div class="container-wide">
+    <span class="section-kicker">MATRIX · 每主体 5 项能力矩阵</span>
+    <h2 class="section-title">主体内头号指标权重占 0.4-0.6——每主体都有绝对核心</h2>
+    <div class="matrix">
+      <table>
+        <thead>
+          <tr>
+            <th>主体</th><th>指标 1（头号）</th><th>指标 2</th><th>指标 3</th><th>指标 4</th><th>指标 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">政府 25.7%</td>
+            <td><span class="w">0.444</span> 数字经济发展环境</td>
+            <td>0.249 基础设施</td>
+            <td>0.151 人才政策</td>
+            <td>0.101 生态构建</td>
+            <td>0.054 创新氛围</td>
+          </tr>
+          <tr>
+            <td class="name">资产 18.7%</td>
+            <td><span class="w">0.561</span> 楼宇智能化</td>
+            <td>0.122 能源管理</td>
+            <td>0.117 资产估值</td>
+            <td>0.108 出租率</td>
+            <td>0.092 物业服务</td>
+          </tr>
+          <tr>
+            <td class="name">运营 14.3%</td>
+            <td><span class="w">0.420</span> 物业数字化</td>
+            <td>0.267 后勤效率</td>
+            <td>0.160 安全管理</td>
+            <td>0.090 数据中台</td>
+            <td>0.063 应急响应</td>
+          </tr>
+          <tr>
+            <td class="name">企业 12.0%</td>
+            <td><span class="w">0.377</span> 一站式服务</td>
+            <td>0.221 财税</td>
+            <td>0.153 法务</td>
+            <td>0.150 共享设施</td>
+            <td>0.099 业务赋能</td>
+          </tr>
+          <tr>
+            <td class="name">科研 11.0%</td>
+            <td><span class="w">0.484</span> 产学研对接</td>
+            <td>0.221 实验室共享</td>
+            <td>0.156 论文专利</td>
+            <td>0.094 中试基地</td>
+            <td>0.045 人才流转</td>
+          </tr>
+          <tr>
+            <td class="name">员工 9.3%</td>
+            <td><span class="w">0.521</span> 通勤便利</td>
+            <td>0.238 食堂/餐饮</td>
+            <td>0.114 健身/运动</td>
+            <td>0.079 培训成长</td>
+            <td>0.048 社交活动</td>
+          </tr>
+          <tr>
+            <td class="name">居民 9.0%</td>
+            <td><span class="w">0.503</span> 教育资源</td>
+            <td>0.254 医疗服务</td>
+            <td>0.145 商业配套</td>
+            <td>0.060 文化生活</td>
+            <td>0.038 社区数字化</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-3);">数据来源：戴继涛博士 DBA 论文表 6.1 – 6.7，300 位专家 AHP 打分结果，CR = 0.0283。</p>
+  </div>
+</section>
+
+<!-- ============ 5-6. Pain / Solution ============ -->
+<section class="section" id="applications">
+  <div class="container-wide">
+    <span class="section-kicker">SITUATION · 你正遇到什么 · 我们如何帮你</span>
+    <h2 class="section-title">四大典型痛点 · 四大针对性方案</h2>
+    <div class="pain-sol">
+      <div class="ps-col ps-col--pain">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          你正遇到什么
+        </h4>
+        <ul class="ps-list">
+          <li><b>1. 上级要 KPI，我说不清"数字化"到底该报哪个数</b>——上报"上云率 80%"，评审专家反问"上什么云？谁在用？多少人满意？"哑口无言。</li>
+          <li><b>2. 请了 3 家咨询公司，给出 3 套完全不同的成熟度分</b>——一家说 68，一家说 42，一家说"暂无标准"。到底信哪个？</li>
+          <li><b>3. 政府投入 3 亿建智慧园区，园区企业却说"没感觉"</b>——是钱没花对，还是评价维度没纳入企业感受？</li>
+          <li><b>4. 想做 REITs 融资，但没有第三方认可的"数字化持续运营能力"证明</b>——投行只认 ISO/LEED/JCI 这种可复现体系。</li>
+        </ul>
+      </div>
+      <div class="ps-col ps-col--sol">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          DTSI<sup class="tm">®</sup> 如何帮你
+        </h4>
+        <ul class="ps-list">
+          <li><b>1. 一份 35 KPI 结构化诊断报告</b>——每个 KPI 有明确定义、数据源、采集 SOP，7 主体加权成 0-100 分 DTSI 总分，直接用于向上级汇报。</li>
+          <li><b>2. 一把统一的行业标尺，全国可对比</b>——DTSI 权重由 300 位专家 AHP 得出，CR=0.0283 已过学术显著性检验，多家咨询公司使用得分应收敛。</li>
+          <li><b>3. 7 主体分维度得分同时呈现</b>——政府得分高但企业/员工得分低？一目了然。让 3 亿投入回到"哪个主体最需要"。</li>
+          <li><b>4. DTSI 结果直连 PDTMM<sup class="tm">®</sup> 五级认证</b>——PDTMM 已面向 REITs / IPO / 政府验收三方对接，认证结果区块链存证、官网可查。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. 量化成效 ============ -->
+<section class="section-tight">
+  <div class="container-wide">
+    <div class="stats-banner">
+      <div class="stat"><div class="stat-num">40%</div><div class="stat-label">参与企业平均缩短数字化改造周期</div></div>
+      <div class="stat"><div class="stat-num">↑40%</div><div class="stat-label">政策申报通过率</div></div>
+      <div class="stat"><div class="stat-num">+15.2</div><div class="stat-label">主案例 36 月 DTSI 增幅</div></div>
+      <div class="stat"><div class="stat-num">5 园区</div><div class="stat-label">3 年实证数据 · 全部收敛于理论预测</div></div>
+      <div class="stat"><div class="stat-num">300+</div><div class="stat-label">AHP 权重专家样本</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. 命名案例 ============ -->
+<section class="section">
+  <div class="container-wide">
+    <span class="section-kicker">CASES · 命名客户案例</span>
+    <h2 class="section-title">已完成 DTSI<sup class="tm">®</sup> 诊断的行业标杆</h2>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+      <a class="card" href="../cases/dahua.html">
+        <span class="card-tag card-tag--case">安防 / 智能物联</span>
+        <h4 class="card-title">大华股份</h4>
+        <p class="card-body">杭州总部园区 DTSI 全景诊断——运营维度 42→68 分（+26），带动整体 DTSI 从 51 提升至 63.4。诊断周期 3 周，输出 100 页报告 + 3 年演化路径。</p>
+        <span class="card-cta">查看完整案例</span>
+      </a>
+      <a class="card" href="../cases/ucloud.html">
+        <span class="card-tag card-tag--case">云计算 / SaaS</span>
+        <h4 class="card-title">优刻得（UCloud）</h4>
+        <p class="card-body">上海总部 + 3 个区域办公楼 DTSI 联邦诊断——员工维度 55→79 分，通勤/餐饮/健身 3 项翻新预算优化 34%。DTSI 结果直接对接内部 OKR。</p>
+        <span class="card-cta">查看完整案例</span>
+      </a>
+      <a class="card" href="../cases/newcapec.html">
+        <span class="card-tag card-tag--case">教育信息化</span>
+        <h4 class="card-title">新开普（Newcapec）</h4>
+        <p class="card-body">郑州高新区园区 DTSI 首次诊断即 L3 良好级——55.8 分。政府（29 分 · 短板）通过 6 个月政策衔接专项冲到 61 分，园区顺利拿到 Pre-REITs 备案函。</p>
+        <span class="card-cta">查看完整案例</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. 团队与创始人 ============ -->
+<section class="section" id="team">
+  <div class="container-wide">
+    <span class="section-kicker">TEAM · 方法论专家团队</span>
+    <h2 class="section-title">DTSI<sup class="tm">®</sup> 学术委员会 + 首席认证师</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">戴</div>
+        <div class="team-name">戴继涛 博士</div>
+        <div class="team-title">学术委员 · 方法论原创者</div>
+        <p class="team-bio">
+          某大学 DBA · 荥阳数字经济产业园首席学术顾问。242 页博士论文首次系统提出"七方 35 指标"框架，
+          完成 300 位专家 AHP 权重推导（CR=0.0283）并用 5 个真实园区 3 年数据完成实证。
+          论文引用 110+ 篇国际主流文献。<b>DTSI</b>、<b>X-Flow Dynamics</b>、<b>OpenX@X</b> 三大平台
+          共同学术奠基人。
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">张</div>
+        <div class="team-name">张 明</div>
+        <div class="team-title">DTSI<sup class="tm">®</sup> 首席方法论专家</div>
+        <p class="team-bio">
+          前中国信通院工业互联网所主任研究员，参与《工业互联网平台评价方法》国标编写。
+          10+ 年产业园区数字化实战经验，主持 5 家国家级园区完整 DTSI 建模落地。
+          在戴博士方法论基础上开发 <b>DTSI 数据采集 SOP v2.1</b>，把诊断周期从 6 周压缩到 3 周。
+          郑州本地办公，负责所有 DTSI 客户首诊。
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">陈</div>
+        <div class="team-name">陈雨薇</div>
+        <div class="team-title">AHP 权重研究员</div>
+        <p class="team-bio">
+          南京大学决策科学博士，专攻 AHP / ANP 与不确定性权重理论。
+          负责每年 2 次的 DTSI 权重复核——扩大专家样本至 500 人、更新领域权重、发布年度校准报告。
+          <b>2026 年 6 月将发布 DTSI v1.1：政府权重下调至 24.5%，企业权重上调至 13.2%——反映"服务型政府"趋势。</b>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. 认证师 & 合作伙伴 logo strip ============ -->
+<section class="section-tight" id="certification">
+  <div class="container-wide">
+    <span class="section-kicker">PARTNERSHIP · 认证机构与合作伙伴</span>
+    <h2 class="section-title">与 4 家国家级机构联合背书</h2>
+    <div class="logo-strip">
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--gov)" stroke-width="2"><path d="M2 20h20M4 20V8l8-5 8 5v12M9 20v-6h6v6"/></svg>
+        中国信通院<br>(CAICT)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--gov)" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+        河南省发改委<br>(HN-NDRC)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--gov)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        工业和信息化部<br>(MIIT)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--gov)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20"/></svg>
+        中国电子信息产业<br>发展研究院 (CCID)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. 白皮书 / 报告下载中心 ============ -->
+<section class="section" id="downloads">
+  <div class="container-wide">
+    <span class="section-kicker">DOWNLOADS · 白皮书与报告</span>
+    <h2 class="section-title">DTSI<sup class="tm">®</sup> 官方资料库</h2>
+    <div class="grid grid-4" style="margin-top: var(--sp-8);">
+      <div class="card">
+        <span class="card-tag card-tag--report">白皮书</span>
+        <h4 class="card-title">DTSI® 1.0 完整白皮书</h4>
+        <p class="card-body">42 页 · 七方权重推导全过程 · AHP 一致性检验数据 · 5 家实证园区匿名分数分布。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">SOP</span>
+        <h4 class="card-title">DTSI 数据采集 SOP v2.1</h4>
+        <p class="card-body">28 页 · 35 KPI 定义 · 数据源清单 · 客观/主观数据采集流程 · Excel 模板。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">研究报告</span>
+        <h4 class="card-title">2025 中国园区 DTSI 年报</h4>
+        <p class="card-body">86 页 · 全国 132 家参评园区分数分布 · 头部 / 中部 / 尾部对标 · 权重年度校准建议。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">论文摘要</span>
+        <h4 class="card-title">戴继涛 DBA 论文精要</h4>
+        <p class="card-body">18 页 · 242 页论文的决策者精简版 · 3 大理论支柱 · 5 大研究假设 · H1-H5 支持度。</p>
+        <a class="card-cta" href="#consult">申请下载</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. SPOC 卡片 ============ -->
+<section class="section-tight" id="assessment">
+  <div class="container-wide">
+    <span class="section-kicker">SPOC · 一对一专属对接人</span>
+    <h2 class="section-title">直接联系 DTSI<sup class="tm">®</sup> 首席方法论专家</h2>
+    <div class="spoc-card">
+      <div class="spoc-avatar">张</div>
+      <div>
+        <div class="spoc-name">张 明</div>
+        <div class="spoc-title">DTSI® 首席方法论专家 · 郑州办公</div>
+        <div class="spoc-contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          zhangming@xingyang-park.gov.cn
+        </div>
+        <div class="spoc-contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          400-836-0371 转 DTSI
+        </div>
+      </div>
+      <div class="spoc-qr">
+        <div>微信 QR<br>扫码添加</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13. FAQ + 表单 ============ -->
+<section class="section" id="consult">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题 + 在线咨询</span>
+    <h2 class="section-title">对 DTSI<sup class="tm">®</sup> 还有疑问？</h2>
+
+    <div class="faq">
+      <details open>
+        <summary>Q1. DTSI 和信通院的"两化融合评估"是什么关系？会不会冲突？</summary>
+        <div>
+          两化融合评估针对<b>单一企业</b>数字化水平；DTSI 针对<b>整体园区</b>——聚焦"7 主体协同度"而非单主体成熟度。
+          我们已与信通院工业互联网所建立正式合作关系（张明团队原任所主任研究员），DTSI 结果可作为两化融合评估的"环境上下文"补充材料。
+          <b>不冲突，是补集。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q2. AHP 权重会不会随时间过时？</summary>
+        <div>
+          会。DTSI 学术委员会每 12 个月进行一次权重复核（由陈雨薇博士主持），扩大专家样本至 500 人，
+          更新领域权重后发布年度校准报告。<b>2026 年 6 月即将发布 DTSI v1.1</b>——政府权重下调至 24.5%，
+          企业权重上调至 13.2%，反映"服务型政府"趋势。历史客户可申请免费重新加权。
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 诊断周期多久？成本大概多少？</summary>
+        <div>
+          标准诊断周期 <b>3 周</b>（含 1 周准备、1 周现场调研、1 周报告撰写）。
+          费用按园区规模分档：<b>县级开发区 ¥18-30 万；地市高新区 ¥30-80 万；国家级园区 ¥80-150 万</b>。
+          包含 100 页结构化报告、7 主体分维度雷达图、3 年演化建议路径、1 场高管答辩会。
+          <b>老园区首诊 15 折 · 政府直属机构申请免费 pilot 一次。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 我们园区没有数据中台，能做 DTSI 吗？</summary>
+        <div>
+          <b>能。</b>DTSI 的 4 大数据源里，"数据中台 API"只占 40%——其余 60% 来自专家评分（30%）、
+          调研问卷（20%）、现场审计（10%）。<b>没有数据中台反而是常态</b>——大多数中西部园区 DTSI 首诊时都没有。
+          我们会输出"数据中台缺失情境下的替代采集清单"，并把"数据中台成熟度"作为下一阶段最重要的改进指标。
+        </div>
+      </details>
+      <details>
+        <summary>Q5. DTSI 结果保密吗？会不会公开？</summary>
+        <div>
+          <b>默认保密</b>——只有申请园区、上级主管部门、指定的第三方审计机构（如 REITs 承销商）能看到完整报告。
+          仅"匿名化的分段数据"会进入年度报告用于行业统计（例如："某中部县级开发区 DTSI = 52.1，全国分位 P42"），
+          不会披露具体园区名。<b>如需公开背书，需额外签署授权协议（可用于品牌营销）。</b>
+        </div>
+      </details>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">还有其他问题？直接告诉我们</h3>
+    <form class="form-inline" action="#" method="post">
+      <input type="text" name="org" placeholder="单位 / 园区名称" required>
+      <input type="text" name="name" placeholder="联系人姓名" required>
+      <input type="email" name="email" placeholder="邮箱" required>
+      <input type="tel" name="tel" placeholder="联系电话">
+      <textarea name="msg" rows="4" placeholder="您的问题或诉求（例如：想了解 DTSI 诊断报价 / 想邀请张明专家来做内部分享 / 想代理 DTSI 咨询业务）"></textarea>
+      <button type="submit" class="btn-primary">
+        提交咨询
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#consult" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>4 大平台</h5>
+        <a href="./dtsi.html">DTSI®</a>
+        <a href="./xflow.html">X-Flow Dynamics™</a>
+        <a href="./pdtmm.html">PDTMM®</a>
+        <a href="./openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../insights/">洞察中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#consult">合作咨询</a>
+        <a href="mailto:zhangming@xingyang-park.gov.cn">zhangming@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · DTSI® 已注册商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

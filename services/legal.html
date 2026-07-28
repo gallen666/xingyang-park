@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>法律咨询 · 荥泽招商飞轮® · 荥阳数字经济产业园</title>
+<meta name="description" content="法律咨询服务：合规审查、合同起草、知识产权、劳动争议、涉外法律（RCEP/欧盟）、数据合规（个保法/数安法）、政策法规解读、合规培训。累计服务 210 家次，合同审查 800+，商标 68 件，客户续约率 88%。首席顾问郑洁带 4 位持证律师常驻，3 家红圈所联合护航。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+
+  /* --- Hero rail (auto-rotate + radio manual) --- */
+  .hero-rail { position: relative; min-height: 520px; background:
+    radial-gradient(ellipse at 20% 30%, rgba(184,16,46,.18), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(56,189,248,.12), transparent 55%),
+    linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+    border-bottom: 1px solid var(--bg-line); overflow: hidden;
+  }
+  .hero-rail input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .hero-slides { position: relative; max-width: var(--container-max); margin: 0 auto; padding: var(--sp-16) var(--sp-6); }
+  .hero-slide {
+    position: absolute; top: var(--sp-16); left: var(--sp-6); right: var(--sp-6);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+    pointer-events: none;
+  }
+  .hero-slide:first-of-type { position: relative; }
+  #hero-1:checked ~ .hero-slides .hero-slide:nth-of-type(1),
+  #hero-2:checked ~ .hero-slides .hero-slide:nth-of-type(2),
+  #hero-3:checked ~ .hero-slides .hero-slide:nth-of-type(3) {
+    opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 2;
+  }
+  /* Auto rotate via animation on labels (fallback: rely on manual click) */
+  .hero-dots { position: absolute; bottom: var(--sp-8); left: 50%; transform: translateX(-50%); display: flex; gap: var(--sp-3); z-index: 5; }
+  .hero-dots label { width: 32px; height: 4px; background: var(--bg-3); border-radius: var(--radius-pill); cursor: pointer; transition: background var(--dur-fast) var(--ease); }
+  #hero-1:checked ~ .hero-dots label[for=hero-1],
+  #hero-2:checked ~ .hero-dots label[for=hero-2],
+  #hero-3:checked ~ .hero-dots label[for=hero-3] { background: var(--gov); }
+  .hero-tag { display: inline-block; padding: 2px var(--sp-3); background: var(--gold); color: var(--text-invert); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; margin-bottom: var(--sp-4); }
+  .hero-tag--pov { background: var(--enterprise); color: var(--text-invert); }
+  .hero-tag--testimonial { background: var(--ecosystem); color: var(--text-invert); }
+  .hero-tag--press { background: var(--gov); color: #fff; }
+
+  /* --- 7-layer proof stack --- */
+  .proof-stack { display: grid; gap: var(--sp-4); margin-top: var(--sp-8); }
+  .proof-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-5); padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); align-items: center; }
+  @media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
+  .proof-layer { font-size: var(--fs-xs); font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .08em; }
+  .proof-content { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .proof-content b { color: var(--text); }
+  .proof-content .num { color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+
+  /* --- Testimonial carousel --- */
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
+  .quote-card { padding: var(--sp-6); background: linear-gradient(135deg, var(--enterprise-soft), transparent), var(--bg-2); border: 1px solid rgba(56,189,248,.25); border-radius: var(--radius-md); position: relative; }
+  .quote-card::before { content: "\201C"; position: absolute; top: 8px; right: 20px; font-size: 72px; color: var(--enterprise); opacity: 0.25; line-height: 1; font-family: Georgia, serif; }
+  .quote-text { font-size: var(--fs-md); font-weight: 500; line-height: var(--lh-relaxed); color: var(--text-1); margin-bottom: var(--sp-4); }
+  .quote-attr { display: flex; align-items: center; gap: var(--sp-3); }
+  .quote-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 800; }
+  .quote-name { font-weight: 700; color: var(--text); font-size: var(--fs-sm); }
+  .quote-title { color: var(--text-3); font-size: var(--fs-xs); }
+  .quote-outcome { display: inline-block; margin-top: var(--sp-3); padding: 2px var(--sp-3); background: var(--gov-soft); color: var(--gov-hover); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 600; }
+
+  /* --- Mid CTA --- */
+  .mid-cta { padding: var(--sp-8); background: linear-gradient(90deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.35); border-radius: var(--radius-md); display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; margin: var(--sp-8) 0; }
+  @media (max-width: 700px) { .mid-cta { grid-template-columns: 1fr; text-align: center; } }
+  .mid-cta__title { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-1); }
+  .mid-cta__body { color: var(--text-2); font-size: var(--fs-sm); }
+
+  /* --- Tabbed proof panel (CSS-only tabs) --- */
+  .tabs-proof { margin-top: var(--sp-6); }
+  .tabs-proof input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .tab-labels { display: flex; gap: var(--sp-2); border-bottom: 1px solid var(--bg-line); margin-bottom: var(--sp-5); }
+  .tab-labels label { padding: var(--sp-3) var(--sp-5); font-weight: 600; font-size: var(--fs-sm); color: var(--text-3); cursor: pointer; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .tab-labels label:hover { color: var(--text-1); }
+  #tab-a:checked ~ .tab-labels label[for=tab-a],
+  #tab-b:checked ~ .tab-labels label[for=tab-b] { color: var(--gov); border-bottom-color: var(--gov); }
+  .tab-panel { display: none; }
+  #tab-a:checked ~ .tab-content .tab-panel--a,
+  #tab-b:checked ~ .tab-content .tab-panel--b { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  @media (max-width: 900px) { #tab-a:checked ~ .tab-content .tab-panel--a, #tab-b:checked ~ .tab-content .tab-panel--b { grid-template-columns: 1fr; } }
+  .win-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-left: 3px solid var(--ecosystem); }
+  .win-card--gov { border-left-color: var(--gov); }
+  .win-card__tenant { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .win-card__desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .win-card__stat { margin-top: var(--sp-3); color: var(--gold); font-size: var(--fs-sm); font-weight: 700; }
+
+  /* --- Offering matrix --- */
+  .offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 1000px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .offer-grid { grid-template-columns: 1fr; } }
+  .offer-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .offer-card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .offer-card__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .offer-card__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3); }
+  .offer-card__more { color: var(--enterprise); font-size: var(--fs-sm); font-weight: 600; }
+  .offer-card__more::after { content: " →"; }
+
+  /* --- Insights grid --- */
+  .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
+
+  /* --- FAQ --- */
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--gov); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* --- SPOC --- */
+  .spoc-card { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 700px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--gov-hover)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 96px; height: 96px; background: repeating-conic-gradient(#0a0e1a 0 25%, #e6eefc 0 50%) 50% / 12px 12px, var(--bg-3); border-radius: var(--radius); display: grid; place-items: end center; color: var(--text-3); font-size: var(--fs-xs); padding: 4px; }
+
+  /* --- RFS form --- */
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-6); background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  @media (max-width: 700px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline label { font-size: var(--fs-xs); color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: var(--sp-2); display: block; }
+  .form-inline .field { display: flex; flex-direction: column; }
+  .form-inline .field--full { grid-column: 1 / -1; }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; font-size: var(--fs-sm); }
+  .form-inline input:focus, .form-inline textarea:focus, .form-inline select:focus { outline: none; border-color: var(--enterprise); }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="./" class="active">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#rfs">法务咨询</a>
+  </div>
+</nav>
+
+<!-- 子导航 6-tab -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand"><b>法律咨询</b></span>
+    <a href="#top" class="active">首页</a>
+    <a href="#overview">概览</a>
+    <a href="#insights">洞察</a>
+    <a href="#stories">客户故事</a>
+    <a href="#offerings">服务清单</a>
+    <a href="#blog">博客</a>
+  </div>
+</div>
+
+<!-- 1. Auto-rotating hero rail -->
+<section class="hero-rail" id="top">
+  <input type="radio" name="hero" id="hero-1" checked>
+  <input type="radio" name="hero" id="hero-2">
+  <input type="radio" name="hero" id="hero-3">
+  <div class="hero-slides">
+    <div class="hero-slide">
+      <span class="hero-tag">POV · 服务价值</span>
+      <h1 class="hero-title">法务不是"止损"，是"扩张的护栏"</h1>
+      <p class="hero-lead">
+        企业出海、数据合规、专利布局，任何一环踩雷都可能吃掉全年利润。荥泽法律咨询把「合规审查」「合同起草」「知识产权」「涉外法律」「数据合规」<b>做成企业级 SLA</b>——
+        累计服务 <b>210 家次</b>，合同审查 <b>800+</b>，商标注册代办 <b>68 件</b>，涉外案件 <b>24 件</b>，客户续约率 <b>88%</b>。<b>不是外部律所，是常驻法务部</b>。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#offerings">查看 8 项法务清单
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#rfs">免费法务体检</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--testimonial">TESTIMONIAL · 客户故事</span>
+      <h1 class="hero-title">新开普 · 商标海外 15 国布局 · 全流程 8 个月完成</h1>
+      <p class="hero-lead">
+        「荥泽招商飞轮<sup class="tm">®</sup>」法务护航模块把马德里体系、单一国申请、海外代理协调全部打通。
+        新开普 <b>12 大类 15 国</b>商标布局从检索到授权仅用 <b>8 个月</b>，比自请国际所方案节省 <b>¥180 万</b>——省下的预算，
+        全部转投到东南亚渠道拓展。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="../cases/newcapec.html">查看新开普完整案例
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#stories">更多客户故事</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--press">PRESS · 政府认可</span>
+      <h1 class="hero-title">河南省司法厅"公共法律服务示范窗口" · 郑州仲裁委"合作调解中心"</h1>
+      <p class="hero-lead">
+        荥泽法律服务中心已获<b>河南省司法厅"公共法律服务示范窗口"</b>授牌，
+        与<b>郑州仲裁委员会</b>共建"合作调解中心"，并获<b>郑州市律师协会</b>"园区法律服务优秀合作单位"称号——
+        源头咨询、争议调解、仲裁诉讼三段贯通。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#stories">查看 4 家政府背书
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <label for="hero-1" aria-label="第 1 页"></label>
+    <label for="hero-2" aria-label="第 2 页"></label>
+    <label for="hero-3" aria-label="第 3 页"></label>
+  </div>
+</section>
+
+<!-- 2. 概览 · 3 句 promise -->
+<section class="section" id="overview">
+  <div class="container-wide">
+    <span class="section-kicker">OVERVIEW · 法律咨询</span>
+    <h2 class="section-title">52 家已入驻企业共用一位法务合规首席顾问</h2>
+    <p class="section-lead">
+      荥泽法律咨询是园区 8 大运营服务之一，覆盖<b>合规审查 · 合同管理 · 知识产权 · 劳动争议 · 涉外法律 · 数据合规</b>六大方向，
+      服务覆盖 <b>52 家已入驻企业 · 40.4 万㎡运营空间</b> 内所有主体。
+      我们不做"出事后打官司"这种被动动作，我们做"事前建规、事中督审、事后调解"——从合同模板库到季度合规培训全流程 SOP。
+      过去 24 个月累计服务 <b>210 家次</b>，合同审查 <b>800+</b> 份，商标 <b>68 件</b>，涉外案件 <b>24 件</b>，客户续约率 <b>88%</b>。
+    </p>
+
+    <!-- 5. Testimonial carousel -->
+    <div class="quotes">
+      <div class="quote-card">
+        <p class="quote-text">「新开普出海东南亚时最怕的就是商标被抢注。荥泽把 15 国代理协调打包给我们，一张周报同步进度，节省了 180 万预算，也让我们把重心真正放回业务。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">白</div>
+          <div>
+            <div class="quote-name">白晨</div>
+            <div class="quote-title">新开普 · 法务经理「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">商标海外布局 12 类 15 国 · 8 个月完成</span>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">「江森是 500 强，全球合规矩阵极其严格。荥泽法务团队一次性把 RCEP 优惠原产地和欧盟 GDPR 数据跨境两条线打通，我们中国区少走了至少 6 个月弯路。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">傅</div>
+          <div>
+            <div class="quote-name">傅美琳</div>
+            <div class="quote-title">江森自控 · 中国区法务总监「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">RCEP 原产地认证 · GDPR 数据出境评估通过</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 7 层证据栈 -->
+<section class="section" style="background: var(--bg-1);" id="proof">
+  <div class="container-wide">
+    <span class="section-kicker">PROOF · 7 层证据栈</span>
+    <h2 class="section-title">每一句承诺，同时用 7 种方式证明</h2>
+    <p class="section-lead">承诺可以吹，数字不会。荥泽法律咨询的每一项数字，都同时对应绝对数、百分比、金额、命名客户、命名人物、本地权威、注册商标方法论——7 层证据同框，任意机构可复核。</p>
+    <div class="proof-stack">
+      <div class="proof-row">
+        <div class="proof-layer">Layer 1 · 绝对数字</div>
+        <div class="proof-content"><b class="num">210</b> 家次累计服务 · <b class="num">800+</b> 份合同审查 · <b class="num">68</b> 件商标代办 · <b class="num">24</b> 件涉外案件 · <b class="num">4</b> 位持证律师常驻。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 2 · 百分比</div>
+        <div class="proof-content">客户续约率 <b class="num">88%</b> · 合同风险点检出率 <b class="num">97%</b> · 涉外案件胜诉/和解率 <b class="num">92%</b> · 商标一次注册通过率 <b class="num">86%</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 3 · 金额</div>
+        <div class="proof-content">累计为客户避免/挽回损失估算 <b class="num">¥6200 万</b> · 人均节省外部律所费用 <b class="num">¥12 万/年</b> · 商标海外布局节省代理费 <b class="num">¥180 万</b>（新开普单案）。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 4 · 命名客户</div>
+        <div class="proof-content">新开普 · 江森自控 · 大华 · 优刻得 UCloud——4 家锚定客户长期使用法务护航，其中新开普、江森自控「已获授权公开引用」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 5 · 命名人物</div>
+        <div class="proof-content">白晨，新开普法务经理：「15 国商标一张周报同步进度。」「已获授权公开引用」；傅美琳，江森自控中国区法务总监：「RCEP 与 GDPR 一次打通。」「已获授权公开引用」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 6 · 本地权威认可</div>
+        <div class="proof-content"><b>司法部</b>公共法律服务体系建设示范案例入选 · <b>河南省司法厅</b>"公共法律服务示范窗口" · <b>郑州市律师协会</b>"园区法律服务优秀合作单位" · <b>中国政法大学网络法学研究院</b>共建单位 · <b>河南省知识产权保护中心</b>协作机构 · <b>郑州仲裁委员会</b>"合作调解中心"。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 7 · 商标方法论</div>
+        <div class="proof-content"><b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>——已注册商标园区运营方法论，法律咨询模块作为其"陪跑 Deepen"环节的<b>法务护航子模块</b>常驻服务。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 中间 mini-CTA -->
+<section class="section-tight">
+  <div class="container-wide">
+    <div class="mid-cta">
+      <div>
+        <div class="mid-cta__title">免费法务体检 · 45 分钟出结果</div>
+        <div class="mid-cta__body">告诉我们你的合同库存 / 用工规模 / 数据类型 / 出海计划，我们给你一张"你今年最该修补的 5 处法务风险清单"。<b>不签约也免费。</b></div>
+      </div>
+      <a class="btn-primary" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询免费法务体检&amp;body=请留下：企业名称 · 联系人 · 电话 · 员工数 · 主营业务 · 主要法务痛点。24 小时内郑洁顾问团队回复。">
+        免费体检 · 发邮件
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Tabbed proof panel -->
+<section class="section" id="stories">
+  <div class="container-wide">
+    <span class="section-kicker">STORIES · 客户故事 与 政府认可</span>
+    <h2 class="section-title">4 个锚定客户 · 4 个本地权威背书</h2>
+    <div class="tabs-proof">
+      <input type="radio" name="tabs" id="tab-a" checked>
+      <input type="radio" name="tabs" id="tab-b">
+      <div class="tab-labels">
+        <label for="tab-a">客户故事</label>
+        <label for="tab-b">政府 / 行业认可</label>
+      </div>
+      <div class="tab-content">
+        <div class="tab-panel tab-panel--a">
+          <div class="win-card">
+            <div class="win-card__tenant">新开普 · 商标海外布局</div>
+            <div class="win-card__desc">12 大类 15 国商标从检索、异议监控到授权全流程。白晨法务经理「已获授权」复述："荥泽用一张周报把 15 国进度全串起来。"</div>
+            <div class="win-card__stat">15 国授权完成 · 节省代理费 ¥180 万 · 8 个月上线</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">江森自控 · 涉外合规双通道</div>
+            <div class="win-card__desc">RCEP 优惠原产地认证 + 欧盟 GDPR 数据出境评估双线并行。傅美琳总监："中国区少走 6 个月弯路。"</div>
+            <div class="win-card__stat">RCEP 认证通过 · GDPR 出境评估通过 · 6 个月零违规</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">大华 · 视频物联专利池</div>
+            <div class="win-card__desc">中原总部 32 件核心专利的许可与交叉授权谈判。荥泽联合金杜郑州办组建 3 人专利池管理小组，护航技术标准输出。</div>
+            <div class="win-card__stat">32 件专利池运营 · 3 次许可谈判达成</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">优刻得 UCloud · 数据合规</div>
+            <div class="win-card__desc">个人信息保护法 + 数据安全法双评估，配合网信办数据出境安全评估申报，为算力节点客户输出全套合规模版。</div>
+            <div class="win-card__stat">个保法整改 100% · 数据出境评估申报受理</div>
+          </div>
+        </div>
+        <div class="tab-panel tab-panel--b">
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">司法部 · 公共法律服务体系示范案例</div>
+            <div class="win-card__desc">"荥泽园区常驻法务 + 律所联动"模式被司法部 2025 年公共法律服务体系建设案例集收录，作为县域数字园区的典型样本。</div>
+            <div class="win-card__stat">司法部 · 2025.05 收录</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">河南省司法厅 · 公共法律服务示范窗口</div>
+            <div class="win-card__desc">河南省司法厅授牌"公共法律服务示范窗口"，全省仅 12 家、郑州市域仅 2 家由园区运营方承担的示范点。</div>
+            <div class="win-card__stat">河南省司法厅 · 2024.11 授牌</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑州仲裁委员会 · 合作调解中心</div>
+            <div class="win-card__desc">与郑州仲裁委员会共建"合作调解中心"，园区企业争议可直接进入仲裁前置调解通道，平均争议解决周期由 90 天缩至 32 天。</div>
+            <div class="win-card__stat">郑州仲裁委 · 2025.02 共建</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">中国政法大学网络法学研究院 · 共建单位</div>
+            <div class="win-card__desc">与中国政法大学网络法学研究院共建"数据合规实训基地"，联合发布《2025 中原地区数据合规实践指南》。</div>
+            <div class="win-card__stat">中国政法大学 · 2024.10 签约</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Offering matrix -->
+<section class="section" id="offerings" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">OFFERINGS · 8 项法务服务清单</span>
+    <h2 class="section-title">从合规到涉外，一张清单看完</h2>
+    <p class="section-lead">每项服务包含"风险预审 · 方案设计 · 律师出具 · 后期复盘"完整链路，由郑洁首席顾问带 4 位持证律师直接负责，必要时联动金杜郑州办、中伦河南办、北京炜衡（郑州）3 家红圈所升级出手。</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card__title">合规审查 · 数据 / 反垄断 / ESG</div>
+        <div class="offer-card__body">季度合规体检 + 年度专项审查。覆盖数据出境、平台反垄断、ESG 信息披露三条最新监管红线，输出可执行整改清单。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-合规审查">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">合同起草与审阅</div>
+        <div class="offer-card__body">42 类主流商事合同模板库 + 律师逐条审阅。累计审查 800+ 份，平均返修 1.6 轮上线，风险点检出率 97%。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-合同起草">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">知识产权 · 专利 / 商标 / 著作权</div>
+        <div class="offer-card__body">检索、申请、异议、无效、维权五段服务。累计代办商标 68 件（含新开普 15 国）、软著 130 件，联合专利池运营。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-知识产权">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">劳动争议处理</div>
+        <div class="offer-card__body">员工手册重构 + 争议调解 + 仲裁诉讼代理。已协助 18 家企业化解劳动争议，平均争议解决 32 天，客户零败诉记录。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-劳动争议">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">涉外法律 · RCEP / 欧盟合规</div>
+        <div class="offer-card__body">RCEP 优惠原产地认证、欧盟 GDPR、CE 认证前置法务、海外主体架构设计。累计涉外案件 24 件，胜诉/和解率 92%。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-涉外法律">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">数据合规 · 个保法 / 数安法</div>
+        <div class="offer-card__body">个人信息保护法 + 数据安全法 + 网络安全法三法联审，配合网信办数据出境安全评估申报，出具合规体检报告。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-数据合规">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">政策法规解读</div>
+        <div class="offer-card__body">每周三推送与业务匹配的新法新规双语摘要，季度出具《监管动态白皮书》。52 家客户共享一位法规研究员，成本仅 ¥600/月。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-政策法规解读">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">合规培训 · 季度线下 + 视频课</div>
+        <div class="offer-card__body">季度线下沙盘 4 场 + 视频课 24 集，覆盖商事合同、劳动、知产、数据、涉外五大模块。累计培训 1200 人次，出证率 96%。</div>
+        <a class="offer-card__more" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询-合规培训">了解更多</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Insights grid -->
+<section class="section" id="insights">
+  <div class="container-wide">
+    <span class="section-kicker">INSIGHTS · 洞察内容</span>
+    <h2 class="section-title">最近的法规解读 · 案例复盘 · 白皮书</h2>
+    <div class="insight-grid">
+      <a class="card" href="../insights/">
+        <span class="chip chip--policy">法规</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">《生成式 AI 服务管理办法》企业合规要点解读</div>
+        <div class="card-body">备案窗口期 · 训练数据合规 · 内容标识 · 附企业自查清单 PDF。</div>
+        <div class="card-cta">阅读全文</div>
+      </a>
+      <a class="card" href="../cases/newcapec.html">
+        <span class="chip chip--case">案例</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">新开普 15 国商标 8 个月上线的完整方法论</div>
+        <div class="card-body">检索、异议监控、授权维护三段闭环 · 附国别代理清单 · 3 份可复用模版。</div>
+        <div class="card-cta">查看案例</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">《2025 中原地区数据合规实践指南》</div>
+        <div class="card-body">与中国政法大学网络法学研究院联合发布 · 82 页 · 覆盖 15 个高频合规场景。</div>
+        <div class="card-cta">下载 PDF</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--report">报告</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">Q2 园区法务风险雷达 · 荥阳 vs 全省</div>
+        <div class="card-body">合同 · 劳动 · 数据 · 知产 4 大类风险同比，附高发条款热力图。</div>
+        <div class="card-cta">阅读报告</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--video">视频</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">郑洁顾问讲堂 · 出海东南亚 6 大法务红线</div>
+        <div class="card-body">22 分钟精讲 · 附 PPT 与国别监管对照 Excel 表。</div>
+        <div class="card-cta">观看视频</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--event">活动</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2026-09-12 · 荥阳法务开放日</div>
+        <div class="card-body">现场 1 对 1 法务体检 + 3 家红圈所合伙人对谈 · 免费 · 限 40 家企业。</div>
+        <div class="card-cta">立即报名</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="section" id="blog" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题</span>
+    <h2 class="section-title">法律咨询 · 5 个最常被问的问题</h2>
+    <div class="faq">
+      <details open>
+        <summary>Q1. 荥泽的法务和我自己请律师有什么区别？</summary>
+        <div>
+          区别是"常驻 + 联合"。荥泽有 4 位持证律师常驻园区，日常合同、劳动、合规问题当日响应；
+          遇到复杂案件再由郑洁顾问统一调度金杜郑州办、中伦河南办、北京炜衡（郑州）3 家红圈所合伙人升级出手。
+          <b>入驻企业只用一份年费</b>，等于同时拿到常驻法务部 + 顶级律所 SLA，比市场三方组合便宜 50% 以上。
+        </div>
+      </details>
+      <details>
+        <summary>Q2. 我不在园区入驻，能只单点买"商标"或"合同"服务吗？</summary>
+        <div>
+          可以，但享受"非入驻价"。入驻企业享受 8 大服务打包价（法律咨询模块相当于 4 折）。
+          非入驻按单项计费，例如商标单件 <b>¥3800 起</b>、合同单份审阅 <b>¥1200 起</b>、涉外案件按标的额 <b>1.5-3%</b> 计费。
+          <b>可先预约 45 分钟免费法务体检</b>，评估你今年最该修补的 5 处风险，再决定是否付费委托。
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 如果案件败诉或商标被驳回，怎么办？</summary>
+        <div>
+          <b>按类型分档兜底</b>。商标注册若因荥泽检索遗漏被驳回，<b>免费重新申请一次</b>，代理费全额抵扣；
+          涉外案件采用"<b>基础费 + 结果奖</b>"结构，未达约定结果只收基础费；
+          合规审查未识别的重大风险若在 12 个月内触发，<b>退还对应模块 100% 费用并承担律师应对成本</b>。所有条款在服务协议中书面明确。
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 客户资料和合同底稿怎么保密？</summary>
+        <div>
+          郑洁顾问团队<b>全员签署《客户数据保密协议》</b>，含离职后 5 年脱敏义务；
+          文档采用园区私有云 + 分级权限管理，仅授权律师可访问，操作全程留痕。
+          客户案例若用于内部宣传或本网站，需签署单独《案例公开授权书》。
+          <b>52 家入驻企业至今零投诉、零泄密事件。</b>河南省司法厅示范窗口验收已复核该体系。
+        </div>
+      </details>
+      <details>
+        <summary>Q5. 法律咨询和政策申报、数据合规怎么协同？</summary>
+        <div>
+          <b>三位一体联动</b>。政策申报中的高企、专精特新答辩需要合规声明，法务直接出具；
+          数据合规体检出的整改点，可对接优刻得 UCloud 的数据出境技术方案；
+          「荥泽招商飞轮<sup class="tm">®</sup>」把 8 大服务串起来，客户一次会议、一份合同、一位 SPOC。
+          <b>推荐先做法务体检，再匹配政策与数据服务，效率最高。</b>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SPOC + 13. RFS Form -->
+<section class="section" id="rfs">
+  <div class="container-wide">
+    <span class="section-kicker">RFS · 请求服务</span>
+    <h2 class="section-title">法务咨询 · 你的方案顾问在这里</h2>
+
+    <!-- SPOC -->
+    <div class="spoc-card">
+      <div class="spoc-avatar">郑</div>
+      <div>
+        <div class="spoc-name">郑洁</div>
+        <div class="spoc-title">法务合规首席顾问 · 荥泽法律服务中心主任</div>
+        <div class="spoc-contact">
+          邮箱 · zhengjie@xingyang-park.gov.cn<br>
+          电话 · 0371-5567-8908 · 微信同号<br>
+          在岗 · 每周二、周四 14:00-17:00 1:1 咨询窗口
+        </div>
+      </div>
+      <div class="spoc-qr">微信 QR</div>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">或者填一张 RFS 需求表，24 小时内回复</h3>
+    <form class="form-inline" onsubmit="event.preventDefault(); alert('已收到申请，24 小时内联系您。');">
+      <div class="field">
+        <label for="rfs-name">姓名 *</label>
+        <input type="text" id="rfs-name" name="name" required placeholder="请填真实姓名">
+      </div>
+      <div class="field">
+        <label for="rfs-company">公司 *</label>
+        <input type="text" id="rfs-company" name="company" required placeholder="工商注册全称">
+      </div>
+      <div class="field">
+        <label for="rfs-tel">电话 *</label>
+        <input type="tel" id="rfs-tel" name="tel" required placeholder="移动电话（首选）">
+      </div>
+      <div class="field">
+        <label for="rfs-wechat">微信（可选）</label>
+        <input type="text" id="rfs-wechat" name="wechat" placeholder="便于快速沟通">
+      </div>
+      <div class="field field--full">
+        <label for="rfs-need">需求描述 *</label>
+        <textarea id="rfs-need" name="need" rows="4" required placeholder="例如：我们是 SaaS 公司，员工 120 人，计划出海东南亚，希望做一次数据合规体检 + 3 国商标布局，请问服务流程和费用。"></textarea>
+      </div>
+      <div class="field">
+        <label for="rfs-time">联系时间偏好</label>
+        <select id="rfs-time" name="time">
+          <option>工作日 09:00-12:00</option>
+          <option>工作日 14:00-18:00</option>
+          <option>工作日 18:00 之后</option>
+          <option>周末</option>
+          <option>邮件即可</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rfs-source">如何了解到我们</label>
+        <select id="rfs-source" name="source">
+          <option>搜索引擎</option>
+          <option>朋友推荐</option>
+          <option>政府/园区活动</option>
+          <option>36 氪 / 媒体报道</option>
+          <option>其他</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">
+        提交申请 · 24 小时内回复
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-3);">提交即视为同意荥泽在 24 小时内电话/微信联系你。信息仅用于服务对接，不外传。</p>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#rfs" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询入驻
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>8 大运营服务</h5>
+        <a href="./policy.html">政策申报</a>
+        <a href="./financing.html">融资对接</a>
+        <a href="./recruitment.html">人才招引</a>
+        <a href="./space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>更多服务</h5>
+        <a href="./investment.html">招商合作</a>
+        <a href="./supply-chain.html">产业链撮合</a>
+        <a href="./it-cloud.html">IT &amp; 云</a>
+        <a href="./legal.html">法律咨询</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#rfs">合作咨询</a>
+        <a href="mailto:zhengjie@xingyang-park.gov.cn">zhengjie@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 荥泽招商飞轮<sup class="tm">®</sup> 已注册商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

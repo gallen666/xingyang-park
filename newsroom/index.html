@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>新闻中心 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园新闻中心：视频集锦、In the News 新闻发布、记者资源集群、媒体素材、订阅通道——面向机构记者、行业分析师、生态合作方的一站式新闻信息源。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ============ Newsroom Hub 专属样式 ============ */
+
+  /* --- 视频轮播 3 clip --- */
+  .video-hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--sp-4);
+    margin-top: var(--sp-8);
+  }
+  .video-clip {
+    position: relative; overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bg-line);
+    display: block;
+    background: var(--bg-2);
+    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .video-clip:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .video-clip--lead { grid-row: 1 / span 2; }
+  .video-clip__svg { position: relative; display: block; }
+  .video-clip__overlay {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: var(--sp-5);
+    background: linear-gradient(180deg, transparent 0%, rgba(10,14,26,.92) 80%);
+  }
+  .video-clip__meta {
+    display: flex; align-items: center; gap: var(--sp-2);
+    font-size: var(--fs-xs); color: var(--text-3);
+    margin-bottom: var(--sp-2);
+  }
+  .video-clip__duration {
+    padding: 2px var(--sp-2); border-radius: var(--radius-sm);
+    background: rgba(0,0,0,.6); color: var(--text-1);
+    font-variant-numeric: tabular-nums;
+  }
+  .video-clip__title {
+    font-size: var(--fs-md); font-weight: 700; color: var(--text);
+    line-height: var(--lh-tight);
+  }
+  .video-clip--lead .video-clip__title { font-size: var(--fs-lg); }
+  .video-clip__ph-label {
+    position: absolute; top: var(--sp-3); left: var(--sp-3);
+    padding: 2px var(--sp-2); border-radius: var(--radius-sm);
+    background: rgba(0,0,0,.55); color: var(--text-3);
+    font-size: 10px; letter-spacing: .05em;
+  }
+  @media (max-width: 900px) {
+    .video-hero { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .video-clip--lead { grid-row: auto; }
+  }
+
+  /* --- In the News 卡片 --- */
+  .news-card { display: flex; flex-direction: column; }
+  .news-card__head {
+    display: flex; align-items: center; gap: var(--sp-3);
+    margin-bottom: var(--sp-3);
+    font-size: var(--fs-xs); color: var(--text-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .news-card__title {
+    font-size: var(--fs-md); font-weight: 700;
+    line-height: var(--lh-tight); margin-bottom: var(--sp-2);
+  }
+  .news-card__excerpt {
+    color: var(--text-2); font-size: var(--fs-sm);
+    line-height: var(--lh-relaxed); flex: 1;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* --- 记者资源集群 --- */
+  .press-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .press-tiles { grid-template-columns: 1fr; } }
+  .press-tile {
+    padding: var(--sp-6);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    background: var(--bg-2);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .press-tile:hover { border-color: var(--enterprise); }
+  .press-tile__icon {
+    width: 40px; height: 40px; border-radius: var(--radius);
+    background: var(--bg-3);
+    display: grid; place-items: center;
+    color: var(--enterprise);
+  }
+  .press-tile__title { font-size: var(--fs-md); font-weight: 700; }
+  .press-tile__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .press-tile__link { color: var(--enterprise); font-size: var(--fs-sm); margin-top: auto; }
+  .press-tile__link::after { content: " →"; }
+
+  /* 新闻联系人卡 */
+  .contact-card {
+    padding: var(--sp-6);
+    background: linear-gradient(135deg, rgba(184,16,46,.08), rgba(56,189,248,.06));
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center;
+  }
+  .contact-card__info dl { display: grid; grid-template-columns: 88px 1fr; gap: var(--sp-2) var(--sp-4); font-size: var(--fs-sm); }
+  .contact-card__info dt { color: var(--text-3); }
+  .contact-card__info dd { color: var(--text-1); font-variant-numeric: tabular-nums; }
+  .contact-card__name { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-4); }
+  .contact-card__qr { width: 96px; height: 96px; border-radius: var(--radius); background: #fff; padding: 8px; }
+  @media (max-width: 900px) { .contact-card { grid-template-columns: 1fr; } }
+
+  /* 订阅表单 */
+  .subscribe-block {
+    padding: var(--sp-10);
+    background: var(--bg-1);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8);
+    align-items: center;
+  }
+  @media (max-width: 900px) { .subscribe-block { grid-template-columns: 1fr; } }
+  .subscribe-block__form { display: flex; gap: var(--sp-2); }
+  .subscribe-block__form input {
+    flex: 1; padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius); border: 1px solid var(--bg-line);
+    background: var(--bg-2); color: var(--text);
+  }
+  .subscribe-block__rss {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    color: var(--text-2); font-size: var(--fs-sm);
+    padding: var(--sp-3) 0;
+  }
+
+  /* Icon */
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="./" class="active">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#contact">媒体联系</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">新闻中心</span>
+    <a href="#hero" class="active">新闻首页</a>
+    <a href="#in-the-news">新闻发布</a>
+    <a href="./media-kit.html">媒体素材</a>
+    <a href="#press-resources">记者资源</a>
+    <a href="#contact">联系</a>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">NEWSROOM · 新闻中心</span>
+    <h1 class="hero-title">荥阳数字经济产业园 · 新闻室</h1>
+    <p class="hero-lead">
+      面向机构记者、行业分析师、生态合作方与地方媒体的一站式新闻信息源——
+      新闻发布、视频集锦、领导访谈、政策解读、公司治理与媒体素材，全部经过一次审核、一次发布、多路分发。
+      本页更新至 2026 年 7 月 28 日。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#in-the-news">
+        最新新闻
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="./media-kit.html">下载媒体素材包</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 视频集锦 3 clip ============ -->
+<section class="section" id="videos">
+  <div class="container-wide">
+    <span class="section-kicker">VIDEO HIGHLIGHTS · 视频集锦</span>
+    <h2 class="section-title">近期重点视频</h2>
+    <p class="section-lead">
+      年度峰会、签约实况、方法论解读——本季度精选 3 段短视频，允许媒体在署名"荥阳数字经济产业园"的前提下自由转载。
+    </p>
+    <div class="video-hero">
+
+      <!-- Lead clip -->
+      <a href="#" class="video-clip video-clip--lead" aria-label="2026 年度峰会精华">
+        <svg class="video-clip__svg" viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <defs>
+            <linearGradient id="vidLead" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1a2138"/>
+              <stop offset="60%" stop-color="#0f1424"/>
+              <stop offset="100%" stop-color="#0a0e1a"/>
+            </linearGradient>
+            <radialGradient id="vidLeadGlow" cx="50%" cy="55%" r="45%">
+              <stop offset="0%" stop-color="rgba(184,16,46,.30)"/>
+              <stop offset="100%" stop-color="rgba(184,16,46,0)"/>
+            </radialGradient>
+          </defs>
+          <rect width="800" height="900" fill="url(#vidLead)"/>
+          <rect width="800" height="900" fill="url(#vidLeadGlow)"/>
+          <!-- Stage silhouette -->
+          <path d="M0 720 L120 700 L260 715 L400 705 L560 720 L700 705 L800 720 L800 900 L0 900 Z" fill="#0a0e1a" opacity="0.75"/>
+          <!-- Play icon -->
+          <circle cx="400" cy="440" r="72" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+          <path d="M380 405 L432 440 L380 475 Z" fill="#ffffff"/>
+        </svg>
+        <span class="video-clip__ph-label">视频占位</span>
+        <div class="video-clip__overlay">
+          <div class="video-clip__meta">
+            <span class="video-clip__duration">08:42</span>
+            <span>·</span>
+            <span>2026-07-01</span>
+            <span>·</span>
+            <span class="chip chip--event">年度峰会</span>
+          </div>
+          <div class="video-clip__title">2026 荥阳数字经济产业园年度峰会 · 500+ 企业家共议数字化</div>
+        </div>
+      </a>
+
+      <!-- Small clip 1 -->
+      <a href="./press-release-example.html" class="video-clip" aria-label="大华股份签约实况">
+        <svg class="video-clip__svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <defs>
+            <linearGradient id="vidSign" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1a2138"/>
+              <stop offset="100%" stop-color="#0f1424"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#vidSign)"/>
+          <!-- Signing table -->
+          <rect x="100" y="200" width="200" height="12" fill="#2a3352" rx="2"/>
+          <rect x="130" y="212" width="14" height="60" fill="#2a3352"/>
+          <rect x="256" y="212" width="14" height="60" fill="#2a3352"/>
+          <!-- Two people silhouette -->
+          <circle cx="170" cy="170" r="14" fill="#3a4460"/>
+          <path d="M148 200 Q170 178 192 200" fill="#3a4460"/>
+          <circle cx="230" cy="170" r="14" fill="#3a4460"/>
+          <path d="M208 200 Q230 178 252 200" fill="#3a4460"/>
+          <!-- Play -->
+          <circle cx="200" cy="120" r="30" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+          <path d="M192 106 L214 120 L192 134 Z" fill="#ffffff"/>
+        </svg>
+        <span class="video-clip__ph-label">视频占位</span>
+        <div class="video-clip__overlay">
+          <div class="video-clip__meta">
+            <span class="video-clip__duration">03:18</span>
+            <span>·</span>
+            <span>2026-07-20</span>
+            <span>·</span>
+            <span class="chip chip--case">签约实况</span>
+          </div>
+          <div class="video-clip__title">大华股份郑州总部签约实况 · 2026-07-20</div>
+        </div>
+      </a>
+
+      <!-- Small clip 2 -->
+      <a href="#" class="video-clip" aria-label="OpenX@X 方法论解读">
+        <svg class="video-clip__svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+          <defs>
+            <linearGradient id="vidMethod" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1a2138"/>
+              <stop offset="100%" stop-color="#0f1424"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#vidMethod)"/>
+          <!-- Slides pattern -->
+          <rect x="60" y="70" width="280" height="140" rx="6" fill="#0a0e1a" stroke="#2a3352" stroke-width="1"/>
+          <rect x="80" y="90" width="120" height="8" fill="#38bdf8" opacity="0.55"/>
+          <rect x="80" y="108" width="200" height="4" fill="#3a4460"/>
+          <rect x="80" y="120" width="180" height="4" fill="#3a4460"/>
+          <rect x="80" y="132" width="160" height="4" fill="#3a4460"/>
+          <rect x="80" y="150" width="60" height="40" fill="#34d399" opacity="0.35"/>
+          <rect x="150" y="150" width="60" height="40" fill="#fbbf24" opacity="0.35"/>
+          <rect x="220" y="150" width="60" height="40" fill="#b8102e" opacity="0.45"/>
+          <!-- Play -->
+          <circle cx="200" cy="140" r="26" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+          <path d="M193 128 L212 140 L193 152 Z" fill="#ffffff"/>
+        </svg>
+        <span class="video-clip__ph-label">视频占位</span>
+        <div class="video-clip__overlay">
+          <div class="video-clip__meta">
+            <span class="video-clip__duration">03:04</span>
+            <span>·</span>
+            <span>2026-06-28</span>
+            <span>·</span>
+            <span class="chip chip--insight">方法论</span>
+          </div>
+          <div class="video-clip__title">OpenX@X 方法论 3 分钟解读 · 戴继涛博士</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ In the News 6-卡片 ============ -->
+<section class="section-tight" id="in-the-news">
+  <div class="container-wide">
+    <span class="section-kicker">IN THE NEWS · 新闻发布</span>
+    <h2 class="section-title">最新新闻</h2>
+    <p class="section-lead">按发布时间倒序展示——涵盖签约动态、政策解读、荣誉认证、活动纪要与第三方媒体报道。</p>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+
+      <a href="./press-release-example.html" class="card news-card">
+        <div class="news-card__head">
+          <span class="chip chip--case">签约</span>
+          <span>·</span>
+          <span>2026-07-20</span>
+        </div>
+        <h4 class="news-card__title">大华股份郑州总部落地荥阳数字经济产业园</h4>
+        <p class="news-card__excerpt">
+          大华股份与荥阳市人民政府、荥阳城投、太能控股共同签署三方框架协议，
+          郑州总部研发中心正式入驻，首批 200+ 研发岗位 90 天内到位。
+        </p>
+        <span class="card-cta">阅读全文</span>
+      </a>
+
+      <a href="#" class="card news-card">
+        <div class="news-card__head">
+          <span class="chip chip--policy">政策</span>
+          <span>·</span>
+          <span>2026-07-15</span>
+        </div>
+        <h4 class="news-card__title">郑州市"郑聚英才计划 2026"正式发布，荥阳同步启动 15 项配套</h4>
+        <p class="news-card__excerpt">
+          郑州市政府发布《郑聚英才计划 2026》，荥阳数字经济产业园作为首批承接地区，
+          同步启动 15 项人才落地配套，覆盖住房、子女入学、科研启动金。
+        </p>
+        <span class="card-cta">阅读全文</span>
+      </a>
+
+      <a href="#" class="card news-card">
+        <div class="news-card__head">
+          <span class="chip chip--report">荣誉</span>
+          <span>·</span>
+          <span>2026-07-08</span>
+        </div>
+        <h4 class="news-card__title">荥阳数字经济产业园入选河南省首批 5G+ 工业互联网示范园区</h4>
+        <p class="news-card__excerpt">
+          河南省工信厅公布首批 5G+ 工业互联网示范园区名单，
+          荥阳数字经济产业园凭借"三方共治 + DTSI 诊断 + PDTMM 认证"综合评分位列全省第 2 名。
+        </p>
+        <span class="card-cta">阅读全文</span>
+      </a>
+
+      <a href="#" class="card news-card">
+        <div class="news-card__head">
+          <span class="chip chip--event">活动</span>
+          <span>·</span>
+          <span>2026-07-01</span>
+        </div>
+        <h4 class="news-card__title">2026 荥阳数字经济产业园年度峰会成功举办，500+ 企业家参与</h4>
+        <p class="news-card__excerpt">
+          为期两天的年度峰会围绕"数字化转型下一站：从工具到生态"主题展开，
+          32 场分论坛、11 位主旨演讲、现场签约 8 家企业、意向合作金额 ¥6.2 亿。
+        </p>
+        <span class="card-cta">阅读全文</span>
+      </a>
+
+      <a href="#" class="card news-card">
+        <div class="news-card__head">
+          <span class="chip chip--news">媒体报道</span>
+          <span>·</span>
+          <span>2026-06-22</span>
+        </div>
+        <h4 class="news-card__title">《河南日报》整版报道荥阳"三方共治 + DTSI"模式</h4>
+        <p class="news-card__excerpt">
+          《河南日报》以"一个县级园区如何长出平台级方法论"为题，
+          用 4 个整版深度报道荥阳三方共治机制与 DTSI 诊断体系的沉淀过程。
+        </p>
+        <span class="card-cta">阅读全文</span>
+      </a>
+
+      <a href="#" class="card news-card">
+        <div class="news-card__head">
+          <span class="chip chip--case">签约</span>
+          <span>·</span>
+          <span>2026-06-15</span>
+        </div>
+        <h4 class="news-card__title">优刻得郑州云节点在荥阳启动，河南算力 ↑320%</h4>
+        <p class="news-card__excerpt">
+          优刻得郑州云节点二期在荥阳数字经济产业园正式启动，机柜容量达 4200 架，
+          落地后河南本地公有云算力供给较 2025 年提升 320%。
+        </p>
+        <span class="card-cta">阅读全文</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 记者资源集群 ============ -->
+<section class="section" id="press-resources">
+  <div class="container-wide">
+    <span class="section-kicker">PRESS RESOURCES · 记者资源集群</span>
+    <h2 class="section-title">记者一站式资源入口</h2>
+    <p class="section-lead">
+      借鉴 Infosys Newsroom 的分类逻辑——把公司治理、领导班子、财务数据、图片库、媒体日、联系人集中放置，
+      避免记者在多个页面之间跳转。
+    </p>
+    <div class="press-tiles">
+
+      <a href="../about/governance.html" class="press-tile">
+        <div class="press-tile__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M6 21V10l6-4 6 4v11M10 21v-6h4v6"/></svg>
+        </div>
+        <h4 class="press-tile__title">公司治理概览</h4>
+        <p class="press-tile__body">三方共治机制、董事会构成、决策流程与合规治理框架。适用于财经媒体尽调。</p>
+        <span class="press-tile__link">查看治理页</span>
+      </a>
+
+      <a href="../about/leadership.html" class="press-tile">
+        <div class="press-tile__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4 class="press-tile__title">领导班子 profiles</h4>
+        <p class="press-tile__body">园区管委会、太能控股高管、独立董事简历及高清人像，可直接引用。</p>
+        <span class="press-tile__link">查看名录</span>
+      </a>
+
+      <a href="#" class="press-tile">
+        <div class="press-tile__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h4 class="press-tile__title">财务数据</h4>
+        <p class="press-tile__body">2024 年度报告已发布 · <b style="color:var(--gold)">2025 年度报告即将发布</b>（预计 2026-08-15）。历年经审计数据下载。</p>
+        <span class="press-tile__link">查看财务档案</span>
+      </a>
+
+      <a href="./media-kit.html" class="press-tile">
+        <div class="press-tile__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h4 class="press-tile__title">Logo 与图片库</h4>
+        <p class="press-tile__body">主 logo、三方 lock-up、四子品牌 logo、园区高清照片、领导演讲照——SVG / PNG / PDF 版本。</p>
+        <span class="press-tile__link">进入媒体素材包</span>
+      </a>
+
+      <a href="#" class="press-tile">
+        <div class="press-tile__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h4 class="press-tile__title">媒体日活动</h4>
+        <p class="press-tile__body">下一场：<b>2026-08-14</b> · 荥阳 · 数字经济产业园综合服务大厅。下一场：<b>2026-09-25</b> · 郑州 · 河南日报社。</p>
+        <span class="press-tile__link">报名参加</span>
+      </a>
+
+      <a href="#contact" class="press-tile">
+        <div class="press-tile__icon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h4 class="press-tile__title">新闻联系人</h4>
+        <p class="press-tile__body">王思远 · 新闻部负责人 · 24 小时内响应机构记者的采访、素材、事实核查请求。</p>
+        <span class="press-tile__link">跳转联系人卡</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 新闻联系人卡 ============ -->
+<section class="section-tight" id="contact">
+  <div class="container-wide">
+    <span class="section-kicker">CONTACT · 新闻联系人</span>
+    <h2 class="section-title">直连新闻部</h2>
+    <div class="contact-card" style="margin-top: var(--sp-6);">
+      <div class="contact-card__info">
+        <div class="contact-card__name">王思远 · 新闻部负责人</div>
+        <dl>
+          <dt>电话</dt><dd>+86 371 6899 xxxx</dd>
+          <dt>邮箱</dt><dd><a href="mailto:press@xingyang-park.gov.cn" style="color:var(--enterprise);">press@xingyang-park.gov.cn</a></dd>
+          <dt>微信</dt><dd>扫码添加官方新闻部企业微信</dd>
+          <dt>响应时长</dt><dd>工作日 4 小时内 · 周末 24 小时内</dd>
+          <dt>办公地点</dt><dd>郑州市荥阳市数字经济产业园综合服务大厅 3F</dd>
+        </dl>
+      </div>
+      <svg class="contact-card__qr" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="新闻部微信二维码占位">
+        <rect width="96" height="96" fill="#ffffff"/>
+        <!-- Position squares -->
+        <rect x="8" y="8" width="22" height="22" fill="none" stroke="#0a0e1a" stroke-width="3"/>
+        <rect x="14" y="14" width="10" height="10" fill="#0a0e1a"/>
+        <rect x="66" y="8" width="22" height="22" fill="none" stroke="#0a0e1a" stroke-width="3"/>
+        <rect x="72" y="14" width="10" height="10" fill="#0a0e1a"/>
+        <rect x="8" y="66" width="22" height="22" fill="none" stroke="#0a0e1a" stroke-width="3"/>
+        <rect x="14" y="72" width="10" height="10" fill="#0a0e1a"/>
+        <!-- Random noise -->
+        <g fill="#0a0e1a">
+          <rect x="38" y="10" width="4" height="4"/>
+          <rect x="44" y="14" width="4" height="4"/>
+          <rect x="52" y="10" width="4" height="4"/>
+          <rect x="38" y="20" width="8" height="4"/>
+          <rect x="52" y="22" width="4" height="8"/>
+          <rect x="60" y="38" width="4" height="4"/>
+          <rect x="70" y="42" width="4" height="4"/>
+          <rect x="78" y="38" width="4" height="4"/>
+          <rect x="38" y="38" width="16" height="4"/>
+          <rect x="40" y="46" width="4" height="12"/>
+          <rect x="48" y="50" width="8" height="4"/>
+          <rect x="56" y="56" width="4" height="10"/>
+          <rect x="66" y="52" width="4" height="8"/>
+          <rect x="78" y="58" width="4" height="4"/>
+          <rect x="42" y="64" width="4" height="4"/>
+          <rect x="52" y="72" width="4" height="4"/>
+          <rect x="62" y="72" width="12" height="4"/>
+          <rect x="80" y="80" width="4" height="4"/>
+          <rect x="36" y="80" width="4" height="4"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 订阅新闻 ============ -->
+<section class="section" id="subscribe">
+  <div class="container-wide">
+    <div class="subscribe-block">
+      <div>
+        <span class="section-kicker">SUBSCRIBE · 订阅新闻</span>
+        <h3 style="font-size: var(--fs-xl); font-weight: 700; margin-top: var(--sp-2); margin-bottom: var(--sp-3);">
+          第一时间收到园区新闻
+        </h3>
+        <p style="color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed);">
+          每两周一封的《荥阳数字观察》—— 精选园区动态、行业政策与 4 大平台方法论更新。
+          可随时退订。
+        </p>
+      </div>
+      <div>
+        <form class="subscribe-block__form" action="#" method="post">
+          <input type="email" name="email" placeholder="您的工作邮箱" required aria-label="邮箱">
+          <button type="submit" class="btn-primary">订阅</button>
+        </form>
+        <a class="subscribe-block__rss" href="./feed.rss">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1" fill="currentColor"/></svg>
+          订阅 RSS Feed · /newsroom/feed.rss
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sticky 咨询 ============ -->
+<a class="help-widget" href="#contact" aria-label="联系新闻部">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  联系新闻部
+</a>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>新闻中心</h5>
+        <a href="./">新闻首页</a>
+        <a href="./press-release-example.html">新闻发布</a>
+        <a href="./media-kit.html">媒体素材</a>
+        <a href="#press-resources">记者资源</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">平台矩阵</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="mailto:press@xingyang-park.gov.cn">press@xingyang-park.gov.cn</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+        <a href="#subscribe">订阅通讯</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 本页最后更新 2026-07-28</div>
+  </div>
+</footer>
+
+</body>
+</html>

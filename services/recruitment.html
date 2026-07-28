@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人才招引 · 荥泽招商飞轮® · 荥阳数字经济产业园</title>
+<meta name="description" content="人才招引服务：郑大/河大/华水校招通道、猎头对接、郑州户口/子女入学、高层次人才引进、蓝领共享用工。累计入驻岗位 3200+，郑州户口办结 480 人，招工到岗周期 ↓50%。李冬梅总监带队，一站办结。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+
+  /* --- Hero rail (auto-rotate + radio manual) --- */
+  .hero-rail { position: relative; min-height: 520px; background:
+    radial-gradient(ellipse at 20% 30%, rgba(184,16,46,.18), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(56,189,248,.12), transparent 55%),
+    linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+    border-bottom: 1px solid var(--bg-line); overflow: hidden;
+  }
+  .hero-rail input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .hero-slides { position: relative; max-width: var(--container-max); margin: 0 auto; padding: var(--sp-16) var(--sp-6); }
+  .hero-slide {
+    position: absolute; top: var(--sp-16); left: var(--sp-6); right: var(--sp-6);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+    pointer-events: none;
+  }
+  .hero-slide:first-of-type { position: relative; }
+  #hero-1:checked ~ .hero-slides .hero-slide:nth-of-type(1),
+  #hero-2:checked ~ .hero-slides .hero-slide:nth-of-type(2),
+  #hero-3:checked ~ .hero-slides .hero-slide:nth-of-type(3) {
+    opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 2;
+  }
+  /* Auto rotate via animation on labels (fallback: rely on manual click) */
+  .hero-dots { position: absolute; bottom: var(--sp-8); left: 50%; transform: translateX(-50%); display: flex; gap: var(--sp-3); z-index: 5; }
+  .hero-dots label { width: 32px; height: 4px; background: var(--bg-3); border-radius: var(--radius-pill); cursor: pointer; transition: background var(--dur-fast) var(--ease); }
+  #hero-1:checked ~ .hero-dots label[for=hero-1],
+  #hero-2:checked ~ .hero-dots label[for=hero-2],
+  #hero-3:checked ~ .hero-dots label[for=hero-3] { background: var(--gov); }
+  .hero-tag { display: inline-block; padding: 2px var(--sp-3); background: var(--gold); color: var(--text-invert); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; margin-bottom: var(--sp-4); }
+  .hero-tag--pov { background: var(--enterprise); color: var(--text-invert); }
+  .hero-tag--testimonial { background: var(--ecosystem); color: var(--text-invert); }
+  .hero-tag--press { background: var(--gov); color: #fff; }
+
+  /* --- 7-layer proof stack --- */
+  .proof-stack { display: grid; gap: var(--sp-4); margin-top: var(--sp-8); }
+  .proof-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-5); padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); align-items: center; }
+  @media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
+  .proof-layer { font-size: var(--fs-xs); font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .08em; }
+  .proof-content { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .proof-content b { color: var(--text); }
+  .proof-content .num { color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+
+  /* --- Testimonial carousel --- */
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
+  .quote-card { padding: var(--sp-6); background: linear-gradient(135deg, var(--enterprise-soft), transparent), var(--bg-2); border: 1px solid rgba(56,189,248,.25); border-radius: var(--radius-md); position: relative; }
+  .quote-card::before { content: "\201C"; position: absolute; top: 8px; right: 20px; font-size: 72px; color: var(--enterprise); opacity: 0.25; line-height: 1; font-family: Georgia, serif; }
+  .quote-text { font-size: var(--fs-md); font-weight: 500; line-height: var(--lh-relaxed); color: var(--text-1); margin-bottom: var(--sp-4); }
+  .quote-attr { display: flex; align-items: center; gap: var(--sp-3); }
+  .quote-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 800; }
+  .quote-name { font-weight: 700; color: var(--text); font-size: var(--fs-sm); }
+  .quote-title { color: var(--text-3); font-size: var(--fs-xs); }
+  .quote-outcome { display: inline-block; margin-top: var(--sp-3); padding: 2px var(--sp-3); background: var(--gov-soft); color: var(--gov-hover); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 600; }
+
+  /* --- Mid CTA --- */
+  .mid-cta { padding: var(--sp-8); background: linear-gradient(90deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.35); border-radius: var(--radius-md); display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; margin: var(--sp-8) 0; }
+  @media (max-width: 700px) { .mid-cta { grid-template-columns: 1fr; text-align: center; } }
+  .mid-cta__title { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-1); }
+  .mid-cta__body { color: var(--text-2); font-size: var(--fs-sm); }
+
+  /* --- Tabbed proof panel (CSS-only tabs) --- */
+  .tabs-proof { margin-top: var(--sp-6); }
+  .tabs-proof input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .tab-labels { display: flex; gap: var(--sp-2); border-bottom: 1px solid var(--bg-line); margin-bottom: var(--sp-5); }
+  .tab-labels label { padding: var(--sp-3) var(--sp-5); font-weight: 600; font-size: var(--fs-sm); color: var(--text-3); cursor: pointer; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .tab-labels label:hover { color: var(--text-1); }
+  #tab-a:checked ~ .tab-labels label[for=tab-a],
+  #tab-b:checked ~ .tab-labels label[for=tab-b] { color: var(--gov); border-bottom-color: var(--gov); }
+  .tab-panel { display: none; }
+  #tab-a:checked ~ .tab-content .tab-panel--a,
+  #tab-b:checked ~ .tab-content .tab-panel--b { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  @media (max-width: 900px) { #tab-a:checked ~ .tab-content .tab-panel--a, #tab-b:checked ~ .tab-content .tab-panel--b { grid-template-columns: 1fr; } }
+  .win-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-left: 3px solid var(--ecosystem); }
+  .win-card--gov { border-left-color: var(--gov); }
+  .win-card__tenant { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .win-card__desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .win-card__stat { margin-top: var(--sp-3); color: var(--gold); font-size: var(--fs-sm); font-weight: 700; }
+
+  /* --- Offering matrix --- */
+  .offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 1000px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .offer-grid { grid-template-columns: 1fr; } }
+  .offer-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .offer-card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .offer-card__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .offer-card__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3); }
+  .offer-card__more { color: var(--enterprise); font-size: var(--fs-sm); font-weight: 600; }
+  .offer-card__more::after { content: " →"; }
+
+  /* --- Insights grid --- */
+  .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
+
+  /* --- FAQ --- */
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--gov); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* --- SPOC --- */
+  .spoc-card { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 700px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--gov-hover)); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 96px; height: 96px; background: repeating-conic-gradient(#0a0e1a 0 25%, #e6eefc 0 50%) 50% / 12px 12px, var(--bg-3); border-radius: var(--radius); display: grid; place-items: end center; color: var(--text-3); font-size: var(--fs-xs); padding: 4px; }
+
+  /* --- RFS form --- */
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-6); background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  @media (max-width: 700px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline label { font-size: var(--fs-xs); color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: var(--sp-2); display: block; }
+  .form-inline .field { display: flex; flex-direction: column; }
+  .form-inline .field--full { grid-column: 1 / -1; }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; font-size: var(--fs-sm); }
+  .form-inline input:focus, .form-inline textarea:focus, .form-inline select:focus { outline: none; border-color: var(--enterprise); }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="./" class="active">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#rfs">招引咨询</a>
+  </div>
+</nav>
+
+<!-- 子导航 6-tab -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand"><b>人才招引</b></span>
+    <a href="#top" class="active">首页</a>
+    <a href="#overview">概览</a>
+    <a href="#insights">洞察</a>
+    <a href="#stories">客户故事</a>
+    <a href="#offerings">服务清单</a>
+    <a href="#blog">博客</a>
+  </div>
+</div>
+
+<!-- 1. Auto-rotating hero rail -->
+<section class="hero-rail" id="top">
+  <input type="radio" name="hero" id="hero-1" checked>
+  <input type="radio" name="hero" id="hero-2">
+  <input type="radio" name="hero" id="hero-3">
+  <div class="hero-slides">
+    <div class="hero-slide">
+      <span class="hero-tag">POV · 服务价值</span>
+      <h1 class="hero-title">人才不是"招回来"，是"留得下、干得成"</h1>
+      <p class="hero-lead">
+        企业招人真正的成本，不是猎头费，是"到岗后半年离职"。荥泽人才招引服务把<b>校招 · 猎头 · 户口 · 子女入学 · 蓝领用工</b>做成一条流水线——
+        <b>招工到岗周期 ↓50%</b>，校招 3 年留存率 <b>82%</b>。<b>不只是招人，是把人留在郑州。</b>
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#offerings">查看 8 项招引清单
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#rfs">免费人才诊断</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--testimonial">TESTIMONIAL · 客户故事</span>
+      <h1 class="hero-title">大华 68 名工程师 4 周内全部落地郑州户口 · 子女入学同步办结</h1>
+      <p class="hero-lead">
+        「荥泽招商飞轮<sup class="tm">®</sup>」才引擎模块把户口预审、子女学位、租房补贴打包一次办。
+        大华郑州中原总部 68 名工程师从提交材料到全部拿到郑州户口 <b>仅用 4 周</b>，
+        23 名有学龄子女的工程师<b>子女入学同步办结</b>——工程师稳了，家庭也稳了。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="../cases/dahua.html">查看大华完整案例
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-ghost" href="#stories">更多客户故事</a>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <span class="hero-tag hero-tag--press">PRESS · 政府认可</span>
+      <h1 class="hero-title">郑州市人社局挂牌"人才服务示范基地"</h1>
+      <p class="hero-lead">
+        荥泽人才引进中心获<b>郑州市人力资源和社会保障局挂牌"人才服务示范基地"</b>，
+        并同时是<b>郑州大学 · 河南大学 · 华北水利水电大学</b>三校校招指定通道单位，
+        与<b>河南省人才交流中心</b>共建"高层次人才引进快速通道"——源头、通道、认证三段全打通。
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#stories">查看 4 家政府背书
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <label for="hero-1" aria-label="第 1 页"></label>
+    <label for="hero-2" aria-label="第 2 页"></label>
+    <label for="hero-3" aria-label="第 3 页"></label>
+  </div>
+</section>
+
+<!-- 2. 概览 · 3 句 promise -->
+<section class="section" id="overview">
+  <div class="container-wide">
+    <span class="section-kicker">OVERVIEW · 人才招引</span>
+    <h2 class="section-title">52 家已入驻企业共用一位人才服务总监</h2>
+    <p class="section-lead">
+      荥泽人才招引是园区 8 大运营服务之一，覆盖<b>校招 · 猎头 · 蓝领共享 · 高层次人才引进 · 户口落户 · 子女入学</b>全链路，
+      服务覆盖 <b>52 家已入驻企业 · 40.4 万㎡运营空间</b> 内所有主体。
+      我们不做"发一发招聘广告"这种表层动作，我们做"从招人到留人的 SOP"——从校招入口筛选到 3 年留存跟踪全流程闭环。
+      过去 24 个月累计输送 <b>3200+ 岗位</b>，郑州户口办结 <b>480 人</b>，招工到岗周期比市场平均短 50%。
+    </p>
+
+    <!-- 5. Testimonial carousel -->
+    <div class="quotes">
+      <div class="quote-card">
+        <p class="quote-text">「以前我们从深圳带工程师来郑州，最怕的是户口和小孩上学。荥泽把 68 名工程师的户口 4 周落完，23 户子女入学同步办结，我们工程师留存率从 60% 拉到 92%。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">陈</div>
+          <div>
+            <div class="quote-name">陈慧敏</div>
+            <div class="quote-title">大华股份 · 中原总部 HRD「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">郑州户口 68 人 · 子女入学 23 户 · 留存率 92%</span>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">「我们做安全，最缺的是懂密码学和网络攻防的应届生。荥泽帮我们直接打通郑大信安学院和河大计算机学院两个校招通道，45 个 offer 全部签约，1 年留存 93%。」</p>
+        <div class="quote-attr">
+          <div class="quote-avatar">郭</div>
+          <div>
+            <div class="quote-name">郭嘉俊</div>
+            <div class="quote-title">安恒信息 · 郑州分公司 HR 经理「已获授权公开引用」</div>
+          </div>
+        </div>
+        <span class="quote-outcome">校招 45 人 · 郑大信安 + 河大计算机 · 1 年留存 93%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 7 层证据栈 -->
+<section class="section" style="background: var(--bg-1);" id="proof">
+  <div class="container-wide">
+    <span class="section-kicker">PROOF · 7 层证据栈</span>
+    <h2 class="section-title">每一句承诺，同时用 7 种方式证明</h2>
+    <p class="section-lead">承诺可以吹，数字不会。荥泽人才招引的每一项数字，都同时对应绝对数、百分比、金额、命名客户、命名人物、本地权威、注册商标方法论——7 层证据同框，任意机构可复核。</p>
+    <div class="proof-stack">
+      <div class="proof-row">
+        <div class="proof-layer">Layer 1 · 绝对数字</div>
+        <div class="proof-content">累计输送岗位 <b class="num">3200+</b> · 郑州户口办结 <b class="num">480 人</b> · 校招入库 <b class="num">1050 人</b> · 蓝领共享用工池 <b class="num">2600 人</b> · 高层次人才引进 <b class="num">36 名</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 2 · 百分比</div>
+        <div class="proof-content">招工到岗周期 <b class="num">↓50%</b>（对比郑州市场平均 60 天缩至 30 天） · 校招 3 年留存率 <b class="num">82%</b> · 户口办结一次通过率 <b class="num">96%</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 3 · 金额</div>
+        <div class="proof-content">人均猎头节省 <b class="num">¥1.8 万/职位</b> · 累计代兑现郑州人才补贴 <b class="num">¥1150 万</b> · 蓝领共享用工年度节省 <b class="num">¥620 万</b>。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 4 · 命名客户</div>
+        <div class="proof-content">大华股份 · 安恒信息 · 江森自控 · 新开普——4 家锚定客户全部使用人才招引服务，「已获授权公开引用」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 5 · 命名人物</div>
+        <div class="proof-content">陈慧敏，大华股份中原总部 HRD：「留存率从 60% 拉到 92%」「已获授权公开引用」；郭嘉俊，安恒信息郑州 HR 经理：「45 个 offer 全部签约」。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 6 · 本地权威认可</div>
+        <div class="proof-content"><b>郑州市人力资源和社会保障局</b>人才服务示范基地 · <b>郑州市人才交流服务中心</b>校招指定站点 · <b>河南省人才交流中心</b>高层次人才引进通道 · <b>郑州大学就业指导中心</b>校企合作基地 · <b>河南大学校友会</b>产业对接站 · <b>智联招聘河南</b>雇主品牌合作单位。</div>
+      </div>
+      <div class="proof-row">
+        <div class="proof-layer">Layer 7 · 商标方法论</div>
+        <div class="proof-content"><b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>——已注册商标园区运营方法论，人才招引模块为其"才引擎"环节的核心服务，串联"招人—留人—育人"闭环。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 中间 mini-CTA -->
+<section class="section-tight">
+  <div class="container-wide">
+    <div class="mid-cta">
+      <div>
+        <div class="mid-cta__title">免费人才诊断 · 30 分钟出结果</div>
+        <div class="mid-cta__body">告诉我们你的岗位画像 / 用工规模 / 户口需求，我们给你一张"你今年可用的 5 条招引通道清单"。<b>不签约也免费。</b></div>
+      </div>
+      <a class="btn-primary" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引免费诊断&amp;body=请留下：企业名称 · 联系人 · 电话 · 招聘岗位 · 用工规模 · 户口需求。24 小时内李冬梅总监团队回复。">
+        免费诊断 · 发邮件
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Tabbed proof panel -->
+<section class="section" id="stories">
+  <div class="container-wide">
+    <span class="section-kicker">STORIES · 客户故事 与 政府认可</span>
+    <h2 class="section-title">4 个锚定客户 · 4 个本地权威背书</h2>
+    <div class="tabs-proof">
+      <input type="radio" name="tabs" id="tab-a" checked>
+      <input type="radio" name="tabs" id="tab-b">
+      <div class="tab-labels">
+        <label for="tab-a">客户故事</label>
+        <label for="tab-b">政府 / 媒体认可</label>
+      </div>
+      <div class="tab-content">
+        <div class="tab-panel tab-panel--a">
+          <div class="win-card">
+            <div class="win-card__tenant">大华股份 · 中原总部</div>
+            <div class="win-card__desc">68 名深圳/杭州工程师全部落地郑州户口，23 户学龄子女同步入学。HRD 陈慧敏「已获授权」复述：「工程师留存率从 60% 拉到 92%。」</div>
+            <div class="win-card__stat">郑州户口 68 人 · 子女入学 23 户 · 留存率 92%</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">安恒信息 · 郑州分公司</div>
+            <div class="win-card__desc">直接打通郑大信安学院 + 河大计算机学院校招通道。HR 经理郭嘉俊：「45 个 offer 全部签约，1 年留存 93%。」</div>
+            <div class="win-card__stat">校招 45 人 · 1 年留存 93%</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">江森自控 · 郑州区域总部</div>
+            <div class="win-card__desc">500 强中高层引进 12 人，含 2 位河南省级高层次人才（B 类）。人力副总裁「已获授权」评价："荥泽把河南省高层次人才通道跑得比 HR 自己还熟。"</div>
+            <div class="win-card__stat">中高层引进 12 人 · 省级高层次人才 2 位</div>
+          </div>
+          <div class="win-card">
+            <div class="win-card__tenant">新开普 · 郑州本土领军</div>
+            <div class="win-card__desc">校招 + 蓝领共享用工组合方案，一次性 120 人到岗，涵盖产品经理、测试、SMT 装配。财务总监：「我们把用工成本压到人均 ¥5200/月，比自招节省 22%。」</div>
+            <div class="win-card__stat">校招 + 蓝领 120 人 · 用工成本 ↓22%</div>
+          </div>
+        </div>
+        <div class="tab-panel tab-panel--b">
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑州市人力资源和社会保障局 · 人才服务示范基地</div>
+            <div class="win-card__desc">全郑州仅 6 家获挂牌"人才服务示范基地"，荥泽人才引进中心是其中唯一一家由园区运营方承担的服务基地。</div>
+            <div class="win-card__stat">郑州市人社局 · 2025.05 授牌</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">郑州大学 · 校企合作校招基地</div>
+            <div class="win-card__desc">与郑大就业指导中心签订"数字经济领域校企合作协议"，覆盖信安 · 计算机 · 软件 · 网络工程 4 个学院，每年优先输送 200+ 应届生。</div>
+            <div class="win-card__stat">郑州大学 · 2024.11 签约</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">河南省人才交流中心 · 高层次人才引进通道</div>
+            <div class="win-card__desc">共建"高层次人才快速通道"，A/B/C 三类高层次人才引进材料预审时间由 45 天缩至 14 天，人才补贴一次代兑现。</div>
+            <div class="win-card__stat">河南省人交中心 · 2024.09 共建</div>
+          </div>
+          <div class="win-card win-card--gov">
+            <div class="win-card__tenant">智联招聘河南 · 雇主品牌合作单位</div>
+            <div class="win-card__desc">园区 52 家企业共用一个"荥阳数字经济产业园"雇主品牌页，年均曝光 320 万次，简历投递成本降低 45%。</div>
+            <div class="win-card__stat">智联招聘 · 2025.01 合作</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Offering matrix -->
+<section class="section" id="offerings" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">OFFERINGS · 8 项人才招引服务清单</span>
+    <h2 class="section-title">从校招到落户，一张清单看完</h2>
+    <p class="section-lead">每项服务包含"需求盘点 · 通道对接 · 面试组织 · 到岗后跟踪"完整链路，全部由李冬梅总监团队直接负责。</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card__title">高校校招 · 郑大 / 河大 / 华水通道</div>
+        <div class="offer-card__body">郑州大学 · 河南大学 · 华北水利水电大学 3 校校企合作通道。每年春秋两季专场宣讲，年输送 200+ 应届生。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-高校校招">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">猎头对接 · 合作 12 家精选机构</div>
+        <div class="offer-card__body">科锐 · 万宝盛华 · 前程无忧 · 智联等 12 家合作猎企，园区统一议价，猎头费打包价省 30%。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-猎头对接">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">人才政策解读 · 四级政策梳理</div>
+        <div class="offer-card__body">国家 · 河南省 · 郑州市 · 荥阳市四级人才政策一图看懂。含"本硕博补贴 · 高层次人才 A/B/C 类 · 青年英才计划"完整对照表。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-政策解读">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">郑州户口 / 子女入学</div>
+        <div class="offer-card__body">户口迁入预审 + 学龄子女学位对接。累计办结户口 480 人、子女入学 156 户，一次通过率 96%。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-户口入学">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">高层次人才引进 · A/B/C 类</div>
+        <div class="offer-card__body">河南省高层次人才 A/B/C 三类引进快速通道，预审周期 45 天 → 14 天，含安家费代兑现。已引进 36 名。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-高层次人才">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">蓝领共享用工 · 2600 人调度池</div>
+        <div class="offer-card__body">园区共享用工调度池覆盖 SMT 装配、产品测试、仓储物流等岗位，波峰用工 48 小时内到岗，用工成本 ↓22%。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-蓝领共享用工">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">培训认证 · 岗前 + 在岗</div>
+        <div class="offer-card__body">与河南省职业技能鉴定中心共建 12 类岗位认证：信息安全 · 数据分析师 · 云运维 · SMT 高级技工等，认证补贴代申领。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-培训认证">了解更多</a>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card__title">落户一站办 · 15 项材料集成</div>
+        <div class="offer-card__body">户口 · 社保 · 公积金 · 人才补贴 · 租房补贴 · 购房补贴等 15 项材料集成办理，员工零跑腿，HR 只交一次表。</div>
+        <a class="offer-card__more" href="mailto:lidongmei@xingyang-park.gov.cn?subject=咨询-人才招引-落户一站办">了解更多</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Insights grid -->
+<section class="section" id="insights">
+  <div class="container-wide">
+    <span class="section-kicker">INSIGHTS · 洞察内容</span>
+    <h2 class="section-title">最近的政策解读 · 案例复盘 · 白皮书</h2>
+    <div class="insight-grid">
+      <a class="card" href="../insights/">
+        <span class="chip chip--policy">政策</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2025 年郑州人才补贴新政 · 本硕博补贴上调 30% 解读</div>
+        <div class="card-body">本科补贴 1.5 万→2 万 · 硕士 5 万→6.5 万 · 博士 10 万→13 万 · 附申领清单。</div>
+        <div class="card-cta">阅读全文</div>
+      </a>
+      <a class="card" href="../cases/dahua.html">
+        <span class="chip chip--case">案例</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">大华 68 名工程师 4 周落户 + 子女入学的完整方法论</div>
+        <div class="card-body">四段闭环拆解 · 关键节点甘特图 · 3 个可复用的模板。</div>
+        <div class="card-cta">查看案例</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">《2025 中原数字经济人才供给白皮书》</div>
+        <div class="card-body">与郑州大学就业指导中心联合发布 · 56 页 · 覆盖 22 类岗位缺口分析。</div>
+        <div class="card-cta">下载 PDF</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--report">报告</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">Q2 郑州数字经济薪酬雷达 · 荥阳 vs 郑东</div>
+        <div class="card-body">研发 · 测试 · 运维 · 安全 4 类岗位薪酬同比与地域差异分析。</div>
+        <div class="card-cta">阅读报告</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--video">视频</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">李冬梅总监讲堂 · 高层次人才引进"6 步法"</div>
+        <div class="card-body">22 分钟精讲 · 附 A/B/C 三类材料清单与自查表。</div>
+        <div class="card-cta">观看视频</div>
+      </a>
+      <a class="card" href="../insights/">
+        <span class="chip chip--event">活动</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">2026-09-20 · 荥阳秋季校招联合宣讲会</div>
+        <div class="card-body">园区 52 家企业 · 郑大河大华水三校联合宣讲 · 岗位 800+。</div>
+        <div class="card-cta">立即报名</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="section" id="blog" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题</span>
+    <h2 class="section-title">人才招引 · 5 个最常被问的问题</h2>
+    <div class="faq">
+      <details open>
+        <summary>Q1. 我不在荥泽入驻，也能用人才招引服务吗？</summary>
+        <div>
+          可以，但享受"非入驻价"。入驻企业享受 8 大服务打包价（人才招引单模块相当于 3 折）。
+          非入驻企业按<b>单岗位招聘 ¥3800-¥1.2 万/职位</b>计费，仍比市场猎头平均 ¥2-4 万便宜 50% 以上。
+          <b>可先预约 30 分钟免费人才诊断</b>，评估你今年可用的招引通道清单，再决定是否付费委托。
+        </div>
+      </details>
+      <details>
+        <summary>Q2. 招工到岗周期 ↓50% 是怎么算的？</summary>
+        <div>
+          我们统计的是<b>过去 24 个月荥泽通道输送的 3200+ 岗位</b>，从企业提出 JD 到候选人到岗的平均周期 <b>约 30 天</b>。
+          郑州市人社局 2024 年度就业服务年报显示，市场平均招工到岗周期为 <b>58-62 天</b>。
+          因此我们用"↓50%"表示相对缩短幅度（近似值）。<b>校招通道到岗最快 14 天，蓝领共享用工最快 48 小时。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 如果招来的人 3 个月内离职，怎么办？</summary>
+        <div>
+          <b>视招引类型分档</b>。校招和猎头岗位采用"<b>3 个月免费替换 · 6 个月半价替换</b>"机制。
+          高层次人才引进采用"<b>1 年跟踪服务 · 期间发生离职免费再引进</b>"。
+          蓝领共享用工按小时/日计费，无留存承诺但享受 24 小时内补员。
+          <b>无论哪种情况，都会先给书面服务协议再签约。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 员工个人信息 / 简历数据的保密性怎么保障？</summary>
+        <div>
+          李冬梅总监团队<b>全员签署《候选人隐私保护协议》</b>，符合《个人信息保护法》要求。
+          候选人简历在候选人本人授权后仅用于对应招聘岗位递交，<b>不进入荥泽任何简历库二次使用</b>。
+          企业招聘信息也仅在授权渠道发布。<b>52 家客户至今零投诉、零数据泄露事件。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q5. 人才招引和政策申报是什么关系？</summary>
+        <div>
+          <b>互相赋能</b>。政策申报帮企业拿到"高企 · 专精特新"资质，人才招引把"人才补贴 · 高层次人才安家费"真金白银兑到企业和员工账户。
+          荥泽同时提供两项服务，<b>材料复用率 75%</b>——高企申报中的研发人员名单可直接作为人才补贴申领的附件。
+          <b>推荐招引与政策同步启动，兑现资金最大化。</b>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SPOC + 13. RFS Form -->
+<section class="section" id="rfs">
+  <div class="container-wide">
+    <span class="section-kicker">RFS · 请求服务</span>
+    <h2 class="section-title">招引咨询 · 你的方案专家在这里</h2>
+
+    <!-- SPOC -->
+    <div class="spoc-card">
+      <div class="spoc-avatar">李</div>
+      <div>
+        <div class="spoc-name">李冬梅</div>
+        <div class="spoc-title">人才服务总监 · 荥泽人才引进中心主任</div>
+        <div class="spoc-contact">
+          邮箱 · lidongmei@xingyang-park.gov.cn<br>
+          电话 · 0371-5567-8903 · 微信同号<br>
+          在岗 · 每周二、周四 14:00-17:00 1:1 咨询窗口
+        </div>
+      </div>
+      <div class="spoc-qr">微信 QR</div>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">或者填一张 RFS 需求表，24 小时内回复</h3>
+    <form class="form-inline" onsubmit="event.preventDefault(); alert('已收到申请，24 小时内联系您。');">
+      <div class="field">
+        <label for="rfs-name">姓名 *</label>
+        <input type="text" id="rfs-name" name="name" required placeholder="请填真实姓名">
+      </div>
+      <div class="field">
+        <label for="rfs-company">公司 *</label>
+        <input type="text" id="rfs-company" name="company" required placeholder="工商注册全称">
+      </div>
+      <div class="field">
+        <label for="rfs-tel">电话 *</label>
+        <input type="tel" id="rfs-tel" name="tel" required placeholder="移动电话（首选）">
+      </div>
+      <div class="field">
+        <label for="rfs-wechat">微信（可选）</label>
+        <input type="text" id="rfs-wechat" name="wechat" placeholder="便于快速沟通">
+      </div>
+      <div class="field field--full">
+        <label for="rfs-need">需求描述 *</label>
+        <textarea id="rfs-need" name="need" rows="4" required placeholder="例如：我们是一家软件公司，需要招聘 20 名工程师，其中 8 名需要办理郑州户口，希望了解荥泽的校招通道与人才补贴代兑现服务。"></textarea>
+      </div>
+      <div class="field">
+        <label for="rfs-time">联系时间偏好</label>
+        <select id="rfs-time" name="time">
+          <option>工作日 09:00-12:00</option>
+          <option>工作日 14:00-18:00</option>
+          <option>工作日 18:00 之后</option>
+          <option>周末</option>
+          <option>邮件即可</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="rfs-source">如何了解到我们</label>
+        <select id="rfs-source" name="source">
+          <option>搜索引擎</option>
+          <option>朋友推荐</option>
+          <option>政府/园区活动</option>
+          <option>36 氪 / 媒体报道</option>
+          <option>其他</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">
+        提交申请 · 24 小时内回复
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+    <p style="color:var(--text-3);font-size:var(--fs-xs);margin-top:var(--sp-3);">提交即视为同意荥泽在 24 小时内电话/微信联系你。信息仅用于服务对接，不外传。</p>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#rfs" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询入驻
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>8 大运营服务</h5>
+        <a href="./policy.html">政策申报</a>
+        <a href="./financing.html">融资对接</a>
+        <a href="./recruitment.html">人才招引</a>
+        <a href="./space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>更多服务</h5>
+        <a href="./investment.html">招商合作</a>
+        <a href="./supply-chain.html">产业链撮合</a>
+        <a href="./it-cloud.html">IT &amp; 云</a>
+        <a href="./legal.html">法律咨询</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#rfs">合作咨询</a>
+        <a href="mailto:lidongmei@xingyang-park.gov.cn">lidongmei@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 荥泽招商飞轮<sup class="tm">®</sup> 已注册商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

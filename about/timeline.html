@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>里程碑 · Timeline · 2019 → 2026 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园里程碑时间线 · 从 2019 到 2026 · 从 0 到 52 家企业 · 从概念到郑西数字经济新高地 · 4 大平台级 IP 发布 · 累计投资 30 亿元。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ===== 垂直时间轴 ===== */
+  .timeline {
+    position: relative;
+    padding: var(--sp-8) 0;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  /* 中央垂直线 */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    background: linear-gradient(180deg,
+      var(--gov)   0%,
+      var(--gov)   14%,
+      var(--enterprise) 28%,
+      var(--enterprise) 42%,
+      var(--ecosystem) 56%,
+      var(--ecosystem) 70%,
+      var(--gold)  84%,
+      var(--gold)  100%);
+    border-radius: var(--radius-pill);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: var(--sp-12);
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: stretch;
+    gap: 0;
+  }
+  .tl-year {
+    grid-column: 2;
+    display: flex; flex-direction: column; align-items: center; gap: var(--sp-2);
+    position: relative;
+  }
+  .tl-year-dot {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--gold);
+    display: grid; place-items: center;
+    color: var(--gold); font-weight: 800;
+    font-size: var(--fs-sm);
+    z-index: 2;
+    box-shadow: 0 0 0 6px var(--bg);
+  }
+  .tl-year-dot--gov { border-color: var(--gov); color: var(--gov-hover); }
+  .tl-year-dot--ent { border-color: var(--enterprise); color: var(--enterprise-hover); }
+  .tl-year-dot--eco { border-color: var(--ecosystem); color: var(--ecosystem); }
+  .tl-year-label { color: var(--text-3); font-size: var(--fs-xs); text-align: center; }
+
+  .tl-content {
+    padding: var(--sp-6);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    position: relative;
+    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .tl-content:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+  .tl-item--left .tl-content  { grid-column: 1; margin-right: var(--sp-6); text-align: right; }
+  .tl-item--right .tl-content { grid-column: 3; margin-left: var(--sp-6); }
+
+  /* 连接指针 */
+  .tl-content::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    width: 12px; height: 12px;
+    background: var(--bg-2);
+    border-top: 1px solid var(--bg-line);
+    border-right: 1px solid var(--bg-line);
+  }
+  .tl-item--left .tl-content::before  { right: -7px; transform: rotate(45deg); }
+  .tl-item--right .tl-content::before { left: -7px; transform: rotate(-135deg); }
+
+  .tl-chip-row { display: flex; gap: var(--sp-2); margin-bottom: var(--sp-3); flex-wrap: wrap; }
+  .tl-item--left .tl-chip-row { justify-content: flex-end; }
+  .tl-title { font-size: var(--fs-lg); font-weight: 800; margin-bottom: var(--sp-2); line-height: 1.25; }
+  .tl-body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3); }
+  .tl-meta { display: flex; gap: var(--sp-4); flex-wrap: wrap; font-size: var(--fs-xs); color: var(--text-3); padding-top: var(--sp-3); border-top: 1px dashed var(--bg-line); }
+  .tl-item--left .tl-meta { justify-content: flex-end; }
+  .tl-meta b { color: var(--gold); font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .timeline::before { left: 27px; transform: none; }
+    .tl-item { grid-template-columns: 54px 1fr; gap: var(--sp-4); margin-left: 0; }
+    .tl-year { grid-column: 1 !important; }
+    .tl-item--left .tl-content,
+    .tl-item--right .tl-content { grid-column: 2; margin: 0; text-align: left; }
+    .tl-item--left .tl-content::before,
+    .tl-item--right .tl-content::before { left: -7px; right: auto; transform: rotate(-135deg); }
+    .tl-item--left .tl-chip-row,
+    .tl-item--left .tl-meta { justify-content: flex-start; }
+  }
+
+  /* ===== 未来路线图 ===== */
+  .roadmap-card {
+    padding: var(--sp-8);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    border-top: 4px solid;
+    height: 100%;
+    display: flex; flex-direction: column;
+  }
+  .roadmap-card--2026 { border-top-color: var(--gov); }
+  .roadmap-card--2027 { border-top-color: var(--enterprise); }
+  .roadmap-card--2028 { border-top-color: var(--gold); }
+  .roadmap-year { font-size: var(--fs-4xl); font-weight: 900; line-height: 1; margin-bottom: var(--sp-4); font-variant-numeric: tabular-nums; }
+  .roadmap-card--2026 .roadmap-year { color: var(--gov-hover); }
+  .roadmap-card--2027 .roadmap-year { color: var(--enterprise-hover); }
+  .roadmap-card--2028 .roadmap-year { color: var(--gold); }
+  .roadmap-label { color: var(--text-3); font-size: var(--fs-xs); letter-spacing: .1em; text-transform: uppercase; margin-bottom: var(--sp-4); }
+  .roadmap-list { list-style: none; padding: 0; margin: 0; }
+  .roadmap-list li { padding: var(--sp-3) 0; border-bottom: 1px dashed var(--bg-line); font-size: var(--fs-sm); color: var(--text-1); line-height: var(--lh-relaxed); }
+  .roadmap-list li:last-child { border-bottom: 0; }
+  .roadmap-list li::before { content: "▸ "; color: var(--gold); font-weight: 700; }
+
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="./" class="active">关于我们</a>
+    </div>
+    <a class="nav-cta" href="./#contact">咨询入驻</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">关于我们</span>
+    <a href="./">关于我们</a>
+    <a href="./leadership.html">领导班子</a>
+    <a href="./governance.html">七方共治</a>
+    <a href="./timeline.html" class="active">里程碑</a>
+    <a href="./#contact">联系</a>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">TIMELINE · 里程碑</span>
+    <h1 class="hero-title">2019 → 2026 · 从 0 到 52 家企业</h1>
+    <p class="hero-lead">
+      从概念到郑西数字经济新高地——8 年时间，260 亩土地上长出了 40.4 万㎡ 建筑、
+      52 家入驻企业、4 大平台级 IP、300+ 认证师、¥30 亿累计投资。
+      本页梳理荥阳数字经济产业园从战略框架签署到 2026 年当下的完整时间线，
+      并公开 2026-2028 未来三年路线图。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#timeline">
+        查看里程碑
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#roadmap">2026-2028 路线图</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 时间线 ============ -->
+<section class="section" id="timeline">
+  <div class="container">
+    <span class="section-kicker">MILESTONES · 8 年 8 座里程碑</span>
+    <h2 class="section-title">2019 · 2020 · 2021 · 2022 · 2023 · 2024 · 2025 · 2026</h2>
+    <p class="section-lead">
+      每一年一块里程碑——政府认可、方法论发布、重要签约、荣誉、融资，五类事件颜色分块，
+      左右交替，一目了然。
+    </p>
+
+    <div class="timeline">
+
+      <!-- 2019 -->
+      <div class="tl-item tl-item--right">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--gov">2019</div>
+          <div class="tl-year-label">筹建元年</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--policy">政府认可</span>
+            <span class="chip chip--news">战略签署</span>
+          </div>
+          <h3 class="tl-title">荥阳数字经济产业园正式筹建</h3>
+          <p class="tl-body">
+            王志远（太能控股创始人）与荥阳市人民政府签署《数字经济产业园战略合作框架》。
+            荥阳市委常委会审议通过将园区列为"十四五"三大主导产业之一，
+            荥阳城投同步出资完成 260 亩土地一级使用权收储。
+            <b>"三方共治"雏形</b>——政府定方向、城投持资产、太能跑运营的分工模式第一次出现在协议正文。
+          </p>
+          <div class="tl-meta">
+            <span>关键人物：<b>王志远</b></span>
+            <span>规划规模：<b>260 亩</b></span>
+            <span>合作三方：<b>政府 + 城投 + 太能</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2020 -->
+      <div class="tl-item tl-item--left">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--ent">2020</div>
+          <div class="tl-year-label">首期交付</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--case">首批入驻</span>
+            <span class="chip chip--report">融资</span>
+          </div>
+          <h3 class="tl-title">首期 8.5 万㎡ 交付 · 首批 12 家入驻</h3>
+          <p class="tl-body">
+            A 座楼宇 8.5 万㎡ 主体完工并投入运营。首批 12 家企业入驻，
+            涵盖工业软件、云服务、供应链金融、智能制造四大方向。
+            荥阳城投完成企业债 3 亿元定向发行，用于二期建筑主体开工。
+            同期郑州荥泽数链产业发展有限公司注册成立，
+            作为园区日常运营公司正式承接三方合作框架下的执行任务。
+          </p>
+          <div class="tl-meta">
+            <span>交付：<b>8.5 万㎡</b></span>
+            <span>入驻：<b>12 家</b></span>
+            <span>融资：<b>¥3 亿</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="tl-item tl-item--right">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--gov">2021</div>
+          <div class="tl-year-label">机制成型</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--policy">共治机制</span>
+            <span class="chip chip--insight">学术加入</span>
+          </div>
+          <h3 class="tl-title">三方共治机制正式成文 · 戴继涛博士加入学术委员会</h3>
+          <p class="tl-body">
+            《荥阳数字经济产业园三方共治章程》v1.0 正式发布——政府 / 城投 / 太能三方
+            在董事会各占 2 席、"重大事项一票赞成即行、一票反对即停"机制首次写入正式章程。
+            同年戴继涛博士以 DBA 学术顾问身份加入园区学术委员会，
+            将其博士论文的 <b>7 主体理论</b>与园区实践正式对接，为 2022 年 DTSI® 1.0 白皮书埋下伏笔。
+          </p>
+          <div class="tl-meta">
+            <span>章程：<b>v1.0</b></span>
+            <span>关键人物：<b>戴继涛</b></span>
+            <span>学术委员会：<b>成立</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="tl-item tl-item--left">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--gov">2022</div>
+          <div class="tl-year-label">方法论元年</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--whitepaper">白皮书</span>
+            <span class="chip chip--insight">平台方法论</span>
+          </div>
+          <h3 class="tl-title">DTSI® 1.0 白皮书发布 · 首个 42 页方法论文档</h3>
+          <p class="tl-body">
+            戴继涛博士主编、园区学术委员会联合发布《DTSI 数字化转型自我诊断指数 1.0 白皮书》。
+            42 页正文首次系统性发布<b>七方 35 指标坐标系</b>、AHP 权重推导全过程、
+            300+ 专家样本的一致性检验（CR=0.0283）数据。同期 DTSI® 商标获国家知识产权局正式注册，
+            方法论从"内部工具"升级为"可授权 IP"。全年新增入驻 8 家，累计 20 家。
+          </p>
+          <div class="tl-meta">
+            <span>白皮书：<b>42 页</b></span>
+            <span>专家样本：<b>300+</b></span>
+            <span>累计入驻：<b>20 家</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="tl-item tl-item--right">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--ent">2023</div>
+          <div class="tl-year-label">标杆签约</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--case">重要签约</span>
+            <span class="chip chip--news">品牌破圈</span>
+          </div>
+          <h3 class="tl-title">大华股份签约郑州总部 · 3 个月完成落地</h3>
+          <p class="tl-body">
+            浙江大华股份郑州总部正式签约入驻，租赁面积 1.2 万㎡，标杆意义显著——
+            这是园区首次接住一线上市公司的区域总部级项目。从首次接触到人员到岗，
+            <b>仅用 3 个月</b>完成签约 → 空间定制 → 政策申报 → 人才引进全流程，
+            创下园区服务效率纪录。荥阳市委市政府为此在《河南日报》头版发表署名文章
+            《一个中部县级市，凭什么留住大华》，园区正式进入媒体视野。
+          </p>
+          <div class="tl-meta">
+            <span>客户：<b>大华股份</b></span>
+            <span>面积：<b>1.2 万㎡</b></span>
+            <span>周期：<b>3 个月</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="tl-item tl-item--left">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--eco">2024</div>
+          <div class="tl-year-label">仿真+荣誉</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--report">平台方法论</span>
+            <span class="chip chip--event">省级荣誉</span>
+          </div>
+          <h3 class="tl-title">X-Flow Dynamics™ 仿真模型上线 · 5G+ 工业互联网省级示范园区</h3>
+          <p class="tl-body">
+            郭子豪主导的 <b>X-Flow Dynamics™ 全流程流量动力学</b>仿真引擎正式上线，
+            60 月长周期政策沙盘首次可拖动、可回放、可导出。同年园区入选
+            <b>河南省"5G+ 工业互联网"示范园区</b>，为全省首批 5 家之一。
+            韩雪梅（时任荥阳市工信局副局长）代表园区在省工信厅授牌仪式发言。
+            全年新增入驻 10 家，累计 32 家，年运营收入首次破 4 亿元。
+          </p>
+          <div class="tl-meta">
+            <span>仿真周期：<b>60 月</b></span>
+            <span>荣誉：<b>省级示范</b></span>
+            <span>累计入驻：<b>32 家</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="tl-item tl-item--right">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--eco">2025</div>
+          <div class="tl-year-label">认证元年</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--whitepaper">五级认证</span>
+            <span class="chip chip--event">认证师首期</span>
+          </div>
+          <h3 class="tl-title">PDTMM® 五级认证发布 · CPA-PDTMM 认证师首期毕业 210 人</h3>
+          <p class="tl-body">
+            《PDTMM 园区数字化转型成熟度模型 1.0 标准》正式发布——L1 起步 · L2 合格 · L3 良好 · L4 优秀 · L5 卓越，
+            <b>区块链存证</b> + <b>REITs 对接指南</b>成为国内首个直连资本市场的园区成熟度标准。
+            同期 CPA-PDTMM 认证师体系首期开班，5 天集中训练 · 40 学时 · 通过率 78% ·
+            首期 210 人毕业，覆盖 27 个省市。累计入驻升至 42 家，PDTMM 商标同步注册。
+          </p>
+          <div class="tl-meta">
+            <span>标准：<b>PDTMM 1.0</b></span>
+            <span>认证师：<b>210 人</b></span>
+            <span>累计入驻：<b>42 家</b></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2026 -->
+      <div class="tl-item tl-item--left">
+        <div class="tl-year">
+          <div class="tl-year-dot tl-year-dot--eco">2026</div>
+          <div class="tl-year-label">生态破圈</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-chip-row">
+            <span class="chip chip--case">重要签约</span>
+            <span class="chip chip--report">API 开放</span>
+            <span class="chip chip--event">累计目标</span>
+          </div>
+          <h3 class="tl-title">OpenX@X™ 开发者社区上线 · 累计 52 家 · ¥30 亿累计投资</h3>
+          <p class="tl-body">
+            <b>OpenX@X™ 开放开发者社区</b> Beta 版正式上线，5 步法（识别→接入→重构→协同→演化）
+            + RESTful/GraphQL API v1 发布，首月开发者注册破 380 人。同期优刻得（UCloud）、
+            安恒信息、森赫电梯 3 家标杆客户签约入驻，累计入驻升至 <b>52 家</b>，
+            累计投资突破 <b>¥30 亿</b>。7 月荥阳市委常委会审议通过《荥阳数字经济产业园
+            2026-2028 三年发展纲要》，正式提出"2028 中部第一园区"目标。
+          </p>
+          <div class="tl-meta">
+            <span>标杆客户：<b>优刻得 · 安恒 · 森赫</b></span>
+            <span>累计入驻：<b>52 家</b></span>
+            <span>累计投资：<b>¥30 亿</b></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2026-2028 路线图 ============ -->
+<section class="section" id="roadmap">
+  <div class="container-wide">
+    <span class="section-kicker">ROADMAP · 未来路线图</span>
+    <h2 class="section-title">2026 → 2028 · 三年路线图</h2>
+    <p class="section-lead">
+      来自 2026 年 7 月荥阳市委常委会审议通过的《荥阳数字经济产业园 2026-2028 三年发展纲要》。
+      三年三步：H2 冲量 · 全国铺开 · 中部登顶 & 范式输出。
+    </p>
+
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+
+      <div class="roadmap-card roadmap-card--2026">
+        <div class="roadmap-label">2026 H2 · 收官冲量</div>
+        <div class="roadmap-year">2026</div>
+        <ul class="roadmap-list">
+          <li>OpenX@X™ 开发者社区注册数破 <b>1000 人</b></li>
+          <li>4 大平台级 IP 的 <b>API v1 稳定版</b>全面发布</li>
+          <li>累计入驻企业突破 <b>60 家</b></li>
+          <li>PDTMM® 认证师累计培养 <b>300 人</b>，覆盖 31 省市</li>
+          <li>启动首个"荥阳范式"外省试点园区（河北 / 山东候选）</li>
+          <li>发布《河南数字经济产业发展报告 2026》</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-card roadmap-card--2027">
+        <div class="roadmap-label">2027 · 全国铺开</div>
+        <div class="roadmap-year">2027</div>
+        <ul class="roadmap-list">
+          <li>DTSI® 在<b>全国 5 家试点园区</b>完整落地</li>
+          <li>PDTMM® 认证师累计 <b>500 人</b>，出海东南亚试点</li>
+          <li>累计入驻企业突破 <b>85 家</b>，全年营收 <b>¥12 亿</b></li>
+          <li>启动 <b>IPO 筹备</b>：申请中信证券辅导，冲刺深交所主板</li>
+          <li>PDTMM 纳入河南省数字化转型专项资金申报参考</li>
+          <li>与信通院联合发布《园区数字化转型国家标准》草案</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-card roadmap-card--2028">
+        <div class="roadmap-label">2028 · 中部登顶</div>
+        <div class="roadmap-year">2028</div>
+        <ul class="roadmap-list">
+          <li>正式坐拥"<b>中国中部数字经济第一园区</b>"位置</li>
+          <li>出海（新加坡 / 越南 / 印尼）建立首批海外合作点</li>
+          <li>累计入驻突破 <b>120 家</b>，全年营收 <b>¥20 亿</b></li>
+          <li>输出<b>可复制的"三方共治 + 平台化运营"范式</b></li>
+          <li>4 大平台级 IP 累计授权收入 <b>¥4 亿</b>/年</li>
+          <li>提交 IPO 上市申请材料，估值目标 <b>¥120 亿</b></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sticky 咨询 ============ -->
+<a class="help-widget" href="./#contact" aria-label="联系我们">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  联系
+</a>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>关于我们</h5>
+        <a href="./">总览</a>
+        <a href="./leadership.html">领导班子</a>
+        <a href="./governance.html">七方共治</a>
+        <a href="./timeline.html">里程碑</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="./#contact">合作咨询</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+        <a href="tel:0371-6425-8899">0371-6425-8899</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

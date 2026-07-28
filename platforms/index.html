@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4 大平台级 IP · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园 4 大平台级 IP：DTSI 七方 35 指标数字化诊断、X-Flow Dynamics 全流程流量动力学、PDTMM 数字化转型五级认证、OpenX@X 开放开发者社区——数字化转型的方法论产品。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* --- 页面局部样式：Platform Hub 专属 --- */
+  .platform-card { position: relative; overflow: hidden; display: flex; flex-direction: column; }
+  .platform-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gov), var(--enterprise));
+  }
+  .platform-card__mark { font-size: var(--fs-xs); color: var(--gold); font-weight: 700; letter-spacing: .1em; margin-bottom: var(--sp-2); }
+  .platform-card__name { font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-3); line-height: 1.25; }
+  .platform-card__name sup { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+  .platform-card__pitch { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-5); flex: 1; }
+  .platform-card__stat { display: flex; align-items: baseline; gap: var(--sp-2); padding-top: var(--sp-4); border-top: 1px dashed var(--bg-line); }
+  .platform-card__stat-num { font-size: var(--fs-2xl); font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .platform-card__stat-lbl { font-size: var(--fs-xs); color: var(--text-3); }
+  .platform-card:hover::before { height: 5px; }
+
+  /* Cobalt / Topaz 对比 */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-8); }
+  .compare-card { padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  .compare-card--topaz { background: var(--bg-2); }
+  .compare-card--cobalt { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border-color: rgba(184,16,46,.35); }
+  .compare-card h4 { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-3); display: flex; align-items: center; gap: var(--sp-2); }
+  .compare-card ul { list-style: none; padding: 0; margin: var(--sp-3) 0 0 0; }
+  .compare-card li { padding: var(--sp-2) 0; font-size: var(--fs-sm); color: var(--text-2); border-bottom: 1px dashed var(--bg-line); }
+  .compare-card li::before { content: "▸ "; color: var(--enterprise); }
+  .compare-card--cobalt li::before { color: var(--gov); }
+  @media (max-width: 900px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  /* SVG diagram wrapper */
+  .diagram-wrap { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-6); }
+  .diagram-wrap svg { width: 100%; height: auto; }
+
+  /* Icon */
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="./" class="active">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#consult">咨询入驻</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">4 大平台级 IP</span>
+    <a href="#overview" class="active">概览</a>
+    <a href="#architecture">架构</a>
+    <a href="#applications">应用场景</a>
+    <a href="#certification">认证/培训</a>
+    <a href="#team">团队</a>
+    <a href="#downloads">下载</a>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <span class="hero-kicker">PLATFORM · 平台级 IP</span>
+    <h1 class="hero-title">荥阳 4 大平台级 IP · 数字化转型的方法论产品</h1>
+    <p class="hero-lead">
+      DTSI<sup style="color:var(--gold)">®</sup>、X-Flow Dynamics<sup style="color:var(--gold)">™</sup>、PDTMM<sup style="color:var(--gold)">®</sup>、OpenX@X<sup style="color:var(--gold)">™</sup>——
+      从戴继涛博士 242 页 DBA 论文出发，把"传统园区数字化转型"沉淀为 4 个可授权、可复制、可交付的方法论产品，
+      面向政府 · 园区运营 · 入驻企业 · 生态合作方全链路落地。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#platforms">
+        探索 4 大平台
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#architecture">查看架构关系图</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Cobalt vs Topaz 定位说明 ============ -->
+<section class="section" id="why-platform">
+  <div class="container-wide">
+    <span class="section-kicker">POSITIONING · 定位</span>
+    <h2 class="section-title">为什么是"平台"，不是"方法论文档"</h2>
+    <p class="section-lead">
+      借鉴 Infosys Cobalt / Topaz 的品牌架构：<b>Cobalt</b> 是可组合的能力平台（Infosys 云战略核心），<b>Topaz</b> 是聚焦垂直战场的产品化 IP。
+      荥阳 4 大平台各自对应一条清晰的价值链——它们不是白皮书，而是<b>带工具链 · 带证书 · 带认证师 · 带客户案例</b>的产品。
+    </p>
+    <div class="compare-grid">
+      <div class="compare-card compare-card--topaz">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--enterprise)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          方法论文档（业内常态）
+        </h4>
+        <ul>
+          <li>一本 PDF，读完就结束</li>
+          <li>需要客户自己找团队实施</li>
+          <li>无第三方认证 / 无客户可信度</li>
+          <li>无法沉淀数据反哺方法本身</li>
+          <li>无收入模型，是"营销赠品"</li>
+          <li>竞对可以直接抄走概念</li>
+        </ul>
+      </div>
+      <div class="compare-card compare-card--cobalt">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--gov)" stroke-width="2"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+          平台级 IP（荥阳的做法）
+        </h4>
+        <ul>
+          <li>方法论 + 数字工具 + 数据库三件套</li>
+          <li>官方认证师执行（CPA-PDTMM）</li>
+          <li>区块链存证 · 证书可查</li>
+          <li>每次交付都反哺权重模型</li>
+          <li>年费 + 培训费 + 认证费 三收入</li>
+          <li>已注册商标 · 已出学术论文</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 大平台卡片 ============ -->
+<section class="section-tight" id="platforms">
+  <div class="container-wide">
+    <span class="section-kicker">PORTFOLIO · 平台矩阵</span>
+    <h2 class="section-title">4 大平台级 IP</h2>
+    <p class="section-lead">每一个都对应转型旅程的一个关键动作——诊断、演化、认证、共建。</p>
+    <div class="grid grid-2" style="margin-top: var(--sp-8);">
+
+      <a href="./dtsi.html" class="card platform-card">
+        <div class="platform-card__mark">PLATFORM · 01</div>
+        <div class="platform-card__name">DTSI<sup>®</sup></div>
+        <div class="card-tag">数字化转型自我诊断</div>
+        <p class="platform-card__pitch">
+          <b>Digital Transformation Self-Index</b>——七方 35 指标数字化坐标系。
+          每家企业、每个园区、每级政府，都能在同一把标尺上看到自己"数字化转型"的真实位置：
+          政府 25.7% · 资产 18.7% · 运营 14.3% · 企业 12.0% · 科研 11.0% · 员工 9.3% · 居民 9.0%。
+        </p>
+        <div class="platform-card__stat">
+          <span class="platform-card__stat-num">300+</span>
+          <span class="platform-card__stat-lbl">AHP 专家样本 · CR=0.0283 · 权重可信</span>
+        </div>
+        <span class="card-cta">进入 DTSI 平台</span>
+      </a>
+
+      <a href="./xflow.html" class="card platform-card">
+        <div class="platform-card__mark">PLATFORM · 02</div>
+        <div class="platform-card__name">X-Flow Dynamics<sup>™</sup></div>
+        <div class="card-tag">全流程流量动力学</div>
+        <p class="platform-card__pitch">
+          面向 7 主体的<b>系统动力学仿真引擎</b>——把"招商流量 → 入驻转化 → 企业成长 → 数据回流"
+          做成可拖动、可回放、可导出的政策沙盘。3 分钟看到未来 36 个月的走势，
+          让每一个决策变化都能被量化：改一个滑杆，看见 60 月演化。
+        </p>
+        <div class="platform-card__stat">
+          <span class="platform-card__stat-num">60</span>
+          <span class="platform-card__stat-lbl">月长周期仿真 · 5 主案例已跑通</span>
+        </div>
+        <span class="card-cta">进入 X-Flow 平台</span>
+      </a>
+
+      <a href="./pdtmm.html" class="card platform-card">
+        <div class="platform-card__mark">PLATFORM · 03</div>
+        <div class="platform-card__name">PDTMM<sup>®</sup></div>
+        <div class="card-tag">数字化转型五级认证</div>
+        <p class="platform-card__pitch">
+          <b>Park Digital Transformation Maturity Model</b>——数字化健康证 + 资本市场入场券 + 政府验收准绳三合一。
+          L1 起步 · L2 合格 · L3 良好 · L4 优秀 · L5 卓越，区块链存证、CPA-PDTMM 认证师体系、
+          直连 REITs / IPO 申报材料。
+        </p>
+        <div class="platform-card__stat">
+          <span class="platform-card__stat-num">5 级</span>
+          <span class="platform-card__stat-lbl">CMMI × DCMM × DTSI × AHP × OpenX@X 融合</span>
+        </div>
+        <span class="card-cta">进入 PDTMM 平台</span>
+      </a>
+
+      <a href="./openxx.html" class="card platform-card">
+        <div class="platform-card__mark">PLATFORM · 04</div>
+        <div class="platform-card__name">OpenX@X<sup>™</sup></div>
+        <div class="card-tag">开放开发者社区</div>
+        <p class="platform-card__pitch">
+          <b>Open eXtension at X</b>——数字化转型方法论的开发者社区与沙箱。
+          开放 API、开放数据接入协议、开放场景插件市场：让第三方咨询公司、
+          高校研究团队、行业 ISV 都能"在 DTSI/PDTMM 之上"构建自己的应用。
+        </p>
+        <div class="platform-card__stat">
+          <span class="platform-card__stat-num">5 步法</span>
+          <span class="platform-card__stat-lbl">识别→接入→重构→协同→演化</span>
+        </div>
+        <span class="card-cta">进入 OpenX@X 平台</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 架构关系图 ============ -->
+<section class="section" id="architecture">
+  <div class="container-wide">
+    <span class="section-kicker">ARCHITECTURE · 4 大平台架构关系图</span>
+    <h2 class="section-title">DTSI · X-Flow · PDTMM · OpenX@X 如何协同</h2>
+    <p class="section-lead">
+      DTSI 是<b>测量层</b>——给出坐标；X-Flow 是<b>推演层</b>——给出趋势；PDTMM 是<b>认证层</b>——给出信用；OpenX@X 是<b>开放层</b>——给出生态。
+      四者共享同一套 7 主体本体论 + 35 指标数据模型。
+    </p>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4 大平台架构关系图">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+          <linearGradient id="gradGov" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#b8102e"/><stop offset="1" stop-color="#d11a3a"/>
+          </linearGradient>
+          <linearGradient id="gradEnt" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#7dd3fc"/>
+          </linearGradient>
+          <linearGradient id="gradEco" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#6ee7b7"/>
+          </linearGradient>
+          <linearGradient id="gradGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fcd34d"/>
+          </linearGradient>
+        </defs>
+        <!-- Center hub: 7 stakeholders × 35 indicators -->
+        <rect x="360" y="180" width="180" height="100" rx="12" fill="#0f1424" stroke="#fbbf24" stroke-width="2"/>
+        <text x="450" y="215" text-anchor="middle" fill="#fbbf24" font-size="16" font-weight="700">共享本体论</text>
+        <text x="450" y="238" text-anchor="middle" fill="#e6eefc" font-size="13">7 主体 × 5 指标</text>
+        <text x="450" y="258" text-anchor="middle" fill="#8b95a8" font-size="12">= 35 KPI 数据模型</text>
+
+        <!-- DTSI top-left -->
+        <rect x="80" y="60" width="220" height="110" rx="10" fill="url(#gradGov)" opacity="0.9"/>
+        <text x="190" y="95" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">DTSI®</text>
+        <text x="190" y="120" text-anchor="middle" fill="#fff" font-size="12" opacity="0.9">测量层 · Measurement</text>
+        <text x="190" y="145" text-anchor="middle" fill="#fff" font-size="11" opacity="0.85">给出你此刻的坐标</text>
+
+        <!-- X-Flow top-right -->
+        <rect x="600" y="60" width="220" height="110" rx="10" fill="url(#gradEnt)" opacity="0.9"/>
+        <text x="710" y="95" text-anchor="middle" fill="#0a0e1a" font-size="20" font-weight="800">X-Flow Dynamics™</text>
+        <text x="710" y="120" text-anchor="middle" fill="#0a0e1a" font-size="12">推演层 · Simulation</text>
+        <text x="710" y="145" text-anchor="middle" fill="#0a0e1a" font-size="11">推演 60 月未来趋势</text>
+
+        <!-- PDTMM bottom-left -->
+        <rect x="80" y="290" width="220" height="110" rx="10" fill="url(#gradGold)" opacity="0.95"/>
+        <text x="190" y="325" text-anchor="middle" fill="#0a0e1a" font-size="20" font-weight="800">PDTMM®</text>
+        <text x="190" y="350" text-anchor="middle" fill="#0a0e1a" font-size="12">认证层 · Certification</text>
+        <text x="190" y="375" text-anchor="middle" fill="#0a0e1a" font-size="11">L1→L5 五级颁证</text>
+
+        <!-- OpenX@X bottom-right -->
+        <rect x="600" y="290" width="220" height="110" rx="10" fill="url(#gradEco)" opacity="0.9"/>
+        <text x="710" y="325" text-anchor="middle" fill="#0a0e1a" font-size="20" font-weight="800">OpenX@X™</text>
+        <text x="710" y="350" text-anchor="middle" fill="#0a0e1a" font-size="12">开放层 · Ecosystem</text>
+        <text x="710" y="375" text-anchor="middle" fill="#0a0e1a" font-size="11">API · 沙箱 · 插件市场</text>
+
+        <!-- Connectors -->
+        <g stroke="#8b95a8" stroke-width="1.5" fill="none" color="#8b95a8">
+          <path d="M300 115 L360 200" marker-end="url(#arr)"/>
+          <path d="M600 115 L540 200" marker-end="url(#arr)"/>
+          <path d="M300 345 L360 260" marker-end="url(#arr)"/>
+          <path d="M600 345 L540 260" marker-end="url(#arr)"/>
+        </g>
+        <!-- Data flow labels -->
+        <text x="325" y="155" fill="#c8d0e0" font-size="11">诊断数据流入</text>
+        <text x="565" y="155" fill="#c8d0e0" font-size="11" text-anchor="end">仿真参数化</text>
+        <text x="325" y="315" fill="#c8d0e0" font-size="11">认证结果反哺</text>
+        <text x="565" y="315" fill="#c8d0e0" font-size="11" text-anchor="end">开发者贡献</text>
+
+        <!-- Bottom flywheel arrow -->
+        <path d="M120 230 Q 450 440 780 230" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)" color="#fbbf24"/>
+        <text x="450" y="420" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">飞轮闭环：诊断 → 推演 → 认证 → 生态 → 再诊断</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 量化成效 ============ -->
+<section class="section-tight" id="applications">
+  <div class="container-wide">
+    <div class="stats-banner">
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">已注册商标平台 IP</div></div>
+      <div class="stat"><div class="stat-num">7×5</div><div class="stat-label">主体 × 指标矩阵</div></div>
+      <div class="stat"><div class="stat-num">300+</div><div class="stat-label">AHP 专家样本</div></div>
+      <div class="stat"><div class="stat-num">5 园区</div><div class="stat-label">3 年实证数据</div></div>
+      <div class="stat"><div class="stat-num">+15.2</div><div class="stat-label">主案例 36 月 DTSI 增幅</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 认证 & 培训入口 ============ -->
+<section class="section" id="certification">
+  <div class="container-wide">
+    <span class="section-kicker">CERTIFICATION · 认证与培训</span>
+    <h2 class="section-title">从"被认证"到"成为认证师"</h2>
+    <p class="section-lead">4 大平台共享一套认证师培养体系——CPA-PDTMM（Certified Professional Assessor of PDTMM）。</p>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+      <div class="card">
+        <span class="card-tag card-tag--gov">园区认证</span>
+        <h4 class="card-title">PDTMM® 五级认证</h4>
+        <p class="card-body">申请人主要为地方政府、园区运营方。8-9 周完成 · L1-L5 分级颁证 · 区块链存证 · 直连 REITs/IPO 材料。</p>
+        <a href="./pdtmm.html#apply" class="card-cta">申请认证</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--policy">个人资质</span>
+        <h4 class="card-title">CPA-PDTMM 认证师</h4>
+        <p class="card-body">5 天集中训练 · 40 学时 · ¥4.8 万起（早鸟 ¥2.88 万）· 通过考核后可独立承接 PDTMM 项目。</p>
+        <a href="./pdtmm.html#trainer" class="card-cta">报名培训</a>
+      </div>
+      <div class="card">
+        <span class="card-tag">开发者认证</span>
+        <h4 class="card-title">OpenX@X™ 生态开发者</h4>
+        <p class="card-body">开放沙箱 + API + 插件市场 · 通过官方评审后进入认证开发者名录 · 参与国家标准编写机会。</p>
+        <a href="./openxx.html#developer" class="card-cta">加入社区</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 团队 ============ -->
+<section class="section" id="team">
+  <div class="container-wide">
+    <span class="section-kicker">TEAM · 平台专家团队</span>
+    <h2 class="section-title">方法论原创者 · 认证师首席 · 学术委员</h2>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+      <div class="card">
+        <h4 class="card-title">戴继涛 博士</h4>
+        <p style="color:var(--gold);font-size:var(--fs-sm);margin-bottom:var(--sp-2);">学术委员 · 方法论原创者</p>
+        <p class="card-body">DBA · 4 大平台共同学术奠基人。242 页博士论文首次将"七方 35 指标"标定为可 AHP 权重化的数字化转型度量框架，学术引用 110+ 篇。</p>
+      </div>
+      <div class="card">
+        <h4 class="card-title">张 明</h4>
+        <p style="color:var(--gold);font-size:var(--fs-sm);margin-bottom:var(--sp-2);">DTSI® 首席方法论专家</p>
+        <p class="card-body">前信通院工业互联网所主任研究员 · 10+ 年产业园区数字化实战 · 主持 5 家国家级园区完整 DTSI 建模落地。</p>
+      </div>
+      <div class="card">
+        <h4 class="card-title">李 岩</h4>
+        <p style="color:var(--gold);font-size:var(--fs-sm);margin-bottom:var(--sp-2);">PDTMM® 首席评估师</p>
+        <p class="card-body">郑州荥泽数链高级合伙人 · 主导 CPA-PDTMM 认证师体系设计 · 3 年内累计培训 300+ 名认证师。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 下载 ============ -->
+<section class="section" id="downloads">
+  <div class="container-wide">
+    <span class="section-kicker">DOWNLOADS · 白皮书与工具</span>
+    <h2 class="section-title">4 大平台官方资料库</h2>
+    <div class="grid grid-4" style="margin-top: var(--sp-8);">
+      <div class="card"><span class="card-tag card-tag--report">白皮书</span><h4 class="card-title">DTSI® 1.0 白皮书</h4><p class="card-body">42 页 · 七方权重推导全过程 · AHP 一致性检验数据。</p><a class="card-cta" href="./dtsi.html#downloads">下载 PDF</a></div>
+      <div class="card"><span class="card-tag card-tag--report">白皮书</span><h4 class="card-title">PDTMM® 1.0 标准</h4><p class="card-body">28 页 · 五级模型 · 认证流程 · REITs 对接指南。</p><a class="card-cta" href="./pdtmm.html#downloads">下载 PDF</a></div>
+      <div class="card"><span class="card-tag card-tag--report">工具包</span><h4 class="card-title">X-Flow 参数模板</h4><p class="card-body">Excel + JSON · 60 月仿真参数一键导入。</p><a class="card-cta" href="./xflow.html#downloads">下载工具</a></div>
+      <div class="card"><span class="card-tag card-tag--report">API 文档</span><h4 class="card-title">OpenX@X™ API v1</h4><p class="card-body">RESTful · GraphQL · 沙箱环境接入指引。</p><a class="card-cta" href="./openxx.html#downloads">下载文档</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 咨询入口 ============ -->
+<section class="section" id="consult">
+  <div class="container">
+    <div class="card" style="max-width: 720px; margin: 0 auto;">
+      <span class="section-kicker">CONTACT · 一对一咨询</span>
+      <h3 class="card-title" style="font-size:var(--fs-xl);margin-top:var(--sp-2);">平台落地咨询</h3>
+      <p class="card-body" style="margin-bottom: var(--sp-6);">留下贵园区/单位信息，48 小时内平台首席专家联系您。</p>
+      <form action="#" method="post" style="display: grid; gap: var(--sp-4);">
+        <input type="text" name="org" placeholder="单位 / 园区名称" required style="padding:var(--sp-3);border-radius:var(--radius);border:1px solid var(--bg-line);background:var(--bg-1);color:var(--text);"/>
+        <input type="text" name="name" placeholder="联系人姓名" required style="padding:var(--sp-3);border-radius:var(--radius);border:1px solid var(--bg-line);background:var(--bg-1);color:var(--text);"/>
+        <input type="email" name="email" placeholder="邮箱" required style="padding:var(--sp-3);border-radius:var(--radius);border:1px solid var(--bg-line);background:var(--bg-1);color:var(--text);"/>
+        <select name="platform" style="padding:var(--sp-3);border-radius:var(--radius);border:1px solid var(--bg-line);background:var(--bg-1);color:var(--text);">
+          <option value="dtsi">咨询 DTSI® 七方 35 指标诊断</option>
+          <option value="xflow">咨询 X-Flow Dynamics™ 仿真</option>
+          <option value="pdtmm">咨询 PDTMM® 五级认证</option>
+          <option value="openxx">咨询 OpenX@X™ 开发者接入</option>
+        </select>
+        <textarea name="msg" rows="3" placeholder="简述贵单位当前数字化阶段与诉求" style="padding:var(--sp-3);border-radius:var(--radius);border:1px solid var(--bg-line);background:var(--bg-1);color:var(--text);"></textarea>
+        <button type="submit" class="btn-primary">提交咨询</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sticky 咨询 ============ -->
+<a class="help-widget" href="#consult" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询
+</a>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>4 大平台</h5>
+        <a href="./dtsi.html">DTSI®</a>
+        <a href="./xflow.html">X-Flow Dynamics™</a>
+        <a href="./pdtmm.html">PDTMM®</a>
+        <a href="./openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../insights/">洞察中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#consult">合作咨询</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

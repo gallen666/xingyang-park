@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenX@X™ 数字化转型开发者社区 · 荥阳数字经济产业园</title>
+<meta name="description" content="OpenX@X™（Open eXtension at X）——数字化转型方法论的开发者社区与沙箱。开放 API、开放数据接入协议、开放场景插件市场：第三方咨询公司、高校研究团队、行业 ISV 都能在 DTSI/PDTMM 之上构建自己的应用。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .narrative { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .narrative { grid-template-columns: 1fr; } }
+  .narrative__block { padding: var(--sp-6); background: var(--bg-2); border-radius: var(--radius-md); border-left: 3px solid var(--ecosystem); }
+  .narrative__num { font-size: var(--fs-2xl); font-weight: 800; color: var(--ecosystem); line-height: 1; margin-bottom: var(--sp-3); }
+  .narrative__title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+  .narrative__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .diagram-wrap { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-6); }
+  .diagram-wrap svg { width: 100%; height: auto; }
+
+  /* 5-step method */
+  .method-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-3); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .method-steps { grid-template-columns: 1fr 1fr; } }
+  .method-step { padding: var(--sp-5); background: var(--bg-2); border-radius: var(--radius-md); border-top: 3px solid var(--ecosystem); }
+  .method-step .num { font-size: var(--fs-lg); font-weight: 800; color: var(--ecosystem); }
+  .method-step .name { font-weight: 700; margin: var(--sp-2) 0 var(--sp-2); }
+  .method-step .body { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+
+  /* Sandbox grid */
+  .sandbox-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .sandbox-grid { grid-template-columns: 1fr; } }
+  .sandbox-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); position: relative; }
+  .sandbox-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--ecosystem), var(--enterprise)); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  .sandbox-card .tag { font-size: var(--fs-xs); font-weight: 700; color: var(--ecosystem); text-transform: uppercase; letter-spacing: .05em; }
+  .sandbox-card .n { font-size: var(--fs-md); font-weight: 700; margin: var(--sp-2) 0; }
+  .sandbox-card .b { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+  .sandbox-card .status { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--gold); margin-top: var(--sp-3); padding-top: var(--sp-2); border-top: 1px dashed var(--bg-line); }
+
+  .pain-sol { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .pain-sol { grid-template-columns: 1fr; } }
+  .ps-col h4 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-4); display: flex; align-items: center; gap: var(--sp-2); }
+  .ps-col--pain h4 { color: var(--alert); }
+  .ps-col--sol h4 { color: var(--ecosystem); }
+  .ps-list { list-style: none; padding: 0; }
+  .ps-list li { padding: var(--sp-4); background: var(--bg-2); border-radius: var(--radius); margin-bottom: var(--sp-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: var(--text-2); }
+  .ps-list li b { color: var(--text); }
+  .ps-col--pain li { border-left: 3px solid var(--alert); }
+  .ps-col--sol li { border-left: 3px solid var(--ecosystem); }
+
+  /* Contributor gallery */
+  .contrib-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-3); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .contrib-grid { grid-template-columns: repeat(3, 1fr); } }
+  .contrib { padding: var(--sp-4); background: var(--bg-2); border-radius: var(--radius); text-align: center; border: 1px solid var(--bg-line); }
+  .contrib .avatar { width: 48px; height: 48px; border-radius: 50%; margin: 0 auto var(--sp-2); background: linear-gradient(135deg, var(--ecosystem), var(--enterprise)); display: grid; place-items: center; color: #0a0e1a; font-weight: 800; }
+  .contrib .n { font-size: var(--fs-sm); font-weight: 600; }
+  .contrib .r { font-size: var(--fs-xs); color: var(--text-3); }
+
+  /* Case gallery */
+  .case-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .case-gallery { grid-template-columns: 1fr; } }
+
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } }
+  .team-card { background: var(--bg-2); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--bg-line); }
+  .team-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--ecosystem), var(--enterprise)); display: grid; place-items: center; color: #0a0e1a; font-weight: 800; font-size: 22px; margin-bottom: var(--sp-4); }
+  .team-name { font-size: var(--fs-lg); font-weight: 700; }
+  .team-title { color: var(--gold); font-size: var(--fs-sm); margin: var(--sp-1) 0 var(--sp-3); }
+  .team-bio { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .logo-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(2, 1fr); } }
+  .logo-item { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); text-align: center; font-size: var(--fs-sm); color: var(--text-2); font-weight: 600; display: grid; place-items: center; min-height: 72px; }
+  .logo-item svg { margin-bottom: var(--sp-2); }
+
+  .spoc-card { background: linear-gradient(135deg, rgba(52,211,153,.14), transparent), var(--bg-2); border: 1px solid rgba(52,211,153,.35); border-radius: var(--radius-md); padding: var(--sp-6); display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-6); align-items: center; margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .spoc-card { grid-template-columns: 1fr; text-align: center; } }
+  .spoc-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--ecosystem), #10b981); display: grid; place-items: center; color: #0a0e1a; font-weight: 800; font-size: 28px; }
+  .spoc-name { font-size: var(--fs-lg); font-weight: 700; }
+  .spoc-title { color: var(--gold); font-size: var(--fs-sm); }
+  .spoc-contact { font-size: var(--fs-sm); color: var(--text-2); margin-top: var(--sp-2); font-family: var(--font-mono); }
+  .spoc-qr { width: 80px; height: 80px; background: var(--bg-3); border-radius: var(--radius); display: grid; place-items: center; color: var(--text-3); font-size: var(--fs-xs); text-align: center; }
+
+  .faq { margin-top: var(--sp-6); }
+  .faq details { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); margin-bottom: var(--sp-3); }
+  .faq summary { padding: var(--sp-4); cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::after { content: "+"; color: var(--ecosystem); font-size: var(--fs-lg); font-weight: 700; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details > *:not(summary) { padding: 0 var(--sp-4) var(--sp-4); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .form-inline { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-4); }
+  @media (max-width: 900px) { .form-inline { grid-template-columns: 1fr; } }
+  .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; }
+  .form-inline textarea { grid-column: 1 / -1; }
+  .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+
+  /* Code snippet */
+  .code-snip { background: #060915; border: 1px solid var(--bg-line); border-radius: var(--radius); padding: var(--sp-4); margin-top: var(--sp-4); font-family: var(--font-mono); font-size: 12px; color: #a3e635; line-height: 1.7; overflow-x: auto; }
+  .code-snip .k { color: #f472b6; }
+  .code-snip .s { color: #fbbf24; }
+
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="./" class="active">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#developer">加入开发者</a>
+  </div>
+</nav>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">OpenX@X<sup class="tm">™</sup></span>
+    <a href="#overview" class="active">概览</a>
+    <a href="#architecture">架构</a>
+    <a href="#applications">应用场景</a>
+    <a href="#certification">认证/培训</a>
+    <a href="#team">团队</a>
+    <a href="#downloads">下载</a>
+  </div>
+</div>
+
+<!-- 1. Hero -->
+<section class="hero" id="overview">
+  <div class="hero-inner">
+    <span class="hero-kicker">PLATFORM · OPENX@X<sup class="tm">™</sup></span>
+    <h1 class="hero-title">让第三方在 DTSI / PDTMM 之上构建自己的应用</h1>
+    <p class="hero-lead">
+      OpenX@X<sup class="tm">™</sup>（Open eXtension at X）——数字化转型方法论的<b>开发者社区与沙箱</b>。
+      开放 API、开放数据接入协议、开放场景插件市场：让第三方咨询公司、高校研究团队、行业 ISV，
+      甚至地方政府自己的数字化团队，都能"站在 DTSI / X-Flow / PDTMM 的肩膀上"构建自己的应用。
+      不是软件名——是一套<b>"识别 → 接入 → 重构 → 协同 → 演化" 5 步开放生态方法论</b>。
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#developer">
+        加入开发者社区
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="#sandbox">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        进入沙箱
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. What -->
+<section class="section">
+  <div class="container-wide">
+    <span class="section-kicker">WHAT · 什么是 OpenX@X<sup class="tm">™</sup></span>
+    <h2 class="section-title">从"封闭方法论"到"开放生态"</h2>
+    <p class="section-lead">
+      DTSI / X-Flow / PDTMM 三大平台的价值不在"独占"，而在"被复用"。OpenX@X 就是让复用可以合法、可以变现、可以反哺母平台的机制。
+    </p>
+    <div class="narrative">
+      <div class="narrative__block">
+        <div class="narrative__num">01</div>
+        <div class="narrative__title">开放 API</div>
+        <div class="narrative__body">
+          DTSI 打分、X-Flow 仿真、PDTMM 认证结果查询，全部封装为 REST + GraphQL 双协议。
+          <b>Python / Node.js / Java 三种官方 SDK</b>——任何一家咨询公司都能 3 天集成到自己的方案里。
+        </div>
+      </div>
+      <div class="narrative__block">
+        <div class="narrative__num">02</div>
+        <div class="narrative__title">开放数据接入协议</div>
+        <div class="narrative__body">
+          制定 <b>Park Data Exchange (PDX) 协议 v1.0</b>——园区智慧系统、企业运营 SaaS、政府监管平台
+          都能按统一协议接入 DTSI 数据中台。<b>第三方 IoT 厂商无需重新对接每家园区。</b>
+        </div>
+      </div>
+      <div class="narrative__block">
+        <div class="narrative__num">03</div>
+        <div class="narrative__title">开放场景插件市场</div>
+        <div class="narrative__body">
+          开发者可以为 DTSI 的 35 个 KPI 提供"特色采集插件"（如"通勤舒适度"通过手机加速度算法采集）。
+          <b>官方评审通过后进入插件市场，按调用次数分成 30%。</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Architecture (OpenX@X 5 步法) -->
+<section class="section" id="architecture">
+  <div class="container-wide">
+    <span class="section-kicker">ARCHITECTURE · OpenX@X 5 步开放生态方法论</span>
+    <h2 class="section-title">识别 → 接入 → 重构 → 协同 → 演化</h2>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OpenX@X 5 步法架构">
+        <defs>
+          <marker id="oa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+          </marker>
+          <linearGradient id="og1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+        </defs>
+        <!-- 5 step boxes horizontal -->
+        <g font-family="sans-serif">
+          <rect x="20" y="80" width="160" height="140" rx="10" fill="url(#og1)" opacity="0.9"/>
+          <text x="100" y="115" text-anchor="middle" fill="#0a0e1a" font-size="16" font-weight="800">Step 1</text>
+          <text x="100" y="145" text-anchor="middle" fill="#0a0e1a" font-size="24" font-weight="800">识别</text>
+          <text x="100" y="170" text-anchor="middle" fill="#0a0e1a" font-size="12">Discover</text>
+          <text x="100" y="195" text-anchor="middle" fill="#0a0e1a" font-size="11" opacity="0.85">识别 7 方需求</text>
+
+          <rect x="205" y="80" width="160" height="140" rx="10" fill="url(#og1)" opacity="0.9"/>
+          <text x="285" y="115" text-anchor="middle" fill="#0a0e1a" font-size="16" font-weight="800">Step 2</text>
+          <text x="285" y="145" text-anchor="middle" fill="#0a0e1a" font-size="24" font-weight="800">接入</text>
+          <text x="285" y="170" text-anchor="middle" fill="#0a0e1a" font-size="12">Connect</text>
+          <text x="285" y="195" text-anchor="middle" fill="#0a0e1a" font-size="11" opacity="0.85">PDX 协议接入数据</text>
+
+          <rect x="390" y="80" width="160" height="140" rx="10" fill="url(#og1)" opacity="0.9"/>
+          <text x="470" y="115" text-anchor="middle" fill="#0a0e1a" font-size="16" font-weight="800">Step 3</text>
+          <text x="470" y="145" text-anchor="middle" fill="#0a0e1a" font-size="24" font-weight="800">重构</text>
+          <text x="470" y="170" text-anchor="middle" fill="#0a0e1a" font-size="12">Restructure</text>
+          <text x="470" y="195" text-anchor="middle" fill="#0a0e1a" font-size="11" opacity="0.85">按 7 方 AHP 加权</text>
+
+          <rect x="575" y="80" width="160" height="140" rx="10" fill="url(#og1)" opacity="0.9"/>
+          <text x="655" y="115" text-anchor="middle" fill="#0a0e1a" font-size="16" font-weight="800">Step 4</text>
+          <text x="655" y="145" text-anchor="middle" fill="#0a0e1a" font-size="24" font-weight="800">协同</text>
+          <text x="655" y="170" text-anchor="middle" fill="#0a0e1a" font-size="12">Collaborate</text>
+          <text x="655" y="195" text-anchor="middle" fill="#0a0e1a" font-size="11" opacity="0.85">X-Flow 全局仿真</text>
+
+          <rect x="760" y="80" width="120" height="140" rx="10" fill="url(#og1)" opacity="0.95"/>
+          <text x="820" y="115" text-anchor="middle" fill="#0a0e1a" font-size="16" font-weight="800">Step 5</text>
+          <text x="820" y="145" text-anchor="middle" fill="#0a0e1a" font-size="24" font-weight="800">演化</text>
+          <text x="820" y="170" text-anchor="middle" fill="#0a0e1a" font-size="12">Evolve</text>
+          <text x="820" y="195" text-anchor="middle" fill="#0a0e1a" font-size="11" opacity="0.85">动态调整</text>
+
+          <!-- Arrows -->
+          <path d="M180 150 L205 150" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#oa)"/>
+          <path d="M365 150 L390 150" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#oa)"/>
+          <path d="M550 150 L575 150" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#oa)"/>
+          <path d="M735 150 L760 150" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#oa)"/>
+        </g>
+        <!-- Top label -->
+        <text x="450" y="45" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">OpenX@X 5 步法（论文第 4 章）</text>
+        <text x="450" y="65" text-anchor="middle" fill="#8b95a8" font-size="11">— 一套"识别 → 量化 → 仿真 → 调整"的方法论 —</text>
+        <!-- Bottom output layer -->
+        <rect x="20" y="270" width="860" height="80" rx="10" fill="#0f1424" stroke="#fbbf24" stroke-width="1.5"/>
+        <text x="450" y="298" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">开放生态基础设施</text>
+        <text x="200" y="322" text-anchor="middle" fill="#e6eefc" font-size="12">🛠 SDK/API</text>
+        <text x="350" y="322" text-anchor="middle" fill="#e6eefc" font-size="12">📡 PDX 协议 v1.0</text>
+        <text x="500" y="322" text-anchor="middle" fill="#e6eefc" font-size="12">🧩 插件市场</text>
+        <text x="650" y="322" text-anchor="middle" fill="#e6eefc" font-size="12">💡 沙箱环境</text>
+        <text x="450" y="340" text-anchor="middle" fill="#8b95a8" font-size="11">DTSI · X-Flow · PDTMM 数据 & 能力全部通过统一入口开放</text>
+      </svg>
+    </div>
+
+    <!-- Detailed 5 steps -->
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="num">Step 1</div>
+        <div class="name">识别（Discover）</div>
+        <div class="body">识别 7 方主体的真实需求——政府/资产/运营/企业/科研/员工/居民各自"最痛的一个 KPI"是什么。</div>
+      </div>
+      <div class="method-step">
+        <div class="num">Step 2</div>
+        <div class="name">接入（Connect）</div>
+        <div class="body">通过 PDX 协议接入各方数据源——园区智慧系统、企业 SaaS、政府监管平台、IoT 传感器。</div>
+      </div>
+      <div class="method-step">
+        <div class="num">Step 3</div>
+        <div class="name">重构（Restructure）</div>
+        <div class="body">按 7 方 AHP 权重（政府 25.7% · 资产 18.7% · ...）加权成 DTSI 综合指数——重构数据的意义。</div>
+      </div>
+      <div class="method-step">
+        <div class="num">Step 4</div>
+        <div class="name">协同（Collaborate）</div>
+        <div class="body">用 X-Flow 全局仿真——推演一个动作对 7 方的连锁反应，让部门之间"看到共同的曲线"。</div>
+      </div>
+      <div class="method-step">
+        <div class="num">Step 5</div>
+        <div class="name">演化（Evolve）</div>
+        <div class="body">基于仿真结果动态调整——每季度重新拟合参数、每年重新校准权重，让系统持续学习。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Sandbox area -->
+<section class="section" id="sandbox">
+  <div class="container-wide">
+    <span class="section-kicker">SANDBOX · 开发者沙箱</span>
+    <h2 class="section-title">可视化 API / 开发者工具矩阵</h2>
+    <p class="section-lead">在沙箱环境里，用你自己的数据免费跑 100 次 DTSI 打分 + 20 次 X-Flow 60 月仿真——0 成本上手。</p>
+    <div class="sandbox-grid">
+      <div class="sandbox-card">
+        <div class="tag">API · REST</div>
+        <div class="n">DTSI Score API</div>
+        <div class="b">POST /v1/dtsi/score · 传入 35 个 KPI 得分，返回 7 主体加权分 + DTSI 综合分 + 等级映射。</div>
+        <div class="status">状态：GA · 调用限 10,000/月 · 免费</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">API · REST</div>
+        <div class="n">X-Flow Simulate API</div>
+        <div class="b">POST /v1/xflow/simulate · 传入初值与滑杆变化，返回 60 月演化 JSON（含 5 大回路信号）。</div>
+        <div class="status">状态：GA · 调用限 500/月 · 免费</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">API · GraphQL</div>
+        <div class="n">PDTMM Cert Query</div>
+        <div class="b">query {'{'} cert(id: "XY-2026-0087") {'{'} level, dtsi, expireDate, blockchainHash {'}'} {'}'}</div>
+        <div class="status">状态：GA · 无限调用 · 免费</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">Protocol · v1.0</div>
+        <div class="n">PDX Data Exchange</div>
+        <div class="b">Park Data Exchange 协议——把 IoT / 智慧系统 / SaaS 数据统一到 DTSI 数据中台。</div>
+        <div class="status">状态：GA · 参考实现开源</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">SDK · Python</div>
+        <div class="n">openxx-py 1.4.2</div>
+        <div class="b">pip install openxx · 3 行代码提交 DTSI 打分 · 5 行代码启动 X-Flow 仿真。</div>
+        <div class="status">状态：稳定 · MIT 协议开源</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">SDK · Node.js</div>
+        <div class="n">openxx-js 1.3.0</div>
+        <div class="b">npm i @openxx/sdk · TypeScript 定义完备 · Promise 风格 · 兼容 Deno / Bun。</div>
+        <div class="status">状态：稳定 · MIT 协议开源</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">插件 · KPI</div>
+        <div class="n">通勤舒适度采集器</div>
+        <div class="b">通过员工手机加速度 / GPS 计算通勤时长与转乘次数——员工主体"通勤便利"KPI 的自动采集实现。</div>
+        <div class="status">状态：已上架 · 12 家园区使用</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">插件 · 报告</div>
+        <div class="n">DTSI 报告一键出图</div>
+        <div class="b">把 API 返回结果一键渲染为 100 页 PDF / 30 页 PPT / 网页 dashboard 3 种格式。</div>
+        <div class="status">状态：已上架 · 30 家咨询使用</div>
+      </div>
+      <div class="sandbox-card">
+        <div class="tag">工具 · CLI</div>
+        <div class="n">openxx-cli</div>
+        <div class="b">brew install openxx · 命令行提交 · 批量导入 CSV · 支持 CI/CD 集成自动化诊断。</div>
+        <div class="status">状态：Beta · 开源</div>
+      </div>
+    </div>
+
+    <div class="code-snip">
+<span style="color:#8b95a8"># Python SDK 3 行调用示例</span>
+<span class="k">from</span> openxx <span class="k">import</span> DTSI
+score = DTSI().score(gov=65, asset=70, ops=55, biz=60, research=50, staff=55, community=45)
+<span class="k">print</span>(score.total, score.level)  <span style="color:#8b95a8"># → 59.6, "L3 良好级"</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5-6. Pain / Sol -->
+<section class="section" id="applications">
+  <div class="container-wide">
+    <span class="section-kicker">SITUATION · 你正遇到什么 · 我们如何帮你</span>
+    <h2 class="section-title">四大典型痛点 · 四大针对性方案</h2>
+    <div class="pain-sol">
+      <div class="ps-col ps-col--pain">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          你正遇到什么
+        </h4>
+        <ul class="ps-list">
+          <li><b>1. 我是一家咨询公司，想把 DTSI 集成到自己方案里</b>——没有官方渠道，只能对着 PPT 抄。</li>
+          <li><b>2. 我是高校研究团队，想用 DTSI 数据发论文</b>——公开数据太少，向园区索要总被拒。</li>
+          <li><b>3. 我是行业 ISV，想给园区做数字化产品</b>——每家园区数据格式都不一样，对接成本极高。</li>
+          <li><b>4. 我是政府数字化科员，想在内部搭轻量诊断工具</b>——采购一套 SaaS 太贵，本地又没能力自研。</li>
+        </ul>
+      </div>
+      <div class="ps-col ps-col--sol">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          OpenX@X<sup class="tm">™</sup> 如何帮你
+        </h4>
+        <ul class="ps-list">
+          <li><b>1. 商业开发者计划</b>——申请后可获授权，将 DTSI/PDTMM 品牌集成到自己方案。年费 ¥8-18 万，含技术支持。</li>
+          <li><b>2. 学术研究计划</b>——凭高校证明可申请免费访问脱敏历史数据集（100+ 家园区匿名分数）+ 联合论文署名。</li>
+          <li><b>3. PDX 协议开源</b>——参考实现 Apache 2.0 协议开源 · 一次对接接入所有 PDX 兼容园区。</li>
+          <li><b>4. 沙箱免费用</b>——政府部门凭工作证注册后免费用完整 API · 无上限 · 有专属技术支持群。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Stats -->
+<section class="section-tight">
+  <div class="container-wide">
+    <div class="stats-banner">
+      <div class="stat"><div class="stat-num">3 种</div><div class="stat-label">官方 SDK（Python/Node/Java）</div></div>
+      <div class="stat"><div class="stat-num">120+</div><div class="stat-label">已注册开发者</div></div>
+      <div class="stat"><div class="stat-num">42</div><div class="stat-label">在架插件</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">API 沙箱免费</div></div>
+      <div class="stat"><div class="stat-num">MIT</div><div class="stat-label">SDK 开源协议</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Community: contributor grid + case gallery -->
+<section class="section">
+  <div class="container-wide">
+    <span class="section-kicker">COMMUNITY · 社区展示</span>
+    <h2 class="section-title">核心贡献者 + 场景应用画廊</h2>
+
+    <h3 style="font-size: var(--fs-lg); margin-top: var(--sp-6); margin-bottom: var(--sp-3);">核心贡献者（首批 12 人）</h3>
+    <div class="contrib-grid">
+      <div class="contrib"><div class="avatar">陈</div><div class="n">陈思远</div><div class="r">SDK 维护者</div></div>
+      <div class="contrib"><div class="avatar">吴</div><div class="n">吴晓晗</div><div class="r">PDX 协议共作</div></div>
+      <div class="contrib"><div class="avatar">林</div><div class="n">林 越</div><div class="r">插件市场审核</div></div>
+      <div class="contrib"><div class="avatar">郑</div><div class="n">郑安宁</div><div class="r">API 测试用例</div></div>
+      <div class="contrib"><div class="avatar">周</div><div class="n">周清川</div><div class="r">文档翻译</div></div>
+      <div class="contrib"><div class="avatar">徐</div><div class="n">徐 昭</div><div class="r">Node SDK 作者</div></div>
+      <div class="contrib"><div class="avatar">高</div><div class="n">高青野</div><div class="r">CLI 工具</div></div>
+      <div class="contrib"><div class="avatar">曾</div><div class="n">曾 婕</div><div class="r">Python SDK 作者</div></div>
+      <div class="contrib"><div class="avatar">许</div><div class="n">许 轼</div><div class="r">通勤插件作者</div></div>
+      <div class="contrib"><div class="avatar">田</div><div class="n">田书言</div><div class="r">报告插件作者</div></div>
+      <div class="contrib"><div class="avatar">白</div><div class="n">白 灏</div><div class="r">安全审计</div></div>
+      <div class="contrib"><div class="avatar">阮</div><div class="n">阮夕月</div><div class="r">社区运营</div></div>
+    </div>
+
+    <h3 style="font-size: var(--fs-lg); margin-top: var(--sp-10); margin-bottom: var(--sp-3);">场景应用案例</h3>
+    <div class="case-gallery">
+      <a class="card" href="../cases/dahua.html">
+        <span class="card-tag card-tag--case">咨询集成</span>
+        <h4 class="card-title">大华股份 · 内部 CDO 团队</h4>
+        <p class="card-body">通过 openxx-py SDK 把 DTSI 打分嵌入年度数字化 OKR 系统，季度自动出报告。开发耗时 2 周。</p>
+        <span class="card-cta">查看案例</span>
+      </a>
+      <a class="card" href="../cases/ucloud.html">
+        <span class="card-tag card-tag--case">SDK 商用</span>
+        <h4 class="card-title">优刻得 · SaaS 集成</h4>
+        <p class="card-body">在自家智慧园区 SaaS 里内置 DTSI 免费诊断工具——已服务 34 家中小型园区。分成收入首年 ¥180 万。</p>
+        <span class="card-cta">查看案例</span>
+      </a>
+      <a class="card" href="../cases/newcapec.html">
+        <span class="card-tag card-tag--case">政府自研</span>
+        <h4 class="card-title">新开普 · 郑州高新政务云</h4>
+        <p class="card-body">政务云科室 3 名工程师用 API 3 个月建成"高新区数字园区看板"，覆盖 47 家入驻企业。0 采购预算。</p>
+        <span class="card-cta">查看案例</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Team -->
+<section class="section" id="team">
+  <div class="container-wide">
+    <span class="section-kicker">TEAM · 开发者社区团队</span>
+    <h2 class="section-title">API 首席 · 开发者关系 · 生态治理</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">戴</div>
+        <div class="team-name">戴继涛 博士</div>
+        <div class="team-title">学术委员 · OpenX@X 方法论原创者</div>
+        <p class="team-bio">
+          博士论文第 4 章首次提出 OpenX@X 5 步开放生态方法论——"不是软件，是治理"。
+          目前担任社区技术委员会（TSC）主席，负责 PDX 协议与 SDK API 的重大变更评审。
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">曾</div>
+        <div class="team-name">曾 婕</div>
+        <div class="team-title">OpenX@X<sup class="tm">™</sup> API 首席工程师</div>
+        <p class="team-bio">
+          前阿里云开放平台架构师 · 主导 openxx-py 与 openxx-js SDK 的 v1.0 → v1.4 全部迭代。
+          制定"3 行代码接入"的 API 设计准则 · 保障 99.95% SLA · 已服务 120+ 注册开发者。
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">阮</div>
+        <div class="team-name">阮夕月</div>
+        <div class="team-title">开发者关系（DevRel）负责人</div>
+        <p class="team-bio">
+          前 GitHub 中国 DevRel · 主持 OpenX@X 月度线上 meetup、季度开发者黑客松、
+          年度贡献者峰会。社区 QQ 群 / 钉钉群 / 微信群 3000+ 人 · 平均问题响应 &lt; 2 小时。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Partner logos -->
+<section class="section-tight" id="certification">
+  <div class="container-wide">
+    <span class="section-kicker">PARTNERSHIP · 官方合作与开发者认证</span>
+    <h2 class="section-title">4 家国家级机构 + 3 家云厂商联合背书</h2>
+    <div class="logo-strip">
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--ecosystem)" stroke-width="2"><path d="M2 20h20M4 20V8l8-5 8 5v12M9 20v-6h6v6"/></svg>
+        中国信通院<br>(CAICT)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--ecosystem)" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+        河南省发改委<br>(HN-NDRC)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--ecosystem)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        工业和信息化部<br>(MIIT)
+      </div>
+      <div class="logo-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="var(--ecosystem)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20"/></svg>
+        中国电子信息产业<br>发展研究院 (CCID)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. Downloads -->
+<section class="section" id="downloads">
+  <div class="container-wide">
+    <span class="section-kicker">DOWNLOADS · API 文档 · SDK · 协议</span>
+    <h2 class="section-title">OpenX@X<sup class="tm">™</sup> 开发者资料库</h2>
+    <div class="grid grid-4" style="margin-top: var(--sp-8);">
+      <div class="card">
+        <span class="card-tag card-tag--report">API 文档</span>
+        <h4 class="card-title">OpenX@X<sup class="tm">™</sup> API v1</h4>
+        <p class="card-body">32 页 · RESTful + GraphQL 完整参考 · 认证机制 · 限流规则 · 沙箱环境接入指引。</p>
+        <a class="card-cta" href="#developer">立即获取</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">SDK</span>
+        <h4 class="card-title">openxx SDK 三合一</h4>
+        <p class="card-body">Python 1.4.2 · Node.js 1.3.0 · Java 1.2.0 · GitHub / PyPI / npm / Maven 一键安装。</p>
+        <a class="card-cta" href="#developer">GitHub</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">协议</span>
+        <h4 class="card-title">PDX 协议 v1.0 规范</h4>
+        <p class="card-body">28 页 · Park Data Exchange 协议 · 字段字典 · 传输规范 · 参考实现（Go / Rust 双版本）。</p>
+        <a class="card-cta" href="#developer">下载 PDF</a>
+      </div>
+      <div class="card">
+        <span class="card-tag card-tag--report">教程</span>
+        <h4 class="card-title">开发者上手教程 12 讲</h4>
+        <p class="card-body">从"第一次调用 DTSI Score API"到"发布你的第一个插件"——120 分钟视频 + 8 个实战 demo。</p>
+        <a class="card-cta" href="#developer">观看视频</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. SPOC -->
+<section class="section-tight" id="developer">
+  <div class="container-wide">
+    <span class="section-kicker">SPOC · 一对一开发者关系</span>
+    <h2 class="section-title">直接联系 OpenX@X<sup class="tm">™</sup> DevRel 负责人</h2>
+    <div class="spoc-card">
+      <div class="spoc-avatar">阮</div>
+      <div>
+        <div class="spoc-name">阮夕月</div>
+        <div class="spoc-title">OpenX@X<sup class="tm">™</sup> 开发者关系负责人</div>
+        <div class="spoc-contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          ruanxy@xingyang-park.gov.cn
+        </div>
+        <div class="spoc-contact">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          400-836-0371 转 OpenXX
+        </div>
+      </div>
+      <div class="spoc-qr"><div>微信 QR<br>扫码入群</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. FAQ + Form -->
+<section class="section" id="consult">
+  <div class="container-wide">
+    <span class="section-kicker">FAQ · 常见问题 + 在线咨询</span>
+    <h2 class="section-title">对 OpenX@X<sup class="tm">™</sup> 还有疑问？</h2>
+
+    <div class="faq">
+      <details open>
+        <summary>Q1. OpenX@X 是不是"OpenAI 那种大模型"？</summary>
+        <div>
+          <b>不是。</b>OpenX@X 是 Open eXtension at X 的缩写——数字化转型方法论的<b>开放扩展生态</b>。
+          "X"指任何一家园区、任何一位开发者、任何一个场景。名字里的 "Open" 强调
+          "开源 + 开放 API + 开放协议 + 开放插件市场"，与 OpenAI 无关。
+        </div>
+      </details>
+      <details>
+        <summary>Q2. 商业开发者授权具体包含什么？</summary>
+        <div>
+          分 3 档：<br>
+          <b>· Starter ¥8 万/年</b>：API 调用 100k/月 · 品牌授权用于内部方案 · 邮件支持<br>
+          <b>· Business ¥18 万/年</b>：API 无限 · 可对外营销 "基于 DTSI/PDTMM" · 专属技术支持群 · 联合白皮书署名<br>
+          <b>· Enterprise ¥ 面议</b>：私有部署 · 源码授权 · 联合品牌"XX × OpenX@X"
+        </div>
+      </details>
+      <details>
+        <summary>Q3. 我发布的插件如何变现？</summary>
+        <div>
+          插件在市场上按<b>调用次数 × 每次单价</b>计费——开发者定价，市场分成 30% 给平台、70% 给开发者。
+          月结算 · 银行转账 / 支付宝对公 · 单个插件年营收 top 3：报告插件 ¥68 万 / 通勤采集 ¥42 万 / 数据大屏 ¥35 万。
+        </div>
+      </details>
+      <details>
+        <summary>Q4. 学术研究计划怎么申请？</summary>
+        <div>
+          发送邮件到 <b>research@openxx.hk</b>，附：<br>
+          ① 高校身份证明；② 研究主题一页 proposal；③ 承诺论文发表致谢 OpenX@X 平台。<br>
+          审核通过后可访问脱敏数据集 · 免费使用完整 API · 联合发表可署名"荥阳数字经济产业园 OpenX@X 平台"。
+          <b>历史通过率 76%——门槛不高，主要卡"必须发论文"。</b>
+        </div>
+      </details>
+      <details>
+        <summary>Q5. PDX 协议是什么？和现有协议什么关系？</summary>
+        <div>
+          <b>Park Data Exchange</b> ——园区数据交换的统一协议 v1.0，基于 OpenAPI 3.0 + JSON Schema，
+          定义 35 个 KPI 的字段字典、传输格式、鉴权方式。<b>兼容 OPC UA、MQTT、Modbus 等现有工业协议</b>——
+          PDX 是应用层协议，不替代底层传输。Apache 2.0 开源，两个参考实现（Go / Rust）在 GitHub。
+        </div>
+      </details>
+    </div>
+
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">加入开发者社区</h3>
+    <form class="form-inline" action="#" method="post">
+      <input type="text" name="org" placeholder="所在单位 / 项目名称" required>
+      <input type="text" name="name" placeholder="联系人姓名" required>
+      <input type="email" name="email" placeholder="邮箱（用于开通沙箱账号）" required>
+      <input type="url" name="github" placeholder="GitHub 用户名（可选）">
+      <select name="role">
+        <option value="company">商业开发者（Starter/Business/Enterprise）</option>
+        <option value="isv">行业 ISV / SaaS 厂商</option>
+        <option value="consult">咨询 / 集成商</option>
+        <option value="academic">高校学术研究</option>
+        <option value="gov">政府数字化科员（免费）</option>
+      </select>
+      <select name="lang">
+        <option value="py">首选 Python SDK</option>
+        <option value="js">首选 Node.js SDK</option>
+        <option value="java">首选 Java SDK</option>
+        <option value="other">其他（REST 直接调用）</option>
+      </select>
+      <textarea name="msg" rows="4" placeholder="请简述你想构建的场景（例如：想给中小园区做一个免费的 DTSI 诊断 SaaS / 想在硕士论文里研究不同权重方案）"></textarea>
+      <button type="submit" class="btn-primary">申请沙箱账号</button>
+    </form>
+  </div>
+</section>
+
+<a class="help-widget" href="#consult" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>4 大平台</h5>
+        <a href="./dtsi.html">DTSI®</a>
+        <a href="./xflow.html">X-Flow Dynamics™</a>
+        <a href="./pdtmm.html">PDTMM®</a>
+        <a href="./openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../insights/">洞察中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="#consult">合作咨询</a>
+        <a href="mailto:ruanxy@xingyang-park.gov.cn">ruanxy@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · OpenX@X™ 商标申请中</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>荥智造® · 让制造无限 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥智造® —— 数字荥阳的智能制造子品牌。为豫西装备、电梯、汽车零部件、化工产业提供数字化改造与智造试点。148 个改造项目 · 63 个样板车间 · ¥8.6 亿投资撬动。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .sb { --accent: #f59e0b; --accent-dark: #d97706; --accent-soft: rgba(245,158,11,.14); }
+  .sb-header { position: sticky; top: 64px; z-index: 900; background: rgba(15,20,36,.94); backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid var(--bg-line); }
+  .sb-header-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--sp-6); height: 52px; display: flex; align-items: center; gap: var(--sp-6); }
+  .sb-wordmark { display: flex; align-items: baseline; gap: var(--sp-2); font-weight: 800; font-size: var(--fs-md); padding-right: var(--sp-4); border-right: 1px solid var(--bg-line); }
+  .sb-wordmark .cjk { color: var(--accent); }
+  .sb-wordmark .tm { color: var(--accent); font-size: 10px; vertical-align: super; }
+  .sb-wordmark .py { color: var(--text-3); font-size: var(--fs-xs); font-family: var(--font-mono); }
+  .sb-anchors { display: flex; gap: var(--sp-2); overflow-x: auto; flex: 1; }
+  .sb-anchors a { padding: var(--sp-2) var(--sp-3); font-size: var(--fs-sm); color: var(--text-2); border-radius: var(--radius-sm); white-space: nowrap; }
+  .sb-anchors a:hover { background: var(--bg-3); color: var(--text); }
+  .sb-cta-inline { padding: var(--sp-2) var(--sp-4); background: var(--accent); color: #0a0e1a; border-radius: var(--radius); font-weight: 700; font-size: var(--fs-sm); white-space: nowrap; }
+  .sb-cta-inline:hover { color: #0a0e1a; opacity: .9; }
+
+  .sb-hero { position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(245,158,11,.28), transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(245,158,11,.14), transparent 50%),
+      linear-gradient(160deg, #1a1204 0%, #14100a 60%, #0a0e1a 100%);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .sb-hero-inner { max-width: var(--container-max); margin: 0 auto; padding: var(--sp-16) var(--sp-6); min-height: 480px; position: relative; }
+  .slider input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .slides { position: relative; min-height: 380px; }
+  .slide { position: absolute; top: 0; left: 0; right: 0; opacity: 0; transform: translateY(12px); transition: opacity 400ms ease, transform 400ms ease; pointer-events: none; }
+  .slider #s1:checked ~ .slides .slide-1, .slider #s2:checked ~ .slides .slide-2, .slider #s3:checked ~ .slides .slide-3 { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .slide-kicker { display: inline-block; padding: 4px var(--sp-4); border-radius: var(--radius-pill); background: var(--accent-soft); color: var(--accent); font-size: var(--fs-sm); font-weight: 600; border: 1px solid rgba(245,158,11,.35); margin-bottom: var(--sp-5); }
+  .slide-master { color: var(--text-3); font-size: var(--fs-sm); letter-spacing: .1em; text-transform: uppercase; margin-bottom: var(--sp-3); }
+  .slide-title { font-size: var(--fs-3xl); font-weight: 800; line-height: var(--lh-tight); margin-bottom: var(--sp-4); max-width: 780px; }
+  .slide-sub { color: var(--text-2); font-size: var(--fs-lg); line-height: var(--lh-relaxed); max-width: 700px; margin-bottom: var(--sp-8); }
+  .btn-accent { padding: var(--sp-3) var(--sp-6); background: var(--accent); color: #0a0e1a; border-radius: var(--radius); font-weight: 700; display: inline-flex; align-items: center; gap: var(--sp-2); transition: transform var(--dur-fast) var(--ease); }
+  .btn-accent:hover { transform: translateY(-1px); color: #0a0e1a; }
+  .slider-dots { display: flex; gap: var(--sp-3); margin-top: var(--sp-8); position: absolute; bottom: 32px; left: var(--sp-6); }
+  .slider-dots label { width: 40px; height: 4px; background: var(--bg-3); cursor: pointer; border-radius: 2px; transition: background var(--dur-fast) var(--ease); }
+  .slider-dots label:hover { background: var(--text-3); }
+  .slider #s1:checked ~ .slider-dots label[for=s1], .slider #s2:checked ~ .slider-dots label[for=s2], .slider #s3:checked ~ .slider-dots label[for=s3] { background: var(--accent); }
+
+  .positioning { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--sp-8); align-items: start; }
+  @media (max-width: 900px) { .positioning { grid-template-columns: 1fr; } }
+  .positioning p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .positioning .pos-mid { text-align: center; padding: var(--sp-6); border-left: 1px solid var(--bg-line); border-right: 1px solid var(--bg-line); }
+  @media (max-width: 900px) { .positioning .pos-mid { border-left: 0; border-right: 0; border-top: 1px solid var(--bg-line); border-bottom: 1px solid var(--bg-line); padding: var(--sp-6) 0; } }
+  .slogan-big { font-size: clamp(32px, 4.5vw, 56px); font-weight: 900; line-height: 1.15; background: linear-gradient(90deg, var(--accent), var(--text)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .slogan-master { color: var(--text-3); font-size: var(--fs-sm); letter-spacing: .1em; margin-bottom: var(--sp-2); }
+
+  .video-report { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-6); }
+  @media (max-width: 900px) { .video-report { grid-template-columns: 1fr; } }
+  .video-box { aspect-ratio: 16/9; background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); position: relative; overflow: hidden; display: grid; place-items: center; }
+  .video-box::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(245,158,11,.2), transparent 55%), radial-gradient(circle at 70% 60%, rgba(245,158,11,.14), transparent 55%); }
+  .play-btn { width: 84px; height: 84px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; box-shadow: 0 8px 32px rgba(245,158,11,.4); position: relative; z-index: 1; }
+  .play-btn::after { content: ""; width: 0; height: 0; border-left: 22px solid #0a0e1a; border-top: 14px solid transparent; border-bottom: 14px solid transparent; margin-left: 6px; }
+  .video-caption { position: absolute; bottom: var(--sp-5); left: var(--sp-5); right: var(--sp-5); z-index: 1; }
+  .video-caption .kicker { color: var(--accent); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .video-caption .title { color: var(--text); font-size: var(--fs-md); font-weight: 700; margin-top: 4px; }
+  .report-card { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-4); }
+  .report-card .doc-icon { width: 48px; height: 56px; border-radius: 4px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); display: grid; place-items: center; color: #0a0e1a; font-weight: 900; font-size: 14px; }
+  .report-card h4 { font-size: var(--fs-md); font-weight: 700; }
+  .report-card p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); flex: 1; }
+  .report-meta { display: flex; gap: var(--sp-3); font-size: var(--fs-xs); color: var(--text-3); }
+
+  .beliefs-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--sp-8); align-items: center; }
+  @media (max-width: 900px) { .beliefs-wrap { grid-template-columns: 1fr; } }
+  .beliefs-svg { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-6); }
+  .whitepaper { padding: var(--sp-8); background: var(--bg-2); border: 1px solid var(--accent-soft); border-radius: var(--radius-lg); border-left: 3px solid var(--accent); }
+  .whitepaper .chip { background: var(--accent-soft); color: var(--accent); }
+  .whitepaper h3 { font-size: var(--fs-xl); font-weight: 700; margin: var(--sp-3) 0; }
+  .whitepaper p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-5); }
+
+  .why-2col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-10); }
+  @media (max-width: 900px) { .why-2col { grid-template-columns: 1fr; } }
+  .why-block h3 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-3); color: var(--accent); }
+  .why-block p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+
+  .stats-tinted { background: var(--bg-1); border-left: 3px solid var(--accent); }
+  .stats-tinted .stat-num { color: var(--accent); }
+
+  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+  @media (max-width: 900px) { .diff-grid { grid-template-columns: repeat(2, 1fr); } }
+  .diff-item { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .diff-item:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .diff-icon { width: 48px; height: 48px; margin-bottom: var(--sp-4); color: var(--accent); }
+  .diff-item h4 { font-size: var(--fs-md); font-weight: 700; line-height: var(--lh-tight); }
+  .diff-item p { color: var(--text-3); font-size: var(--fs-xs); margin-top: 6px; }
+
+  .outcomes { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .outcomes { grid-template-columns: repeat(2, 1fr); } }
+  .outcome-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-top: 3px solid var(--accent); }
+  .outcome-metric { font-size: var(--fs-xl); font-weight: 800; color: var(--accent); line-height: 1.1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+  .outcome-caption { color: var(--text-2); font-size: var(--fs-xs); line-height: var(--lh-normal); }
+
+  .portfolio { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-4); }
+  @media (max-width: 1100px) { .portfolio { grid-template-columns: repeat(2, 1fr); } }
+  .pf-card { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease); }
+  .pf-card:hover { border-color: var(--accent); }
+  .pf-num { color: var(--accent); font-family: var(--font-mono); font-size: var(--fs-sm); }
+  .pf-title { font-size: var(--fs-md); font-weight: 700; margin: var(--sp-2) 0 var(--sp-3); }
+  .pf-body { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
+
+  .logo-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4); padding: var(--sp-8) 0; }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(3, 1fr); } }
+  .logo-tile { height: 64px; display: grid; place-items: center; background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); color: var(--text-2); font-size: var(--fs-sm); font-weight: 700; transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); }
+  .logo-tile:hover { color: var(--accent); border-color: var(--accent); }
+
+  .quote-block { padding: var(--sp-10); background: var(--bg-1); border-left: 4px solid var(--accent); border-radius: var(--radius-md); display: grid; grid-template-columns: 100px 1fr; gap: var(--sp-6); align-items: start; }
+  @media (max-width: 900px) { .quote-block { grid-template-columns: 1fr; } }
+  .avatar { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); display: grid; place-items: center; color: #0a0e1a; font-weight: 900; font-size: 32px; }
+  .quote-body q { font-size: var(--fs-lg); color: var(--text); line-height: var(--lh-relaxed); display: block; margin-bottom: var(--sp-4); }
+  .quote-body q::before { content: "「"; color: var(--accent); }
+  .quote-body q::after { content: "」"; color: var(--accent); }
+  .quote-attr { color: var(--text-2); font-size: var(--fs-sm); }
+  .quote-attr strong { color: var(--text); font-size: var(--fs-md); }
+  .quote-note { color: var(--text-4); font-size: var(--fs-xs); margin-top: var(--sp-3); }
+
+  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .res-grid { grid-template-columns: repeat(2, 1fr); } }
+  .res-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); }
+  .res-card:hover { border-color: var(--accent); }
+  .res-card .chip { margin-bottom: var(--sp-3); }
+  .res-card h4 { font-size: var(--fs-sm); font-weight: 700; line-height: var(--lh-normal); margin-bottom: var(--sp-2); }
+  .res-card p { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
+
+  .form-box { padding: var(--sp-10); background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); border-top: 3px solid var(--accent); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+  @media (max-width: 900px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-field { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .form-field label { font-size: var(--fs-sm); color: var(--text-1); font-weight: 600; }
+  .form-field input, .form-field select { padding: var(--sp-3); background: var(--bg-2); color: var(--text); border: 1px solid var(--bg-line); border-radius: var(--radius); font: inherit; font-size: var(--fs-sm); transition: border-color var(--dur-fast) var(--ease); }
+  .form-field input:focus, .form-field select:focus { outline: none; border-color: var(--accent); }
+  .form-opt { display: flex; align-items: center; gap: var(--sp-2); padding: var(--sp-4) 0; font-size: var(--fs-sm); color: var(--text-2); }
+  .form-opt input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--accent); }
+  .form-submit { padding: var(--sp-3) var(--sp-8); background: var(--accent); color: #0a0e1a; border-radius: var(--radius); font-weight: 700; font-size: var(--fs-md); }
+
+  .help-widget.help-accent { background: var(--accent); color: #0a0e1a; box-shadow: 0 8px 32px rgba(245,158,11,.4); }
+  .help-widget.help-accent:hover { color: #0a0e1a; }
+</style>
+</head>
+<body class="sb">
+
+<!-- Section 1 · 全局导航 -->
+<nav class="nav-global" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a href="../index.html" class="nav-brand">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="./" class="active">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a href="../about/#contact" class="nav-cta">入园咨询</a>
+  </div>
+</nav>
+
+<!-- Section 2 · 子品牌 mini-header -->
+<div class="sb-header">
+  <div class="sb-header-inner">
+    <div class="sb-wordmark">
+      <span class="cjk">荥智造</span><span class="tm">®</span>
+      <span class="py">yunxi-zhi</span>
+    </div>
+    <div class="sb-anchors">
+      <a href="#hero">承诺</a>
+      <a href="#positioning">定位</a>
+      <a href="#video">介绍</a>
+      <a href="#beliefs">核心信念</a>
+      <a href="#why">为什么</a>
+      <a href="#differ">差异化</a>
+      <a href="#outcomes">成效</a>
+      <a href="#portfolio">子产品</a>
+      <a href="#cases">案例</a>
+      <a href="#resources">资源</a>
+      <a href="#contact">咨询</a>
+    </div>
+    <a href="#contact" class="sb-cta-inline">申请诊断车间</a>
+  </div>
+</div>
+
+<!-- Section 3 · Rotating Hero -->
+<section id="hero" class="sb-hero">
+  <div class="sb-hero-inner">
+    <div class="slider">
+      <input type="radio" name="slider" id="s1" checked>
+      <input type="radio" name="slider" id="s2">
+      <input type="radio" name="slider" id="s3">
+      <div class="slides">
+        <div class="slide slide-1">
+          <div class="slide-master">数字荥阳，可能无限 · 荥智造®</div>
+          <span class="slide-kicker">品牌承诺 · Brand Promise</span>
+          <h1 class="slide-title">让制造无限 —— 为豫西装备制造装上一个「数字大脑」</h1>
+          <p class="slide-sub">
+            面向电梯、汽车零部件、装备制造、化工与食品加工五大产业带，
+            提供从设备联网、产线仿真、AI 质检、到 PDTMM® 五级转型评估的端到端智造服务。
+            148 个改造项目、63 个样板车间、¥8.6 亿投资撬动。
+          </p>
+          <a href="#contact" class="btn-accent">申请免费诊断 →</a>
+        </div>
+        <div class="slide slide-2">
+          <div class="slide-master">数字荥阳，可能无限 · 荥智造®</div>
+          <span class="slide-kicker">客户案例 · Customer Story</span>
+          <h1 class="slide-title">森赫电梯数字化车间改造 —— 交付周期 ↓ 27%，一次合格率 ↑ 4.6%</h1>
+          <p class="slide-sub">
+            在森赫电梯 3.2 万㎡ 主装配线部署 348 个 IIoT 采集点 + AI 视觉质检，
+            与荥数云边缘节点联动，实现 SKU 换型自动排产。改造 8 个月，累计节省人工工时 12.7 万。
+          </p>
+          <a href="../cases/shengrun.html" class="btn-accent">查看完整案例 →</a>
+        </div>
+        <div class="slide slide-3">
+          <div class="slide-master">数字荥阳，可能无限 · 荥智造®</div>
+          <span class="slide-kicker">政府认可 · Recognition</span>
+          <h1 class="slide-title">工信部智能制造试点示范 · 河南省数字化转型标杆园区</h1>
+          <p class="slide-sub">
+            荥智造 2025 年入选工信部智能制造试点示范（园区类）、河南省数字化转型标杆园区（第 2 批），
+            获郑州市专项技改资金 ¥1.2 亿配套。PDTMM® 已被 6 家豫西上市公司采用。
+          </p>
+          <a href="../platforms/pdtmm.html" class="btn-accent">查看 PDTMM® →</a>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <label for="s1" aria-label="品牌承诺"></label>
+        <label for="s2" aria-label="客户案例"></label>
+        <label for="s3" aria-label="政府认可"></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4 · 3 段定位 + slogan -->
+<section id="positioning" class="section">
+  <div class="container-max">
+    <div class="positioning">
+      <div>
+        <span class="section-kicker" style="color:var(--accent);">Where</span>
+        <h3 style="font-size:var(--fs-lg); margin:var(--sp-2) 0 var(--sp-4);">开在车间里，不是开在会议室</h3>
+        <p>荥智造的工程师团队常驻荥阳产业园与豫西 5 大产业带客户车间，平均每年在客户现场蹲点 178 天。改造方案不做 PPT，只做可落地的产线动线图与看板界面。</p>
+      </div>
+      <div class="pos-mid">
+        <div class="slogan-master">数字荥阳，可能无限</div>
+        <div class="slogan-big">让制造无限</div>
+        <p style="color:var(--text-3); font-size:var(--fs-sm); margin-top:var(--sp-4);">Manufacture without boundary.</p>
+      </div>
+      <div>
+        <span class="section-kicker" style="color:var(--accent);">For Whom</span>
+        <h3 style="font-size:var(--fs-lg); margin:var(--sp-2) 0 var(--sp-4);">为豫西的传统制造升级者</h3>
+        <p>从年营收 5,000 万到 50 亿的电梯、装备、零部件、化工与食品加工企业，从想上一条数字化产线的车间主任，到寻求 PDTMM® 认证的 CIO —— 荥智造提供分级、分步、分预算的路径。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5 · Video + Report -->
+<section id="video" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">3 分钟看懂</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-8);">荥智造核心能力介绍视频</h2>
+    <div class="video-report">
+      <div class="video-box">
+        <button class="play-btn" aria-label="播放介绍视频"></button>
+        <div class="video-caption">
+          <div class="kicker">Video · 03:42</div>
+          <div class="title">荥智造 3 分钟 —— 从设备联网到 AI 质检的完整链路</div>
+        </div>
+      </div>
+      <div class="report-card">
+        <div class="doc-icon">PDF</div>
+        <div style="display:flex; gap:var(--sp-2); flex-wrap:wrap;">
+          <span class="chip chip--report">报告</span>
+          <span class="chip chip--whitepaper">白皮书</span>
+        </div>
+        <h4>豫西智造 2026 转型基线报告</h4>
+        <p>78 页，基于 148 个改造项目的匿名数据，含 5 大产业带 KPI 对标、投入产出比与 12 个 PDTMM® 认证案例复盘。</p>
+        <div class="report-meta"><span>2026 · 06 · 78 页</span><span>·</span><span>下载 9.1 MB</span></div>
+        <a href="#contact" class="btn-accent">立即下载 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 6 · Core Beliefs -->
+<section id="beliefs" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Core Beliefs · 核心信念</span>
+    <h2 class="section-title">我们相信数字化改造的三层法则</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">从「设备上云」到「决策上云」，从「一次性项目」到「持续演进」—— 荥智造的三条根本主张。</p>
+
+    <div class="beliefs-wrap">
+      <div class="beliefs-svg">
+        <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥智造三层法则">
+          <defs>
+            <linearGradient id="yzhi-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#d97706"/></linearGradient>
+          </defs>
+          <!-- 3 layers -->
+          <rect x="120" y="80"  width="460" height="70" rx="8" fill="none" stroke="url(#yzhi-g1)" stroke-width="2"/>
+          <text x="140" y="110" fill="#f59e0b" font-size="14" font-weight="700">Layer 3 · 决策</text>
+          <text x="140" y="132" fill="#c8d0e0" font-size="12">看板 · 排产 · PDTMM® 五级评估</text>
+
+          <rect x="120" y="175" width="460" height="70" rx="8" fill="none" stroke="url(#yzhi-g1)" stroke-width="2"/>
+          <text x="140" y="205" fill="#f59e0b" font-size="14" font-weight="700">Layer 2 · 数据</text>
+          <text x="140" y="227" fill="#c8d0e0" font-size="12">MES · IIoT · AI 质检 · 数字孪生</text>
+
+          <rect x="120" y="270" width="460" height="70" rx="8" fill="none" stroke="url(#yzhi-g1)" stroke-width="2"/>
+          <text x="140" y="300" fill="#f59e0b" font-size="14" font-weight="700">Layer 1 · 设备</text>
+          <text x="140" y="322" fill="#c8d0e0" font-size="12">改造 · 联网 · 边缘算力接入荥数云</text>
+
+          <!-- Arrows -->
+          <line x1="350" y1="245" x2="350" y2="265" stroke="#f59e0b" stroke-width="2"/>
+          <polygon points="345,260 355,260 350,272" fill="#f59e0b"/>
+          <line x1="350" y1="150" x2="350" y2="170" stroke="#f59e0b" stroke-width="2"/>
+          <polygon points="345,165 355,165 350,177" fill="#f59e0b"/>
+
+          <!-- Right principles -->
+          <text x="600" y="115" fill="#8b95a8" font-size="11">先看得见</text>
+          <text x="600" y="210" fill="#8b95a8" font-size="11">再连得通</text>
+          <text x="600" y="305" fill="#8b95a8" font-size="11">最后管得住</text>
+
+          <text x="350" y="380" text-anchor="middle" fill="#8b95a8" font-size="12">三层法则 · 缺一不可 · 从下向上</text>
+        </svg>
+      </div>
+      <aside class="whitepaper">
+        <span class="chip">白皮书 · 12 页导读</span>
+        <h3>《豫西智造转型三层法则》</h3>
+        <p>由荥智造联合河南省工业和信息化厅指导单位撰写，含 PDTMM® 五级模型、投入产出计算器与 6 个上市公司匿名案例的完整流程复盘。</p>
+        <a href="#contact" class="btn-accent">获取完整版 →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7 · Why -->
+<section id="why" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Why Yunxi Zhi</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-10);">为什么选择荥智造</h2>
+    <div class="why-2col">
+      <div class="why-block">
+        <h3>因为它是懂豫西产业带的团队</h3>
+        <p>荥智造 42 位一线工程师中，31 位有 8 年以上豫西装备/电梯/化工车间经验。改造方案不套用长三角模板 —— 电梯行业的「导轨对中检测」、化工的「工艺参数漂移预警」、汽车零部件的「SKU 换型排产」，都有对应的经过验证的行业模块可以直接复用。</p>
+      </div>
+      <div class="why-block">
+        <h3>因为它带政府资金一起进场</h3>
+        <p>荥智造与郑州市工信局、荥阳市工信局、河南省工信厅深度联动，改造项目可同步申报智能制造试点、技改资金、PDTMM® 认证补贴三条通道。历史项目平均政府资金覆盖率 34%，最高单个项目获批 ¥820 万。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 8 · Stats 1 -->
+<section class="section-tight">
+  <div class="container-max">
+    <div class="stats-banner stats-tinted">
+      <div class="stat"><div class="stat-num">148</div><div class="stat-label">数字化改造项目</div></div>
+      <div class="stat"><div class="stat-num">63</div><div class="stat-label">智造样板车间</div></div>
+      <div class="stat"><div class="stat-num">¥8.6 亿</div><div class="stat-label">投资撬动</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">覆盖行业</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 9 · 8 Diff -->
+<section id="differ" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">8 大差异化能力</span>
+    <h2 class="section-title">荥智造 vs. 通用型 SI 与云厂商</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">8 项能力对应豫西传统制造升级中的 8 个真实断点。</p>
+    <div class="diff-grid">
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="10" rx="2"/><path d="M7 10V6a5 5 0 0 1 10 0v4"/></svg>
+        <h4>设备联网工厂化</h4>
+        <p>15 类总线协议原生适配</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+        <h4>MES 行业模板</h4>
+        <p>电梯 · 装备 · 化工开箱即用</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
+        <h4>AI 视觉质检</h4>
+        <p>缺陷检出率平均 ↑ 4.2%</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+        <h4>数字孪生车间</h4>
+        <p>产线仿真 + 预测性维护</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M9 3v4M15 3v4"/></svg>
+        <h4>PDTMM® 五级评估</h4>
+        <p>唯一区域化转型认证</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 21 4-4M14 4l6 6M14 4 4 14M14 4l-4 4M20 10l-6 6"/></svg>
+        <h4>就近部署边缘算力</h4>
+        <p>与荥数云边缘节点联动</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22v-6M4 12H2M22 12h-2M6 6 4 4M20 20l-2-2M6 18l-2 2M20 4l-2 2"/><circle cx="12" cy="12" r="4"/></svg>
+        <h4>行业解决方案库</h4>
+        <p>63 个样板车间可参访</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7z"/></svg>
+        <h4>三通道资金对接</h4>
+        <p>试点 + 技改 + 认证补贴</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 10 · Stats 2 -->
+<section class="section-tight" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <div class="stats-banner stats-tinted">
+      <div class="stat"><div class="stat-num">28</div><div class="stat-label">授权专利</div></div>
+      <div class="stat"><div class="stat-num">148</div><div class="stat-label">公开使用案例</div></div>
+      <div class="stat"><div class="stat-num">工信部</div><div class="stat-label">智能制造试点示范</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">上市公司采用 PDTMM®</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 11 · Outcomes -->
+<section id="outcomes" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Core Outcomes · 核心成效</span>
+    <h2 class="section-title">8 个数字，说明荥智造在做什么</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">下列指标来自 2026 年 Q2 匿名客户改造前后对比。</p>
+    <div class="outcomes">
+      <div class="outcome-card"><div class="outcome-metric">↓ 27%</div><div class="outcome-caption">交付周期 —— 某电梯上市企业主装配线</div></div>
+      <div class="outcome-card"><div class="outcome-metric">↑ 4.6%</div><div class="outcome-caption">一次合格率 —— 同产线，改造 8 个月后</div></div>
+      <div class="outcome-card"><div class="outcome-metric">12.7 万</div><div class="outcome-caption">节省人工工时 —— 某电梯客户 12 个月累计</div></div>
+      <div class="outcome-card"><div class="outcome-metric">348</div><div class="outcome-caption">IIoT 采集点 —— 单车间部署密度</div></div>
+      <div class="outcome-card"><div class="outcome-metric">¥820 万</div><div class="outcome-caption">单项目最高获批 —— 政府技改资金</div></div>
+      <div class="outcome-card"><div class="outcome-metric">34%</div><div class="outcome-caption">项目总投入政府资金覆盖率均值</div></div>
+      <div class="outcome-card"><div class="outcome-metric">Level 4</div><div class="outcome-caption">某化工上市公司 PDTMM® 五级认证达成</div></div>
+      <div class="outcome-card"><div class="outcome-metric">18 个月</div><div class="outcome-caption">大型客户平均 ROI 回本周期</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 12 · Portfolio -->
+<section id="portfolio" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Portfolio · 子产品矩阵</span>
+    <h2 class="section-title">荥智造下的 5 条产品线</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">分级分预算，从单点改造到全厂转型。</p>
+    <div class="portfolio">
+      <div class="pf-card"><span class="pf-num">01</span><div class="pf-title">Zhi-Connect</div><p class="pf-body">设备联网工程包：15 类总线协议适配 + 边缘网关，7 天开局。</p></div>
+      <div class="pf-card"><span class="pf-num">02</span><div class="pf-title">Zhi-MES</div><p class="pf-body">行业化 MES：电梯 / 装备 / 汽零 / 化工 / 食品 5 个开箱模板。</p></div>
+      <div class="pf-card"><span class="pf-num">03</span><div class="pf-title">Zhi-Vision</div><p class="pf-body">AI 视觉质检：与荥数云联合训练，缺陷检出率 ↑ 4.2%。</p></div>
+      <div class="pf-card"><span class="pf-num">04</span><div class="pf-title">Zhi-Twin</div><p class="pf-body">数字孪生车间：产线仿真 + 预测性维护 + 换型自动排产。</p></div>
+      <div class="pf-card"><span class="pf-num">05</span><div class="pf-title">PDTMM® 认证</div><p class="pf-body">五级转型评估 + 认证补贴对接，唯一区域化转型认证。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Extras · Logo strip -->
+<section class="section-tight">
+  <div class="container-max">
+    <div style="text-align:center; color:var(--text-3); font-size:var(--fs-sm); text-transform:uppercase; letter-spacing:.1em;">已服务锚定客户</div>
+    <div class="logo-strip">
+      <div class="logo-tile">森 赫</div>
+      <div class="logo-tile">江森自控</div>
+      <div class="logo-tile">大华股份</div>
+      <div class="logo-tile">新开普</div>
+      <div class="logo-tile">优刻得</div>
+      <div class="logo-tile">安 恒</div>
+    </div>
+  </div>
+</section>
+
+<!-- Extras · Named quote -->
+<section class="section-tight">
+  <div class="container-max">
+    <div class="quote-block">
+      <div class="avatar">陈</div>
+      <div class="quote-body">
+        <q>我们是做电梯的传统制造企业，最怕的不是数字化本身，而是「上完系统没人会用」。荥智造的工程师蹲在我们厂里三个月，把看板、SOP、KPI 拆到每个班组，最后是我的班组长自己拿着 iPad 排产 —— 这才是真正的落地。</q>
+        <div class="quote-attr">
+          <strong>邢美琪</strong> · 森赫智能装备股份有限公司 · 制造中心副总经理
+        </div>
+        <div class="quote-note">* 已获客户方授权公开引用 · 引用于 2026 年 5 月郑州智造大会</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Extras · 3 Case Cards -->
+<section id="cases" class="section">
+  <div class="container-max">
+    <div style="display:flex; align-items:end; justify-content:space-between; margin-bottom:var(--sp-8);">
+      <div><span class="section-kicker" style="color:var(--accent);">案例 · Customer Stories</span><h2 class="section-title">3 个已授权公开引用的客户故事</h2></div>
+      <a href="../cases/" class="btn-ghost">查看全部案例 →</a>
+    </div>
+    <div class="grid grid-3">
+      <a href="../cases/shengrun.html" class="card">
+        <span class="card-tag card-tag--case">电梯装备</span>
+        <h3 class="card-title">森赫电梯 · 主装配线数字化</h3>
+        <p class="card-body">348 采集点 + AI 视觉质检 + 边缘算力，交付周期 ↓ 27%，累计节省人工工时 12.7 万。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+      <a href="../cases/johnson-controls.html" class="card">
+        <span class="card-tag card-tag--case">HVAC 制造</span>
+        <h3 class="card-title">江森自控 · 中央空调装配单元</h3>
+        <p class="card-body">首次在郑州基地落地 Zhi-Twin 数字孪生，SKU 换型时间 ↓ 41%，能耗 ↓ 8%。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+      <a href="../cases/dahua.html" class="card">
+        <span class="card-tag card-tag--case">工业相机</span>
+        <h3 class="card-title">大华股份 · 工业质检联合方案</h3>
+        <p class="card-body">大华相机 + 荥智造 AI 算法 + 荥数云边缘算力，向豫西 26 家制造企业整体交付。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Extras · 4 Resource Cards -->
+<section id="resources" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">资源中心</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-8);">下载 · 观看 · 阅读</h2>
+    <div class="res-grid">
+      <a href="#contact" class="res-card"><span class="chip chip--report">报告</span><h4>豫西智造 2026 转型基线报告</h4><p>基于 148 个改造项目的匿名数据分析。</p></a>
+      <a href="#contact" class="res-card"><span class="chip chip--whitepaper">白皮书</span><h4>PDTMM® 五级模型详解</h4><p>与河南省工信厅联合发布的认证方法论。</p></a>
+      <a href="#video" class="res-card"><span class="chip chip--video">视频</span><h4>3 分钟看懂荥智造</h4><p>从设备联网到 AI 质检的完整链路演示。</p></a>
+      <a href="../insights/" class="res-card"><span class="chip chip--insight">博客</span><h4>豫西电梯行业改造 3 个坑</h4><p>荥智造项目经理实战答疑。</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- Extras · Form -->
+<section id="contact" class="section">
+  <div class="container-max">
+    <div class="form-box">
+      <span class="section-kicker" style="color:var(--accent);">咨询表单</span>
+      <h2 class="section-title" style="margin-bottom:var(--sp-3);">申请免费车间数字化诊断</h2>
+      <p class="section-lead" style="margin-bottom:var(--sp-8);">留下联系方式，荥智造工程师团队将在 2 个工作日内联系您安排 1 天上门诊断，输出 PDTMM® 初评报告。</p>
+      <form onsubmit="event.preventDefault(); alert('已收到您的申请，我们会在 2 个工作日内联系您安排上门诊断');">
+        <div class="form-grid">
+          <div class="form-field"><label for="name">姓名 <span style="color:var(--alert);">*</span></label><input type="text" id="name" name="name" required placeholder="您的姓名"></div>
+          <div class="form-field"><label for="company">公司 <span style="color:var(--alert);">*</span></label><input type="text" id="company" name="company" required placeholder="您所在制造企业"></div>
+          <div class="form-field"><label for="phone">手机号 <span style="color:var(--alert);">*</span></label><input type="tel" id="phone" name="phone" required placeholder="+86"></div>
+          <div class="form-field"><label for="demand">需求类型 <span style="color:var(--alert);">*</span></label>
+            <select id="demand" name="demand" required>
+              <option value="">请选择</option>
+              <option>设备联网 (Zhi-Connect)</option>
+              <option>MES 系统 (Zhi-MES)</option>
+              <option>AI 视觉质检 (Zhi-Vision)</option>
+              <option>数字孪生 (Zhi-Twin)</option>
+              <option>PDTMM® 五级评估</option>
+              <option>技改资金对接</option>
+              <option>其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-opt"><input type="checkbox" id="wechat" name="wechat"><label for="wechat">同意通过微信接收改造洞察与政策速递（可随时退订）</label></div>
+        <button type="submit" class="form-submit">提交咨询 →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Help -->
+<a href="#contact" class="help-widget help-accent" aria-label="联系我们">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span>有什么可以帮您？</span>
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov);">荥阳市人民政府</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov-hover);">荥阳城投</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--enterprise);">太能控股</div>
+      <div style="color:var(--text-3); font-size:var(--fs-sm); margin-left:auto;">运营主体：郑州荥泽数链产业发展有限公司</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h5>数字生态</h5>
+        <a href="./yunxi-shu.html">荥数云 · 让算力无限</a>
+        <a href="./yunxi-zhi.html">荥智造 · 让制造无限</a>
+        <a href="./yunxi-lian.html">荥数链 · 让贸易无限</a>
+        <a href="./yunxi-cai.html">荥数才 · 让人才无限</a>
+      </div>
+      <div class="footer-col"><h5>平台</h5>
+        <a href="../platforms/dtsi.html">DTSI®</a>
+        <a href="../platforms/xflow.html">X-Flow Dynamics™</a>
+        <a href="../platforms/pdtmm.html">PDTMM® 五级认证</a>
+        <a href="../platforms/openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col"><h5>服务</h5>
+        <a href="../services/policy.html">政策申报</a>
+        <a href="../services/financing.html">融资对接</a>
+        <a href="../services/recruitment.html">人才招引</a>
+        <a href="../services/space.html">空间定制</a>
+      </div>
+      <div class="footer-col"><h5>关于</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../about/governance.html">七方共治</a>
+        <a href="../newsroom/">新闻室</a>
+        <a href="../about/#contact">联系我们</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2020-2026 郑州荥泽数链产业发展有限公司 · 豫 ICP 备 2024xxxxxxx 号 · 荥数云®、荥智造®、荥数链®、荥数才®、DTSI®、PDTMM® 及 X-Flow Dynamics™、OpenX@X™ 为运营主体之注册或申请中商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

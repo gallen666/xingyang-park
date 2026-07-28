@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DTSI 七方共治：为什么园区治理不是政府的独角戏 · 洞察 · 荥阳数字经济产业园</title>
+<meta name="description" content="从 Freeman 1984 利益相关者理论到 Vargo & Lusch S-D Logic 本土化改造。政府 25.7%、居民 9.0%——AHP 一致性检验 CR=0.0283 背后的治理逻辑。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .breadcrumb { padding: var(--sp-4) 0; color: var(--text-3); font-size: var(--fs-sm); }
+  .breadcrumb a { color: var(--text-3); }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb .sep { margin: 0 var(--sp-2); color: var(--text-4); }
+  .article-header { padding: var(--sp-8) 0 var(--sp-10); border-bottom: 1px solid var(--bg-line); }
+  .article-header-chips { display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap; margin-bottom: var(--sp-4); }
+  .article-header-chips .meta-date { color: var(--text-3); font-size: var(--fs-sm); margin-left: var(--sp-2); }
+  .article-title { font-size: var(--fs-3xl); font-weight: 800; line-height: var(--lh-tight); margin-bottom: var(--sp-6); max-width: 920px; }
+  .article-meta-row { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; }
+  .author-mini { display: flex; align-items: center; gap: var(--sp-3); }
+  .avatar-svg { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--enterprise), var(--ecosystem)); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: var(--fs-md); flex-shrink: 0; }
+  .author-mini-info { display: flex; flex-direction: column; gap: 2px; }
+  .author-mini-name { font-weight: 700; font-size: var(--fs-sm); color: var(--text); }
+  .author-mini-bio { font-size: var(--fs-xs); color: var(--text-3); }
+  .reading-time { font-size: var(--fs-sm); color: var(--text-3); }
+
+  .tldr { background: var(--gov-soft); border: 1px solid rgba(184,16,46,.3); border-left: 4px solid var(--gov); padding: var(--sp-6); border-radius: var(--radius-lg); margin: var(--sp-10) 0; }
+  .tldr-label { color: var(--gov-hover); font-weight: 700; font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: .08em; margin-bottom: var(--sp-3); }
+  .tldr ul { list-style: none; padding: 0; margin: 0; }
+  .tldr li { padding: var(--sp-2) 0 var(--sp-2) var(--sp-6); position: relative; color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .tldr li::before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 2px; background: var(--gov); }
+
+  .article-body { max-width: 780px; margin: 0 auto; padding: var(--sp-4) 0 var(--sp-16); }
+  .article-body h2 { font-size: var(--fs-xl); font-weight: 700; margin: var(--sp-10) 0 var(--sp-4); color: var(--text); line-height: var(--lh-tight); }
+  .article-body h3 { font-size: var(--fs-md); font-weight: 600; margin: var(--sp-6) 0 var(--sp-3); color: var(--text-1); }
+  .article-body p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .article-body ul, .article-body ol { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); padding-left: var(--sp-6); margin-bottom: var(--sp-4); }
+  .article-body li { margin-bottom: var(--sp-2); }
+  .article-body b, .article-body strong { color: var(--text); }
+
+  .divider-svg { display: block; margin: var(--sp-10) auto var(--sp-8); max-width: 600px; width: 100%; height: 18px; }
+
+  .pull-quote { border-left: 4px solid var(--gov); padding: var(--sp-6); margin: var(--sp-8) 0; background: var(--bg-2); border-radius: 0 var(--radius) var(--radius) 0; font-size: var(--fs-lg); color: var(--text-1); font-style: italic; font-family: Georgia, "Songti SC", serif; line-height: var(--lh-relaxed); position: relative; }
+  .pull-quote::before { content: "\201C"; position: absolute; left: var(--sp-3); top: -12px; font-size: 56px; color: var(--gov); font-family: Georgia, serif; line-height: 1; }
+  .pull-quote cite { display: block; margin-top: var(--sp-4); font-size: var(--fs-sm); color: var(--text-3); font-style: normal; font-family: var(--font-sans); }
+
+  .weight-table { width: 100%; border-collapse: collapse; margin: var(--sp-6) 0; background: var(--bg-1); border-radius: var(--radius); overflow: hidden; font-size: var(--fs-sm); }
+  .weight-table th, .weight-table td { padding: var(--sp-3) var(--sp-4); text-align: left; border-bottom: 1px solid var(--bg-line); }
+  .weight-table th { background: var(--bg-3); color: var(--text); font-weight: 700; }
+  .weight-table td { color: var(--text-2); }
+  .weight-table tr:last-child td { border-bottom: 0; }
+  .weight-table td b { color: var(--gold); font-variant-numeric: tabular-nums; }
+
+  .author-card-large { display: flex; gap: var(--sp-6); padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); margin-top: var(--sp-12); }
+  .avatar-large { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, var(--enterprise), var(--ecosystem)); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 28px; flex-shrink: 0; }
+  .author-card-large h4 { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-1); }
+  .author-card-large .role { color: var(--gold); font-size: var(--fs-sm); margin-bottom: var(--sp-3); }
+  .author-card-large p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-2); }
+
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+
+  .tag-row { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-8); }
+  .tag-row .chip { padding: var(--sp-2) var(--sp-3); }
+
+  .subscribe-inline { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-10); }
+  .subscribe-inline form { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); flex-wrap: wrap; }
+  .subscribe-inline input { flex: 1; min-width: 240px; padding: var(--sp-3) var(--sp-4); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); }
+
+  .ritual-list { display: grid; grid-template-columns: 1fr; gap: var(--sp-3); margin: var(--sp-4) 0 var(--sp-6); }
+  .ritual { padding: var(--sp-4); background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius); border-left: 3px solid var(--enterprise); }
+  .ritual b { color: var(--enterprise-hover); }
+</style>
+</head>
+<body>
+
+<nav class="nav-global">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="./" class="active">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#subscribe">订阅洞察</a>
+  </div>
+</nav>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Insights · 洞察中心</span>
+    <a href="./">洞察首页</a>
+    <a href="./#themes">主题分类</a>
+    <a href="./#authors">作者档案</a>
+    <a href="#subscribe">订阅</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a><span class="sep">›</span>
+    <a href="./">洞察</a><span class="sep">›</span>
+    <span>DTSI 七方共治：为什么园区治理不是政府的独角戏</span>
+  </div>
+
+  <header class="article-header">
+    <div class="article-header-chips">
+      <span class="chip chip--report">洞察文</span>
+      <span class="chip">七方共治</span>
+      <span class="chip">DTSI</span>
+      <span class="meta-date">发布 2026-07-04</span>
+    </div>
+    <h1 class="article-title">DTSI 七方共治：为什么园区治理不是政府的独角戏</h1>
+    <div class="article-meta-row">
+      <div class="author-mini">
+        <div class="avatar-svg">张</div>
+        <div class="author-mini-info">
+          <span class="author-mini-name">张 明</span>
+          <span class="author-mini-bio">DTSI® 首席方法论专家 · 前信通院工业互联网所主任研究员</span>
+        </div>
+      </div>
+      <div class="reading-time">阅读时长 · 7 分钟</div>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <div class="tldr">
+      <div class="tldr-label">TL;DR · 三句话概括</div>
+      <ul>
+        <li>DTSI 把园区治理从"政府—企业—运营"3 主体框架，升级到"政府 25.7%、资产 18.7%、运营 14.3%、企业 12.0%、科研 11.0%、员工 9.3%、居民 9.0%"七方共治坐标系，是对 Freeman 1984 利益相关者理论的本土化改造。</li>
+        <li>政府权重之所以不是 50% 而是 25.7%，是因为 AHP 层次分析法用 300 名专家的 21 对成对比较得出——共识来自实证，不来自定制。</li>
+        <li>CR=0.0283 的一致性比率意味着七方权重可被审计、可被复算、可被政策科学委员会背书，是数字化治理走向"可验证"的关键跃迁。</li>
+      </ul>
+    </div>
+
+    <h2>从 3 主体到 7 主体的认知跃迁</h2>
+    <p>过去 20 年国内产业园区的通行治理框架是"政府—企业—运营"3 主体。政府定方向、企业交税、运营公司做交付，看似清晰、其实粗糙。它把资产（园区物业与土地）、科研（大学与院所）、员工（在园区工作的个人）、居民（园区外围社区）这 4 类利益方悄悄放到了"背景板"位置——直到某一天规划扩张遇到居民反对、招商指标遇到员工用工瓶颈、绿电指标遇到资产改造成本、成果转化遇到科研激励错配，才发现"背景板"其实一直是主角。</p>
+    <p>DTSI 的第一个动作，是把这 4 类被隐身的主体请回坐标系。7 主体框架的价值不在"多"，而在"露出"：让每一个曾经被含糊处理的治理张力都获得权重、获得指标、获得责任人。它承接了 Freeman 1984 年"任何影响或被影响于组织目标的群体"的原始定义，同时在中国园区的具体语境里进一步细化。</p>
+
+    <blockquote class="pull-quote">
+      利益相关者理论最容易被误解的是：以为它只是"多问几个人的意见"。真正的意义是——每一个主体都是价值网络里的必要节点，缺席一个，整张网都会歪。
+      <cite>— 张明，援引 Freeman (1984) Strategic Management: A Stakeholder Approach</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity="0"/><stop offset=".5" stop-color="#38bdf8"/><stop offset="1" stop-color="#b8102e" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d1)" stroke-width="1.5"/>
+      <circle cx="300" cy="9" r="4" fill="#38bdf8"/>
+    </svg>
+
+    <h2>为什么政府权重是 25.7% 而非 50%</h2>
+    <p>凭直觉，很多决策者会把政府权重给到 40-60%。这个数字往往来自"谁出钱谁最大"的朴素逻辑，也来自国有园区的组织惯性。DTSI 把这个假设送去做了一次严格的检验：300 名专家（政府 60 / 企业 100 / 学术 60 / 技术 40 / 其他 40）做 21 对成对比较，跑 AHP 层次分析法。结果没有把政府降到 15%，也没有把政府抬到 50%，而是稳定在 <b>25.7%</b>。</p>
+    <p>25.7% 意味着什么？它意味着政府依然是最重要的单一主体，但其他 6 方合计的权重是 74.3%——治理成败在于其他 6 方与政府的协同，而不在于政府本身有多强。这个数字暗合了 Vargo & Lusch 2008 年 S-D Logic 的核心命题：<b>价值不由单一主体生产，而由所有主体在服务交换中共创</b>。政府是最重要的资源整合者，但不是唯一的价值提供者。</p>
+
+    <table class="weight-table">
+      <thead><tr><th>主体</th><th>AHP 权重</th><th>治理定位</th></tr></thead>
+      <tbody>
+        <tr><td>政府</td><td><b>25.7%</b></td><td>政策制定 · 招商背书 · 合规监督</td></tr>
+        <tr><td>资产（城投）</td><td><b>18.7%</b></td><td>基础设施 · 空间供给 · 资本运作</td></tr>
+        <tr><td>运营</td><td><b>14.3%</b></td><td>日常调度 · 服务交付 · 数据中台</td></tr>
+        <tr><td>企业</td><td><b>12.0%</b></td><td>数字化实践 · 税收贡献 · 用工需求</td></tr>
+        <tr><td>科研</td><td><b>11.0%</b></td><td>技术攻关 · 人才培养 · 成果转化</td></tr>
+        <tr><td>员工</td><td><b>9.3%</b></td><td>技能上升 · 通勤配套 · 归属感</td></tr>
+        <tr><td>居民</td><td><b>9.0%</b></td><td>社区支持 · 环境承受度 · 合法性来源</td></tr>
+      </tbody>
+    </table>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#34d399" stop-opacity="0"/><stop offset=".5" stop-color="#34d399"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d2)" stroke-width="1.5"/>
+      <rect x="290" y="4" width="20" height="10" fill="#34d399" rx="2"/>
+    </svg>
+
+    <h2>居民主体的地基作用</h2>
+    <p>七方权重中最容易被忽视的是居民主体的 9.0%。数字看起来最小，但它承担的是"合法性来源"这一最根本的角色。政府依然可以不管居民造大楼，运营公司依然可以不管居民做招商，但一旦居民主体的满意度崩塌——环境投诉、噪声抗议、扩张阻力——整个园区的合法性储备会在几个月内被消耗殆尽。</p>
+    <p>换句话说，居民主体的权重虽小，但方差极大。它是园区治理的"地基"：地基好时你几乎注意不到它，一旦地基松动，其他 91% 权重再高也守不住。DBA 论文引用 Vargo & Lusch 的 S-D Logic 视角把这一现象概念化为"隐性合法性资本"——当且仅当七方共治机制运转正常时，这份资本才会被持续续费。</p>
+    <p>因此 DTSI 把居民主体的 5 个指标（环境满意度、社区参与度、公共服务感知、信息透明度、扩张接受度）做成显性打分。它不是象征性配置，而是每 6 个月一次的实际问卷追踪。5 个指标里任何一个跌破 60 分，X-Flow 系统动力学模型都会自动触发"合法性预警"回路。</p>
+
+    <blockquote class="pull-quote">
+      不要因为居民主体的权重最小就以为它不重要——它是决定其他六方能否长期存在的地基。地基没垮的时候你看不见它，地基一垮，一切都塌。
+      <cite>— 张明，DTSI 首席方法论专家</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbbf24" stop-opacity="0"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d3)" stroke-width="1.5"/>
+      <polygon points="295,3 305,3 300,14" fill="#fbbf24"/>
+    </svg>
+
+    <h2>AHP 一致性检验 CR=0.0283 意味着什么</h2>
+    <p>AHP 层次分析法最容易被质疑的一点是"专家会不会自相矛盾"。举个例子：如果专家在 A vs B 上说 A 强 3 倍、B vs C 上说 B 强 3 倍，那 A vs C 就应该是 9 倍——但如果专家又说 A vs C 只是 5 倍，那这三个判断就存在内部矛盾。AHP 用一致性比率 CR 把这种矛盾程度量化：CR 越接近 0 越自洽，Saaty 1980 年设定 0.10 为可接受红线。</p>
+    <p>DBA 论文实测的 CR=0.0283 比红线低 3.5 倍。这不是刻意雕琢出来的数字——300 名专家背景、成对比较题目、判断尺度全部公开，任何人拿同一套流程重跑一次都能得到高度相近的结果。CR=0.0283 传递了 3 个信号：</p>
+    <ul>
+      <li><b>信号一 · 权重可信</b>。政府 25.7%、居民 9.0% 这些数字不是拍脑袋，而是专家共识的数学映射。</li>
+      <li><b>信号二 · 权重可审计</b>。任一环节都可回溯到具体的成对比较题目，政策科学委员会、审计机构、学术评审都可以查得清清楚楚。</li>
+      <li><b>信号三 · 权重可复算</b>。当园区进入不同产业阶段（例如从综合型转向生物医药专业型），只需要重跑 21 对成对比较，就能得到新的权重坐标系，不需要推翻整个方法论。</li>
+    </ul>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a78bfa" stop-opacity="0"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d4)" stroke-width="1.5"/>
+      <circle cx="290" cy="9" r="3" fill="#a78bfa"/><circle cx="310" cy="9" r="3" fill="#a78bfa"/>
+    </svg>
+
+    <h2>把"共治"落到日常运营的 5 个仪式</h2>
+    <p>方法论最容易停留在权重表上，真正的落地在于把七方共治装进日常的会议、决策、复盘节奏。我们过去两年在 5 家园区推行的 5 个仪式，是把 DTSI 从白皮书变成运营手册的关键动作：</p>
+
+    <div class="ritual-list">
+      <div class="ritual"><b>仪式 1 · 每季度七方会议。</b>7 方各出 1 位代表，用 90 分钟对齐上一季度各主体的 KPI 完成度与下一季度的关键动作。会议纪要作为 DTSI 下一次评估的输入。</div>
+      <div class="ritual"><b>仪式 2 · 每半年 DTSI 打分。</b>用同一套 233 题问卷收集 7 方数据，输出 35 指标热力图与七方雷达图。任何一方分数跌破区间都会触发专项会议。</div>
+      <div class="ritual"><b>仪式 3 · 每年 AHP 权重复算。</b>如果园区产业结构发生重大变化（例如新引入生物医药主导产业），重跑 21 对成对比较，更新权重坐标系。</div>
+      <div class="ritual"><b>仪式 4 · 每次重大投资的七方影响评估。</b>任何超过 5000 万元的投资决策，必须附带一份"七方影响评估表"，说明该投资对每一方的权重贡献与潜在摩擦。</div>
+      <div class="ritual"><b>仪式 5 · 每年一次的居民代表接待日。</b>由园区一把手亲自出席，专门倾听居民主体反馈。这是"地基"主体最重要的合法性续费仪式。</div>
+    </div>
+
+    <p>做齐这 5 个仪式，园区就从"政府主导 + 运营公司实施"的二分格局，进化为"7 方共治 + 数据可追溯 + 每半年一次校准"的现代治理形态。共治不是口号，而是一系列可被审计、可被复盘、可被外部机构背书的常规动作。</p>
+
+    <div class="author-card-large">
+      <div class="avatar-large">张</div>
+      <div>
+        <h4>张 明</h4>
+        <div class="role">DTSI® 首席方法论专家</div>
+        <p>前信通院工业互联网所主任研究员 · 10+ 年产业园区数字化实战。</p>
+        <p>主持 5 家国家级园区完整 DTSI 建模落地，参与 3 部行业标准起草。</p>
+        <p>联系：<a href="mailto:ming.zhang@xingyang-park.gov.cn" style="color:var(--enterprise);">ming.zhang@xingyang-park.gov.cn</a></p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:var(--sp-12);">相关文章</h2>
+    <div class="related-grid">
+      <a href="./openxx-methodology-primer.html" class="card">
+        <span class="chip chip--insight">洞察文</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">OpenX@X 方法论</h4>
+        <p class="card-body">5 步法拆解、7 方权重、M0→M36 落地节奏。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./pdtmm-level-guide.html" class="card">
+        <span class="chip chip--whitepaper">实操指南</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">PDTMM 五级认证</h4>
+        <p class="card-body">L1 到 L5 每一级的画像、材料与红利。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./xingyang-policy-2026-q3.html" class="card">
+        <span class="chip chip--policy">政策速递</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">郑州 Q3 政策速递</h4>
+        <p class="card-body">郑聚英才 · 研发加计扣除 · 数字经济基金二期。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+    </div>
+
+    <div class="tag-row">
+      <span class="chip chip--report">#DTSI</span>
+      <span class="chip">#七方共治</span>
+      <span class="chip">#AHP</span>
+      <span class="chip">#Freeman</span>
+      <span class="chip">#S-D Logic</span>
+      <span class="chip">#CR=0.0283</span>
+      <span class="chip">#张明</span>
+    </div>
+
+    <div class="subscribe-inline" id="subscribe">
+      <span class="section-kicker">SUBSCRIBE · 订阅洞察月刊</span>
+      <h3 class="section-title" style="font-size:var(--fs-lg);">追踪七方共治的每一次落地实践</h3>
+      <p style="color:var(--text-2);font-size:var(--fs-sm);">每月 1 期，把最新洞察与治理案例送到您邮箱。</p>
+      <form action="#" method="post">
+        <input type="email" placeholder="您的工作邮箱" required>
+        <button type="submit" class="btn-primary">订阅</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<a class="help-widget" href="#subscribe">
+  <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+  订阅
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>洞察</h5>
+        <a href="./openxx-methodology-primer.html">OpenX@X 方法论</a>
+        <a href="./dtsi-seven-parties.html">七方共治</a>
+        <a href="./pdtmm-level-guide.html">PDTMM 五级</a>
+        <a href="./xingyang-policy-2026-q3.html">政策速递</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../newsroom/">新闻中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="#subscribe">订阅月刊</a>
+        <a href="mailto:insights@xingyang-park.gov.cn">insights@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

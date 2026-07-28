@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>荥数云® · 让算力无限 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥数云® —— 数字荥阳的智能计算子品牌。GPU 智算节点 · 云资源 · AI 应用商店 · OpenX@X 开发者社区。4,200 P 峰值算力，12,600 名开发者，为大华、优刻得、安恒等锚定客户提供就近算力。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ===== 子品牌局部主题：只覆盖 3 处（hero 底、CTA 主色、wordmark）===== */
+  .sb { --accent: #38bdf8; --accent-dark: #0284c7; --accent-soft: rgba(56,189,248,.14); }
+
+  /* Sub-brand mini-header (sticky context bar) */
+  .sb-header {
+    position: sticky; top: 64px; z-index: 900;
+    background: rgba(15,20,36,.94); backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .sb-header-inner {
+    max-width: var(--container-max); margin: 0 auto;
+    padding: 0 var(--sp-6); height: 52px;
+    display: flex; align-items: center; gap: var(--sp-6);
+  }
+  .sb-wordmark {
+    display: flex; align-items: baseline; gap: var(--sp-2);
+    font-weight: 800; font-size: var(--fs-md);
+    padding-right: var(--sp-4); border-right: 1px solid var(--bg-line);
+  }
+  .sb-wordmark .cjk { color: var(--accent); }
+  .sb-wordmark .tm { color: var(--accent); font-size: 10px; vertical-align: super; }
+  .sb-wordmark .py { color: var(--text-3); font-size: var(--fs-xs); font-family: var(--font-mono); }
+  .sb-anchors { display: flex; gap: var(--sp-2); overflow-x: auto; flex: 1; }
+  .sb-anchors a {
+    padding: var(--sp-2) var(--sp-3); font-size: var(--fs-sm); color: var(--text-2);
+    border-radius: var(--radius-sm); white-space: nowrap;
+  }
+  .sb-anchors a:hover { background: var(--bg-3); color: var(--text); }
+  .sb-cta-inline {
+    padding: var(--sp-2) var(--sp-4); background: var(--accent); color: #0a0e1a;
+    border-radius: var(--radius); font-weight: 700; font-size: var(--fs-sm);
+    white-space: nowrap;
+  }
+  .sb-cta-inline:hover { background: var(--accent); color: #0a0e1a; opacity: .9; }
+
+  /* Rotating hero — CSS-only radio hack */
+  .sb-hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(56,189,248,.28), transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(56,189,248,.14), transparent 50%),
+      linear-gradient(160deg, #061225 0%, #0f1424 60%, #0a0e1a 100%);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .sb-hero-inner {
+    max-width: var(--container-max); margin: 0 auto;
+    padding: var(--sp-16) var(--sp-6); min-height: 480px;
+    position: relative;
+  }
+  .slider input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+  .slides { position: relative; min-height: 380px; }
+  .slide {
+    position: absolute; top: 0; left: 0; right: 0;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 400ms ease, transform 400ms ease;
+    pointer-events: none;
+  }
+  .slider #s1:checked ~ .slides .slide-1,
+  .slider #s2:checked ~ .slides .slide-2,
+  .slider #s3:checked ~ .slides .slide-3 {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+  }
+  .slide-kicker {
+    display: inline-block; padding: 4px var(--sp-4); border-radius: var(--radius-pill);
+    background: var(--accent-soft); color: var(--accent); font-size: var(--fs-sm); font-weight: 600;
+    border: 1px solid rgba(56,189,248,.35); margin-bottom: var(--sp-5);
+  }
+  .slide-master { color: var(--text-3); font-size: var(--fs-sm); letter-spacing: .1em; text-transform: uppercase; margin-bottom: var(--sp-3); }
+  .slide-title { font-size: var(--fs-3xl); font-weight: 800; line-height: var(--lh-tight); margin-bottom: var(--sp-4); max-width: 780px; }
+  .slide-sub { color: var(--text-2); font-size: var(--fs-lg); line-height: var(--lh-relaxed); max-width: 700px; margin-bottom: var(--sp-8); }
+  .btn-accent {
+    padding: var(--sp-3) var(--sp-6); background: var(--accent); color: #0a0e1a;
+    border-radius: var(--radius); font-weight: 700;
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    transition: transform var(--dur-fast) var(--ease);
+  }
+  .btn-accent:hover { transform: translateY(-1px); color: #0a0e1a; }
+  .slider-dots {
+    display: flex; gap: var(--sp-3); margin-top: var(--sp-8);
+    position: absolute; bottom: 32px; left: var(--sp-6);
+  }
+  .slider-dots label {
+    width: 40px; height: 4px; background: var(--bg-3); cursor: pointer; border-radius: 2px;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .slider-dots label:hover { background: var(--text-3); }
+  .slider #s1:checked ~ .slider-dots label[for=s1],
+  .slider #s2:checked ~ .slider-dots label[for=s2],
+  .slider #s3:checked ~ .slider-dots label[for=s3] { background: var(--accent); }
+
+  /* Section 4 — 3-paragraph positioning + centered slogan */
+  .positioning { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--sp-8); align-items: start; }
+  @media (max-width: 900px) { .positioning { grid-template-columns: 1fr; } }
+  .positioning p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .positioning .pos-mid {
+    text-align: center; padding: var(--sp-6);
+    border-left: 1px solid var(--bg-line); border-right: 1px solid var(--bg-line);
+  }
+  @media (max-width: 900px) { .positioning .pos-mid { border-left: 0; border-right: 0; border-top: 1px solid var(--bg-line); border-bottom: 1px solid var(--bg-line); padding: var(--sp-6) 0; } }
+  .slogan-big {
+    font-size: clamp(32px, 4.5vw, 56px); font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(90deg, var(--accent), var(--text));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .slogan-master { color: var(--text-3); font-size: var(--fs-sm); letter-spacing: .1em; margin-bottom: var(--sp-2); }
+
+  /* Section 5 — video + report card */
+  .video-report { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-6); }
+  @media (max-width: 900px) { .video-report { grid-template-columns: 1fr; } }
+  .video-box {
+    aspect-ratio: 16/9; background: var(--bg-1); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg); position: relative; overflow: hidden;
+    display: grid; place-items: center;
+  }
+  .video-box::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(56,189,248,.2), transparent 55%),
+      radial-gradient(circle at 70% 60%, rgba(56,189,248,.14), transparent 55%);
+  }
+  .play-btn {
+    width: 84px; height: 84px; border-radius: 50%;
+    background: var(--accent); display: grid; place-items: center;
+    box-shadow: 0 8px 32px rgba(56,189,248,.4);
+    position: relative; z-index: 1;
+  }
+  .play-btn::after {
+    content: ""; width: 0; height: 0;
+    border-left: 22px solid #0a0e1a; border-top: 14px solid transparent; border-bottom: 14px solid transparent;
+    margin-left: 6px;
+  }
+  .video-caption {
+    position: absolute; bottom: var(--sp-5); left: var(--sp-5); right: var(--sp-5);
+    z-index: 1;
+  }
+  .video-caption .kicker { color: var(--accent); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .video-caption .title { color: var(--text); font-size: var(--fs-md); font-weight: 700; margin-top: 4px; }
+  .report-card {
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg); padding: var(--sp-6);
+    display: flex; flex-direction: column; gap: var(--sp-4);
+  }
+  .report-card .doc-icon {
+    width: 48px; height: 56px; border-radius: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    display: grid; place-items: center;
+    color: #0a0e1a; font-weight: 900; font-size: 14px;
+  }
+  .report-card h4 { font-size: var(--fs-md); font-weight: 700; }
+  .report-card p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); flex: 1; }
+  .report-meta { display: flex; gap: var(--sp-3); font-size: var(--fs-xs); color: var(--text-3); }
+
+  /* Section 6 — Core beliefs infographic */
+  .beliefs-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--sp-8); align-items: center; }
+  @media (max-width: 900px) { .beliefs-wrap { grid-template-columns: 1fr; } }
+  .beliefs-svg { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-6); }
+  .whitepaper {
+    padding: var(--sp-8); background: var(--bg-2); border: 1px solid var(--accent-soft);
+    border-radius: var(--radius-lg); border-left: 3px solid var(--accent);
+  }
+  .whitepaper .chip { background: var(--accent-soft); color: var(--accent); }
+  .whitepaper h3 { font-size: var(--fs-xl); font-weight: 700; margin: var(--sp-3) 0; }
+  .whitepaper p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-5); }
+
+  /* Section 7 — Why choose 2 paragraphs */
+  .why-2col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-10); }
+  @media (max-width: 900px) { .why-2col { grid-template-columns: 1fr; } }
+  .why-block h3 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-3); color: var(--accent); }
+  .why-block p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+
+  /* Sections 8 & 10 stats — accent tinted */
+  .stats-tinted { background: var(--bg-1); border-left: 3px solid var(--accent); }
+  .stats-tinted .stat-num { color: var(--accent); }
+
+  /* Section 9 — 8-icon differentiator grid */
+  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+  @media (max-width: 900px) { .diff-grid { grid-template-columns: repeat(2, 1fr); } }
+  .diff-item {
+    padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md);
+    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .diff-item:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .diff-icon { width: 48px; height: 48px; margin-bottom: var(--sp-4); color: var(--accent); }
+  .diff-item h4 { font-size: var(--fs-md); font-weight: 700; line-height: var(--lh-tight); }
+  .diff-item p  { color: var(--text-3); font-size: var(--fs-xs); margin-top: 6px; }
+
+  /* Section 11 — Core outcomes 8 cards */
+  .outcomes { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .outcomes { grid-template-columns: repeat(2, 1fr); } }
+  .outcome-card {
+    padding: var(--sp-5); background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius);
+    border-top: 3px solid var(--accent);
+  }
+  .outcome-metric { font-size: var(--fs-xl); font-weight: 800; color: var(--accent); line-height: 1.1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+  .outcome-caption { color: var(--text-2); font-size: var(--fs-xs); line-height: var(--lh-normal); }
+
+  /* Section 12 — Portfolio */
+  .portfolio { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-4); }
+  @media (max-width: 1100px) { .portfolio { grid-template-columns: repeat(2, 1fr); } }
+  .pf-card {
+    padding: var(--sp-6); background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius-md);
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .pf-card:hover { border-color: var(--accent); }
+  .pf-num { color: var(--accent); font-family: var(--font-mono); font-size: var(--fs-sm); }
+  .pf-title { font-size: var(--fs-md); font-weight: 700; margin: var(--sp-2) 0 var(--sp-3); }
+  .pf-body { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
+
+  /* Logo strip */
+  .logo-strip {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4);
+    padding: var(--sp-8) 0;
+  }
+  @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(3, 1fr); } }
+  .logo-tile {
+    height: 64px; display: grid; place-items: center;
+    background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius);
+    color: var(--text-2); font-size: var(--fs-sm); font-weight: 700;
+    transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .logo-tile:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* Named quote */
+  .quote-block {
+    padding: var(--sp-10); background: var(--bg-1);
+    border-left: 4px solid var(--accent); border-radius: var(--radius-md);
+    display: grid; grid-template-columns: 100px 1fr; gap: var(--sp-6); align-items: start;
+  }
+  @media (max-width: 900px) { .quote-block { grid-template-columns: 1fr; } }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    display: grid; place-items: center;
+    color: #0a0e1a; font-weight: 900; font-size: 32px;
+  }
+  .quote-body q { font-size: var(--fs-lg); color: var(--text); line-height: var(--lh-relaxed); display: block; margin-bottom: var(--sp-4); }
+  .quote-body q::before { content: "「"; color: var(--accent); }
+  .quote-body q::after  { content: "」"; color: var(--accent); }
+  .quote-attr { color: var(--text-2); font-size: var(--fs-sm); }
+  .quote-attr strong { color: var(--text); font-size: var(--fs-md); }
+  .quote-note { color: var(--text-4); font-size: var(--fs-xs); margin-top: var(--sp-3); }
+
+  /* Resource cards */
+  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  @media (max-width: 900px) { .res-grid { grid-template-columns: repeat(2, 1fr); } }
+  .res-card {
+    padding: var(--sp-5); background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius);
+  }
+  .res-card:hover { border-color: var(--accent); }
+  .res-card .chip { margin-bottom: var(--sp-3); }
+  .res-card h4 { font-size: var(--fs-sm); font-weight: 700; line-height: var(--lh-normal); margin-bottom: var(--sp-2); }
+  .res-card p { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
+
+  /* Inline consultation form */
+  .form-box {
+    padding: var(--sp-10); background: var(--bg-1);
+    border: 1px solid var(--bg-line); border-radius: var(--radius-lg);
+    border-top: 3px solid var(--accent);
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+  @media (max-width: 900px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-field { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .form-field label { font-size: var(--fs-sm); color: var(--text-1); font-weight: 600; }
+  .form-field input, .form-field select {
+    padding: var(--sp-3); background: var(--bg-2); color: var(--text);
+    border: 1px solid var(--bg-line); border-radius: var(--radius);
+    font: inherit; font-size: var(--fs-sm);
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .form-field input:focus, .form-field select:focus { outline: none; border-color: var(--accent); }
+  .form-opt {
+    display: flex; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-4) 0;
+    font-size: var(--fs-sm); color: var(--text-2);
+  }
+  .form-opt input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--accent); }
+  .form-submit {
+    padding: var(--sp-3) var(--sp-8); background: var(--accent); color: #0a0e1a;
+    border-radius: var(--radius); font-weight: 700; font-size: var(--fs-md);
+  }
+
+  /* Help widget accent override */
+  .help-widget.help-accent { background: var(--accent); color: #0a0e1a; box-shadow: 0 8px 32px rgba(56,189,248,.4); }
+  .help-widget.help-accent:hover { color: #0a0e1a; }
+
+  /* Section accent CTA */
+  .btn-primary.btn-accent-primary { background: var(--accent); color: #0a0e1a; }
+  .btn-primary.btn-accent-primary:hover { background: var(--accent); opacity: .9; color: #0a0e1a; }
+</style>
+</head>
+<body class="sb">
+
+<!-- ===== Section 1 · 全局导航 ===== -->
+<nav class="nav-global" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a href="../index.html" class="nav-brand">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="./" class="active">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a href="../about/#contact" class="nav-cta">入园咨询</a>
+  </div>
+</nav>
+
+<!-- ===== Section 2 · 子品牌 mini-header ===== -->
+<div class="sb-header">
+  <div class="sb-header-inner">
+    <div class="sb-wordmark">
+      <span class="cjk">荥数云</span><span class="tm">®</span>
+      <span class="py">yunxi-shu</span>
+    </div>
+    <div class="sb-anchors">
+      <a href="#hero">承诺</a>
+      <a href="#positioning">定位</a>
+      <a href="#video">介绍</a>
+      <a href="#beliefs">核心信念</a>
+      <a href="#why">为什么</a>
+      <a href="#differ">差异化</a>
+      <a href="#outcomes">成效</a>
+      <a href="#portfolio">子产品</a>
+      <a href="#cases">案例</a>
+      <a href="#resources">资源</a>
+      <a href="#contact">咨询</a>
+    </div>
+    <a href="#contact" class="sb-cta-inline">申请算力试用</a>
+  </div>
+</div>
+
+<!-- ===== Section 3 · 3-slide rotating hero ===== -->
+<section id="hero" class="sb-hero">
+  <div class="sb-hero-inner">
+    <div class="slider">
+      <input type="radio" name="slider" id="s1" checked>
+      <input type="radio" name="slider" id="s2">
+      <input type="radio" name="slider" id="s3">
+
+      <div class="slides">
+        <!-- Slide 1: 品牌承诺 -->
+        <div class="slide slide-1">
+          <div class="slide-master">数字荥阳，可能无限 · 荥数云®</div>
+          <span class="slide-kicker">品牌承诺 · Brand Promise</span>
+          <h1 class="slide-title">让算力无限 —— 就近可取、按秒计费、按需扩展的智能计算底座</h1>
+          <p class="slide-sub">
+            在郑州航空港与荥阳产业园之间，为豫西企业提供 4,200 P 峰值 GPU 智算、公有云与混合云资源，
+            以及 830 款上架 AI 应用。开发者社区 OpenX@X™ 支持模型开源与算力券兑换。
+          </p>
+          <a href="#contact" class="btn-accent">申请算力试用 →</a>
+        </div>
+
+        <!-- Slide 2: 客户案例 -->
+        <div class="slide slide-2">
+          <div class="slide-master">数字荥阳，可能无限 · 荥数云®</div>
+          <span class="slide-kicker">客户案例 · Customer Story</span>
+          <h1 class="slide-title">某郑州上市健康科技企业接入荥数云 —— 算力成本 ↓ 38%，推理延时 ↓ 62%</h1>
+          <p class="slide-sub">
+            通过就近的 A100/H800 智算节点承接影像 AI 训练与推理任务，替代原有跨省专线方案。
+            与优刻得联合部署，6 周完成迁移，SLA 99.95%。
+          </p>
+          <a href="../cases/ucloud.html" class="btn-accent">查看完整案例 →</a>
+        </div>
+
+        <!-- Slide 3: 政府认可 -->
+        <div class="slide slide-3">
+          <div class="slide-master">数字荥阳，可能无限 · 荥数云®</div>
+          <span class="slide-kicker">政府认可 · Recognition</span>
+          <h1 class="slide-title">河南省数字经济示范平台 · 中国信通院算力可信认证</h1>
+          <p class="slide-sub">
+            荥数云被列入 2025 河南省数字经济发展白皮书示范案例，通过中国信通院算力可信服务（TSCS）Level-3 认证，
+            获郑州市「郑聚英才」算力配套资金支持。
+          </p>
+          <a href="#beliefs" class="btn-accent">查看认证详情 →</a>
+        </div>
+      </div>
+
+      <div class="slider-dots">
+        <label for="s1" aria-label="切换到 品牌承诺"></label>
+        <label for="s2" aria-label="切换到 客户案例"></label>
+        <label for="s3" aria-label="切换到 政府认可"></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 4 · 3 段定位叙事 + 大 slogan ===== -->
+<section id="positioning" class="section">
+  <div class="container-max">
+    <div class="positioning">
+      <div class="pos-left">
+        <span class="section-kicker" style="color:var(--accent);">Where</span>
+        <h3 style="font-size:var(--fs-lg); margin:var(--sp-2) 0 var(--sp-4);">部署在离郑州最近的地方</h3>
+        <p>
+          荥数云的智算节点部署于郑州航空港枢纽 40 公里辐射圈内，与荥阳数字经济产业园 260 亩用地内的
+          52 家已入驻企业「跨过一条马路就是算力」。低延时、低成本、低碳排。
+        </p>
+      </div>
+      <div class="pos-mid">
+        <div class="slogan-master">数字荥阳，可能无限</div>
+        <div class="slogan-big">让算力无限</div>
+        <p style="color:var(--text-3); font-size:var(--fs-sm); margin-top:var(--sp-4);">Compute without ceiling.</p>
+      </div>
+      <div class="pos-right">
+        <span class="section-kicker" style="color:var(--accent);">For Whom</span>
+        <h3 style="font-size:var(--fs-lg); margin:var(--sp-2) 0 var(--sp-4);">为豫西的 AI-native 企业与开发者</h3>
+        <p>
+          从医疗影像 AI、工业质检、跨境电商推荐系统，到高校科研训练与开发者原型验证 ——
+          荥数云为需要弹性算力却不愿承担机房资本开支的团队，提供分钟级开通、按秒计费的公有云与混合云。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 5 · 解说视频 + 报告 ===== -->
+<section id="video" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">3 分钟看懂</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-8);">荥数云核心能力介绍视频</h2>
+
+    <div class="video-report">
+      <div class="video-box">
+        <button class="play-btn" aria-label="播放介绍视频"></button>
+        <div class="video-caption">
+          <div class="kicker">Video · 03:14</div>
+          <div class="title">荥数云 3 分钟 —— 从申请到跑通第一个训练任务</div>
+        </div>
+      </div>
+      <div class="report-card">
+        <div class="doc-icon">PDF</div>
+        <div style="display:flex; gap:var(--sp-2); flex-wrap:wrap;">
+          <span class="chip chip--report">报告</span>
+          <span class="chip chip--whitepaper">白皮书</span>
+        </div>
+        <h4>荥数云 2026 智算能力白皮书</h4>
+        <p>68 页，含算力池架构、SLA、定价模型、开发者社区玩法与 12 个匿名客户成本对比。</p>
+        <div class="report-meta">
+          <span>2026 · 07 · 68 页</span>
+          <span>·</span>
+          <span>下载 8.4 MB</span>
+        </div>
+        <a href="#contact" class="btn-accent">立即下载 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 6 · 核心信念信息图 + 白皮书 ===== -->
+<section id="beliefs" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Core Beliefs · 核心信念</span>
+    <h2 class="section-title">我们相信算力的三种自由</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">从「买机器」到「用算力」，从「按月」到「按秒」，从「关起门」到「共建社区」—— 荥数云的三条根本主张。</p>
+
+    <div class="beliefs-wrap">
+      <div class="beliefs-svg">
+        <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥数云三种自由">
+          <defs>
+            <linearGradient id="yshu-g1" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#0ea5e9"/>
+            </linearGradient>
+          </defs>
+          <!-- Center hex -->
+          <polygon points="350,60 460,120 460,240 350,300 240,240 240,120" fill="none" stroke="url(#yshu-g1)" stroke-width="2"/>
+          <text x="350" y="180" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800">算力的三种自由</text>
+          <text x="350" y="205" text-anchor="middle" fill="#8b95a8" font-size="12">The Three Freedoms of Compute</text>
+
+          <!-- Node 1: 尺度自由 -->
+          <circle cx="120" cy="90" r="52" fill="#0f1424" stroke="#38bdf8" stroke-width="2"/>
+          <text x="120" y="85" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700">尺度自由</text>
+          <text x="120" y="105" text-anchor="middle" fill="#c8d0e0" font-size="11">1 卡到 1000 卡</text>
+          <line x1="172" y1="105" x2="240" y2="150" stroke="#38bdf8" stroke-dasharray="4,3"/>
+
+          <!-- Node 2: 时间自由 -->
+          <circle cx="580" cy="90" r="52" fill="#0f1424" stroke="#38bdf8" stroke-width="2"/>
+          <text x="580" y="85" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700">时间自由</text>
+          <text x="580" y="105" text-anchor="middle" fill="#c8d0e0" font-size="11">按秒计费</text>
+          <line x1="528" y1="105" x2="460" y2="150" stroke="#38bdf8" stroke-dasharray="4,3"/>
+
+          <!-- Node 3: 生态自由 -->
+          <circle cx="350" cy="370" r="52" fill="#0f1424" stroke="#38bdf8" stroke-width="2"/>
+          <text x="350" y="365" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700">生态自由</text>
+          <text x="350" y="385" text-anchor="middle" fill="#c8d0e0" font-size="11">830 应用可选</text>
+          <line x1="350" y1="318" x2="350" y2="300" stroke="#38bdf8" stroke-dasharray="4,3"/>
+
+          <!-- Supporting labels -->
+          <text x="90" y="180" fill="#6b7280" font-size="10">从原型到量产不换栈</text>
+          <text x="530" y="180" fill="#6b7280" font-size="10">下班后自动缩容</text>
+          <text x="290" y="240" fill="#6b7280" font-size="10">OpenX@X™ 社区共建</text>
+        </svg>
+      </div>
+
+      <aside class="whitepaper">
+        <span class="chip">白皮书 · 08 页导读</span>
+        <h3>《算力即服务：荥数云技术白皮书 2026》</h3>
+        <p>
+          从池化架构、异构调度、混合精度训练加速，到与河南省算力网、全国一体化算力网的对接方案，
+          由荥数云首席架构师团队与信通院联合撰写。
+        </p>
+        <a href="#contact" class="btn-accent">获取完整版 →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 7 · 为什么选择 2 段叙事 ===== -->
+<section id="why" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Why Yunxi Shu</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-10);">为什么选择荥数云</h2>
+    <div class="why-2col">
+      <div class="why-block">
+        <h3>因为它离你的业务只有一条马路</h3>
+        <p>
+          郑州航空港区的算力枢纽与荥阳产业园之间，专线延时低于 3 ms。对于医疗影像、工业视觉、跨境电商这类
+          对推理延时敏感的业务，跨省调用北上广的公有云意味着 30-80 ms 的额外开销 —— 荥数云是这道计算题里显然更优的解。
+          52 家已入驻园区的企业中，31 家已把训练与推理迁到荥数云。
+        </p>
+      </div>
+      <div class="why-block">
+        <h3>因为算力不再需要 CAPEX</h3>
+        <p>
+          买一台 8 卡 H800 服务器意味着 200 万现金流出与 3 年折旧。荥数云按秒计费，最小 15 分钟起算，
+          支持 spot 实例价格再打五折。配套郑州市「郑聚英才」算力配套资金与荥阳石榴籽人才计划，
+          落地企业首年可拿到最高 ¥180 万算力券补贴。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 8 · 规模 stats banner #1 ===== -->
+<section class="section-tight">
+  <div class="container-max">
+    <div class="stats-banner stats-tinted">
+      <div class="stat"><div class="stat-num">52</div><div class="stat-label">已入驻企业</div></div>
+      <div class="stat"><div class="stat-num">12,600</div><div class="stat-label">注册开发者</div></div>
+      <div class="stat"><div class="stat-num">¥3.6 亿</div><div class="stat-label">年化算力交易额</div></div>
+      <div class="stat"><div class="stat-num">21</div><div class="stat-label">覆盖行业</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 9 · 8 项差异化图标网格 ===== -->
+<section id="differ" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">8 大差异化能力</span>
+    <h2 class="section-title">荥数云 vs. 传统 IDC 与远端公有云</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">对准豫西 AI-native 企业的 8 个真实痛点，逐项拆解荥数云的解法。</p>
+
+    <div class="diff-grid">
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        <h4>就近智算节点</h4>
+        <p>荥阳-航空港 40 km 圈，专线 &lt; 3 ms</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
+        <h4>按秒计费</h4>
+        <p>最小 15 分钟起算，Spot 五折</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        <h4>异构算力池</h4>
+        <p>A100/H800/昇腾 910B 统一调度</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l3-3 4 4 8-8 3 3"/><path d="M3 20h18"/></svg>
+        <h4>训练加速引擎</h4>
+        <p>混合精度 + 通信压缩，端到端 1.8×</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <h4>830 款 AI 应用</h4>
+        <p>大模型 · CV · NLP · 语音一键部署</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h4>OpenX@X™ 社区</h4>
+        <p>12,600 开发者 · 模型开源</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h4>可信算力认证</h4>
+        <p>信通院 TSCS Level-3 · 等保三级</p>
+      </div>
+      <div class="diff-item">
+        <svg class="diff-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 9l7-7 7 7"/></svg>
+        <h4>入驻算力券</h4>
+        <p>首年最高 ¥180 万补贴</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 10 · 规模 stats banner #2 ===== -->
+<section class="section-tight" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <div class="stats-banner stats-tinted">
+      <div class="stat"><div class="stat-num">37</div><div class="stat-label">授权专利</div></div>
+      <div class="stat"><div class="stat-num">126</div><div class="stat-label">公开使用案例</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">省部级示范认可</div></div>
+      <div class="stat"><div class="stat-num">Level-3</div><div class="stat-label">信通院 TSCS 认证</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 11 · 核心成效 8 卡 ===== -->
+<section id="outcomes" class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Core Outcomes · 核心成效</span>
+    <h2 class="section-title">8 个数字，说明荥数云在做什么</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">下列指标来自 2026 年 Q2 匿名客户实际使用数据，可在《荥数云 2026 白皮书》附录 C 复核。</p>
+
+    <div class="outcomes">
+      <div class="outcome-card">
+        <div class="outcome-metric">49,000</div>
+        <div class="outcome-caption">日均推理调用次数 —— 某健康科技上市企业影像 AI 系统</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-metric">↓ 38%</div>
+        <div class="outcome-caption">算力总成本 —— 某跨境电商推荐引擎迁移前后对比</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-metric">↓ 62%</div>
+        <div class="outcome-caption">端到端推理延时 —— 某工业视觉质检产线</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-metric">6 周</div>
+        <div class="outcome-caption">迁移周期 —— 从跨省 IDC 迁至荥数云的完整周期</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-metric">1.8×</div>
+        <div class="outcome-caption">训练吞吐 —— 使用荥数云 Turbo 引擎的 Llama-70B 微调</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-metric">99.95%</div>
+        <div class="outcome-caption">SLA 达成率 —— 2026 上半年公有云滚动 12 月</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-metric">¥180 万</div>
+        <div class="outcome-caption">首年算力券 —— 单家新入驻企业最高获批</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-metric">31 / 52</div>
+        <div class="outcome-caption">已迁入企业占比 —— 园区在驻企业接入率</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Section 12 · 子产品 portfolio ===== -->
+<section id="portfolio" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">Portfolio · 子产品矩阵</span>
+    <h2 class="section-title">荥数云下的 5 条产品线</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">从底层算力到上层应用，覆盖 AI-native 企业与开发者的完整链路。</p>
+
+    <div class="portfolio">
+      <div class="pf-card">
+        <span class="pf-num">01</span>
+        <div class="pf-title">Shu-Compute</div>
+        <p class="pf-body">GPU 智算池：A100 · H800 · 昇腾 910B 异构调度，按秒计费、Spot 五折。</p>
+      </div>
+      <div class="pf-card">
+        <span class="pf-num">02</span>
+        <div class="pf-title">Shu-Cloud</div>
+        <p class="pf-body">公有云 IaaS：ECS · 对象存储 · 云数据库 · CDN，全部部署在荥阳-航空港圈。</p>
+      </div>
+      <div class="pf-card">
+        <span class="pf-num">03</span>
+        <div class="pf-title">Shu-Hybrid</div>
+        <p class="pf-body">混合云控制面：客户机房 + 荥数云统一编排，专线加密回传。</p>
+      </div>
+      <div class="pf-card">
+        <span class="pf-num">04</span>
+        <div class="pf-title">Shu-Store</div>
+        <p class="pf-body">AI 应用商店：830 款上架，大模型 · CV · NLP · 语音一键部署。</p>
+      </div>
+      <div class="pf-card">
+        <span class="pf-num">05</span>
+        <div class="pf-title">OpenX@X™</div>
+        <p class="pf-body">开发者社区：12,600 人 · 开源模型 · 算力券兑换 · 每月 Hackathon。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Extras · Logo 条 ===== -->
+<section class="section-tight">
+  <div class="container-max">
+    <div style="text-align:center; color:var(--text-3); font-size:var(--fs-sm); text-transform:uppercase; letter-spacing:.1em;">
+      已服务锚定客户
+    </div>
+    <div class="logo-strip">
+      <div class="logo-tile">大华股份</div>
+      <div class="logo-tile">优刻得</div>
+      <div class="logo-tile">江森自控</div>
+      <div class="logo-tile">森 赫</div>
+      <div class="logo-tile">新开普</div>
+      <div class="logo-tile">安 恒</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Extras · Named Quote ===== -->
+<section class="section-tight">
+  <div class="container-max">
+    <div class="quote-block">
+      <div class="avatar">季</div>
+      <div class="quote-body">
+        <q>荥数云对我们的价值不在于「便宜」，而在于「近」。当医院上传一张 CT 影像，我们希望 3 秒内给出病灶标注 —— 这 3 秒里，跨省专线动辄要吃掉 40 毫秒。选择就近的荥数云，是我们把 SLA 从 99.5% 拉到 99.95% 的关键一步。</q>
+        <div class="quote-attr">
+          <strong>季梦龙</strong> · 优刻得科技股份有限公司 · 华中区总经理
+        </div>
+        <div class="quote-note">* 已获客户方授权公开引用 · 引用于 2026 年 6 月河南省数字经济论坛</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Extras · 3 案例卡 ===== -->
+<section id="cases" class="section">
+  <div class="container-max">
+    <div style="display:flex; align-items:end; justify-content:space-between; margin-bottom:var(--sp-8);">
+      <div>
+        <span class="section-kicker" style="color:var(--accent);">案例 · Customer Stories</span>
+        <h2 class="section-title">3 个已授权公开引用的客户故事</h2>
+      </div>
+      <a href="../cases/" class="btn-ghost">查看全部案例 →</a>
+    </div>
+    <div class="grid grid-3">
+      <a href="../cases/ucloud.html" class="card">
+        <span class="card-tag card-tag--case">健康科技</span>
+        <h3 class="card-title">优刻得 · 影像 AI 混合云</h3>
+        <p class="card-body">日均 49,000 次推理调用，端到端延时 ↓ 62%，SLA 99.95%。6 周完成从上海机房到荥数云的迁移。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+      <a href="../cases/dahua.html" class="card">
+        <span class="card-tag card-tag--case">工业视觉</span>
+        <h3 class="card-title">大华股份 · 智造车间质检</h3>
+        <p class="card-body">与荥智造联合部署，将 12 条产线的视觉质检模型部署到荥数云边缘节点，缺陷检出率 ↑ 4.1%。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+      <a href="../cases/dbappsecurity.html" class="card">
+        <span class="card-tag card-tag--case">安全大模型</span>
+        <h3 class="card-title">安恒 · 恒脑安全大模型</h3>
+        <p class="card-body">在荥数云训练安全领域大模型，等保三级 + 信通院 TSCS Level-3 双认证环境，训练周期缩短 33%。</p>
+        <span class="card-cta">阅读完整案例</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Extras · 4 资源卡 ===== -->
+<section id="resources" class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--accent);">资源中心 · Resources</span>
+    <h2 class="section-title" style="margin-bottom:var(--sp-8);">下载 · 观看 · 阅读</h2>
+    <div class="res-grid">
+      <a href="#contact" class="res-card">
+        <span class="chip chip--report">报告</span>
+        <h4>2026 河南算力供需报告</h4>
+        <p>由荥数云联合河南省通信管理局发布，40 页。</p>
+      </a>
+      <a href="#contact" class="res-card">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <h4>荥数云技术白皮书 v2.6</h4>
+        <p>池化架构 · 异构调度 · SLA 承诺 · 定价模型。</p>
+      </a>
+      <a href="#video" class="res-card">
+        <span class="chip chip--video">视频</span>
+        <h4>3 分钟看懂荥数云</h4>
+        <p>从申请到跑通第一个训练任务的完整演示。</p>
+      </a>
+      <a href="../insights/" class="res-card">
+        <span class="chip chip--insight">博客</span>
+        <h4>算力券怎么用最划算？</h4>
+        <p>荥数云运营团队实战答疑，6 个高频问题。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Extras · Inline Consultation Form ===== -->
+<section id="contact" class="section">
+  <div class="container-max">
+    <div class="form-box">
+      <span class="section-kicker" style="color:var(--accent);">咨询表单 · Talk to us</span>
+      <h2 class="section-title" style="margin-bottom:var(--sp-3);">申请荥数云算力试用</h2>
+      <p class="section-lead" style="margin-bottom:var(--sp-8);">留下联系方式，荥数云商务团队将在 1 个工作日内联系您，并送上 ¥5,000 算力抵扣券。</p>
+      <form onsubmit="event.preventDefault(); alert('已收到您的申请，我们会在 1 个工作日内联系您');">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">姓名 <span style="color:var(--alert);">*</span></label>
+            <input type="text" id="name" name="name" required placeholder="您的姓名">
+          </div>
+          <div class="form-field">
+            <label for="company">公司 <span style="color:var(--alert);">*</span></label>
+            <input type="text" id="company" name="company" required placeholder="您所在公司">
+          </div>
+          <div class="form-field">
+            <label for="phone">手机号 <span style="color:var(--alert);">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="+86">
+          </div>
+          <div class="form-field">
+            <label for="demand">需求类型 <span style="color:var(--alert);">*</span></label>
+            <select id="demand" name="demand" required>
+              <option value="">请选择</option>
+              <option>GPU 智算试用</option>
+              <option>公有云资源采购</option>
+              <option>混合云方案</option>
+              <option>AI 应用商店对接</option>
+              <option>开发者社区加入</option>
+              <option>其他</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-opt">
+          <input type="checkbox" id="wechat" name="wechat">
+          <label for="wechat">同意通过微信接收算力券与产品更新（可随时退订）</label>
+        </div>
+        <button type="submit" class="form-submit">提交咨询 →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Sticky Help Widget ===== -->
+<a href="#contact" class="help-widget help-accent" aria-label="联系我们">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <span>有什么可以帮您？</span>
+</a>
+
+<!-- ===== 全局 Footer ===== -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov);">荥阳市人民政府</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov-hover);">荥阳城投</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--enterprise);">太能控股</div>
+      <div style="color:var(--text-3); font-size:var(--fs-sm); margin-left:auto;">运营主体：郑州荥泽数链产业发展有限公司</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>数字生态</h5>
+        <a href="./yunxi-shu.html">荥数云 · 让算力无限</a>
+        <a href="./yunxi-zhi.html">荥智造 · 让制造无限</a>
+        <a href="./yunxi-lian.html">荥数链 · 让贸易无限</a>
+        <a href="./yunxi-cai.html">荥数才 · 让人才无限</a>
+      </div>
+      <div class="footer-col">
+        <h5>平台</h5>
+        <a href="../platforms/dtsi.html">DTSI®</a>
+        <a href="../platforms/xflow.html">X-Flow Dynamics™</a>
+        <a href="../platforms/pdtmm.html">PDTMM® 五级认证</a>
+        <a href="../platforms/openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col">
+        <h5>服务</h5>
+        <a href="../services/policy.html">政策申报</a>
+        <a href="../services/financing.html">融资对接</a>
+        <a href="../services/recruitment.html">人才招引</a>
+        <a href="../services/space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>关于</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../about/governance.html">七方共治</a>
+        <a href="../newsroom/">新闻室</a>
+        <a href="../about/#contact">联系我们</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2020-2026 郑州荥泽数链产业发展有限公司 · 豫 ICP 备 2024xxxxxxx 号 · 荥数云®、荥智造®、荥数链®、荥数才®、DTSI®、PDTMM® 及 X-Flow Dynamics™、OpenX@X™ 为运营主体之注册或申请中商标</div>
+  </div>
+</footer>
+
+</body>
+</html>

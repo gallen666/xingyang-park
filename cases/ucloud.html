@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>优刻得 · 河南云节点入驻 · 荥阳数字经济产业园</title>
+<meta name="description" content="优刻得 UCloud 郑州云节点选址荥阳数字经济产业园：1200 ㎡ 机房定制交付，河南本地算力↑320%，客户交付延迟↓45%，首年 42 家河南本地客户签约。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .audio-bar { background: var(--bg-1); border-bottom: 1px solid var(--bg-line); padding: var(--sp-2) 0; }
+  .audio-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--sp-6); display: flex; align-items: center; gap: var(--sp-3); color: var(--text-3); font-size: var(--fs-xs); }
+  .audio-bar svg { width: 16px; height: 16px; opacity: .6; }
+  .audio-bar .badge { padding: 2px var(--sp-2); background: var(--bg-3); border-radius: var(--radius-sm); color: var(--text-4); font-size: 11px; }
+  .crumbs { background: var(--bg-1); border-bottom: 1px solid var(--bg-line); padding: var(--sp-4) 0; }
+  .crumbs-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--sp-6); }
+  .crumbs-row-1 { font-size: var(--fs-sm); color: var(--text-3); margin-bottom: var(--sp-2); }
+  .crumbs-row-1 a { color: var(--text-2); }
+  .crumbs-row-1 a:hover { color: var(--enterprise); }
+  .crumbs-row-1 .sep { color: var(--text-4); margin: 0 var(--sp-2); }
+  .crumbs-row-1 .current { color: var(--text); font-weight: 600; }
+  .crumbs-row-2 { display: flex; gap: var(--sp-2); align-items: center; }
+  .client-hero { padding: var(--sp-16) 0 var(--sp-10); background: radial-gradient(ellipse at 15% 40%, rgba(56,189,248,.14), transparent 55%), linear-gradient(180deg, var(--bg), var(--bg-1)); border-bottom: 1px solid var(--bg-line); }
+  .client-hero h1 { font-size: var(--fs-3xl); font-weight: 800; line-height: 1.15; margin-bottom: var(--sp-4); }
+  .client-hero .intro { font-size: var(--fs-lg); color: var(--text-2); line-height: var(--lh-relaxed); max-width: 800px; margin-bottom: var(--sp-10); }
+  .protagonist { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-10); display: flex; gap: var(--sp-8); align-items: center; margin-top: var(--sp-10); }
+  .protagonist-avatar { width: 128px; height: 128px; border-radius: 50%; background: linear-gradient(135deg, var(--yun), #7dd3fc); display: grid; place-items: center; flex-shrink: 0; box-shadow: var(--shadow-glow-ent); }
+  .protagonist-name { font-size: var(--fs-2xl); font-weight: 800; margin-bottom: var(--sp-2); }
+  .protagonist-title { color: var(--gold); font-size: var(--fs-md); font-weight: 600; margin-bottom: var(--sp-3); }
+  .protagonist-note { color: var(--text-3); font-size: var(--fs-sm); font-style: italic; }
+  @media (max-width: 780px) { .protagonist { flex-direction: column; text-align: center; padding: var(--sp-6); } }
+  .narrative h2 { font-size: var(--fs-2xl); font-weight: 700; margin-bottom: var(--sp-5); position: relative; padding-left: var(--sp-6); line-height: 1.2; }
+  .narrative h2::before { content: ""; position: absolute; left: 0; top: 8px; width: 4px; height: 32px; background: var(--enterprise); border-radius: 2px; }
+  .narrative p { color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .narrative-block { margin-bottom: var(--sp-16); }
+  .impl-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3) var(--sp-6); margin-top: var(--sp-6); }
+  .impl-list li { padding: var(--sp-4) var(--sp-5); background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius); font-size: var(--fs-sm); color: var(--text-1); position: relative; padding-left: var(--sp-10); line-height: var(--lh-relaxed); }
+  .impl-list li::before { content: ""; position: absolute; left: var(--sp-4); top: 50%; transform: translateY(-50%); width: 10px; height: 10px; background: var(--enterprise); border-radius: 50%; box-shadow: 0 0 8px rgba(56,189,248,.5); }
+  @media (max-width: 780px) { .impl-list { grid-template-columns: 1fr; } }
+  blockquote { border-left: 4px solid var(--gov); padding: var(--sp-6); margin: var(--sp-8) 0; font-size: var(--fs-lg); font-style: italic; color: var(--text-1); background: var(--bg-1); border-radius: 0 var(--radius-md) var(--radius-md) 0; line-height: var(--lh-relaxed); }
+  blockquote cite { display: block; margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--text-3); font-style: normal; font-weight: 600; }
+  .impact-banner { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-5); margin-top: var(--sp-6); }
+  .impact-card { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); padding: var(--sp-6) var(--sp-4); text-align: center; position: relative; overflow: hidden; }
+  .impact-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--enterprise), var(--yun)); }
+  .impact-icon { width: 32px; height: 32px; margin: 0 auto var(--sp-3); display: block; }
+  .impact-num { font-size: var(--fs-2xl); font-weight: 800; color: var(--gold); line-height: 1.1; margin-bottom: var(--sp-2); font-variant-numeric: tabular-nums; }
+  .impact-lbl { color: var(--text-2); font-size: var(--fs-xs); line-height: 1.4; }
+  @media (max-width: 900px) { .impact-banner { grid-template-columns: repeat(2, 1fr); } }
+  .related-section { background: var(--bg-1); padding: var(--sp-16) 0; border-top: 1px solid var(--bg-line); }
+  .pdf-form-wrap { background: linear-gradient(135deg, rgba(56,189,248,.10), transparent), var(--bg-1); border: 1px solid rgba(56,189,248,.3); border-radius: var(--radius-lg); padding: var(--sp-10); }
+  .pdf-form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-5); }
+  .pdf-form input { padding: var(--sp-3) var(--sp-4); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg); color: var(--text); font: inherit; }
+  .pdf-form input:focus { outline: none; border-color: var(--enterprise); }
+  .pdf-form .full { grid-column: 1 / -1; }
+  @media (max-width: 780px) { .pdf-form { grid-template-columns: 1fr; } .impact-banner { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="./" class="active">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#download">下载 PDF</a>
+  </div>
+</nav>
+
+<div class="audio-bar" role="region" aria-label="音频朗读">
+  <div class="audio-bar-inner">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <span>音频朗读 · 即将上线（Coming Soon）</span>
+    <span class="badge">TTS · 中文/英文 双语</span>
+  </div>
+</div>
+
+<div class="crumbs">
+  <div class="crumbs-inner">
+    <div class="crumbs-row-1">
+      <a href="../index.html">首页</a><span class="sep">›</span>
+      <a href="./">案例</a><span class="sep">›</span>
+      <span class="current">优刻得 UCloud</span>
+    </div>
+    <div class="crumbs-row-2">
+      <span class="chip chip--case">云服务</span>
+      <span class="chip chip--report">主要服务：算力对接 · 招商牵线 · 落地咨询</span>
+    </div>
+  </div>
+</div>
+
+<section class="client-hero">
+  <div class="container-wide">
+    <h1>优刻得 · 河南云节点入驻 · 算力落地本省</h1>
+    <p class="intro">
+      优刻得科技股份有限公司（688158.SH）——中国头部中立云服务商。
+      2025 年 11 月启动郑州云节点建设，2026 年 4 月正式对外服务，
+      成为其中原战略"东数西算" 河南枢纽首批入驻节点。
+    </p>
+    <div class="stats-banner">
+      <div class="stat"><div class="stat-num">云节点</div><div class="stat-label">河南首个 UCloud 中立节点</div></div>
+      <div class="stat"><div class="stat-num">+320%</div><div class="stat-label">河南本地算力供给</div></div>
+      <div class="stat"><div class="stat-num">-45%</div><div class="stat-label">客户交付延迟下降</div></div>
+    </div>
+
+    <div class="protagonist">
+      <div class="protagonist-avatar">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0a0e1a" stroke-width="1.5">
+          <circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0116 0v1"/>
+        </svg>
+      </div>
+      <div>
+        <div class="protagonist-title">优刻得郑州云节点总经理</div>
+        <div class="protagonist-name">林嘉禾</div>
+        <div class="protagonist-note">「已获授权公开引用 · 2026 年 5 月受访 · 优刻得中原战略办公室授权」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="narrative">
+
+      <div class="narrative-block">
+        <h2>挑战 · 河南没有本地节点，全省算力靠"绕路"</h2>
+        <p>
+          过去优刻得服务河南金融、政务客户主要依赖上海/北京节点回传，跨骨干延迟平均 38 ms，
+          对高频交易、政务实时结算、税务电子发票秒开这类刚需业务几乎不可用。
+          更棘手的是——河南本地客户对"数据不出省"的合规要求越来越明确，
+          没有本地节点意味着我们只能眼看着招商机会流失给已经落地的三大运营商与本地云。
+          我们需要一个 IDC + 电力 + 距离郑州东数据枢纽 30 min 内三个条件同时满足的选址。
+        </p>
+        <blockquote>
+          "38 ms 的跨省延迟——对政务实时结算就是致命的。河南客户越来越明确要求'数据不出省'，我们必须把节点做到本地。"
+          <cite>— 林嘉禾，优刻得郑州云节点总经理</cite>
+        </blockquote>
+      </div>
+
+      <div class="narrative-block">
+        <h2>决策 · 荥阳作为"东数西算"郑州枢纽外延</h2>
+        <p>
+          荥阳数字经济产业园本身就规划有 IDC 集群，双线市电 + 备用柴发 + PUE 1.28 已达标；
+          距郑州东数据枢纽 32 分钟，可通过专线内网直连开封、洛阳两个副节点，构成中原三角。
+          三方共治机制让我们对未来 10 年的运维稳定性有制度化预期——这是纯商业园区很难提供的确定性。
+          最终 1200 ㎡ 机房 90 天完成交付，比原计划提前 21 天。
+        </p>
+        <blockquote style="border-left-color: var(--enterprise); background: rgba(56,189,248,.06);">
+          "PUE 1.28 + 双线电力 + 郑州东专线——这三个物理指标决定了我们敢不敢把政务云放这里。荥阳三个都过了。"
+          <cite>— 林嘉禾，优刻得郑州云节点总经理</cite>
+        </blockquote>
+      </div>
+
+      <div class="narrative-block">
+        <h2>落地 · 荥阳做了什么 · 8 条动作</h2>
+        <ul class="impl-list">
+          <li>1200 ㎡ 定制机房交付，含精密空调、A/B 双路配电、24×7 门禁审计</li>
+          <li>双线市电引接 + 柴油发电机备用，SLA 承诺 99.995%</li>
+          <li>与洛阳/开封数据中心组"中原三角"内网专线，跨节点延迟 &lt; 3 ms</li>
+          <li>三方共治平台首月引荐 8 家券商、5 家城商行、3 家税务系统对接</li>
+          <li>算力对接产业链撮合会 4 场，识别本地 GPU 训练缺口客户 26 家</li>
+          <li>与优刻得联合发布郑州云节点上线仪式，河南 30+ 媒体报道</li>
+          <li>河南政务云招投标预审绿色通道，缩短入围审查周期 40%</li>
+          <li>员工宿舍 40 间 + 通勤大巴，覆盖运维一线全员</li>
+        </ul>
+      </div>
+
+      <blockquote>
+        "首月 8 家券商引荐里，有 3 家在见面 2 周内签下 GPU 训练集群订单——这个转化速度我们内部都没想到。"
+        <cite>— 林嘉禾，优刻得郑州云节点总经理</cite>
+      </blockquote>
+
+      <div class="narrative-block">
+        <h2>成效 · 首年五大结果</h2>
+        <div class="impact-banner">
+          <div class="impact-card">
+            <svg class="impact-icon" viewBox="0 0 24 24" fill="none" stroke="var(--enterprise)" stroke-width="2"><rect x="2" y="3" width="20" height="8" rx="1"/><rect x="2" y="13" width="20" height="8" rx="1"/><path d="M6 7h.01M6 17h.01"/></svg>
+            <div class="impact-num">+320%</div>
+            <div class="impact-lbl">河南本地算力供给</div>
+          </div>
+          <div class="impact-card">
+            <svg class="impact-icon" viewBox="0 0 24 24" fill="none" stroke="var(--ecosystem)" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+            <div class="impact-num">-45%</div>
+            <div class="impact-lbl">客户交付延迟下降</div>
+          </div>
+          <div class="impact-card">
+            <svg class="impact-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div class="impact-num">42 家</div>
+            <div class="impact-lbl">首年河南本地客户签约</div>
+          </div>
+          <div class="impact-card">
+            <svg class="impact-icon" viewBox="0 0 24 24" fill="none" stroke="var(--cai)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <div class="impact-num">65</div>
+            <div class="impact-lbl">运维/售前团队招聘</div>
+          </div>
+          <div class="impact-card">
+            <svg class="impact-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gov-hover)" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+            <div class="impact-num">-22%</div>
+            <div class="impact-lbl">综合运营成本</div>
+          </div>
+        </div>
+      </div>
+
+      <blockquote style="border-left-color: var(--enterprise); background: rgba(56,189,248,.06);">
+        "优刻得节点落地后，我们再谈其它云厂商招商时，'河南首个头部中立云节点已在荥阳'成了标准开场白——这本身就是招商工具。"
+        <cite>— 郭晓晴，荥阳城投数字产业总监（三方共治委员会代表）</cite>
+      </blockquote>
+
+      <div class="narrative-block">
+        <h2>未来 · 优刻得的中原下一步</h2>
+        <p>
+          2026 下半年启动第二期机房扩建，重点承接大模型推理业务；
+          同时与荥智造平台联合探索"制造业专用 AI 训练云"，
+          目标 2027 年内把郑州节点做成华中区域最大的中立算力枢纽。
+        </p>
+        <blockquote>
+          "第二期机房已经在规划——把 GPU 训练做深，把政务云做透，两年内做成华中最大中立枢纽是我们的明确目标。"
+          <cite>— 郭晓晴，荥阳城投数字产业总监</cite>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="related-section">
+  <div class="container-wide">
+    <span class="section-kicker">RELATED CASES · 相关案例</span>
+    <h2 class="section-title">其他行业头部客户的荥阳故事</h2>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+      <a href="./dahua.html" class="card">
+        <span class="card-tag card-tag--case">安防 AI</span>
+        <h4 class="card-title">大华股份 Dahua</h4>
+        <p class="card-body">郑州总部 3 个月落地，200 岗位 90 天到位，高企申报 100% 通过。</p>
+        <span class="card-cta">阅读详情</span>
+      </a>
+      <a href="./dbappsecurity.html" class="card">
+        <span class="card-tag card-tag--case">网络安全</span>
+        <h4 class="card-title">安恒信息 DBAppSecurity</h4>
+        <p class="card-body">河南区域中心落地，本地客户↑240%，取得 2 张政务专项许可。</p>
+        <span class="card-cta">阅读详情</span>
+      </a>
+      <a href="./johnson-controls.html" class="card">
+        <span class="card-tag card-tag--case">建筑智能</span>
+        <h4 class="card-title">江森自控 Johnson Controls</h4>
+        <p class="card-body">12 万㎡ 存量改造，能耗↓28%，6 项联合专利，示范工程落地。</p>
+        <span class="card-cta">阅读详情</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <span class="section-kicker">RELATED SERVICES · 相关服务</span>
+    <h2 class="section-title">优刻得用到的三条服务通道</h2>
+    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+      <a href="../services/investment.html" class="card">
+        <span class="card-tag card-tag--news">招商牵线</span>
+        <h4 class="card-title">算力对接产业链撮合</h4>
+        <p class="card-body">首月 8 家券商 + 5 家城商行引荐，2 周内成单案例最多。</p>
+        <span class="card-cta">了解详情</span>
+      </a>
+      <a href="../services/policy.html" class="card">
+        <span class="card-tag card-tag--gov">政策服务</span>
+        <h4 class="card-title">河南政务云招投标预审</h4>
+        <p class="card-body">缩短入围审查周期 40%，三方共治为合规背书。</p>
+        <span class="card-cta">了解详情</span>
+      </a>
+      <a href="../services/recruitment.html" class="card">
+        <span class="card-tag card-tag--policy">人才招引</span>
+        <h4 class="card-title">运维团队本地组建</h4>
+        <p class="card-body">65 人招聘 + 员工宿舍 40 间 + 通勤大巴一站式配套。</p>
+        <span class="card-cta">了解详情</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="download">
+  <div class="container">
+    <div class="pdf-form-wrap">
+      <span class="section-kicker">DOWNLOAD · 完整案例研究</span>
+      <h2 class="section-title">下载「优刻得郑州云节点建设」完整 PDF</h2>
+      <p class="section-lead">32 页完整版含：机房 SLA 参数、中原三角内网架构图、首月 8 家券商引荐详情、42 家客户行业分布。</p>
+      <form class="pdf-form" action="#" method="post">
+        <input type="text" name="name" placeholder="姓名 *" required>
+        <input type="email" name="email" placeholder="邮箱 *" required>
+        <input type="text" class="full" name="company" placeholder="公司（可选）">
+        <button type="submit" class="btn-primary full" style="justify-content:center;">
+          下载完整案例研究 PDF
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<a class="help-widget" href="./#become-next" aria-label="立即咨询">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  咨询
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>6 家案例</h5>
+        <a href="./dahua.html">大华股份</a>
+        <a href="./ucloud.html">优刻得</a>
+        <a href="./johnson-controls.html">江森自控</a>
+        <a href="./shengrun.html">森赫电梯</a>
+        <a href="./newcapec.html">新开普</a>
+        <a href="./dbappsecurity.html">安恒信息</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字生态</a>
+        <a href="../insights/">洞察中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="./#become-next">合作咨询</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

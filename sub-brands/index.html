@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数字生态 · 4 大数字子品牌 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥数云 · 荥智造 · 荥数链 · 荥数才 —— 数字荥阳，可能无限。围绕算力、制造、贸易、人才的四组能力，构成郑州荥阳数字经济产业园的数字生态。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ===== 子品牌 hub 局部样式 ===== */
+  .hub-hero {
+    position: relative; overflow: hidden;
+    padding: var(--sp-24) 0 var(--sp-20);
+    background:
+      radial-gradient(circle at 15% 20%, rgba(56,189,248,.18), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(245,158,11,.15), transparent 45%),
+      radial-gradient(circle at 20% 90%, rgba(52,211,153,.15), transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(167,139,250,.15), transparent 45%),
+      linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .hub-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(255,255,255,.02) 39px, rgba(255,255,255,.02) 40px);
+    pointer-events: none;
+  }
+  .hub-hero-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--sp-6); position: relative; z-index: 1; }
+  .hub-master-slogan {
+    font-size: clamp(40px, 6vw, 72px); font-weight: 800;
+    line-height: 1.1; margin-bottom: var(--sp-6);
+    background: linear-gradient(90deg, #38bdf8 0%, #f59e0b 33%, #34d399 66%, #a78bfa 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hub-lead { color: var(--text-2); font-size: var(--fs-lg); max-width: 780px; line-height: var(--lh-relaxed); }
+
+  /* 4-card matrix */
+  .sub-matrix { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); margin-top: var(--sp-12); }
+  @media (max-width: 900px) { .sub-matrix { grid-template-columns: 1fr; } }
+  .sub-card {
+    position: relative; padding: var(--sp-8);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+    overflow: hidden;
+  }
+  .sub-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--accent);
+  }
+  .sub-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .sub-card-wordmark {
+    display: flex; align-items: baseline; gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+  .sub-card-cjk { font-size: var(--fs-2xl); font-weight: 800; color: var(--accent); }
+  .sub-card-py  { font-size: var(--fs-sm); color: var(--text-3); font-family: var(--font-mono); }
+  .sub-card-tm  { font-size: var(--fs-sm); color: var(--accent); vertical-align: super; }
+  .sub-card-slogan {
+    font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-4); color: var(--text);
+  }
+  .sub-card-pitch {
+    color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed);
+    padding-left: var(--sp-4); border-left: 2px solid var(--accent);
+    margin-bottom: var(--sp-5);
+  }
+  .sub-card-pitch p { margin: 0 0 var(--sp-2); }
+  .sub-card-pitch p:last-child { margin: 0; }
+  .sub-card-mini {
+    display: flex; gap: var(--sp-6); padding: var(--sp-4) 0;
+    border-top: 1px solid var(--bg-line);
+    border-bottom: 1px solid var(--bg-line);
+    margin-bottom: var(--sp-5);
+  }
+  .sub-card-mini-item { flex: 1; }
+  .sub-card-mini-num { font-size: var(--fs-xl); font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .sub-card-mini-lbl { font-size: var(--fs-xs); color: var(--text-3); margin-top: 2px; }
+  .sub-card-cta {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-5);
+    background: var(--accent); color: #0a0e1a;
+    border-radius: var(--radius); font-weight: 700; font-size: var(--fs-sm);
+    transition: transform var(--dur-fast) var(--ease);
+  }
+  .sub-card-cta:hover { transform: translateX(4px); color: #0a0e1a; }
+
+  /* Naming logic section */
+  .why-narr {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--sp-12);
+    align-items: start;
+  }
+  @media (max-width: 900px) { .why-narr { grid-template-columns: 1fr; } }
+  .why-narr-body p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .naming-formula {
+    padding: var(--sp-6); background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius-md);
+    font-family: var(--font-mono); color: var(--text-1); font-size: var(--fs-md);
+    text-align: center; margin: var(--sp-4) 0;
+  }
+  .naming-formula .prefix { color: var(--gov); font-weight: 700; }
+  .naming-formula .root   { color: var(--enterprise); font-weight: 700; }
+  .naming-formula .op     { color: var(--text-3); margin: 0 var(--sp-3); }
+  .naming-table {
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-md); overflow: hidden;
+  }
+  .naming-table table { width: 100%; border-collapse: collapse; }
+  .naming-table th, .naming-table td {
+    padding: var(--sp-3) var(--sp-4); text-align: left;
+    border-bottom: 1px solid var(--bg-line);
+    font-size: var(--fs-sm);
+  }
+  .naming-table th { color: var(--text-3); font-weight: 600; background: var(--bg-1); }
+  .naming-table tr:last-child td { border-bottom: 0; }
+  .naming-table .cjk-cell { font-weight: 700; color: var(--text); }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+  /* Ecosystem SVG diagram */
+  .eco-diagram { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); }
+  .eco-diagram svg { width: 100%; height: auto; }
+  .eco-legend { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .eco-legend { grid-template-columns: repeat(2, 1fr); } }
+  .eco-legend-item {
+    padding: var(--sp-3); border-left: 3px solid var(--accent);
+    background: var(--bg-2); border-radius: var(--radius-sm);
+  }
+  .eco-legend-item strong { display: block; color: var(--accent); margin-bottom: 2px; font-size: var(--fs-sm); }
+  .eco-legend-item span { color: var(--text-3); font-size: var(--fs-xs); }
+</style>
+</head>
+<body>
+
+<!-- ===== 全局导航 ===== -->
+<nav class="nav-global" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a href="../index.html" class="nav-brand">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="./" class="active">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a href="../about/#contact" class="nav-cta">入园咨询</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hub-hero">
+  <div class="hub-hero-inner">
+    <span class="hero-kicker" style="background:rgba(255,255,255,.08); color:var(--text-1); border-color:var(--bg-line);">数字生态 · Digital Sub-brands</span>
+    <h1 class="hub-master-slogan">数字荥阳，可能无限</h1>
+    <p class="hub-lead">
+      围绕算力、制造、贸易与人才四组核心能力，我们将园区的数字化服务组织为 4 个可被独立认知、独立签约、独立扩展的子品牌 ——
+      荥数云<sup>®</sup>、荥智造<sup>®</sup>、荥数链<sup>®</sup> 与 荥数才<sup>®</sup>。四者以荥阳为地理锚点、以「荥」为一致前缀，
+      与全国算力网、河南省数字经济示范体系、以及大华、优刻得、江森自控、森赫、新开普、安恒等锚定客户共同构成数字荥阳的可能性版图。
+    </p>
+  </div>
+</section>
+
+<!-- ===== 4-CARD MATRIX ===== -->
+<section class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--enterprise);">四大子品牌</span>
+    <h2 class="section-title">选择一个入口，进入荥阳的数字能力</h2>
+    <p class="section-lead">每一张卡片都是一个可独立签约的能力域。点击进入完整微站，查看能力清单、客户案例、白皮书与咨询入口。</p>
+
+    <div class="sub-matrix">
+
+      <!-- 荥数云 -->
+      <article class="sub-card" style="--accent:#38bdf8;">
+        <div class="sub-card-wordmark">
+          <span class="sub-card-cjk">荥数云<span class="sub-card-tm">®</span></span>
+          <span class="sub-card-py">yunxi-shu · Compute Cloud</span>
+        </div>
+        <div class="sub-card-slogan">让算力无限</div>
+        <div class="sub-card-pitch">
+          <p>为郑州及豫西企业提供 GPU 智算节点、公有云与混合云资源、AI 应用商店。</p>
+          <p>与优刻得、安恒共建的 4,200 P 峰值算力池，就近服务园区 260 亩用地内的 52 家已入驻企业。</p>
+          <p>开发者社区 OpenX@X<sup>™</sup> 提供开源模型、SDK 与算力券。</p>
+        </div>
+        <div class="sub-card-mini">
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">4,200 P</div>
+            <div class="sub-card-mini-lbl">峰值智算</div>
+          </div>
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">12,600</div>
+            <div class="sub-card-mini-lbl">注册开发者</div>
+          </div>
+        </div>
+        <a href="./yunxi-shu.html" class="sub-card-cta">进入荥数云 →</a>
+      </article>
+
+      <!-- 荥智造 -->
+      <article class="sub-card" style="--accent:#f59e0b;">
+        <div class="sub-card-wordmark">
+          <span class="sub-card-cjk">荥智造<span class="sub-card-tm">®</span></span>
+          <span class="sub-card-py">yunxi-zhi · Smart Manufacturing</span>
+        </div>
+        <div class="sub-card-slogan">让制造无限</div>
+        <div class="sub-card-pitch">
+          <p>面向豫西装备、电梯、汽车零部件、化工产业提供数字化改造与智能制造试点服务。</p>
+          <p>联合森赫电梯与江森自控在 40.4 万㎡ 建面内建立 63 个智造样板车间与 148 个数字化改造项目。</p>
+          <p>提供 PDTMM<sup>®</sup> 五级转型认证与政府专项资金对接。</p>
+        </div>
+        <div class="sub-card-mini">
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">148</div>
+            <div class="sub-card-mini-lbl">改造项目</div>
+          </div>
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">¥8.6 亿</div>
+            <div class="sub-card-mini-lbl">投资撬动</div>
+          </div>
+        </div>
+        <a href="./yunxi-zhi.html" class="sub-card-cta">进入荥智造 →</a>
+      </article>
+
+      <!-- 荥数链 -->
+      <article class="sub-card" style="--accent:#34d399;">
+        <div class="sub-card-wordmark">
+          <span class="sub-card-cjk">荥数链<span class="sub-card-tm">®</span></span>
+          <span class="sub-card-py">yunxi-lian · Trade Chain</span>
+        </div>
+        <div class="sub-card-slogan">让贸易无限</div>
+        <div class="sub-card-pitch">
+          <p>依托郑州航空港与中欧班列，为跨境电商、供应链金融与产业链撮合提供数字化通道。</p>
+          <p>联合新开普、大华股份构建 480 家跨境电商生态、覆盖 32 个国家、年 GMV 逾 ¥54 亿。</p>
+          <p>与郑州海关智慧口岸、河南自贸区打通结算与合规。</p>
+        </div>
+        <div class="sub-card-mini">
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">¥54 亿</div>
+            <div class="sub-card-mini-lbl">年 GMV</div>
+          </div>
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">32</div>
+            <div class="sub-card-mini-lbl">覆盖国家</div>
+          </div>
+        </div>
+        <a href="./yunxi-lian.html" class="sub-card-cta">进入荥数链 →</a>
+      </article>
+
+      <!-- 荥数才 -->
+      <article class="sub-card" style="--accent:#a78bfa;">
+        <div class="sub-card-wordmark">
+          <span class="sub-card-cjk">荥数才<span class="sub-card-tm">®</span></span>
+          <span class="sub-card-py">yunxi-cai · Talent Engine</span>
+        </div>
+        <div class="sub-card-slogan">让人才无限</div>
+        <div class="sub-card-pitch">
+          <p>承接郑州「郑聚英才」与荥阳「石榴籽人才计划」两级人才政策，负责园区人才招引、培训与留存。</p>
+          <p>面向优刻得、安恒、新开普等锚定客户提供 6,300 人才库、4,800 培训人次与 71% 留郑率。</p>
+          <p>联合中原工学院、郑州大学建立 9 个联合实验室与实习基地。</p>
+        </div>
+        <div class="sub-card-mini">
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">6,300</div>
+            <div class="sub-card-mini-lbl">人才库</div>
+          </div>
+          <div class="sub-card-mini-item">
+            <div class="sub-card-mini-num">71%</div>
+            <div class="sub-card-mini-lbl">留郑率</div>
+          </div>
+        </div>
+        <a href="./yunxi-cai.html" class="sub-card-cta">进入荥数才 →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 为什么四个子品牌 ===== -->
+<section class="section" style="background:var(--bg-1); border-top:1px solid var(--bg-line); border-bottom:1px solid var(--bg-line);">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--enterprise);">品牌逻辑 · Naming Rationale</span>
+    <h2 class="section-title">为什么把数字生态拆成四个品牌？</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">
+      借鉴 Infosys 旗下 Edgeverve 的「能力优先命名法」：一个品牌只承担一件事，让客户 3 秒钟就知道自己该找谁。
+    </p>
+
+    <div class="why-narr">
+      <div class="why-narr-body">
+        <p>过去五年，「数字经济园」四个字被使用得过于宽泛。当一家跨境电商企业问：「你能帮我做算力还是做通关？」——用一个整合品牌回答，往往显得含糊。</p>
+        <p>我们的解法是：<strong>一个前缀锁定地理与治理（「荥」），一个后缀锁定能力（数云 / 智造 / 数链 / 数才）</strong>。前缀相同意味着服务、法务、结算都由同一个运营主体交付；后缀不同意味着每个子品牌对应一个专属产品线、一个专属团队、一个专属考核指标。</p>
+        <p>四个子品牌可以独立签约、独立结算、独立营销，但共享同一个园区、同一套 tokens、同一套服务承诺 —— 母品牌 loud，子品牌 sharp。</p>
+        <div class="naming-formula">
+          <span class="prefix">荥</span><span class="op">+</span><span class="root">功能词根</span><span class="op">=</span>子品牌名
+        </div>
+      </div>
+      <div class="naming-table">
+        <table>
+          <thead>
+            <tr><th>子品牌</th><th>拼音 URL</th><th>能力域</th><th>核心 KPI</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cjk-cell"><span class="dot" style="background:#38bdf8;"></span>荥数云</td>
+              <td>yunxi-shu</td>
+              <td>算力 · AI</td>
+              <td>P 级算力使用率</td>
+            </tr>
+            <tr>
+              <td class="cjk-cell"><span class="dot" style="background:#f59e0b;"></span>荥智造</td>
+              <td>yunxi-zhi</td>
+              <td>智能制造</td>
+              <td>数字化车间数</td>
+            </tr>
+            <tr>
+              <td class="cjk-cell"><span class="dot" style="background:#34d399;"></span>荥数链</td>
+              <td>yunxi-lian</td>
+              <td>跨境贸易</td>
+              <td>年 GMV</td>
+            </tr>
+            <tr>
+              <td class="cjk-cell"><span class="dot" style="background:#a78bfa;"></span>荥数才</td>
+              <td>yunxi-cai</td>
+              <td>人才招引</td>
+              <td>留郑率</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 生态协同图 ===== -->
+<section class="section">
+  <div class="container-max">
+    <span class="section-kicker" style="color:var(--enterprise);">4 子品牌协同图</span>
+    <h2 class="section-title">四条能力如何互相支撑</h2>
+    <p class="section-lead" style="margin-bottom:var(--sp-10);">
+      荥数云提供算力底座，荥智造使用算力做产线仿真与质检 AI，荥数链把制造好的产品通过跨境网络卖出去，荥数才把人才输送到前三者内部 —— 一个环形结构，任一节点做强，都会拉动其余三个。
+    </p>
+
+    <div class="eco-diagram">
+      <svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="四子品牌协同关系图">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L8,3 z" fill="#8b95a8"/>
+          </marker>
+          <linearGradient id="g-yun" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#0ea5e9"/>
+          </linearGradient>
+          <linearGradient id="g-zhi" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#d97706"/>
+          </linearGradient>
+          <linearGradient id="g-lian" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#059669"/>
+          </linearGradient>
+          <linearGradient id="g-cai" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#7c3aed"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Center hub -->
+        <circle cx="450" cy="230" r="70" fill="#0f1424" stroke="#b8102e" stroke-width="2"/>
+        <text x="450" y="222" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">荥阳园区</text>
+        <text x="450" y="246" text-anchor="middle" fill="#c8d0e0" font-size="13">260 亩 · 40.4 万㎡</text>
+
+        <!-- 4 nodes -->
+        <g>
+          <circle cx="210" cy="120" r="70" fill="url(#g-yun)" opacity="0.9"/>
+          <text x="210" y="115" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="800">荥数云</text>
+          <text x="210" y="138" text-anchor="middle" fill="#0a0e1a" font-size="11" font-weight="600">算力 · AI</text>
+        </g>
+        <g>
+          <circle cx="690" cy="120" r="70" fill="url(#g-zhi)" opacity="0.9"/>
+          <text x="690" y="115" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="800">荥智造</text>
+          <text x="690" y="138" text-anchor="middle" fill="#0a0e1a" font-size="11" font-weight="600">数字化 · 制造</text>
+        </g>
+        <g>
+          <circle cx="690" cy="340" r="70" fill="url(#g-lian)" opacity="0.9"/>
+          <text x="690" y="335" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="800">荥数链</text>
+          <text x="690" y="358" text-anchor="middle" fill="#0a0e1a" font-size="11" font-weight="600">贸易 · 供应链</text>
+        </g>
+        <g>
+          <circle cx="210" cy="340" r="70" fill="url(#g-cai)" opacity="0.9"/>
+          <text x="210" y="335" text-anchor="middle" fill="#0a0e1a" font-size="18" font-weight="800">荥数才</text>
+          <text x="210" y="358" text-anchor="middle" fill="#0a0e1a" font-size="11" font-weight="600">人才 · 培训</text>
+        </g>
+
+        <!-- Ring arrows: yun→zhi→lian→cai→yun -->
+        <path d="M280,120 Q450,60 620,120" stroke="#38bdf8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+        <path d="M690,190 Q760,230 690,270" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+        <path d="M620,340 Q450,400 280,340" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+        <path d="M210,270 Q140,230 210,190" stroke="#a78bfa" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+        <!-- Ring labels -->
+        <text x="450" y="55"  text-anchor="middle" fill="#8b95a8" font-size="12">① 提供智算底座</text>
+        <text x="785" y="234" text-anchor="middle" fill="#8b95a8" font-size="12">② 制造数字化</text>
+        <text x="450" y="415" text-anchor="middle" fill="#8b95a8" font-size="12">③ 出口通全球</text>
+        <text x="115" y="234" text-anchor="middle" fill="#8b95a8" font-size="12">④ 人才闭环</text>
+
+        <!-- Center spokes -->
+        <line x1="270" y1="170" x2="395" y2="205" stroke="#6b7280" stroke-dasharray="3,3"/>
+        <line x1="630" y1="170" x2="505" y2="205" stroke="#6b7280" stroke-dasharray="3,3"/>
+        <line x1="630" y1="290" x2="505" y2="255" stroke="#6b7280" stroke-dasharray="3,3"/>
+        <line x1="270" y1="290" x2="395" y2="255" stroke="#6b7280" stroke-dasharray="3,3"/>
+      </svg>
+
+      <div class="eco-legend">
+        <div class="eco-legend-item" style="--accent:#38bdf8;">
+          <strong>① 荥数云 → 荥智造</strong>
+          <span>P 级算力为智造车间提供仿真、机器视觉、预测性维护</span>
+        </div>
+        <div class="eco-legend-item" style="--accent:#f59e0b;">
+          <strong>② 荥智造 → 荥数链</strong>
+          <span>数字化车间产出的可追溯商品对接跨境电商与供应链金融</span>
+        </div>
+        <div class="eco-legend-item" style="--accent:#34d399;">
+          <strong>③ 荥数链 → 荥数才</strong>
+          <span>贸易与制造的规模化释放对多语言/合规/技术人才的需求</span>
+        </div>
+        <div class="eco-legend-item" style="--accent:#a78bfa;">
+          <strong>④ 荥数才 → 荥数云</strong>
+          <span>人才回流为算力集群与开发者社区提供持续供给</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 数字荥阳整体规模 ===== -->
+<section class="section-tight">
+  <div class="container-max">
+    <div class="stats-banner">
+      <div class="stat"><div class="stat-num">260</div><div class="stat-label">亩用地</div></div>
+      <div class="stat"><div class="stat-num">40.4 万㎡</div><div class="stat-label">建筑面积</div></div>
+      <div class="stat"><div class="stat-num">52</div><div class="stat-label">已入驻企业</div></div>
+      <div class="stat"><div class="stat-num">1,553</div><div class="stat-label">全景招商计划</div></div>
+      <div class="stat"><div class="stat-num">¥30 亿</div><div class="stat-label">累计投资</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA row ===== -->
+<section class="section">
+  <div class="container-max">
+    <div class="grid grid-3">
+      <a href="../about/#contact" class="card">
+        <span class="card-tag card-tag--gov">入园</span>
+        <h3 class="card-title">申请入驻园区</h3>
+        <p class="card-body">4 大子品牌 + 8 大服务 + 260 亩用地的一站式入驻通道，最快 5 个工作日反馈。</p>
+        <span class="card-cta">立即申请</span>
+      </a>
+      <a href="../cases/" class="card">
+        <span class="card-tag card-tag--case">案例</span>
+        <h3 class="card-title">查看命名客户案例</h3>
+        <p class="card-body">大华股份、优刻得、江森自控、森赫、新开普、安恒等 6 家锚定客户的完整故事。</p>
+        <span class="card-cta">浏览案例</span>
+      </a>
+      <a href="../insights/" class="card">
+        <span class="card-tag card-tag--report">报告</span>
+        <h3 class="card-title">数字荥阳白皮书</h3>
+        <p class="card-body">4 大子品牌能力矩阵与商业模型白皮书，含 DTSI 七方 35 指标评估结果。</p>
+        <span class="card-cta">下载 PDF</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Sticky Help Widget ===== -->
+<a href="../about/#contact" class="help-widget" aria-label="联系我们">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <span>有什么可以帮您？</span>
+</a>
+
+<!-- ===== 全局 Footer ===== -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov);">荥阳市人民政府</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--gov-hover);">荥阳城投</div>
+      <div class="footer-lockup-item" style="border-left:3px solid var(--enterprise);">太能控股</div>
+      <div style="color:var(--text-3); font-size:var(--fs-sm); margin-left:auto;">运营主体：郑州荥泽数链产业发展有限公司</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>数字生态</h5>
+        <a href="./yunxi-shu.html">荥数云 · 让算力无限</a>
+        <a href="./yunxi-zhi.html">荥智造 · 让制造无限</a>
+        <a href="./yunxi-lian.html">荥数链 · 让贸易无限</a>
+        <a href="./yunxi-cai.html">荥数才 · 让人才无限</a>
+      </div>
+      <div class="footer-col">
+        <h5>平台</h5>
+        <a href="../platforms/dtsi.html">DTSI®</a>
+        <a href="../platforms/xflow.html">X-Flow Dynamics™</a>
+        <a href="../platforms/pdtmm.html">PDTMM® 五级认证</a>
+        <a href="../platforms/openxx.html">OpenX@X™</a>
+      </div>
+      <div class="footer-col">
+        <h5>服务</h5>
+        <a href="../services/policy.html">政策申报</a>
+        <a href="../services/financing.html">融资对接</a>
+        <a href="../services/recruitment.html">人才招引</a>
+        <a href="../services/space.html">空间定制</a>
+      </div>
+      <div class="footer-col">
+        <h5>关于</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../about/governance.html">七方共治</a>
+        <a href="../newsroom/">新闻室</a>
+        <a href="../about/#contact">联系我们</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2020-2026 郑州荥泽数链产业发展有限公司 · 豫 ICP 备 2024xxxxxxx 号 · 数字荥阳，可能无限</div>
+  </div>
+</footer>
+
+</body>
+</html>

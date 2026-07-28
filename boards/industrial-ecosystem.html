@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<title>IABCDGN 产业生态 · 荥阳数字经济产业园</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌱%3C/text%3E%3C/svg%3E">
+<style>
+  :root{--bg:#0a0e1a;--panel:#0f1424;--panel2:#12172a;--line:rgba(255,255,255,.08);--text:#e6eefc;--muted:#8b95a8;--accent:#38bdf8;--gold:#fbbf24;--green:#34d399;--red:#fb7185;--purple:#a78bfa;--orange:#fb923c;--cyan:#22d3ee}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:linear-gradient(180deg,#070b16,#0a0e1a);color:var(--text);line-height:1.7;min-height:100vh}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:var(--gold)}
+
+  .topnav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 24px}
+  .nav-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:64px}
+  .brand{font-size:16px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:10px}
+  .nav-links{display:flex;gap:20px;list-style:none}
+  .nav-links a{color:var(--text);font-size:13px;padding:6px 0;text-decoration:none;border-bottom:2px solid transparent}
+  .nav-links a.active,.nav-links a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+  main{max-width:1280px;margin:0 auto;padding:30px 24px 60px}
+  .page-hero{padding:20px 0 40px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .page-title{font-size:36px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--gold),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+  .page-sub{color:var(--muted);font-size:15px;max-width:800px;margin:0 auto}
+
+  section{margin-bottom:48px}
+  .section-tag{display:inline-block;padding:4px 12px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);border-radius:12px;color:var(--accent);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+  h2{font-size:26px;color:var(--text);margin-bottom:12px}
+  h3{font-size:16px;color:var(--gold);margin:16px 0 10px}
+  .section-desc{color:var(--muted);font-size:14px;margin-bottom:24px}
+
+  /* IABCDGN */
+  .iabcdgn-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:24px}
+  .iab-card{padding:20px 12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;text-align:center;cursor:pointer;transition:all .3s}
+  .iab-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 8px 24px rgba(251,191,36,.2)}
+  .iab-letter{font-size:36px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+  .iab-name{font-size:12.5px;color:var(--text);font-weight:600}
+  .iab-en{font-size:10px;color:var(--muted);margin-top:2px;font-style:italic}
+  .iab-count{font-size:11px;color:var(--accent);margin-top:6px}
+
+  /* Industry map */
+  .map-panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:24px}
+  .map-container{position:relative;height:520px;background:radial-gradient(circle at center,rgba(56,189,248,.05),transparent 70%);border-radius:10px;overflow:hidden}
+
+  .company-node{position:absolute;padding:8px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:20px;font-size:11px;cursor:pointer;transition:all .2s;white-space:nowrap;transform:translate(-50%,-50%)}
+  .company-node:hover{border-color:var(--gold);z-index:10;transform:translate(-50%,-50%) scale(1.1)}
+  .company-node.big{padding:12px 16px;font-weight:600;background:linear-gradient(135deg,var(--panel),var(--panel2));border-color:var(--accent)}
+  .company-node.gold{border-color:var(--gold);background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(0,0,0,.3))}
+  .company-icon{font-size:14px;margin-right:4px}
+
+  .link-line{position:absolute;height:1px;background:linear-gradient(90deg,rgba(56,189,248,.3),rgba(251,191,36,.1));transform-origin:left;pointer-events:none}
+
+  /* Company detail cards */
+  .companies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  .company-card{padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;transition:all .2s}
+  .company-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .company-card-name{font-size:14px;color:var(--text);font-weight:600;margin-bottom:4px}
+  .company-card-code{font-size:11px;color:var(--muted);margin-bottom:8px;font-family:'Courier New',monospace}
+  .company-card-tags{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}
+  .tag{display:inline-block;padding:2px 8px;background:rgba(56,189,248,.15);color:var(--accent);border-radius:3px;font-size:10px}
+  .tag-gold{background:rgba(251,191,36,.15);color:var(--gold)}
+  .tag-green{background:rgba(52,211,153,.15);color:var(--green)}
+  .tag-purple{background:rgba(167,139,250,.15);color:var(--purple)}
+  .tag-red{background:rgba(251,113,133,.15);color:var(--red)}
+  .company-card-meta{font-size:11px;color:var(--muted);margin-top:8px}
+
+  /* Data exchange */
+  .exchange-hero{background:linear-gradient(135deg,rgba(56,189,248,.05),rgba(251,191,36,.03));border:1px solid rgba(56,189,248,.2);border-radius:16px;padding:32px;margin-bottom:24px}
+  .exchange-hero h3{font-size:22px;color:var(--accent);margin-bottom:12px}
+  .exchange-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+  .em-card{padding:16px;background:rgba(0,0,0,.2);border-radius:8px;text-align:center}
+  .em-value{font-size:24px;font-weight:700;color:var(--accent)}
+  .em-unit{font-size:12px;color:var(--muted)}
+  .em-label{font-size:11px;color:var(--muted);margin-top:4px}
+
+  .listing-table{width:100%;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--line);border-collapse:collapse;margin-bottom:16px}
+  .listing-table th{padding:12px;text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;background:var(--panel2);border-bottom:1px solid var(--line)}
+  .listing-table td{padding:12px;border-bottom:1px solid var(--line);font-size:13px}
+  .listing-table tr:hover td{background:var(--panel2)}
+  .price-cell{font-weight:600;color:var(--gold)}
+
+  /* Carbon */
+  .carbon-hero{background:linear-gradient(135deg,rgba(52,211,153,.08),rgba(34,211,238,.03));border:1px solid rgba(52,211,153,.2);border-radius:16px;padding:32px;margin-bottom:24px}
+  .carbon-hero h3{font-size:22px;color:var(--green);margin-bottom:12px}
+  .carbon-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .cs-card{padding:20px;background:rgba(0,0,0,.2);border-radius:8px}
+  .cs-icon{font-size:24px;margin-bottom:6px}
+  .cs-value{font-size:24px;font-weight:700;color:var(--green)}
+  .cs-label{font-size:11px;color:var(--muted);margin-top:4px}
+  .cs-trend{font-size:11px;color:var(--green);margin-top:4px}
+
+  /* Academic */
+  .academic-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+  .academic-panel{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+  .uni-list{list-style:none;padding:0}
+  .uni-list li{display:flex;justify-content:space-between;padding:10px;margin-bottom:6px;background:var(--panel2);border-radius:6px;font-size:13px;align-items:center}
+  .uni-list li .type{font-size:10px;color:var(--muted)}
+  .partnership-item{padding:12px;background:var(--panel2);border-radius:6px;margin-bottom:8px;border-left:3px solid var(--purple)}
+  .partnership-title{font-size:13px;color:var(--text);font-weight:600}
+  .partnership-desc{font-size:11px;color:var(--muted);margin-top:4px}
+
+  /* Investment */
+  .fund-card{padding:20px;background:linear-gradient(135deg,rgba(251,191,36,.05),rgba(0,0,0,0));border:1px solid rgba(251,191,36,.2);border-radius:10px;margin-bottom:12px}
+  .fund-name{font-size:16px;color:var(--gold);font-weight:600}
+  .fund-scale{font-size:20px;font-weight:700;color:var(--text);margin:6px 0}
+  .fund-focus{font-size:12px;color:var(--muted)}
+  .fund-progress{margin-top:12px}
+  .fund-progress-bar{height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+  .fund-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--accent))}
+
+  @media(max-width:900px){
+    .iabcdgn-grid{grid-template-columns:repeat(3,1fr)}
+    .exchange-metrics,.carbon-stats,.academic-grid{grid-template-columns:1fr}
+    .map-container{height:400px}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Global nav (v2.0) -->
+<nav class="nav-global" role="navigation" aria-label="主导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="../services/investment.html">预约实地考察</a>
+  </div>
+</nav>
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Board F · 产业生态</span>
+    <a href="#overview" class="active">概览</a>
+    <a href="#services">服务矩阵</a>
+    <a href="#stories">客户故事</a>
+    <a href="#insights">洞察</a>
+    <a href="#contact">联系</a>
+  </div>
+</div>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <a href="./index.html" class="brand">🌱 IABCDGN 产业生态</a>
+    <ul class="nav-links">
+      <li><a href="./index.html">首页</a></li>
+      <li><a href="./onboarding.html">入驻</a></li>
+      <li><a href="./enterprise-workspace.html">企业专区</a></li>
+      <li><a href="./smart-park-ops.html">智慧运营</a></li>
+      <li><a href="./industrial-ecosystem.html" class="active">🌱 产业生态</a></li>
+      <li><a href="./admin-console.html">治理中枢</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <div class="page-title">IABCDGN 产业生态平台</div>
+    <div class="page-sub">七大数字技术集群 · 完整产业生态 · 数据要素市场化 · 碳中和交易 · 产学研撮合</div>
+  </div>
+
+  <!-- IABCDGN 七大方向 -->
+  <section>
+    <div class="section-tag">CORE · 生态基石</div>
+    <h2>七大数字技术集群 · 产业生态骨架</h2>
+    <div class="section-desc">园区聚焦 IABCDGN 七大数字技术方向，形成协同发展的完整产业生态</div>
+
+    <div class="iabcdgn-grid">
+      <div class="iab-card">
+        <div class="iab-letter">I</div>
+        <div class="iab-name">物联网</div>
+        <div class="iab-en">IoT</div>
+        <div class="iab-count">6 家企业</div>
+      </div>
+      <div class="iab-card">
+        <div class="iab-letter">A</div>
+        <div class="iab-name">人工智能</div>
+        <div class="iab-en">AI</div>
+        <div class="iab-count">14 家企业</div>
+      </div>
+      <div class="iab-card">
+        <div class="iab-letter">B</div>
+        <div class="iab-name">区块链</div>
+        <div class="iab-en">Blockchain</div>
+        <div class="iab-count">4 家企业</div>
+      </div>
+      <div class="iab-card">
+        <div class="iab-letter">C</div>
+        <div class="iab-name">云计算</div>
+        <div class="iab-en">Cloud</div>
+        <div class="iab-count">8 家企业</div>
+      </div>
+      <div class="iab-card">
+        <div class="iab-letter">D</div>
+        <div class="iab-name">大数据</div>
+        <div class="iab-en">Data</div>
+        <div class="iab-count">12 家企业</div>
+      </div>
+      <div class="iab-card">
+        <div class="iab-letter">G</div>
+        <div class="iab-name">5G</div>
+        <div class="iab-en">5G</div>
+        <div class="iab-count">3 家企业</div>
+      </div>
+      <div class="iab-card">
+        <div class="iab-letter">N</div>
+        <div class="iab-name">数字孪生</div>
+        <div class="iab-en">Nascent Twin</div>
+        <div class="iab-count">5 家企业</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产业图谱 -->
+  <section>
+    <div class="section-tag">GRAPH · 产业图谱</div>
+    <h2>企业协同网络 · 上下游关系可视化</h2>
+    <div class="section-desc">园区 52 家已入驻企业按 IABCDGN 分类的产业协同关系图</div>
+
+    <div class="map-panel">
+      <div class="map-container" id="industryMap">
+        <!-- Center node -->
+        <div class="company-node big gold" style="left:50%;top:50%;">
+          <span class="company-icon">🏙</span>荥阳产业园中心
+        </div>
+
+        <!-- I: IoT -->
+        <div class="company-node big" style="left:15%;top:15%;color:var(--cyan)">
+          <span class="company-icon">📡</span>物联网 (I)
+        </div>
+        <div class="company-node" style="left:8%;top:8%">江森自控</div>
+        <div class="company-node" style="left:6%;top:22%">大华股份</div>
+
+        <!-- A: AI -->
+        <div class="company-node big" style="left:85%;top:15%;color:var(--purple)">
+          <span class="company-icon">🧠</span>人工智能 (A)
+        </div>
+        <div class="company-node" style="left:92%;top:8%">五一视界</div>
+        <div class="company-node" style="left:94%;top:22%">大华 AI 视觉</div>
+
+        <!-- B: Blockchain -->
+        <div class="company-node big" style="left:15%;top:85%;color:var(--gold)">
+          <span class="company-icon">🔗</span>区块链 (B)
+        </div>
+        <div class="company-node" style="left:8%;top:78%">数据交易所</div>
+        <div class="company-node" style="left:6%;top:92%">碳中和平台</div>
+
+        <!-- C: Cloud -->
+        <div class="company-node big" style="left:85%;top:85%;color:var(--accent)">
+          <span class="company-icon">☁️</span>云计算 (C)
+        </div>
+        <div class="company-node" style="left:92%;top:78%">优刻得</div>
+        <div class="company-node" style="left:94%;top:92%">杭州码全</div>
+
+        <!-- D: Data -->
+        <div class="company-node big" style="left:50%;top:10%;color:var(--green)">
+          <span class="company-icon">📊</span>大数据 (D)
+        </div>
+        <div class="company-node" style="left:35%;top:5%">新开普</div>
+        <div class="company-node" style="left:65%;top:5%">安恒信息</div>
+
+        <!-- G: 5G -->
+        <div class="company-node big" style="left:8%;top:50%;color:var(--red)">
+          <span class="company-icon">📶</span>5G (G)
+        </div>
+        <div class="company-node" style="left:2%;top:45%">华为专网</div>
+
+        <!-- N: Digital Twin -->
+        <div class="company-node big" style="left:92%;top:50%;color:var(--orange)">
+          <span class="company-icon">🌐</span>数字孪生 (N)
+        </div>
+        <div class="company-node" style="left:98%;top:45%">五一视界</div>
+
+        <!-- New signed -->
+        <div class="company-node" style="left:50%;top:88%">森赫电梯 · 城川建筑</div>
+        <div class="company-node" style="left:35%;top:95%">络闻管理</div>
+      </div>
+
+      <div style="text-align:center;margin-top:20px;color:var(--muted);font-size:12px">
+        💡 图谱基于 52 家已入驻企业与技术方向的实际协同关系 · 悬停查看合作详情
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据数据交易所 -->
+  <section>
+    <div class="section-tag">DATA · 数据要素市场化</div>
+    <h2>数字数据交易所 · 数据资产合规流通</h2>
+    <div class="section-desc">首个立足郑西、辐射中原的数据要素交易平台 · 依托"数据二十条"合规框架</div>
+
+    <div class="exchange-hero">
+      <h3>📊 荥阳数字数据交易所</h3>
+      <p style="color:var(--muted)">让每一份数据都成为可估值、可交易、可确权的生产要素——服务黄河流域数据要素市场化建设</p>
+
+      <div class="exchange-metrics">
+        <div class="em-card">
+          <div class="em-value">126</div>
+          <div class="em-unit">数据产品</div>
+          <div class="em-label">已上架</div>
+        </div>
+        <div class="em-card">
+          <div class="em-value">¥3.2<span class="em-unit">亿</span></div>
+          <div class="em-label">累计交易额</div>
+        </div>
+        <div class="em-card">
+          <div class="em-value">48</div>
+          <div class="em-unit">数据供应商</div>
+          <div class="em-label">注册企业</div>
+        </div>
+        <div class="em-card">
+          <div class="em-value">216</div>
+          <div class="em-unit">数据买方</div>
+          <div class="em-label">采购机构</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>🔥 热门数据产品</h3>
+    <table class="listing-table">
+      <thead>
+        <tr>
+          <th>数据产品</th>
+          <th>供应商</th>
+          <th>数据规模</th>
+          <th>更新频次</th>
+          <th>调用次数</th>
+          <th>价格</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>河南数字经济企业画像库</b></td>
+          <td>荥阳数字经济研究院</td>
+          <td>4.2 万家</td>
+          <td>每周</td>
+          <td>3,482</td>
+          <td class="price-cell">¥3,600/次</td>
+          <td><a href="#" style="color:var(--accent)">购买</a></td>
+        </tr>
+        <tr>
+          <td><b>中原地区智慧园区能耗数据</b></td>
+          <td>大华股份</td>
+          <td>1.8 亿条</td>
+          <td>每日</td>
+          <td>1,240</td>
+          <td class="price-cell">¥12,000/次</td>
+          <td><a href="#" style="color:var(--accent)">购买</a></td>
+        </tr>
+        <tr>
+          <td><b>郑州都市圈物流实时数据</b></td>
+          <td>优刻得</td>
+          <td>实时流</td>
+          <td>实时</td>
+          <td>892</td>
+          <td class="price-cell">¥80,000/年</td>
+          <td><a href="#" style="color:var(--accent)">订阅</a></td>
+        </tr>
+        <tr>
+          <td><b>数字孪生 3D 建模基础数据集</b></td>
+          <td>五一视界</td>
+          <td>50GB</td>
+          <td>每月</td>
+          <td>612</td>
+          <td class="price-cell">¥28,000/套</td>
+          <td><a href="#" style="color:var(--accent)">购买</a></td>
+        </tr>
+        <tr>
+          <td><b>安全态势感知威胁情报</b></td>
+          <td>安恒信息</td>
+          <td>实时流</td>
+          <td>实时</td>
+          <td>2,148</td>
+          <td class="price-cell">¥120,000/年</td>
+          <td><a href="#" style="color:var(--accent)">订阅</a></td>
+        </tr>
+        <tr>
+          <td><b>河南高校学生技能画像</b></td>
+          <td>新开普</td>
+          <td>320 万人</td>
+          <td>每学期</td>
+          <td>456</td>
+          <td class="price-cell">¥25,000/次</td>
+          <td><a href="#" style="color:var(--accent)">购买</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 碳中和交易中心 -->
+  <section>
+    <div class="section-tag">CARBON · 绿色能源数字</div>
+    <h2>绿色能源数字交易中心 · 碳中和"链改"平台</h2>
+    <div class="section-desc">服务国家双碳战略 · 让绿色转型可量化、可交易、可追溯</div>
+
+    <div class="carbon-hero">
+      <h3>🌱 荥阳绿色能源数字交易中心（碳中和）</h3>
+      <p style="color:var(--muted)">园区碳排放数据实时采集 · 上链存证 · 参与国家碳配额交易市场</p>
+
+      <div class="carbon-stats">
+        <div class="cs-card">
+          <div class="cs-icon">🌿</div>
+          <div class="cs-value">-32<span class="em-unit">%</span></div>
+          <div class="cs-label">园区碳排放较基线</div>
+          <div class="cs-trend">↓ 持续下降</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-icon">⚡</div>
+          <div class="cs-value">4,860<span class="em-unit"> tCO₂e</span></div>
+          <div class="cs-label">已抵消碳排</div>
+          <div class="cs-trend">通过绿电 + 碳汇</div>
+        </div>
+        <div class="cs-card">
+          <div class="cs-icon">💰</div>
+          <div class="cs-value">¥820<span class="em-unit">万</span></div>
+          <div class="cs-label">碳资产变现</div>
+          <div class="cs-trend">↑ 累计交易</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>📈 碳排放数据实时监控</h3>
+    <div style="background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div style="padding:14px;background:var(--panel2);border-radius:6px;border-left:3px solid var(--green)">
+          <div style="font-size:11px;color:var(--muted)">今日碳排放</div>
+          <div style="font-size:22px;font-weight:700;color:var(--green);margin-top:4px">28<span style="font-size:12px;color:var(--muted)">tCO₂e</span></div>
+          <div style="font-size:11px;color:var(--green);margin-top:2px">↓ 较昨日 -8%</div>
+        </div>
+        <div style="padding:14px;background:var(--panel2);border-radius:6px;border-left:3px solid var(--accent)">
+          <div style="font-size:11px;color:var(--muted)">绿电占比</div>
+          <div style="font-size:22px;font-weight:700;color:var(--accent);margin-top:4px">68<span style="font-size:12px;color:var(--muted)">%</span></div>
+          <div style="font-size:11px;color:var(--accent);margin-top:2px">↑ 屋顶光伏 + 绿电采购</div>
+        </div>
+        <div style="padding:14px;background:var(--panel2);border-radius:6px;border-left:3px solid var(--gold)">
+          <div style="font-size:11px;color:var(--muted)">碳配额余量</div>
+          <div style="font-size:22px;font-weight:700;color:var(--gold);margin-top:4px">1,240<span style="font-size:12px;color:var(--muted)">tCO₂e</span></div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px">可交易 · 可结转</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>💵 碳交易市场</h3>
+    <table class="listing-table">
+      <thead>
+        <tr>
+          <th>交易类型</th>
+          <th>标的</th>
+          <th>数量</th>
+          <th>当前价格</th>
+          <th>状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>🌱 CCER 减排量</td><td>荥阳园区光伏发电项目</td><td>500 tCO₂e</td><td class="price-cell">¥85/tCO₂e</td><td><span class="tag tag-green">挂牌中</span></td></tr>
+        <tr><td>♻ 碳配额出售</td><td>2025 年度富余配额</td><td>1,000 tCO₂e</td><td class="price-cell">¥92/tCO₂e</td><td><span class="tag tag-gold">议价中</span></td></tr>
+        <tr><td>⚡ 绿电证书</td><td>屋顶光伏发电权益</td><td>800 MWh</td><td class="price-cell">¥28/MWh</td><td><span class="tag">交易中</span></td></tr>
+        <tr><td>🌳 碳汇</td><td>荥阳绿地碳汇</td><td>200 tCO₂e</td><td class="price-cell">¥68/tCO₂e</td><td><span class="tag tag-green">已成交</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 产学研撮合 -->
+  <section>
+    <div class="section-tag">RESEARCH · 产学研撮合</div>
+    <h2>产学研合作撮合平台</h2>
+    <div class="section-desc">对接清华 · 浙大 · 南洋理工 · 郑大 · 河南 5 校 · 打通研究-转化-产业化链条</div>
+
+    <div class="academic-grid">
+      <div class="academic-panel">
+        <h3 style="margin-top:0">🎓 合作高校清单</h3>
+        <ul class="uni-list">
+          <li>
+            <span><b>🇨🇳 清华大学</b></span>
+            <span class="type">已对接 · 3 个合作项目</span>
+          </li>
+          <li>
+            <span><b>🇨🇳 浙江大学</b></span>
+            <span class="type">已对接 · 2 个合作项目</span>
+          </li>
+          <li>
+            <span><b>🇸🇬 新加坡南洋理工大学</b></span>
+            <span class="type">已对接 · 1 个国际合作</span>
+          </li>
+          <li>
+            <span><b>🇨🇳 郑州大学</b></span>
+            <span class="type">深度合作 · 国家工程实验室</span>
+          </li>
+          <li>
+            <span><b>🇨🇳 河南大学</b></span>
+            <span class="type">计划入驻</span>
+          </li>
+          <li>
+            <span><b>🇨🇳 河南理工大学</b></span>
+            <span class="type">计划入驻</span>
+          </li>
+          <li>
+            <span><b>🇨🇳 河南财经政法大学</b></span>
+            <span class="type">计划入驻</span>
+          </li>
+          <li>
+            <span><b>🇨🇳 郑州轻工业大学</b></span>
+            <span class="type">计划入驻</span>
+          </li>
+          <li>
+            <span><b>🇨🇳 华北水利水电大学</b></span>
+            <span class="type">计划入驻</span>
+          </li>
+        </ul>
+        <div style="margin-top:16px;padding:12px;background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(0,0,0,0));border-radius:6px;font-size:12px;color:var(--muted)">
+          💡 <b style="color:var(--gold)">郑州市数字经济职业技术学院</b>（筹建中）——拟投资 10 亿元，占地 500 亩，招生 5,000 人
+        </div>
+      </div>
+
+      <div class="academic-panel">
+        <h3 style="margin-top:0">🤝 正在进行的产学研合作</h3>
+        <div class="partnership-item">
+          <div class="partnership-title">🔬 大数据协调安全技术国家工程实验室</div>
+          <div class="partnership-desc">郑州大学公共安全研究院 × 安恒信息 · 建设中 · 荥阳市首个国家级新型研发机构</div>
+        </div>
+        <div class="partnership-item">
+          <div class="partnership-title">🧠 数字孪生城市建模研究</div>
+          <div class="partnership-desc">清华大学 × 五一视界数字孪生 · 联合科研项目 · 3 年周期</div>
+        </div>
+        <div class="partnership-item">
+          <div class="partnership-title">☁️ 云原生技术人才培养基地</div>
+          <div class="partnership-desc">浙江大学 × 优刻得 · 校企联合实习基地 · 每年 100 人</div>
+        </div>
+        <div class="partnership-item">
+          <div class="partnership-title">🌐 智慧城市国际合作研究</div>
+          <div class="partnership-desc">新加坡南洋理工大学 × 荥阳数字经济研究院 · 国际标准共建</div>
+        </div>
+        <div class="partnership-item">
+          <div class="partnership-title">📱 智能安防算法联合研发</div>
+          <div class="partnership-desc">郑州大学 × 大华股份 · 3 篇顶会论文产出</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="academic-panel">
+      <h3 style="margin-top:0">💡 可转化科研成果库</h3>
+      <table class="listing-table" style="margin-top:12px">
+        <thead>
+          <tr>
+            <th>成果名称</th>
+            <th>来源</th>
+            <th>技术方向</th>
+            <th>成熟度</th>
+            <th>拟转化方式</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>多模态大模型园区应用引擎</b></td>
+            <td>清华大学 AI 实验室</td>
+            <td><span class="tag tag-purple">AI</span></td>
+            <td>TRL 8</td>
+            <td>专利授权 + 联合开发</td>
+            <td><a href="#" style="color:var(--accent)">对接</a></td>
+          </tr>
+          <tr>
+            <td><b>企业级区块链存证平台</b></td>
+            <td>郑州大学计算机学院</td>
+            <td><span class="tag tag-gold">Blockchain</span></td>
+            <td>TRL 7</td>
+            <td>合作产业化</td>
+            <td><a href="#" style="color:var(--accent)">对接</a></td>
+          </tr>
+          <tr>
+            <td><b>低碳建筑智能调控算法</b></td>
+            <td>华北水利水电大学</td>
+            <td><span class="tag tag-green">节能</span></td>
+            <td>TRL 6</td>
+            <td>技术入股</td>
+            <td><a href="#" style="color:var(--accent)">对接</a></td>
+          </tr>
+          <tr>
+            <td><b>数字孪生水利工程可视化</b></td>
+            <td>浙江大学</td>
+            <td><span class="tag" style="background:rgba(251,146,60,.15);color:var(--orange)">数字孪生</span></td>
+            <td>TRL 8</td>
+            <td>专利转让</td>
+            <td><a href="#" style="color:var(--accent)">对接</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 投融资对接 -->
+  <section>
+    <div class="section-tag">FINANCE · 投融资对接</div>
+    <h2>产业基金 · 投融资撮合平台</h2>
+    <div class="section-desc">1553 计划的一支产业发展基金 + 生态合作机构基金联动</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="fund-card">
+        <div class="fund-name">🏦 荥阳数字经济产业发展基金（1 期）</div>
+        <div class="fund-scale">规模 ¥5 亿</div>
+        <div class="fund-focus">聚焦 IABCDGN 七大方向 · 早期与成长期项目 · 优先本地企业</div>
+        <div class="fund-progress">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px">
+            <span>筹备完成度</span>
+            <span>60%</span>
+          </div>
+          <div class="fund-progress-bar"><div class="fund-progress-fill" style="width:60%"></div></div>
+        </div>
+        <div style="margin-top:12px;font-size:11px;color:var(--muted)">
+          👥 出资方：荥阳城发 · 太能控股 · 河南省引导基金 · 社会资本
+        </div>
+      </div>
+
+      <div class="fund-card">
+        <div class="fund-name">💼 合作机构基金</div>
+        <div class="fund-scale">合计 ¥30+ 亿可用额度</div>
+        <div class="fund-focus">对接头部投资机构 · 提供 Pre-A 到 Pre-IPO 全阶段融资</div>
+        <div style="margin-top:12px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px">已对接基金：</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            <span class="tag">红杉资本</span>
+            <span class="tag">高瓴创投</span>
+            <span class="tag">软银愿景</span>
+            <span class="tag">中金资本</span>
+            <span class="tag">河南省高成长基金</span>
+            <span class="tag">郑州创投</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="academic-panel" style="margin-top:20px">
+      <h3 style="margin-top:0">🚀 近期融资动态</h3>
+      <table class="listing-table">
+        <thead>
+          <tr>
+            <th>企业</th>
+            <th>轮次</th>
+            <th>金额</th>
+            <th>投资方</th>
+            <th>时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><b>五一视界数字孪生</b></td><td>C 轮</td><td class="price-cell">¥3.8 亿</td><td>红杉 · 高瓴 · 荥阳基金</td><td>2026-06</td></tr>
+          <tr><td><b>杭州码全信息科技</b></td><td>B 轮</td><td class="price-cell">¥1.2 亿</td><td>中金资本 · 郑州创投</td><td>2026-04</td></tr>
+          <tr><td><b>森赫电梯（新签约）</b></td><td>战略融资</td><td class="price-cell">¥5,000 万</td><td>河南省高成长基金</td><td>2026-05</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 生态成员完整列表 -->
+  <section>
+    <div class="section-tag">MEMBERS · 生态成员</div>
+    <h2>52 家已入驻企业 · 生态合作伙伴</h2>
+    <div class="section-desc">按 IABCDGN 分类展示部分代表性企业 · 完整名单可通过治理中枢查看</div>
+
+    <div class="companies-grid">
+      <div class="company-card">
+        <div class="company-card-name">大华股份</div>
+        <div class="company-card-code">002236 · 上市公司</div>
+        <div class="company-card-tags"><span class="tag tag-purple">A · AI 视觉</span><span class="tag">I · 物联安防</span></div>
+        <div class="company-card-meta">A 座 8F · 3,000 m² · 入驻 2023.06</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">安恒信息</div>
+        <div class="company-card-code">688023 · 上市公司</div>
+        <div class="company-card-tags"><span class="tag tag-green">D · 大数据安全</span><span class="tag">A · AI 威胁</span></div>
+        <div class="company-card-meta">A 座 6F · 1,500 m² · 入驻 2023.09</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">优刻得</div>
+        <div class="company-card-code">688158 · 上市公司</div>
+        <div class="company-card-tags"><span class="tag">C · 云计算</span><span class="tag tag-green">D · 数据</span></div>
+        <div class="company-card-meta">B 座 3F · 2,000 m² · 入驻 2024.01</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">新开普</div>
+        <div class="company-card-code">300248 · 上市公司</div>
+        <div class="company-card-tags"><span class="tag">C · SaaS 云</span><span class="tag tag-green">D · 教育数据</span></div>
+        <div class="company-card-meta">A 座 4F · 1,200 m² · 入驻 2024.03</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">江森自控</div>
+        <div class="company-card-code">世界 500 强</div>
+        <div class="company-card-tags"><span class="tag">I · 智能楼宇</span></div>
+        <div class="company-card-meta">A 座 2F · 800 m² · 入驻 2024.05</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">五一视界数字孪生</div>
+        <div class="company-card-code">独角兽企业</div>
+        <div class="company-card-tags"><span class="tag" style="background:rgba(251,146,60,.15);color:var(--orange)">N · 数字孪生</span><span class="tag tag-purple">A · AI</span></div>
+        <div class="company-card-meta">D 座 3F · 1,000 m² · 入驻 2024.10</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">杭州码全信息科技</div>
+        <div class="company-card-code">高新技术企业</div>
+        <div class="company-card-tags"><span class="tag">C · 云服务</span></div>
+        <div class="company-card-meta">B 座 5F · 600 m² · 入驻 2024.08</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">森赫电梯</div>
+        <div class="company-card-code">新签约企业</div>
+        <div class="company-card-tags"><span class="tag">I · 智能装备</span><span class="tag" style="background:rgba(251,146,60,.15);color:var(--orange)">N · 数字化</span></div>
+        <div class="company-card-meta">A 座 · 2,000 m² · 2026.06 签约</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">城川建筑</div>
+        <div class="company-card-code">新签约企业</div>
+        <div class="company-card-tags"><span class="tag" style="background:rgba(251,146,60,.15);color:var(--orange)">N · 建筑 BIM</span></div>
+        <div class="company-card-meta">B 座 · 1,000 m² · 2026.07 签约</div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-name">络闻管理</div>
+        <div class="company-card-code">新签约企业</div>
+        <div class="company-card-tags"><span class="tag tag-green">D · 数据咨询</span></div>
+        <div class="company-card-meta">A 座 · 500 m² · 2026.07 签约</div>
+      </div>
+
+      <div class="company-card" style="background:linear-gradient(135deg,rgba(56,189,248,.05),transparent);border-color:rgba(56,189,248,.3)">
+        <div class="company-card-name" style="color:var(--accent)">+ 42 家其他企业</div>
+        <div class="company-card-code">已入驻</div>
+        <div class="company-card-meta">涵盖 IABCDGN 七大方向 · <a href="./admin-console.html" style="color:var(--gold)">查看全部 →</a></div>
+      </div>
+
+      <div class="company-card" style="background:linear-gradient(135deg,rgba(251,191,36,.05),transparent);border-color:rgba(251,191,36,.3)">
+        <div class="company-card-name" style="color:var(--gold)">🎁 100+ 家意向企业</div>
+        <div class="company-card-code">洽谈中</div>
+        <div class="company-card-meta"><a href="./onboarding.html" style="color:var(--accent)">申请入驻 →</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+// Highlight IABCDGN cards on hover
+document.querySelectorAll('.iab-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.iab-card').forEach(c => c.style.background = '');
+    card.style.background = 'linear-gradient(135deg, rgba(251,191,36,0.08), rgba(56,189,248,0.03))';
+  });
+});
+</script>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item">荥阳市人民政府</div>
+      <div class="footer-lockup-item">荥阳城投</div>
+      <div class="footer-lockup-item">太能控股</div>
+      <div style="color: var(--text-3); font-size: var(--fs-sm); margin-left: auto;">
+        运营主体：郑州荥泽数链产业发展有限公司
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed);">
+          郑西数字经济新高地 · 40.4 万㎡ · 260 亩 · 52 家已入驻 · ¥30 亿投资
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>平台 · 服务</h5>
+        <a href="../platforms/dtsi.html">DTSI®</a>
+        <a href="../platforms/xflow.html">X-Flow Dynamics™</a>
+        <a href="../platforms/pdtmm.html">PDTMM® 认证</a>
+        <a href="../platforms/openxx.html">OpenX@X™</a>
+        <a href="../services/">8 大运营服务</a>
+      </div>
+      <div class="footer-col">
+        <h5>生态 · 洞察</h5>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+        <a href="../insights/">洞察中心</a>
+        <a href="../newsroom/">新闻室</a>
+      </div>
+      <div class="footer-col">
+        <h5>关于 · 治理</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../about/leadership.html">领导班子</a>
+        <a href="../about/governance.html">七方共治</a>
+        <a href="../about/timeline.html">里程碑</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 荥阳数字经济产业园 · 郑州荥泽数链产业发展有限公司 · 保留所有权利<br>
+      商标：DTSI® · X-Flow Dynamics™ · PDTMM® · OpenX@X™ · 荥泽招商飞轮®
+    </div>
+  </div>
+</footer>
+<a class="help-widget" href="../services/investment.html">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  有什么可以帮您？
+</a>
+
+</body>
+</html>
