@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全部招商动态 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园 · 全部招商动态档案 · 2020-2025 累计 84 篇公开报道，涵盖 A 股上市公司 6 家、独角兽 2 家、多所高校与协会智库。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* ============ Announcements 档案页专属样式 ============ */
+
+  /* 补充 chip 变体 */
+  .chip--media { background: #FDE7EA; color: var(--gov); }
+  .chip--honor { background: #FEF6E7; color: #C68A0E; }
+
+  /* Hero 数字条 */
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+    margin-top: var(--sp-8);
+    padding: var(--sp-6);
+    background: var(--bg-1);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+  }
+  .stats-strip .stat { text-align: center; }
+  .stats-strip .stat-num {
+    font-size: var(--fs-3xl); font-weight: 800; color: var(--brand);
+    line-height: 1; margin-bottom: var(--sp-1);
+    font-variant-numeric: tabular-nums; letter-spacing: -0.02em;
+  }
+  .stats-strip .stat-label { color: var(--text-2); font-size: var(--fs-sm); font-weight: 500; }
+  @media (max-width: 720px) {
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    padding: var(--sp-6);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--sp-4);
+  }
+  .filter-group {
+    display: flex; align-items: center; gap: var(--sp-2);
+    flex-wrap: wrap;
+    padding: var(--sp-2) 0;
+    border-bottom: 1px dashed var(--bg-line);
+  }
+  .filter-group:last-of-type { border-bottom: 0; }
+  .filter-label {
+    font-size: var(--fs-sm); color: var(--text-3);
+    font-weight: 600; min-width: 72px;
+  }
+  .filter-pill {
+    padding: 6px 14px; border-radius: var(--radius-pill);
+    border: 1px solid var(--bg-line);
+    background: var(--bg);
+    font-size: var(--fs-sm); color: var(--text-1);
+    cursor: pointer; user-select: none;
+    transition: all var(--dur-fast) var(--ease);
+    font-family: inherit;
+  }
+  .filter-pill:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+  .filter-pill.active {
+    background: var(--brand); border-color: var(--brand);
+    color: #fff;
+  }
+  .filter-pill .count {
+    font-size: var(--fs-xs);
+    margin-left: 4px;
+    opacity: 0.7;
+  }
+
+  /* Search box + reset */
+  .search-row {
+    display: flex; gap: var(--sp-3); margin-top: var(--sp-4);
+    align-items: center;
+  }
+  .search-input {
+    flex: 1;
+    padding: 10px 16px 10px 40px;
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius);
+    background: var(--bg) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%238996A8' stroke-width='2'><circle cx='11' cy='11' r='8'/><path d='M21 21l-4.35-4.35'/></svg>") no-repeat 12px center;
+    font-size: var(--fs-sm);
+    font-family: inherit;
+    color: var(--text);
+  }
+  .search-input:focus { outline: none; border-color: var(--brand); }
+  .reset-btn {
+    padding: 10px 16px;
+    background: var(--bg-1);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius);
+    font-size: var(--fs-sm);
+    color: var(--text-1);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .reset-btn:hover {
+    background: var(--bg-3);
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+
+  /* Result counter */
+  .result-count {
+    color: var(--text-2); font-size: var(--fs-sm);
+    margin: var(--sp-4) 0 var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    background: var(--brand-soft);
+    border-left: 3px solid var(--brand);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-weight: 500;
+  }
+  .result-count strong { color: var(--brand); font-variant-numeric: tabular-nums; }
+
+  /* News list */
+  .news-list {
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .news-row {
+    display: grid;
+    grid-template-columns: 100px 96px 1fr;
+    gap: var(--sp-4);
+    padding: var(--sp-5) var(--sp-6);
+    border-bottom: 1px solid var(--bg-line);
+    color: var(--text);
+    align-items: start;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .news-row:last-child { border-bottom: 0; }
+  .news-row:hover { background: var(--bg-1); color: var(--text); }
+  .news-row.hidden { display: none; }
+  .row-date {
+    font-size: var(--fs-sm); color: var(--text-3);
+    font-variant-numeric: tabular-nums; padding-top: 2px;
+    font-weight: 500;
+  }
+  .row-chip-cell { padding-top: 0; }
+  .row-content { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .row-title {
+    font-size: var(--fs-base); font-weight: 600;
+    color: var(--text); line-height: var(--lh-tight);
+  }
+  .news-row:hover .row-title { color: var(--brand); }
+  .row-excerpt {
+    font-size: var(--fs-sm); color: var(--text-2);
+    line-height: var(--lh-normal); margin-top: 2px;
+  }
+  .row-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: var(--sp-2); align-items: center;
+  }
+  .row-source {
+    font-size: var(--fs-xs); color: var(--text-3);
+    padding-right: var(--sp-2);
+    border-right: 1px solid var(--bg-line);
+    margin-right: var(--sp-2);
+    font-weight: 500;
+  }
+  .ent-tag {
+    font-size: var(--fs-xs); padding: 2px 8px;
+    background: var(--brand-soft); color: var(--brand);
+    border-radius: 4px; font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* Empty state */
+  .empty-state {
+    display: none;
+    padding: var(--sp-16) var(--sp-8);
+    text-align: center;
+    color: var(--text-3);
+  }
+  .empty-state.visible { display: block; }
+  .empty-state h3 { color: var(--text-1); margin-bottom: var(--sp-2); }
+
+  /* Enterprise directory */
+  .ent-directory-wrap {
+    padding: var(--sp-8);
+    background: var(--bg-1);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--bg-line);
+    margin-top: var(--sp-12);
+  }
+  .ent-directory {
+    display: flex; flex-wrap: wrap; gap: var(--sp-2);
+    margin-top: var(--sp-4);
+  }
+  .ent-tag--dir {
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: var(--fs-sm);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line);
+    color: var(--text-1);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .ent-tag--dir:hover {
+    background: var(--brand-soft);
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  .ent-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    background: var(--gov-soft);
+    color: var(--gov);
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 720px) {
+    .news-row {
+      grid-template-columns: 1fr;
+      gap: var(--sp-2);
+      padding: var(--sp-4);
+    }
+    .row-date { font-weight: 600; color: var(--text-2); }
+    .row-chip-cell { padding-top: 0; }
+    .filter-group { flex-direction: column; align-items: flex-start; }
+    .filter-label { margin-bottom: var(--sp-1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 全局导航 ============ -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../cases/">案例</a>
+      <a href="../insights/">洞察</a>
+      <a href="./" class="active">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="./#contact">媒体联系</a>
+  </div>
+</nav>
+
+<!-- ============ 子导航 ============ -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">新闻中心</span>
+    <a href="./">新闻首页</a>
+    <a href="./announcements.html" class="active">全部动态</a>
+    <a href="./media-kit.html">媒体素材</a>
+    <a href="./#press-resources">记者资源</a>
+    <a href="./#contact">联系</a>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero" style="min-height: 380px;">
+  <div class="hero-inner">
+    <span class="hero-kicker">NEWSROOM · 招商动态档案</span>
+    <h1 class="hero-title">全部 84 篇招商动态</h1>
+    <p class="hero-lead">
+      2020-2025 累计公开报道，覆盖 6 家 A 股上市公司、1 家全球独角兽、1 家潜在独角兽、
+      多所高校与协会智库。全部条目附真实 URL、发布日期、原发渠道，可回溯至公开源。
+    </p>
+    <!-- Stats banner -->
+    <div class="stats-strip">
+      <div class="stat"><div class="stat-num">84</div><div class="stat-label">累计公开报道</div></div>
+      <div class="stat"><div class="stat-num">99</div><div class="stat-label">涉及企业 / 机构</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">A 股上市公司</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">独角兽企业</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Filter + News list ============ -->
+<section class="section-tight">
+  <div class="container-wide">
+
+    <span class="section-kicker">FILTER · 筛选</span>
+    <h2 class="section-title" style="font-size: var(--fs-2xl);">按分类、年份、来源筛选</h2>
+
+    <!-- Filter bar -->
+    <div class="filter-bar" style="margin-top: var(--sp-6);">
+
+      <div class="filter-group">
+        <span class="filter-label">分类</span>
+        <button class="filter-pill active" data-group="cat" data-value="all">全部</button>
+        <button class="filter-pill" data-group="cat" data-value="case">入驻签约</button>
+        <button class="filter-pill" data-group="cat" data-value="news">战略合作</button>
+        <button class="filter-pill" data-group="cat" data-value="event">企业考察</button>
+        <button class="filter-pill" data-group="cat" data-value="policy">政府政策</button>
+        <button class="filter-pill" data-group="cat" data-value="media">媒体报道</button>
+        <button class="filter-pill" data-group="cat" data-value="honor">荣誉认可</button>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">年份</span>
+        <button class="filter-pill active" data-group="year" data-value="all">全部</button>
+        <button class="filter-pill" data-group="year" data-value="2025">2025</button>
+        <button class="filter-pill" data-group="year" data-value="2024">2024</button>
+        <button class="filter-pill" data-group="year" data-value="2023">2023</button>
+        <button class="filter-pill" data-group="year" data-value="2022">2022</button>
+        <button class="filter-pill" data-group="year" data-value="2021">2021</button>
+        <button class="filter-pill" data-group="year" data-value="2020">2020</button>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">来源</span>
+        <button class="filter-pill active" data-group="src" data-value="all">全部</button>
+        <button class="filter-pill" data-group="src" data-value="tnkg">太能控股官网</button>
+        <button class="filter-pill" data-group="src" data-value="third">第三方媒体</button>
+        <button class="filter-pill" data-group="src" data-value="gov">政府文件</button>
+      </div>
+
+      <div class="search-row">
+        <input class="search-input" id="search-input" type="text"
+               placeholder="按标题或企业名搜索，例如 深信服 / 探迹 / 签约 …"
+               autocomplete="off" aria-label="搜索">
+        <button class="reset-btn" id="reset-btn" type="button">重置筛选</button>
+      </div>
+    </div>
+
+    <!-- Result counter -->
+    <div class="result-count" role="status">共 <strong id="result-count">84</strong> 条 · 按日期倒序排列 · 点击任意条目跳转至原文</div>
+
+    <!-- News list -->
+    <div class="news-list" id="news-list">
+<a class="news-row" href="http://www.tnkg.com/a/news/2025/0808/249.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2025" data-src="tnkg"
+   data-search="公益捐赠 · 太能控股以实干担当赋能乡村振兴 太能控股 共青团河南省委">
+  <div class="row-date">2025-08-08</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">公益捐赠 · 太能控股以实干担当赋能乡村振兴</div>
+    <div class="row-excerpt">太能控股与共青团河南省委携手，为定点帮扶村丁楼村捐赠并安装无塔供水设备，替代 1994 年建成的老旧供水塔，未来计划以数字技术助力乡村产业升级。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">太能控股</span> <span class="ent-tag">共青团河南省委</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://ggzyjyzx.xingyang.gov.cn/jyxx/003001/003001001/20250414/b26f04f1-223d-4217-bbab-fab89b0d5f42.html" target="_blank" rel="noopener"
+   data-cat="policy" data-year="2025" data-src="gov"
+   data-search="数字经济产业园新基础建设项目（西地块夜景照明工程）公开招标 荥阳市公共资源交易中心">
+  <div class="row-date">2025-04-14</div>
+  <div class="row-chip-cell"><span class="chip chip--policy">政府政策</span></div>
+  <div class="row-content">
+    <div class="row-title">数字经济产业园新基础建设项目（西地块夜景照明工程）公开招标</div>
+    <div class="row-excerpt">荥阳市公共资源交易中心 2025 年 4 月发布公告，园区西地块夜景照明工程进入公开招标程序——园区进入交付前最后阶段配套工程。</div>
+    <div class="row-tags">
+      <span class="row-source">▲ 政府文件</span>
+      <span class="ent-tag">荥阳市公共资源交易中心</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://ggzyjyzx.xingyang.gov.cn/jyxx/003001/003001001/20250409/2bbad818-7740-4881-bba9-196336427c99.html" target="_blank" rel="noopener"
+   data-cat="policy" data-year="2025" data-src="gov"
+   data-search="数字经济产业园新基础建设项目（东地块）二标段公开招标 荥阳市公共资源交易中心">
+  <div class="row-date">2025-04-09</div>
+  <div class="row-chip-cell"><span class="chip chip--policy">政府政策</span></div>
+  <div class="row-content">
+    <div class="row-title">数字经济产业园新基础建设项目（东地块）二标段公开招标</div>
+    <div class="row-excerpt">2025 年 4 月 9 日，园区东地块二标段进入公开招标，系园区运营前配套完善阶段的政府招标记录，可作为园区建设进度实证。</div>
+    <div class="row-tags">
+      <span class="row-source">▲ 政府文件</span>
+      <span class="ent-tag">荥阳市公共资源交易中心</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://ggzyjyzx.xingyang.gov.cn/jyxx/003001/003001001/20241126/e75e8fcd-dc53-4699-8b54-bb8e4b3288a4.html" target="_blank" rel="noopener"
+   data-cat="policy" data-year="2024" data-src="gov"
+   data-search="数字经济产业园新基础建设项目（东地块）公开招标公告 郑州中荥数字产业发展 荥阳市发改委">
+  <div class="row-date">2024-11-26</div>
+  <div class="row-chip-cell"><span class="chip chip--policy">政府政策</span></div>
+  <div class="row-content">
+    <div class="row-title">数字经济产业园新基础建设项目（东地块）公开招标公告</div>
+    <div class="row-excerpt">由荥阳市发改委批准建设，招标人郑州中荥数字产业发展有限公司，资金来源为财政资金加专项债，标志园区进入二期基础配套建设阶段。</div>
+    <div class="row-tags">
+      <span class="row-source">▲ 政府文件</span>
+      <span class="ent-tag">郑州中荥数字产业发展</span> <span class="ent-tag">荥阳市发改委</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0708/248.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2024" data-src="tnkg"
+   data-search="民革河南省委会赴荥阳市数字经济产业园开展专题调研 民革河南省委会 河南省粮食和物资储备局">
+  <div class="row-date">2024-07-08</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">民革河南省委会赴荥阳市数字经济产业园开展专题调研</div>
+    <div class="row-excerpt">民革河南省委会主委张弓率专家团队围绕河南数字经济、AI、算力产业发展开展调研。三方达成落地民革数字经济产业园、共建河南省数字经济研究院、筹建民革数字经济顾问委员会三项共识。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">民革河南省委会</span> <span class="ent-tag">河南省粮食和物资储备局</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://m.thepaper.cn/newsDetail_forward_27918496" target="_blank" rel="noopener"
+   data-cat="media" data-year="2024" data-src="third"
+   data-search="【报答】荥阳：新质生产力赋能 擘画郑西科创新高地 郑州日报 澎湃新闻">
+  <div class="row-date">2024-07-01</div>
+  <div class="row-chip-cell"><span class="chip chip--media">媒体报道</span></div>
+  <div class="row-content">
+    <div class="row-title">【报答】荥阳：新质生产力赋能 擘画郑西科创新高地</div>
+    <div class="row-excerpt">郑州日报深度报道：全市 208 家高新技术企业、480 家科技型企业稳居郑州六县市第一梯队，装备制造、新材料两大主导产业加速集群化。</div>
+    <div class="row-tags">
+      <span class="row-source">● 第三方媒体</span>
+      <span class="ent-tag">郑州日报</span> <span class="ent-tag">澎湃新闻</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0607/245.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2024" data-src="tnkg"
+   data-search="太能控股访河南大学经济学院 · 探索数字经济与人才培养创新合作 河南大学经济学院 太能控股">
+  <div class="row-date">2024-05-30</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">太能控股访河南大学经济学院 · 探索数字经济与人才培养创新合作</div>
+    <div class="row-excerpt">太能控股董事长戴继涛率队访问河南大学经济学院，双方就共建河南大学数字经济学院、企业家培训中心、产学研合作实训基地等议题达成共识。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南大学经济学院</span> <span class="ent-tag">太能控股</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://public.xingyang.gov.cn/D04X/8327881.jhtml" target="_blank" rel="noopener"
+   data-cat="policy" data-year="2024" data-src="gov"
+   data-search="荥阳市 2024 年政府工作报告 · 明确数字经济产业园主体竣工 荥阳市人民政府">
+  <div class="row-date">2024-02-27</div>
+  <div class="row-chip-cell"><span class="chip chip--policy">政府政策</span></div>
+  <div class="row-content">
+    <div class="row-title">荥阳市 2024 年政府工作报告 · 明确数字经济产业园主体竣工</div>
+    <div class="row-excerpt">荥阳市长石玉在市六届人大四次会议报告中，将数字经济产业园主体竣工列为 2023 年产业空间拓展成果，并将建成运营列为 2024 年重点任务。</div>
+    <div class="row-tags">
+      <span class="row-source">▲ 政府文件</span>
+      <span class="ent-tag">荥阳市人民政府</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0314/244.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2024" data-src="tnkg"
+   data-search="河南帝鹏科技莅临产业园考察交流 河南帝鹏科技">
+  <div class="row-date">2024-01-05</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南帝鹏科技莅临产业园考察交流</div>
+    <div class="row-excerpt">帝鹏科技赵瑞玉赴园区洽谈，围绕能源数字化、智慧充电深入交流。帝鹏为高新+专精特新企业，深耕电动车智能充电十年。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南帝鹏科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0314/243.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="郑州浩鑫新型建材莅临产业园考察入驻事宜 郑州浩鑫新型建材">
+  <div class="row-date">2023-12-28</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">郑州浩鑫新型建材莅临产业园考察入驻事宜</div>
+    <div class="row-excerpt">浩鑫新型建材赵沛、李益民一行赴园区洽谈入驻，对区域、数字化、营商环境予以肯定，将进一步研讨入驻方案。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">郑州浩鑫新型建材</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0314/242.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="与河南晨星会展服务洽谈入驻事宜 河南晨星会展">
+  <div class="row-date">2023-12-27</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">与河南晨星会展服务洽谈入驻事宜</div>
+    <div class="row-excerpt">河南晨星会展总经理张书强对园区区位优势与发展理念表示认可，将积极对接争取早日落地。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南晨星会展</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0314/241.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="高新技术企业河南千波通信设备莅临产业园考察 河南千波通信">
+  <div class="row-date">2023-12-26</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">高新技术企业河南千波通信设备莅临产业园考察</div>
+    <div class="row-excerpt">千波通信总经理靳松一行到访。核心团队来自通信运营商、电力装备、军工科研院所，主打智能云控门禁管理系统。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南千波通信</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0314/240.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="与国家高新技术企业上海祥盈辰科数字科技举行线上签约 上海祥盈辰科数字科技">
+  <div class="row-date">2023-12-19</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">与国家高新技术企业上海祥盈辰科数字科技举行线上签约</div>
+    <div class="row-excerpt">园区与上海祥盈辰科数字科技通过线上方式举行入驻签约仪式，双方就企业落地荥阳、开展数字化业务合作达成一致。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">上海祥盈辰科数字科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0314/237.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="荥阳市强力机电设备到访产业园考察入驻事宜 荥阳市强力机电">
+  <div class="row-date">2023-12-12</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">荥阳市强力机电设备到访产业园考察入驻事宜</div>
+    <div class="row-excerpt">本地机电企业强力机电李军召到访，认可产业园对荥阳区位、公共服务、交通的整合价值，将推动入驻。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">荥阳市强力机电</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0312/236.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="荥阳美立方商贸有限公司入驻签约仪式圆满举行 荥阳美立方商贸">
+  <div class="row-date">2023-12-05</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">荥阳美立方商贸有限公司入驻签约仪式圆满举行</div>
+    <div class="row-excerpt">美立方商贸总经理张利方一行至园区举行入驻签约仪式，成为荥阳数字经济产业园正式入驻企业之一。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">荥阳美立方商贸</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0312/235.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="北京万企云服科技莅临产业园考察交流 北京万企云服">
+  <div class="row-date">2023-11-30</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">北京万企云服科技莅临产业园考察交流</div>
+    <div class="row-excerpt">万企云服总经理赵高飞莅临，介绍智慧园区解决方案。团队 80% 为技术研发人员，双方就物联网、智慧楼宇、智慧医疗、智慧教育、智慧物流达成合作共识。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">北京万企云服</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0312/233.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="郑州汇明再生资源利用考察入驻事宜 郑州汇明再生资源">
+  <div class="row-date">2023-11-29</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">郑州汇明再生资源利用考察入驻事宜</div>
+    <div class="row-excerpt">汇明再生资源鲁延峰一行到访，对园区规划设计、招商运营、招商精准度予以肯定，将围绕入驻事宜深入对接。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">郑州汇明再生资源</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0312/234.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南合一电力数据服务莅临产业园考察 河南合一电力">
+  <div class="row-date">2023-11-29</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南合一电力数据服务莅临产业园考察</div>
+    <div class="row-excerpt">合一电力数据总经理弓浩到访。企业为省市两级专精特新+国家高新+CCRC 三资认证，河南首家智慧城市电力终端数字化预警运营商。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南合一电力</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0312/230.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="中国潜在独角兽上海微问家/励销云莅临产业园交流合作 上海微问家 励销云">
+  <div class="row-date">2023-11-23</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">中国潜在独角兽上海微问家/励销云莅临产业园交流合作</div>
+    <div class="row-excerpt">上海微问家（腾讯战略投资 B+轮、中国潜在独角兽、上海市专精特新）谢玮丰到访。旗下励销搜客宝已在上海数交所挂牌。双方拟以荥阳为载体推 B2B 智能营销。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">上海微问家</span> <span class="ent-tag">励销云</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2024/0312/232.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="郑州厚德财务服务至产业园举行入驻签约仪式 郑州厚德财务">
+  <div class="row-date">2023-11-23</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">郑州厚德财务服务至产业园举行入驻签约仪式</div>
+    <div class="row-excerpt">郑州厚德财务总经理赵世伟正式签订入驻协议。厚德服务覆盖信息技术、电商、生物医药、金融、能源、制造、化工、航空等行业。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">郑州厚德财务</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0312/231.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="中国中信金融控股有限公司到访产业园考察交流 中国中信金融控股">
+  <div class="row-date">2023-11-23</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">中国中信金融控股有限公司到访产业园考察交流</div>
+    <div class="row-excerpt">中信金控乔士良、姜英一行莅临产业园考察，双方就产融结合、数字经济金融服务议题深入沟通。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">中国中信金融控股</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0312/229.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="郑州中天电子科技莅临产业园交流合作 郑州中天电子">
+  <div class="row-date">2023-11-21</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">郑州中天电子科技莅临产业园交流合作</div>
+    <div class="row-excerpt">郑州中天电子王云峰到访。企业专注教育信息化十余年，涉及智能硬件、AI、互动教学综合解决方案，双方将推动数字技术+教育生态融合。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">郑州中天电子</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0312/228.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="高新技术企业上海得帆信息技术莅临产业园考察 上海得帆信息">
+  <div class="row-date">2023-11-17</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">高新技术企业上海得帆信息技术莅临产业园考察</div>
+    <div class="row-excerpt">上海得帆（450+人员、国内低代码 PaaS 平台领军、服务 500+头部企业、1000+项目）乔兵一行到访，双方拟探索低代码赋能荥阳本地传统制造业。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">上海得帆信息</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0312/226.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南外服人力资源莅临产业园考察交流 河南外服人力">
+  <div class="row-date">2023-11-16</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南外服人力资源莅临产业园考察交流</div>
+    <div class="row-excerpt">河南外服（省国资委所属、成立 1992 年、服务 1000+客户/60 万人次）陈蕾一行到访，双方拟共建数字化人力资源保障平台。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南外服人力</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2024/0312/227.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="郑州市政协主席杜新军带队到荥阳市数字经济产业园调研督导 郑州市政协 荥阳市委市政府">
+  <div class="row-date">2023-11-14</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">郑州市政协主席杜新军带队到荥阳市数字经济产业园调研督导</div>
+    <div class="row-excerpt">郑州市政协主席杜新军率队调研，市政协副主席樊福太、荥阳市领导杨金军、赵晨阳、刘成伟、王亚滨陪同。要求培育新动能、催生新业态、促进数字产业集聚集约发展。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">郑州市政协</span> <span class="ent-tag">荥阳市委市政府</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1228/224.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南恒金电梯莅临产业园考察入驻事宜 河南恒金电梯">
+  <div class="row-date">2023-11-10</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南恒金电梯莅临产业园考察入驻事宜</div>
+    <div class="row-excerpt">恒金电梯总经理杜军山莅临，全面了解园区区位、10 万㎡地下停车、地铁 10 号线 2 期、绕城高速豫龙站等配套后表示对园区携手发展充满信心。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南恒金电梯</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1228/223.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="与全球独角兽广州探迹科技开展合作交流会 广州探迹">
+  <div class="row-date">2023-11-08</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">与全球独角兽广州探迹科技开展合作交流会</div>
+    <div class="row-excerpt">探迹（全球独角兽、专精特新、高精尖，客户超 20000 家含阿里/微软/亚马逊/戴尔）张树龙线上会晤，双方将合作打造大数据产业招商平台。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">广州探迹</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1228/222.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南骁宇电子科技至产业园考察交流 河南骁宇电子">
+  <div class="row-date">2023-11-07</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南骁宇电子科技至产业园考察交流</div>
+    <div class="row-excerpt">骁宇科技（国家级科技型、河南创新性企业）金豆豆到访。企业专注低速电动车/新能源汽车智能充电桩，累计服务 3000 个社区/300 多万用户。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南骁宇电子</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1208/220.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="北京维艾狄尔信息科技莅临产业园交流并考察入驻 北京维艾狄尔">
+  <div class="row-date">2023-11-01</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">北京维艾狄尔信息科技莅临产业园交流并考察入驻</div>
+    <div class="row-excerpt">维艾狄尔（以大数据为核心的智慧物联解决方案商，专注体育智慧化）胡轩一行到访。产品覆盖智慧公园、体育公园、口袋公园、数字公园等场景。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">北京维艾狄尔</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1228/221.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南餐赞网络科技莅临产业园考察交流 河南餐赞">
+  <div class="row-date">2023-10-31</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南餐赞网络科技莅临产业园考察交流</div>
+    <div class="row-excerpt">餐赞深耕抖音生活服务，已服务 4000+ MCN 机构、覆盖 10000+ 达人、500+城市，单月团购 GMV 数亿元。双方合作推动本地中小商户数字化营销。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南餐赞</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://app.dahecube.com/nweb/news/20231026/178856n5f73c9cd0db.htm?artid=178856" target="_blank" rel="noopener"
+   data-cat="media" data-year="2023" data-src="third"
+   data-search="荥阳市数字经济产业园：总投资 30 亿元，寻求多种创新型项目合作 大河财立方 荥阳城投 郑州荥泽数链">
+  <div class="row-date">2023-10-26</div>
+  <div class="row-chip-cell"><span class="chip chip--media">媒体报道</span></div>
+  <div class="row-content">
+    <div class="row-title">荥阳市数字经济产业园：总投资 30 亿元，寻求多种创新型项目合作</div>
+    <div class="row-excerpt">大河财立方专题报道：园区由荥阳市政府、荥阳城投、郑州荥泽数链三方合作打造，总投资 30 亿元、用地约 260 亩，为河南省首个数字经济产业园。</div>
+    <div class="row-tags">
+      <span class="row-source">● 第三方媒体</span>
+      <span class="ent-tag">大河财立方</span> <span class="ent-tag">荥阳城投</span> <span class="ent-tag">郑州荥泽数链</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1208/219.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与高新技术企业河南云立方科技股份签署战略合作协议 河南云立方">
+  <div class="row-date">2023-10-24</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与高新技术企业河南云立方科技股份签署战略合作协议</div>
+    <div class="row-excerpt">云立方（中原股权交易中心挂牌 204723）董事长姚晓兵一行赴园区签署战略合作。双方合作打造智慧园区标杆项目、共推行业标准化建设。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南云立方</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1208/218.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与上市企业深信服科技股份签署战略合作协议 深信服科技">
+  <div class="row-date">2023-10-19</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与上市企业深信服科技股份签署战略合作协议</div>
+    <div class="row-excerpt">上市企业深信服科技商业主管彭佩荣与产业园签署战略合作。深信服拥有智安全+信服云两大品牌，将为园区提供信息安全、云计算、大数据支持，打造荥阳产业数据中心。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">深信服科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/1026/209.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南荣汇智能科技莅临产业园考察入驻事宜 河南荣汇智能">
+  <div class="row-date">2023-09-28</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南荣汇智能科技莅临产业园考察入驻事宜</div>
+    <div class="row-excerpt">荣汇智能（智能科技+教育型公司）总经理王玉龙一行到访。已合作 6 所高校、10+专业、25 万+人次学员，双方将合作产学研共建、人才培养。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南荣汇智能</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1208/217.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与合纵连横企业管理咨询研究院签署战略合作协议 合纵连横">
+  <div class="row-date">2023-09-22</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与合纵连横企业管理咨询研究院签署战略合作协议</div>
+    <div class="row-excerpt">合纵连横研究院运营院长王华为与产业园签约。研究院将以专家+产业模式，整合投融资、法商、财税、品牌、数字化资源助力园区高质量发展。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">合纵连横</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1208/215.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="高新技术企业中影瑞航（北京）科技至产业园考察 中影瑞航">
+  <div class="row-date">2023-09-20</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">高新技术企业中影瑞航（北京）科技至产业园考察</div>
+    <div class="row-excerpt">中影瑞航石亚杰一行到访。企业为美国 Christie LCD 中国区独家总代理，创立民族自主激光投影机 DICCTION 品牌。双方计划切入数字文旅、沉浸式展厅共建。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">中影瑞航</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1208/216.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="高新技术企业河南云立方科技莅临产业园交流合作 河南云立方 深信服科技">
+  <div class="row-date">2023-09-20</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">高新技术企业河南云立方科技莅临产业园交流合作</div>
+    <div class="row-excerpt">云立方姚晓兵+深信服霍大川联合到访。云立方案例含芝麻街 1958 双创园、天健湖智联网产业园、白银城沁园、经开区科创园等。此为 10-24 正式签约的前置考察。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南云立方</span> <span class="ent-tag">深信服科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://tnkg.com/a/news/2023/1208/214.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南阿尔法科技至产业园交流合作 河南阿尔法">
+  <div class="row-date">2023-09-14</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南阿尔法科技至产业园交流合作</div>
+    <div class="row-excerpt">阿尔法科技总经理郭德威莅临，围绕虚拟展览展示、元宇宙文旅深度交流。企业主打高等院校虚拟仿真教学。双方将合作探索元宇宙落地荥阳文旅。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南阿尔法</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/1026/208.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="高新技术企业河南帅臣停车设备莅临产业园考察 河南帅臣停车设备">
+  <div class="row-date">2023-08-29</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">高新技术企业河南帅臣停车设备莅临产业园考察</div>
+    <div class="row-excerpt">帅臣科技（高新+郑州大数据+河南数字化转型领军）总经理王嘉良一行到访。专注智慧停车管理系统，双方将围绕智慧出行、停车资源数字化运营合作。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南帅臣停车设备</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/1026/207.html" target="_blank" rel="noopener"
+   data-cat="honor" data-year="2023" data-src="tnkg"
+   data-search="喜报！公司出席 2023 年省数产协会员大会，荣获企业突出贡献奖 河南省数字经济产业协会 郑州荥泽数链">
+  <div class="row-date">2023-08-19</div>
+  <div class="row-chip-cell"><span class="chip chip--honor">荣誉认可</span></div>
+  <div class="row-content">
+    <div class="row-title">喜报！公司出席 2023 年省数产协会员大会，荣获企业突出贡献奖</div>
+    <div class="row-excerpt">8-19 省数产协一届二次会员大会在河南饭店举办。郑州荥泽数链作为战略合作单位出席，董事长助理周稳稳代表公司领取河南省数字经济产业协会企业突出贡献奖荣誉牌匾。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南省数字经济产业协会</span> <span class="ent-tag">郑州荥泽数链</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/1026/206.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南伟翔建设工程莅临产业园考察，洽谈入驻事宜 河南伟翔建设">
+  <div class="row-date">2023-08-01</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南伟翔建设工程莅临产业园考察，洽谈入驻事宜</div>
+    <div class="row-excerpt">伟翔建设董事长许绍伟一行到访详谈入驻。对园区周边配套、地理位置予以肯定，将进一步推进入驻合作。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南伟翔建设</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/1026/205.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="上市公司熵基科技股份一行到访产业园交流 熵基科技">
+  <div class="row-date">2023-07-27</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">上市公司熵基科技股份一行到访产业园交流</div>
+    <div class="row-excerpt">上市公司熵基科技（多模态计算机视觉与生物识别 BioCV 领军企业）技术工程师余文龙、销售经理张贺到访。企业智慧园区综合管理平台涵盖 15+子系统。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">熵基科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0823/204.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="郑州羽本文化传媒莅临产业园考察合作 郑州羽本文化 郑州市雕塑壁画院">
+  <div class="row-date">2023-07-21</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">郑州羽本文化传媒莅临产业园考察合作</div>
+    <div class="row-excerpt">羽本传媒总经理张少羽+郑州市雕塑壁画院院长胡志峰到访。双方就区块链、数字藏品、数智文创、NFT 项目授权应用深入交流。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">郑州羽本文化</span> <span class="ent-tag">郑州市雕塑壁画院</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0823/203.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="科创板上市公司北京致远互联软件莅临产业园 北京致远互联">
+  <div class="row-date">2023-07-20</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">科创板上市公司北京致远互联软件莅临产业园</div>
+    <div class="row-excerpt">致远互联（688369.SH，协同管理领域科创板第一股，超 5 万家中大型组织用户）行业经理郑兴到访。双方拟以园区+高校三大应用场景合作数智化转型。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">北京致远互联</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0823/202.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与东南创通智能科技签署战略合作协议 东南创通智能">
+  <div class="row-date">2023-07-19</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与东南创通智能科技签署战略合作协议</div>
+    <div class="row-excerpt">东南创通（专注车牌识别/车位引导/门禁/人行通道闸/电梯控制）总监蒋广雨与产业园签署战略合作，将合作智慧安防、智慧出行、智能系统。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">东南创通智能</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0810/201.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="金象文化发展股份莅临产业园交流合作 金象文化">
+  <div class="row-date">2023-07-18</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">金象文化发展股份莅临产业园交流合作</div>
+    <div class="row-excerpt">金象文化（2002 年成立、服务党政军企超 1000 家中国本土企业）副总经理薛召到访。双方将合作探索数字文化赋能实体产业。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">金象文化</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0810/200.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="与玖安建设集团举行入驻签约仪式，共谱智慧消防新篇章 玖安建设集团">
+  <div class="row-date">2023-07-14</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">与玖安建设集团举行入驻签约仪式，共谱智慧消防新篇章</div>
+    <div class="row-excerpt">玖安建设集团总经理陈艳华正式签订入驻协议。玖安为消防工程领域率先数字化转型企业，将丰富园区智慧消防产业链，共同打造智慧消防标杆项目。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">玖安建设集团</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0810/199.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="北京优锘科技一行莅临产业园考察交流 北京优锘科技">
+  <div class="row-date">2023-07-13</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">北京优锘科技一行莅临产业园考察交流</div>
+    <div class="row-excerpt">北京优锘科技（数字孪生可视化领域先行者，Tarsier+ThingJS，全球 400+大中型客户）售前技术经理陈云晓到访。展示 ThingJS-X 零代码数字孪生平台。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">北京优锘科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0810/198.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="玖安建设集团莅临产业园参观考察 玖安建设集团">
+  <div class="row-date">2023-07-04</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">玖安建设集团莅临产业园参观考察</div>
+    <div class="row-excerpt">玖安建设集团总经理陈艳华、工程副总经理樊大海到访，为 7-14 入驻签约的前置考察。双方计划智慧建筑/智慧消防深度合作。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">玖安建设集团</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/197.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与河南晋益春消防科技签署战略合作协议 河南晋益春消防">
+  <div class="row-date">2023-06-30</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与河南晋益春消防科技签署战略合作协议</div>
+    <div class="row-excerpt">晋益春消防业务经理冯高台与产业园签署战略合作。双方将围绕消防新基建、智慧消防创新应用、消防物联网合作。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南晋益春消防</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/196.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="产业园与梦不落信息科技签署战略合作 梦不落信息科技">
+  <div class="row-date">2023-06-28</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">产业园与梦不落信息科技签署战略合作</div>
+    <div class="row-excerpt">梦不落信息业务经理陈增辉与产业园签署战略合作。梦不落深耕数字孪生城市、智能建筑，参与开封高铁北站、郑东鲲鹏软件小镇、驻马店体育中心等大型项目。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">梦不落信息科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/195.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="梦不落信息科技到访产业园 梦不落信息科技">
+  <div class="row-date">2023-06-20</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">梦不落信息科技到访产业园</div>
+    <div class="row-excerpt">梦不落业务经理陈增辉到访洽谈，为 6-28 战略合作签约的前置考察。双方就智慧园区、数字孪生城市、智能建筑合作达成共识。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">梦不落信息科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/194.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="深圳市九洲光电科技一行莅临产业园考察 深圳九洲光电 四川九洲投资控股">
+  <div class="row-date">2023-06-15</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">深圳市九洲光电科技一行莅临产业园考察</div>
+    <div class="row-excerpt">深圳九洲光电（四川九洲军工集团直属 LED 显示公司，国家高新+深圳专精特新+国军标 GJB9001C-2017 认证）宋喜云、河南慧视电子刘明星到访。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">深圳九洲光电</span> <span class="ent-tag">四川九洲投资控股</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/193.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="中国电信郑州分公司一行莅临荥阳市数字经济产业园 中国电信郑州分公司">
+  <div class="row-date">2023-06-14</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">中国电信郑州分公司一行莅临荥阳市数字经济产业园</div>
+    <div class="row-excerpt">中国电信郑州分公司副总经理胡晓熹一行到访。围绕 5G 智慧园区、云网、大数据、物联网深入探讨。中国电信资产规模超 8000 亿、年收入 4100 亿+，位列财富 500 强。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">中国电信郑州分公司</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/192.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="清华大学合肥公共安全研究院天泽智联到访产业园 天泽智联 清华合肥公共安全研究院">
+  <div class="row-date">2023-06-09</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">清华大学合肥公共安全研究院天泽智联到访产业园</div>
+    <div class="row-excerpt">天泽智联（清华大学合肥公共安全研究院成果转化单位）渠道经理李德飞到访。企业为国内率先引入金融保险打造消防安全损失赔付兜底托管模式的企业。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">天泽智联</span> <span class="ent-tag">清华合肥公共安全研究院</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/191.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="江西百胜智能科技股份莅临产业园考察 江西百胜智能">
+  <div class="row-date">2023-06-07</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">江西百胜智能科技股份莅临产业园考察</div>
+    <div class="row-excerpt">江西百胜智能（股票代码 301083，1999 年成立、自动化门控设备上市企业、100+国家专利、100+城市经销网点）河南区域负责人胡根华到访。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">江西百胜智能</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/190.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="上海黎耀智能科技莅临产业园交流考察 上海黎耀智能">
+  <div class="row-date">2023-06-06</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">上海黎耀智能科技莅临产业园交流考察</div>
+    <div class="row-excerpt">黎耀智能（专注大数据行业设备设计/研发/生产/销售/售后+整体解决方案的高新技术企业）区域总监郑福辉、业务经理仵浩宇到访。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">上海黎耀智能</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/189.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与武汉微晶石科技股份签署战略合作协议 武汉微晶石">
+  <div class="row-date">2023-06-02</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与武汉微晶石科技股份签署战略合作协议</div>
+    <div class="row-excerpt">武汉微晶石区域总监王威赴园区举行入驻协议签约。微晶石专注三维数字孪生+智慧城市，在襄阳智慧城市、南京静态交通、一闸三线智慧水利均有项目。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">武汉微晶石</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/187.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="上海电器科学研究所、人民电器集团莅临产业园 上海电器科学研究所 人民电器集团">
+  <div class="row-date">2023-06-01</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">上海电器科学研究所、人民电器集团莅临产业园</div>
+    <div class="row-excerpt">上海电器科学研究所（1953 年创建，IEC 十多个技术委员会国内归口单位）+人民电器销售副总包百浩到访。三方计划共建能源互联网综合管理示范平台+工业互联网智能制造评价体系。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">上海电器科学研究所</span> <span class="ent-tag">人民电器集团</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/188.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="广东魅视科技股份莅临产业园交流考察 广东魅视科技">
+  <div class="row-date">2023-05-31</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">广东魅视科技股份莅临产业园交流考察</div>
+    <div class="row-excerpt">广东魅视（股票代码 001229，2022 年深交所主板上市，视音频/显示控制/KVMS 综合方案商）华中大区总监熊莹莹、河南渠道负责人仝海召到访。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">广东魅视科技</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0719/186.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南华天光电智能科技莅临产业园交流考察 河南华天光电">
+  <div class="row-date">2023-05-26</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南华天光电智能科技莅临产业园交流考察</div>
+    <div class="row-excerpt">华天光电（1993 年成立，专注金融安防，具有智能化壹级+公安安防壹级资质）经理胡宪章、部门经理王延朋到访。双方将合作打造区域金融安防标杆。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南华天光电</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0718/180.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与河南伟宸会计师事务所签署战略合作协议 河南伟宸会计师事务所">
+  <div class="row-date">2023-05-12</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与河南伟宸会计师事务所签署战略合作协议</div>
+    <div class="row-excerpt">伟宸会计（河南省财政厅批准的社会审计机构，含 6 名注册会计师）业务负责人杨刚正与产业园签订战略合作。双方将合作数字化审计、智慧财务、人才培育。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南伟宸会计师事务所</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0718/179.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="郑州高正电子科技莅临产业园交流考察（创维商用省级运营商） 郑州高正电子 创维商用">
+  <div class="row-date">2023-05-10</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">郑州高正电子科技莅临产业园交流考察（创维商用省级运营商）</div>
+    <div class="row-excerpt">高正电子（创维商用省级运营商，主营 Swaiot PROTV 智慧商用电视/BOARD 全场景智慧屏/WALL 城市智慧云墙/SIGNAGE 智慧数字标牌）产品经理周志达到访。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">郑州高正电子</span> <span class="ent-tag">创维商用</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0718/178.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="北京工源三仟科技莅临产业园考察交流 北京工源三仟">
+  <div class="row-date">2023-05-09</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">北京工源三仟科技莅临产业园考察交流</div>
+    <div class="row-excerpt">工源三仟（起源于大连理工大学，专注 X-Ray 无损检测+计算机视觉，国内首个 CT+DR 一体化 X-Ray 自动检测系统，识别准确率超 99.5%）大客户经理杨刚正到访。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">北京工源三仟</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0718/177.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="河南联纵消防科技莅临产业园考察交流 河南联纵消防">
+  <div class="row-date">2023-04-25</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">河南联纵消防科技莅临产业园考察交流</div>
+    <div class="row-excerpt">河南联纵消防（大空间智能消防水炮主导，获国家高新+第八届中国消防协会科学技术创新奖）大区总监张永康一行到访。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南联纵消防</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0718/176.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="与深圳市云之声科技云洽谈合作事宜 深圳云之声">
+  <div class="row-date">2023-04-23</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">与深圳市云之声科技云洽谈合作事宜</div>
+    <div class="row-excerpt">深圳云之声（物联网+大数据高新企业，端到端硬件+通信+云平台+AI 一体化方案）市场负责人黄河通过云视频与产业园洽谈战略合作，计划推进 5G 智慧灯杆合作。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">深圳云之声</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0718/175.html" target="_blank" rel="noopener"
+   data-cat="honor" data-year="2023" data-src="tnkg"
+   data-search="产业园出席省数产协理事会，获协会常务副会长单位授牌 河南省数字经济产业协会">
+  <div class="row-date">2023-04-21</div>
+  <div class="row-chip-cell"><span class="chip chip--honor">荣誉认可</span></div>
+  <div class="row-content">
+    <div class="row-title">产业园出席省数产协理事会，获协会常务副会长单位授牌</div>
+    <div class="row-excerpt">4-21 省数产协一届二次理事会在郑州国际会展中心召开。总经理范宽代表产业园领取常务副会长单位荣誉匾牌。会议受中国网/大河报/凤凰新闻/顶端新闻聚焦。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南省数字经济产业协会</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://www.sohu.com/a/644746834_121123841" target="_blank" rel="noopener"
+   data-cat="media" data-year="2023" data-src="third"
+   data-search="荥阳市数字经济产业园：全力以赴 跑出建设加速度 搜狐 荥阳广播电视台 荥阳市人民政府">
+  <div class="row-date">~2023-04</div>
+  <div class="row-chip-cell"><span class="chip chip--media">媒体报道</span></div>
+  <div class="row-content">
+    <div class="row-title">荥阳市数字经济产业园：全力以赴 跑出建设加速度</div>
+    <div class="row-excerpt">搜狐平台转载荥阳市新闻，聚焦项目建设加速度，围绕街道党工委+中心分包机制推进项目落地。</div>
+    <div class="row-tags">
+      <span class="row-source">● 第三方媒体</span>
+      <span class="ent-tag">搜狐</span> <span class="ent-tag">荥阳广播电视台</span> <span class="ent-tag">荥阳市人民政府</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0428/174.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2023" data-src="tnkg"
+   data-search="与驰远科技集团签署战略合作协议 驰远科技集团">
+  <div class="row-date">2023-04-19</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">与驰远科技集团签署战略合作协议</div>
+    <div class="row-excerpt">驰远科技（钉钉/新良田/科密/康艺/熵基科技 ZKTeco/魔点/三木/汉王/汇金/神思/华视等品牌核心合作伙伴）市场负责人张泽坤通过云视频与产业园签署战略合作。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">驰远科技集团</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0425/166.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="武汉微晶石科技股份莅临产业园考察交流 武汉微晶石">
+  <div class="row-date">2023-03-20</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">武汉微晶石科技股份莅临产业园考察交流</div>
+    <div class="row-excerpt">武汉微晶石区域总监王威首次到访，为 6-2 战略合作签约的前置考察。同时官方披露：园区已签订战略合作协议+拟入驻协议 50 余份，邀请接待 150 余家企业实地考察。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">武汉微晶石</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0320/165.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="华北水利水电大学国际教育学院莅临产业园考察 华北水利水电大学 大华股份 优刻得 新开普 江森自控 北京五一视界">
+  <div class="row-date">2023-03-14</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">华北水利水电大学国际教育学院莅临产业园考察</div>
+    <div class="row-excerpt">华水国际教育学院党委书记周海岭、院长李胜机、副院长张卫建一行赴园区。文中确认签约意向企业含大华（002236）、安恒信息（688023）、优刻得（688158）、新开普（300248）、江森自控（世界 500 强）等。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">华北水利水电大学</span> <span class="ent-tag">大华股份</span> <span class="ent-tag">优刻得</span> <span class="ent-tag">新开普</span> <span class="ent-tag">江森自控</span> <span class="ent-tag">北京五一视界</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0320/164.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2023" data-src="tnkg"
+   data-search="人民电器集团、华夏幸福基业股份至产业园考察 人民电器集团 华夏幸福基业 幸福蛮蛮">
+  <div class="row-date">2023-03-11</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">人民电器集团、华夏幸福基业股份至产业园考察</div>
+    <div class="row-excerpt">人民电器集团董事长郑经洁（中国 500 强、2022 年营收 508 亿）、华夏幸福对外合作总经理张洪钰等赴园区。四方共识：合作打造电器销售新渠道、能源大数据中心、数字经济实验室。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">人民电器集团</span> <span class="ent-tag">华夏幸福基业</span> <span class="ent-tag">幸福蛮蛮</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0320/163.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="安辰信息产业至产业园举行入驻签约仪式 安辰信息">
+  <div class="row-date">2023-03-07</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">安辰信息产业至产业园举行入驻签约仪式</div>
+    <div class="row-excerpt">安辰信息总经理正式签订入驻协议。安辰在交通、政府机关、金融、教育、医疗、住宅、通讯、会展中心、政法、智慧城市、广场亮化等领域已有多个典型项目。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">安辰信息</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://m.zzrbnews.com/chengshi/202302/content-b4bd2007f91716a6.html" target="_blank" rel="noopener"
+   data-cat="media" data-year="2023" data-src="third"
+   data-search="稳经济 促发展 强信心 | 跑出建设加速度 奋力实现开门红 郑州日报">
+  <div class="row-date">2023-02-27</div>
+  <div class="row-chip-cell"><span class="chip chip--media">媒体报道</span></div>
+  <div class="row-content">
+    <div class="row-title">稳经济 促发展 强信心 | 跑出建设加速度 奋力实现开门红</div>
+    <div class="row-excerpt">郑州日报记者史治国实地探访：项目 2022 年 5 月动工，总建面约 37 万㎡，为省级重点项目；700 余名工人施工，2023 年 6 月封顶，2024 年 8-9 月整体交付。已签订拟入驻协议 50 余份。</div>
+    <div class="row-tags">
+      <span class="row-source">● 第三方媒体</span>
+      <span class="ent-tag">郑州日报</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0306/162.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="建设加速度，签约进行时！又一批企业至产业园入驻签约 蒂升电梯 郑州智佳 河南沣投环保">
+  <div class="row-date">2023-02-24</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">建设加速度，签约进行时！又一批企业至产业园入驻签约</div>
+    <div class="row-excerpt">世界领先电梯公司蒂升电梯（服务河南省政府、郑州地铁、黄河管理委员会、河南省人民医院等）郑州分公司销售经理张晶晶+郑州智佳科技+河南沣投环保三家企业集中签订入驻协议。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">蒂升电梯</span> <span class="ent-tag">郑州智佳</span> <span class="ent-tag">河南沣投环保</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0306/161.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="河南文脉网络科技、郑州美琳企业管理咨询至产业园入驻签约 河南文脉 郑州美琳">
+  <div class="row-date">2023-02-21</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">河南文脉网络科技、郑州美琳企业管理咨询至产业园入驻签约</div>
+    <div class="row-excerpt">河南文脉总经理罗鹏飞（服务邮政、平安、铁道警察学院等 100+客户）与郑州美琳企业管理咨询董事长张琳一行正式签订入驻协议。美琳为省财务服务行业协会副会长单位。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南文脉</span> <span class="ent-tag">郑州美琳</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0303/159.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2023" data-src="tnkg"
+   data-search="开局即决战 · 起步即冲刺 · 2023 年首次集中签约 森赫电梯 络闻管理 城川建筑">
+  <div class="row-date">2023-02-10</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">开局即决战 · 起步即冲刺 · 2023 年首次集中签约</div>
+    <div class="row-excerpt">森赫电梯股份、络闻管理、城川建筑等 5 家企业签约，约定使用办公面积约 5000㎡，投入数字化改造升级和落地资金约 3000 万元，将在园区设立企业管理总部、智能电梯研发中心等。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">森赫电梯</span> <span class="ent-tag">络闻管理</span> <span class="ent-tag">城川建筑</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0303/158.html" target="_blank" rel="noopener"
+   data-cat="news" data-year="2022" data-src="tnkg"
+   data-search="河南省数字经济产业协会至产业园考察访问 河南省数字经济产业协会">
+  <div class="row-date">2022-12-08</div>
+  <div class="row-chip-cell"><span class="chip chip--news">战略合作</span></div>
+  <div class="row-content">
+    <div class="row-title">河南省数字经济产业协会至产业园考察访问</div>
+    <div class="row-excerpt">省数产协数字河南行访问团（荣誉会长李涛、会长姚红超、联席会长徐海军等）与十余家副会长单位企业家赴园区考察，副市长张魁伟出席。双方举行战略合作签约，为协会 500+会员打开绿色服务通道。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">河南省数字经济产业协会</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://www.sohu.com/a/571817313_121123841" target="_blank" rel="noopener"
+   data-cat="media" data-year="2022" data-src="third"
+   data-search="【重点项目进行时】荥阳市数字经济产业园新基础建设项目进展顺利 搜狐 荥阳广播电视台 荥阳市人民政府">
+  <div class="row-date">~2022-08</div>
+  <div class="row-chip-cell"><span class="chip chip--media">媒体报道</span></div>
+  <div class="row-content">
+    <div class="row-title">【重点项目进行时】荥阳市数字经济产业园新基础建设项目进展顺利</div>
+    <div class="row-excerpt">荥阳市数字经济产业园新基础建设项目省级重点项目专题报道，指出项目 5 月开工、总建面约 37 万㎡、6 月主体封顶目标推进顺利，突出服务/问题/首席三重保障机制。</div>
+    <div class="row-tags">
+      <span class="row-source">● 第三方媒体</span>
+      <span class="ent-tag">搜狐</span> <span class="ent-tag">荥阳广播电视台</span> <span class="ent-tag">荥阳市人民政府</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2023/0302/134.html" target="_blank" rel="noopener"
+   data-cat="honor" data-year="2022" data-src="tnkg"
+   data-search="王耀南院士一行莅荥考察荥阳市数字经济产业园 王耀南院士 郑州大学电气工程学院">
+  <div class="row-date">2022-03-08</div>
+  <div class="row-chip-cell"><span class="chip chip--honor">荣誉认可</span></div>
+  <div class="row-content">
+    <div class="row-title">王耀南院士一行莅荥考察荥阳市数字经济产业园</div>
+    <div class="row-excerpt">中国工程院院士、机器人视觉感知与控制技术国家工程实验室主任王耀南，携共青团河南省委副书记、郑州大学电气工程学院院长梁静一行考察园区。院士对园区树起中部地区数字产业创新发展标杆给予高度肯定。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">王耀南院士</span> <span class="ent-tag">郑州大学电气工程学院</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://public.zhengzhou.gov.cn/D1102X/5952942.jhtml" target="_blank" rel="noopener"
+   data-cat="policy" data-year="2021" data-src="gov"
+   data-search="关于支持荥阳市建设和发展数字经济产业园提案的答复 郑州市工信局">
+  <div class="row-date">2021-10-12</div>
+  <div class="row-chip-cell"><span class="chip chip--policy">政府政策</span></div>
+  <div class="row-content">
+    <div class="row-title">关于支持荥阳市建设和发展数字经济产业园提案的答复</div>
+    <div class="row-excerpt">郑州市工信局对政协第 20210142 号提案的正式答复，明确将从政策指导、专家诊断服务、政策宣讲、部门协调四方面为郑州（荥阳）数字经济产业园谋划建设提供支持。</div>
+    <div class="row-tags">
+      <span class="row-source">▲ 政府文件</span>
+      <span class="ent-tag">郑州市工信局</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="https://www.thepaper.cn/newsDetail_forward_14372875" target="_blank" rel="noopener"
+   data-cat="media" data-year="2021" data-src="third"
+   data-search="【奋进这五年】荥阳 加快推进郑州西部新城高质量发展 澎湃新闻 郑州日报">
+  <div class="row-date">2021-09-06</div>
+  <div class="row-chip-cell"><span class="chip chip--media">媒体报道</span></div>
+  <div class="row-content">
+    <div class="row-title">【奋进这五年】荥阳 加快推进郑州西部新城高质量发展</div>
+    <div class="row-excerpt">澎湃新闻转载郑州日报奋进这五年专题稿件。文中明确提到荥阳计划同步建设中车高科园、数字经济产业园、电子产业园等区中园、园中园，为公开报道中最早点名数字经济产业园作为荥阳规划重点的省级媒体文章之一。</div>
+    <div class="row-tags">
+      <span class="row-source">● 第三方媒体</span>
+      <span class="ent-tag">澎湃新闻</span> <span class="ent-tag">郑州日报</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2020/1229/80.html" target="_blank" rel="noopener"
+   data-cat="event" data-year="2020" data-src="tnkg"
+   data-search="安恒信息至荥阳调研考察寻发展 荥阳市委领导座谈交流话合作 杭州安恒信息 荥阳市委市政府">
+  <div class="row-date">2020-12-23</div>
+  <div class="row-chip-cell"><span class="chip chip--event">企业考察</span></div>
+  <div class="row-content">
+    <div class="row-title">安恒信息至荥阳调研考察寻发展 荥阳市委领导座谈交流话合作</div>
+    <div class="row-excerpt">科创板上市公司安恒信息（688023）高级副总裁马红军、副总裁芦健等一行到访。荥阳市市长王效光接见，市委常委常务副市长邢留印等参加。三方达成合作意向：安恒拟以荥阳为中心组建区域总部+研发中心，共办黄河论剑网络安全论坛。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">杭州安恒信息</span> <span class="ent-tag">荥阳市委市政府</span>
+    </div>
+  </div>
+</a>
+<a class="news-row" href="http://www.tnkg.com/a/news/2020/1010/56.html" target="_blank" rel="noopener"
+   data-cat="case" data-year="2020" data-src="tnkg"
+   data-search="我公司与荥阳城投签订合作协议（园区起点） 荥阳城投 太能控股">
+  <div class="row-date">2020-09-23</div>
+  <div class="row-chip-cell"><span class="chip chip--case">入驻签约</span></div>
+  <div class="row-content">
+    <div class="row-title">我公司与荥阳城投签订合作协议（园区起点）</div>
+    <div class="row-excerpt">荥阳城投+太能控股签订《荥阳市数字经济产业园项目合作协议》。项目占地约 300 亩、总投资 30 亿、规划总建筑面积 40.4 万㎡——园区最原始、最权威的合作签约文件。</div>
+    <div class="row-tags">
+      <span class="row-source">◆ 太能控股官网</span>
+      <span class="ent-tag">荥阳城投</span> <span class="ent-tag">太能控股</span>
+    </div>
+  </div>
+</a>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state">
+      <h3>暂无符合条件的报道</h3>
+      <p>试试调整分类、年份或搜索词，或点击右上"重置筛选"清空所有条件。</p>
+    </div>
+
+    <!-- Enterprise directory -->
+    <div class="ent-directory-wrap">
+      <h3 style="font-size: var(--fs-xl); color: var(--brand-dark); margin-bottom: var(--sp-2); letter-spacing:-0.01em;">涉及企业 / 机构名录</h3>
+      <p style="color: var(--text-2); font-size: var(--fs-sm);">
+        共 99 家 · 点击任一企业名可快速筛选包含该企业的报道。
+        带徽章的为上市公司、独角兽、央企、世界 500 强等重点单位。
+      </p>
+      <div class="ent-directory">
+      <span class="ent-tag ent-tag--dir" data-ent="太能控股">太能控股</span>
+      <span class="ent-tag ent-tag--dir" data-ent="共青团河南省委">共青团河南省委</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳市公共资源交易中心">荥阳市公共资源交易中心</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州中荥数字产业发展">郑州中荥数字产业发展</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳市发改委">荥阳市发改委</span>
+      <span class="ent-tag ent-tag--dir" data-ent="民革河南省委会">民革河南省委会</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南省粮食和物资储备局">河南省粮食和物资储备局</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州日报">郑州日报</span>
+      <span class="ent-tag ent-tag--dir" data-ent="澎湃新闻">澎湃新闻</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南大学经济学院">河南大学经济学院</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳市人民政府">荥阳市人民政府</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南帝鹏科技">河南帝鹏科技</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州浩鑫新型建材">郑州浩鑫新型建材</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南晨星会展">河南晨星会展</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南千波通信">河南千波通信</span>
+      <span class="ent-tag ent-tag--dir" data-ent="上海祥盈辰科数字科技">上海祥盈辰科数字科技</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳市强力机电">荥阳市强力机电</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳美立方商贸">荥阳美立方商贸</span>
+      <span class="ent-tag ent-tag--dir" data-ent="北京万企云服">北京万企云服</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南合一电力">河南合一电力</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州汇明再生资源">郑州汇明再生资源</span>
+      <span class="ent-tag ent-tag--dir" data-ent="中国中信金融控股">中国中信金融控股<span class="ent-badge">央企</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州厚德财务">郑州厚德财务</span>
+      <span class="ent-tag ent-tag--dir" data-ent="上海微问家">上海微问家<span class="ent-badge">潜在独角兽</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="励销云">励销云<span class="ent-badge">潜在独角兽</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州中天电子">郑州中天电子</span>
+      <span class="ent-tag ent-tag--dir" data-ent="上海得帆信息">上海得帆信息<span class="ent-badge">低代码PaaS领军</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南外服人力">河南外服人力</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州市政协">郑州市政协</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳市委市政府">荥阳市委市政府</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南恒金电梯">河南恒金电梯</span>
+      <span class="ent-tag ent-tag--dir" data-ent="广州探迹">广州探迹<span class="ent-badge">全球独角兽</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南骁宇电子">河南骁宇电子</span>
+      <span class="ent-tag ent-tag--dir" data-ent="北京维艾狄尔">北京维艾狄尔</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南餐赞">河南餐赞</span>
+      <span class="ent-tag ent-tag--dir" data-ent="大河财立方">大河财立方</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳城投">荥阳城投</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州荥泽数链">郑州荥泽数链</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南云立方">河南云立方</span>
+      <span class="ent-tag ent-tag--dir" data-ent="深信服科技">深信服科技<span class="ent-badge">A股</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南荣汇智能">河南荣汇智能</span>
+      <span class="ent-tag ent-tag--dir" data-ent="合纵连横">合纵连横</span>
+      <span class="ent-tag ent-tag--dir" data-ent="中影瑞航">中影瑞航</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南阿尔法">河南阿尔法</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南帅臣停车设备">河南帅臣停车设备</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南省数字经济产业协会">河南省数字经济产业协会</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南伟翔建设">河南伟翔建设</span>
+      <span class="ent-tag ent-tag--dir" data-ent="熵基科技">熵基科技<span class="ent-badge">A股</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州羽本文化">郑州羽本文化</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州市雕塑壁画院">郑州市雕塑壁画院</span>
+      <span class="ent-tag ent-tag--dir" data-ent="北京致远互联">北京致远互联<span class="ent-badge">A股 · 科创板</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="东南创通智能">东南创通智能</span>
+      <span class="ent-tag ent-tag--dir" data-ent="金象文化">金象文化</span>
+      <span class="ent-tag ent-tag--dir" data-ent="玖安建设集团">玖安建设集团</span>
+      <span class="ent-tag ent-tag--dir" data-ent="北京优锘科技">北京优锘科技<span class="ent-badge">数字孪生龙头</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南晋益春消防">河南晋益春消防</span>
+      <span class="ent-tag ent-tag--dir" data-ent="梦不落信息科技">梦不落信息科技</span>
+      <span class="ent-tag ent-tag--dir" data-ent="深圳九洲光电">深圳九洲光电</span>
+      <span class="ent-tag ent-tag--dir" data-ent="四川九洲投资控股">四川九洲投资控股</span>
+      <span class="ent-tag ent-tag--dir" data-ent="中国电信郑州分公司">中国电信郑州分公司<span class="ent-badge">央企 · 500强</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="天泽智联">天泽智联<span class="ent-badge">清华系</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="清华合肥公共安全研究院">清华合肥公共安全研究院<span class="ent-badge">清华系</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="江西百胜智能">江西百胜智能<span class="ent-badge">A股 · 301083</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="上海黎耀智能">上海黎耀智能</span>
+      <span class="ent-tag ent-tag--dir" data-ent="武汉微晶石">武汉微晶石</span>
+      <span class="ent-tag ent-tag--dir" data-ent="上海电器科学研究所">上海电器科学研究所</span>
+      <span class="ent-tag ent-tag--dir" data-ent="人民电器集团">人民电器集团<span class="ent-badge">中国500强</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="广东魅视科技">广东魅视科技<span class="ent-badge">A股 · 001229</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南华天光电">河南华天光电</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南伟宸会计师事务所">河南伟宸会计师事务所</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州高正电子">郑州高正电子</span>
+      <span class="ent-tag ent-tag--dir" data-ent="创维商用">创维商用</span>
+      <span class="ent-tag ent-tag--dir" data-ent="北京工源三仟">北京工源三仟</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南联纵消防">河南联纵消防</span>
+      <span class="ent-tag ent-tag--dir" data-ent="深圳云之声">深圳云之声</span>
+      <span class="ent-tag ent-tag--dir" data-ent="搜狐">搜狐</span>
+      <span class="ent-tag ent-tag--dir" data-ent="荥阳广播电视台">荥阳广播电视台</span>
+      <span class="ent-tag ent-tag--dir" data-ent="驰远科技集团">驰远科技集团</span>
+      <span class="ent-tag ent-tag--dir" data-ent="华北水利水电大学">华北水利水电大学</span>
+      <span class="ent-tag ent-tag--dir" data-ent="大华股份">大华股份<span class="ent-badge">A股 · 002236 (意向)</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="优刻得">优刻得<span class="ent-badge">A股 · 688158 (意向)</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="新开普">新开普<span class="ent-badge">A股 · 300248 (意向)</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="江森自控">江森自控<span class="ent-badge">世界500强 (意向)</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="北京五一视界">北京五一视界</span>
+      <span class="ent-tag ent-tag--dir" data-ent="华夏幸福基业">华夏幸福基业<span class="ent-badge">中国500强</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="幸福蛮蛮">幸福蛮蛮</span>
+      <span class="ent-tag ent-tag--dir" data-ent="安辰信息">安辰信息</span>
+      <span class="ent-tag ent-tag--dir" data-ent="蒂升电梯">蒂升电梯<span class="ent-badge">世界500强</span></span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州智佳">郑州智佳</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南沣投环保">河南沣投环保</span>
+      <span class="ent-tag ent-tag--dir" data-ent="河南文脉">河南文脉</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州美琳">郑州美琳</span>
+      <span class="ent-tag ent-tag--dir" data-ent="森赫电梯">森赫电梯</span>
+      <span class="ent-tag ent-tag--dir" data-ent="络闻管理">络闻管理</span>
+      <span class="ent-tag ent-tag--dir" data-ent="城川建筑">城川建筑</span>
+      <span class="ent-tag ent-tag--dir" data-ent="王耀南院士">王耀南院士</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州大学电气工程学院">郑州大学电气工程学院</span>
+      <span class="ent-tag ent-tag--dir" data-ent="郑州市工信局">郑州市工信局</span>
+      <span class="ent-tag ent-tag--dir" data-ent="杭州安恒信息">杭州安恒信息<span class="ent-badge">A股 · 688023</span></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>新闻中心</h5>
+        <a href="./">新闻首页</a>
+        <a href="./announcements.html">全部动态</a>
+        <a href="./media-kit.html">媒体素材</a>
+        <a href="./#press-resources">记者资源</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">平台矩阵</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../sub-brands/">数字子品牌</a>
+        <a href="../cases/">客户案例</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="mailto:press@xingyang-park.gov.cn">press@xingyang-park.gov.cn</a>
+        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+        <a href="./#subscribe">订阅通讯</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 本页共 84 条真实动态 · 最后更新 2026-07-28
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const state = { cat: 'all', year: 'all', src: 'all', q: '' };
+  const rows = document.querySelectorAll('.news-row');
+  const counter = document.getElementById('result-count');
+  const emptyState = document.getElementById('empty-state');
+  const searchInput = document.getElementById('search-input');
+
+  function applyFilter() {
+    let visible = 0;
+    const q = state.q.toLowerCase();
+    rows.forEach(function(row) {
+      const c = row.dataset.cat;
+      const y = row.dataset.year;
+      const s = row.dataset.src;
+      const searchText = (row.dataset.search || '').toLowerCase();
+
+      const catMatch  = state.cat  === 'all' || c === state.cat;
+      const yearMatch = state.year === 'all' || y === state.year;
+      const srcMatch  = state.src  === 'all' || s === state.src;
+      const qMatch    = !q || searchText.indexOf(q) !== -1;
+
+      const show = catMatch && yearMatch && srcMatch && qMatch;
+      row.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    counter.textContent = visible;
+    emptyState.classList.toggle('visible', visible === 0);
+  }
+
+  document.querySelectorAll('.filter-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      const group = pill.dataset.group;
+      const value = pill.dataset.value;
+      state[group] = value;
+      document.querySelectorAll('.filter-pill[data-group="' + group + '"]').forEach(function(p) {
+        p.classList.toggle('active', p === pill);
+      });
+      applyFilter();
+    });
+  });
+
+  searchInput.addEventListener('input', function(e) {
+    state.q = e.target.value.trim();
+    applyFilter();
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', function() {
+    state.cat = 'all'; state.year = 'all'; state.src = 'all'; state.q = '';
+    searchInput.value = '';
+    document.querySelectorAll('.filter-pill').forEach(function(p) {
+      p.classList.toggle('active', p.dataset.value === 'all');
+    });
+    applyFilter();
+  });
+
+  document.querySelectorAll('.ent-tag--dir').forEach(function(tag) {
+    tag.addEventListener('click', function() {
+      const name = tag.dataset.ent;
+      searchInput.value = name;
+      state.q = name;
+      applyFilter();
+      const list = document.getElementById('news-list');
+      if (list && list.scrollIntoView) list.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  });
+
+  applyFilter();
+})();
+</script>
+
+</body>
+</html>
