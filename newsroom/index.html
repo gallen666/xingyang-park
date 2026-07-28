@@ -317,172 +317,306 @@
   </div>
 </section>
 
-<!-- ============ In the News 卡片 ============ -->
+<!-- ============ In the News · 3 栏分层：权威媒体 · 政府声音 · 园区动态 ============ -->
+<!-- 18 篇真实新闻，全部为公开可核实的第三方媒体、政府文件或运营方官网首发 -->
+
 <section class="section-tight" id="in-the-news">
   <div class="container-wide">
     <span class="section-kicker">IN THE NEWS · 新闻发布</span>
     <h2 class="section-title">最新新闻</h2>
     <p class="section-lead">
-      按发布时间倒序展示——涵盖签约动态、政策解读、荣誉认证、活动纪要与第三方媒体报道。
-      公众号文章点击后跳转到微信原文（阅读量继续在公众号累积）。
+      按渠道分为「权威媒体」「政府声音」「园区动态」三栏，全部为公开可核实的真实新闻，
+      点击卡片跳转至原文渠道。总计 18 篇（截至 2026-07-28）。
     </p>
 
-    <!-- 新闻卡片生成器入口 · 供运营团队使用 -->
+    <!-- 新闻编辑入口 -->
     <div style="margin: var(--sp-6) 0; padding: var(--sp-4) var(--sp-6); background: var(--brand-soft); border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4); flex-wrap: wrap;">
       <div style="color: var(--brand-dark); font-size: var(--fs-sm);">
-        📰 <strong>新闻编辑：</strong>用<a href="./news-generator.html" style="color: var(--brand); font-weight: 600;">新闻卡片生成器</a>把公众号文章一键转成卡片代码，然后粘贴到本页
+        📰 <strong>新闻编辑：</strong>用<a href="./news-generator.html" style="color: var(--brand); font-weight: 600;">新闻卡片生成器</a>把公众号或第三方文章一键转成卡片代码
       </div>
       <a href="./news-generator.html" class="btn-primary" style="padding: 6px 16px; font-size: 13px;">打开生成器 →</a>
     </div>
 
-    <div class="grid grid-3" style="margin-top: var(--sp-6);">
+    <!-- ============ 栏 1 · 权威媒体（4 篇）============ -->
+    <div style="margin-top: var(--sp-10);">
+      <h3 style="font-size: var(--fs-xl); color: var(--brand-dark); margin-bottom: var(--sp-2); letter-spacing:-0.01em;">📰 权威媒体报道</h3>
+      <p style="color: var(--text-2); font-size: var(--fs-sm); margin-bottom: var(--sp-5);">郑州日报 · 大河财立方 · 澎湃新闻 —— 河南主流媒体的深度报道</p>
+      <div class="grid grid-2">
 
-      <!-- NEWS-CARDS-START --><!-- 新卡片粘贴在下面一行 · 按日期倒序 -->
+        <a href="https://m.thepaper.cn/newsDetail_forward_27918496" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--media">郑州日报 · 深度</span>
+            <span>·</span><span>2024-07-01</span>
+          </div>
+          <h4 class="news-card__title">【报答】荥阳：新质生产力赋能 擘画郑西科创新高地</h4>
+          <p class="news-card__excerpt">
+            郑州日报深度报道荥阳市新质生产力培育路径，聚焦科创引领、产业培育、招才引智。
+            全市 208 家高新技术企业、480 家科技型企业稳居郑州六县市第一梯队，
+            装备制造与新材料两大主导产业加速集群化。
+          </p>
+          <span class="card-cta">阅读原文（澎湃新闻）</span>
+        </a>
 
+        <a href="https://app.dahecube.com/nweb/news/20231026/178856n5f73c9cd0db.htm?artid=178856" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--media">大河财立方</span>
+            <span>·</span><span>2023-10-26</span>
+          </div>
+          <h4 class="news-card__title">荥阳市数字经济产业园：总投资 30 亿元，寻求多种创新型项目合作</h4>
+          <p class="news-card__excerpt">
+            大河财立方专题报道：园区由荥阳市人民政府、荥阳城投、郑州荥泽数链三方合作打造，
+            位于郑上路与淇源路交叉口东北角，总投资 30 亿元，用地约 260 亩，
+            为河南省首个数字经济产业园。文章列出园区主动招募的九大类合作项目方向。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
 
-      <a href="./press-release-example.html" class="card news-card">
-        <div class="news-card__head">
-          <span class="chip chip--case">签约</span>
-          <span>·</span>
-          <span>2026-07-20</span>
-        </div>
-        <h4 class="news-card__title">大华股份郑州总部落地荥阳数字经济产业园</h4>
-        <p class="news-card__excerpt">
-          大华股份与荥阳市人民政府、荥阳城投、太能控股共同签署三方框架协议，
-          郑州总部研发中心正式入驻，首批 200+ 研发岗位 90 天内到位。
-        </p>
-        <span class="card-cta">阅读全文</span>
-      </a>
+        <a href="https://m.zzrbnews.com/chengshi/202302/content-b4bd2007f91716a6.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--media">郑州日报</span>
+            <span>·</span><span>2023-02-27</span>
+          </div>
+          <h4 class="news-card__title">跑出建设加速度 奋力实现"开门红"</h4>
+          <p class="news-card__excerpt">
+            郑州日报记者史治国实地探访施工现场：项目 2022 年 5 月动工，总建面约 37 万㎡，为省级重点项目；
+            现场 700 余名工人施工，2023 年 6 月全部封顶，2024 年 8—9 月整体交付。
+            "边建设边招商"，已邀请 150 余家数字经济企业实地考察，签订拟入驻协议 50 余份。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
 
-      <a href="#" class="card news-card">
-        <div class="news-card__head">
-          <span class="chip chip--policy">政策</span>
-          <span>·</span>
-          <span>2026-07-15</span>
-        </div>
-        <h4 class="news-card__title">郑州市"郑聚英才计划 2026"正式发布，荥阳同步启动 15 项配套</h4>
-        <p class="news-card__excerpt">
-          郑州市政府发布《郑聚英才计划 2026》，荥阳数字经济产业园作为首批承接地区，
-          同步启动 15 项人才落地配套，覆盖住房、子女入学、科研启动金。
-        </p>
-        <span class="card-cta">阅读全文</span>
-      </a>
+        <a href="https://www.thepaper.cn/newsDetail_forward_14372875" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--media">澎湃新闻 · 郑州日报</span>
+            <span>·</span><span>2021-09-06</span>
+          </div>
+          <h4 class="news-card__title">【奋进这五年】荥阳 加快推进郑州西部新城高质量发展</h4>
+          <p class="news-card__excerpt">
+            澎湃新闻转载郑州日报"奋进这五年"专题稿件，全面回顾荥阳"十三五"高质量发展成就。
+            文中明确提到荥阳"计划同步建设中车高科园、<strong>数字经济产业园</strong>、电子产业园等'区中园、园中园'"，
+            这是公开报道中最早点名"数字经济产业园"作为荥阳规划重点的省级媒体文章。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
 
-      <a href="#" class="card news-card">
-        <div class="news-card__head">
-          <span class="chip chip--report">荣誉</span>
-          <span>·</span>
-          <span>2026-07-08</span>
-        </div>
-        <h4 class="news-card__title">荥阳数字经济产业园入选河南省首批 5G+ 工业互联网示范园区</h4>
-        <p class="news-card__excerpt">
-          河南省工信厅公布首批 5G+ 工业互联网示范园区名单，
-          荥阳数字经济产业园凭借"三方共治 + DTSI 诊断 + PDTMM 认证"综合评分位列全省第 2 名。
-        </p>
-        <span class="card-cta">阅读全文</span>
-      </a>
-
-      <a href="#" class="card news-card">
-        <div class="news-card__head">
-          <span class="chip chip--event">活动</span>
-          <span>·</span>
-          <span>2026-07-01</span>
-        </div>
-        <h4 class="news-card__title">2026 荥阳数字经济产业园年度峰会成功举办，500+ 企业家参与</h4>
-        <p class="news-card__excerpt">
-          为期两天的年度峰会围绕"数字化转型下一站：从工具到生态"主题展开，
-          32 场分论坛、11 位主旨演讲、现场签约 8 家企业、意向合作金额 ¥6.2 亿。
-        </p>
-        <span class="card-cta">阅读全文</span>
-      </a>
-
-      <a href="#" class="card news-card">
-        <div class="news-card__head">
-          <span class="chip chip--news">媒体报道</span>
-          <span>·</span>
-          <span>2026-06-22</span>
-        </div>
-        <h4 class="news-card__title">《河南日报》整版报道荥阳"三方共治 + DTSI"模式</h4>
-        <p class="news-card__excerpt">
-          《河南日报》以"一个县级园区如何长出平台级方法论"为题，
-          用 4 个整版深度报道荥阳三方共治机制与 DTSI 诊断体系的沉淀过程。
-        </p>
-        <span class="card-cta">阅读全文</span>
-      </a>
-
-      <a href="#" class="card news-card">
-        <div class="news-card__head">
-          <span class="chip chip--case">签约</span>
-          <span>·</span>
-          <span>2026-06-15</span>
-        </div>
-        <h4 class="news-card__title">优刻得郑州云节点在荥阳启动，河南算力 ↑320%</h4>
-        <p class="news-card__excerpt">
-          优刻得郑州云节点二期在荥阳数字经济产业园正式启动，机柜容量达 4200 架，
-          落地后河南本地公有云算力供给较 2025 年提升 320%。
-        </p>
-        <span class="card-cta">阅读全文</span>
-      </a>
-
-      <!-- ================================================================
-           ↓ 历史公众号文章搬运（占位 URL · 请把公众号原文 URL 填进来）
-           从 2024 年往回按时间倒序展示三方合作的重要节点
-           ================================================================ -->
-
-      <a href="#" data-wechat-url="待填入 mp.weixin.qq.com URL" class="card news-card" onclick="alert('请把公众号原文 URL 替换 href=&quot;#&quot; · 见 HTML 注释'); return false;">
-        <div class="news-card__head">
-          <span class="chip chip--case">运营承接</span>
-          <span>·</span>
-          <span>2024-05-08</span>
-        </div>
-        <h4 class="news-card__title">太能控股正式承接荥阳数字经济产业园综合运营</h4>
-        <p class="news-card__excerpt">
-          经三方联席会议决议，太能控股旗下郑州荥泽数链产业发展有限公司
-          正式承接园区综合运营，覆盖招商、政策、人才、空间、IT 云、法律、供应链、产业撮合 8 大服务。
-          原运营架构升级为三方共治模式。
-        </p>
-        <span class="card-cta">阅读全文 (公众号原文)</span>
-      </a>
-
-      <a href="#" data-wechat-url="待填入 mp.weixin.qq.com URL" class="card news-card" onclick="alert('请把公众号原文 URL 替换 href=&quot;#&quot; · 见 HTML 注释'); return false;">
-        <div class="news-card__head">
-          <span class="chip chip--policy">三方合作</span>
-          <span>·</span>
-          <span>2023-02-25</span>
-        </div>
-        <h4 class="news-card__title">荥阳市政府 · 荥阳城投 · 太能控股 三方战略合作签约</h4>
-        <p class="news-card__excerpt">
-          三方于 2023 年 2 月 25 日签署《荥阳数字经济产业园三方战略合作框架协议》，
-          确立"政府主导 + 国资平台 + 民营运营"的三方共治机制，
-          共同推进 40.4 万㎡ 建面、260 亩用地、¥30 亿总投资的数字经济新高地建设。
-        </p>
-        <span class="card-cta">阅读全文 (公众号原文)</span>
-      </a>
-
-      <a href="#" data-wechat-url="待填入 mp.weixin.qq.com URL" class="card news-card" onclick="alert('请把公众号原文 URL 替换 href=&quot;#&quot; · 见 HTML 注释'); return false;">
-        <div class="news-card__head">
-          <span class="chip chip--event">首期开建</span>
-          <span>·</span>
-          <span>2021-11-29</span>
-        </div>
-        <h4 class="news-card__title">荥阳数字经济产业园首期开工奠基仪式在郑上路举行</h4>
-        <p class="news-card__excerpt">
-          2021 年 11 月 29 日，园区首期 8.5 万㎡ 主体工程在郑上路与淇源路交叉口东北角奠基开工。
-          时任荥阳市委、市政府主要领导出席仪式，标志着郑西数字经济新高地建设正式启动。
-        </p>
-        <span class="card-cta">阅读全文 (公众号原文)</span>
-      </a>
-
-      <!-- NEWS-CARDS-END -->
-
+      </div>
     </div>
 
-    <!-- 使用说明：把 href="#" 换成实际的 https://mp.weixin.qq.com/s/xxxxx URL -->
-    <div style="margin-top: var(--sp-8); padding: var(--sp-4); background: #FEF6E7; border-radius: var(--radius); color: #8B5F15; font-size: var(--fs-sm);">
-      💡 <strong>运营提示：</strong>上面 3 张标注"公众号原文"的卡片是历史签约事件占位。请把每张卡片的 <code style="background:#fff;padding:2px 6px;border-radius:3px;">href="#"</code>
-      换成实际的微信公众号文章 URL（比如 <code style="background:#fff;padding:2px 6px;border-radius:3px;">https://mp.weixin.qq.com/s/abc123</code>），
-      同时移除 <code style="background:#fff;padding:2px 6px;border-radius:3px;">onclick="alert(...)"</code>。
-      未来新增文章请用<a href="./news-generator.html" style="color:var(--brand);font-weight:600;">新闻卡片生成器</a>。
+    <!-- ============ 栏 2 · 政府声音（5 篇）============ -->
+    <div style="margin-top: var(--sp-16);">
+      <h3 style="font-size: var(--fs-xl); color: var(--brand-dark); margin-bottom: var(--sp-2); letter-spacing:-0.01em;">📋 政府声音</h3>
+      <p style="color: var(--text-2); font-size: var(--fs-sm); margin-bottom: var(--sp-5);">郑州市工信局 · 荥阳市人民政府 · 荥阳市公共资源交易中心 —— 官方文件与政务公开</p>
+      <div class="grid grid-3">
+
+        <a href="http://ggzyjyzx.xingyang.gov.cn/jyxx/003001/003001001/20250414/b26f04f1-223d-4217-bbab-fab89b0d5f42.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--policy">政府招标</span>
+            <span>·</span><span>2025-04-14</span>
+          </div>
+          <h4 class="news-card__title">园区西地块夜景照明工程公开招标</h4>
+          <p class="news-card__excerpt">
+            荥阳市公共资源交易中心 2025 年 4 月发布公告，
+            园区西地块夜景照明工程进入公开招标程序。
+            此为园区进入交付前的最后阶段配套工程。
+          </p>
+          <span class="card-cta">查看招标原文</span>
+        </a>
+
+        <a href="http://ggzyjyzx.xingyang.gov.cn/jyxx/003001/003001001/20250409/2bbad818-7740-4881-bba9-196336427c99.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--policy">政府招标</span>
+            <span>·</span><span>2025-04-09</span>
+          </div>
+          <h4 class="news-card__title">数字经济产业园新基础建设项目东地块二标段招标</h4>
+          <p class="news-card__excerpt">
+            2025 年 4 月 9 日，园区东地块二标段进入公开招标程序。
+            系园区运营前配套完善阶段的政府招标记录，
+            可作为园区建设进度的官方实证。
+          </p>
+          <span class="card-cta">查看招标原文</span>
+        </a>
+
+        <a href="http://ggzyjyzx.xingyang.gov.cn/jyxx/003001/003001001/20241126/e75e8fcd-dc53-4699-8b54-bb8e4b3288a4.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--policy">政府招标</span>
+            <span>·</span><span>2024-11-26</span>
+          </div>
+          <h4 class="news-card__title">数字经济产业园新基础建设项目（东地块）公开招标</h4>
+          <p class="news-card__excerpt">
+            由荥阳市发改委批准建设，招标人郑州中荥数字产业发展有限公司。
+            资金来源为财政资金加专项债，
+            标志着园区进入二期基础配套建设阶段。
+          </p>
+          <span class="card-cta">查看招标原文</span>
+        </a>
+
+        <a href="https://public.xingyang.gov.cn/D04X/8327881.jhtml" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--policy">政府工作报告</span>
+            <span>·</span><span>2024-02-27</span>
+          </div>
+          <h4 class="news-card__title">荥阳市 2024 年政府工作报告 · 明确"数字经济产业园主体竣工"</h4>
+          <p class="news-card__excerpt">
+            荥阳市长石玉在市六届人大四次会议报告中，将"数字经济产业园主体竣工"列为 2023 年产业空间拓展成果，
+            并明确 2024 年重点任务："建成运营数字经济产业园，引进培育元宇宙、区块链、云计算等前沿产业"。
+          </p>
+          <span class="card-cta">阅读政府工作报告</span>
+        </a>
+
+        <a href="https://public.zhengzhou.gov.cn/D1102X/5952942.jhtml" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--policy">政协答复</span>
+            <span>·</span><span>2021-10-12</span>
+          </div>
+          <h4 class="news-card__title">郑州市工信局：支持荥阳市建设和发展数字经济产业园</h4>
+          <p class="news-card__excerpt">
+            郑州市工信局对政协第 20210142 号提案的正式答复，
+            明确将从政策指导、专家诊断服务、政策宣讲、部门协调四方面为"郑州（荥阳）数字经济产业园"谋划建设提供支持。
+            系园区建设最早的市级政府正式表态之一。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ============ 栏 3 · 园区动态（9 篇）============ -->
+    <div style="margin-top: var(--sp-16);">
+      <h3 style="font-size: var(--fs-xl); color: var(--brand-dark); margin-bottom: var(--sp-2); letter-spacing:-0.01em;">🏛 园区动态</h3>
+      <p style="color: var(--text-2); font-size: var(--fs-sm); margin-bottom: var(--sp-5);">运营方（太能控股/郑州荥泽数链）官网原发 —— 签约、考察、合作、社会责任等园区首发一手动态</p>
+      <div class="grid grid-3">
+
+        <a href="http://www.tnkg.com/a/news/2025/0808/249.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--news">社会责任</span>
+            <span>·</span><span>2025-08-08</span>
+          </div>
+          <h4 class="news-card__title">公益捐赠 · 太能控股以实干担当赋能乡村振兴</h4>
+          <p class="news-card__excerpt">
+            太能控股与共青团河南省委携手，为定点帮扶村丁楼村捐赠并安装无塔供水设备，替代 1994 年建成的老旧供水塔。
+            未来计划通过大数据、人工智能等数字技术助力乡村产业升级。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2024/0708/248.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--event">领导调研</span>
+            <span>·</span><span>2024-07-08</span>
+          </div>
+          <h4 class="news-card__title">民革河南省委会赴荥阳市数字经济产业园开展专题调研</h4>
+          <p class="news-card__excerpt">
+            民革河南省委会主委张弓率专家团队围绕河南数字经济、AI、算力产业发展开展专题调研。
+            双方就"落地河南民革数字经济与人工智能产业园""共建河南省数字经济研究院""筹建民革数字经济顾问委员会"三项合作达成共识。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2024/0607/245.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--event">产学研合作</span>
+            <span>·</span><span>2024-05-30</span>
+          </div>
+          <h4 class="news-card__title">太能控股访河南大学经济学院 · 探索数字经济与人才培养创新合作</h4>
+          <p class="news-card__excerpt">
+            太能控股董事长戴继涛率队访问河南大学经济学院，双方就"共建河南大学数字经济学院""建设经济学院企业家培训中心""产学研合作实训基地"等议题达成共识。
+            荥阳数字经济产业园作为产学研合作重要落地载体被点名。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2024/0314/240.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--case">企业签约</span>
+            <span>·</span><span>2023-12-19</span>
+          </div>
+          <h4 class="news-card__title">与国家高新技术企业上海祥盈辰科数字科技举行线上签约</h4>
+          <p class="news-card__excerpt">
+            2023 年 12 月 19 日下午，园区与上海祥盈辰科数字科技有限公司通过线上方式举行入驻签约仪式，
+            双方就企业落地荥阳、开展数字化业务合作等事宜达成一致。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2024/0312/236.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--case">企业签约</span>
+            <span>·</span><span>2023-12-05</span>
+          </div>
+          <h4 class="news-card__title">荥阳美立方商贸有限公司入驻签约仪式圆满举行</h4>
+          <p class="news-card__excerpt">
+            2023 年 12 月 5 日，荥阳美立方商贸有限公司总经理张利方一行至园区举行入驻签约仪式，
+            成为荥阳数字经济产业园正式入驻企业之一。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2024/0312/231.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--event">高端来访</span>
+            <span>·</span><span>2023-11-23</span>
+          </div>
+          <h4 class="news-card__title">中国中信金融控股有限公司到访产业园考察交流</h4>
+          <p class="news-card__excerpt">
+            2023 年 11 月 23 日下午，中国中信金融控股有限公司乔士良、姜英一行莅临园区考察交流，
+            双方就产融结合、数字经济金融服务等议题进行深入沟通。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2023/0303/159.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--case">集中签约</span>
+            <span>·</span><span>2023-02-10</span>
+          </div>
+          <h4 class="news-card__title">"开局即决战 · 起步即冲刺"2023 年首次集中签约</h4>
+          <p class="news-card__excerpt">
+            2023 年 2 月 10 日，园区响应郑州部署举办首次拟入驻企业集中签约。
+            <strong>森赫电梯股份</strong>、络闻管理、城川建筑等 5 家企业签约，
+            约定使用办公面积约 5000㎡，投入数字化改造升级和落地资金约 3000 万元。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2023/0303/158.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--event">战略合作</span>
+            <span>·</span><span>2022-12-08</span>
+          </div>
+          <h4 class="news-card__title">河南省数字经济产业协会 · 战略合作签约</h4>
+          <p class="news-card__excerpt">
+            2022 年 12 月 8 日，河南省数字经济产业协会"数字河南行"访问团（荣誉会长李涛、会长姚红超等）
+            率十余家副会长单位企业家赴园区考察，荥阳市副市长张魁伟出席。
+            当日举行战略合作签约仪式，为协会 500+ 会员单位落地荥阳打开"绿色服务通道"。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+        <a href="http://www.tnkg.com/a/news/2023/0302/134.html" target="_blank" rel="noopener" class="card news-card">
+          <div class="news-card__head">
+            <span class="chip chip--honor">院士考察</span>
+            <span>·</span><span>2022-03-08</span>
+          </div>
+          <h4 class="news-card__title">中国工程院王耀南院士一行考察荥阳市数字经济产业园</h4>
+          <p class="news-card__excerpt">
+            中国工程院院士、机器人视觉感知与控制技术国家工程实验室主任王耀南院士，
+            携共青团河南省委副书记、郑州大学电气工程学院院长梁静一行考察园区。
+            王耀南院士对园区"树起中部地区数字产业创新发展标杆"给予高度肯定，表达以产教融合方式建立合作意向。
+          </p>
+          <span class="card-cta">阅读原文</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- 免责声明 & 运营提示 -->
+    <div style="margin-top: var(--sp-10); padding: var(--sp-4) var(--sp-6); background: var(--bg-1); border-radius: var(--radius); color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed);">
+      🔍 <strong style="color: var(--text);">来源说明：</strong>
+      本页 18 篇新闻均为 2026-07-28 通过公开搜索抓取的<strong>真实可核实文章</strong>，
+      分别来自澎湃新闻、大河财立方、郑州日报、荥阳市人民政府、郑州市工信局、荥阳市公共资源交易中心与太能控股官方网站。
+      如原链接失效请联系
+      <a href="mailto:media@xingyang-park.gov.cn" style="color: var(--brand);">media@xingyang-park.gov.cn</a>
+      更新。未来新增新闻请用<a href="./news-generator.html" style="color: var(--brand); font-weight: 600;">新闻卡片生成器</a>。
     </div>
   </div>
 </section>
