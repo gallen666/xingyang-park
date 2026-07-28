@@ -1,45 +1,54 @@
 /* ==========================================================================
-   荥阳数字经济产业园 · 全站设计 Token 系统 v2.0
-   基于 Infosys 借鉴报告 v1.0 + v2.0 统一定义
-   目的：解决 --gov 红蓝语义冲突 + 4 套 CSS 变量方言的碎片化
+   荥阳数字经济产业园 · 全站设计 Token 系统 v3.0 · Infosys 国际化风格
+   核心变更：深色党政红 → 白底 + Infosys Blue + 大留白
+   参考：infosys.com · edgeverve.com · 白底、clean、留白多、蓝色主导
    ========================================================================== */
 
 :root {
-  /* ---------- 品牌色（三方治理） ---------- */
-  --gov:       #b8102e;        /* 政府红（荥阳市人民政府 + 城投 · 权威色 · CTA 主色）*/
-  --gov-hover: #d11a3a;
-  --gov-soft:  rgba(184,16,46,.12);
-  --enterprise: #38bdf8;       /* 企业蓝（太能控股 · 数字/科技标识色）*/
-  --enterprise-hover: #7dd3fc;
-  --enterprise-soft: rgba(56,189,248,.14);
-  --ecosystem: #34d399;        /* 生态绿（IABCDGN 生态 · 增长色）*/
-  --gold: #fbbf24;             /* 荣誉金（第三方认可 · 认证徽章）*/
-  --alert: #f87171;            /* 警示红（错误/告警）*/
+  /* ---------- 品牌主色（Infosys 风格）---------- */
+  --brand:         #007CC3;     /* Infosys Blue · 主品牌色 · CTA · 链接 */
+  --brand-hover:   #0068A6;     /* 深一档 · hover */
+  --brand-dark:    #003D69;     /* 深蓝 · headline / footer */
+  --brand-soft:    #E7F4FB;     /* 极浅蓝 · 淡背景 */
+  --brand-line:    #B8DFF2;
 
-  /* ---------- 四子品牌专属色（Edgeverve 借鉴：单一变量差异化）*/
-  --yun:  #38bdf8;             /* 荥数云 · 天空蓝 */
-  --zhi:  #f59e0b;             /* 荥智造 · 智造橙 */
-  --lian: #34d399;             /* 荥数链 · 供应绿 */
-  --cai:  #a78bfa;             /* 荥数才 · 人才紫 */
+  /* 政府红（重要 CTA 用 · 已从主色降为辅助色）*/
+  --gov:           #C8102E;     /* 更亮更 modern 的红（原 #b8102e 太暗）*/
+  --gov-hover:     #A00B24;
+  --gov-soft:      #FCE7EB;
 
-  /* ---------- 底色系（同色系不同深度）*/
-  --bg:          #0a0e1a;      /* 页面底色 · 深空蓝 */
-  --bg-1:        #0f1424;      /* 一级面板 · 组内 bg */
-  --bg-2:        #12172a;      /* 二级面板 · 卡片 bg */
-  --bg-3:        #1a2138;      /* 三级面板 · hover / 高亮 bg */
-  --bg-line:     rgba(255,255,255,.08);   /* 分隔线通用 */
-  --bg-line-soft: rgba(255,255,255,.05);
-  --bg-overlay:  rgba(10,14,26,.85);      /* modal / 视频遮罩 */
+  /* 生态色 · 少量使用 */
+  --success:       #00A65A;     /* 成功/生态绿 · Infosys 用 */
+  --warning:       #F5A623;     /* 警示橙 */
+  --accent:        #00A69C;     /* Infosys 辅助 teal */
 
-  /* ---------- 文字层次 ---------- */
-  --text:      #ffffff;        /* 主文字 */
-  --text-1:    #e6eefc;        /* 次要文字 */
-  --text-2:    #c8d0e0;        /* 描述文字 */
-  --text-3:    #8b95a8;        /* 辅助/占位 */
-  --text-4:    #6b7280;        /* 极弱文字 */
-  --text-invert: #0a0e1a;      /* 亮底反色文字 */
+  /* ---------- 4 子品牌专属色（保持辨识度但柔化）---------- */
+  --yun:  #0EA5E9;             /* 荥数云 · 云蓝 */
+  --zhi:  #E8631A;             /* 荥智造 · 智造橙（更饱和）*/
+  --lian: #10B981;             /* 荥数链 · 供应绿 */
+  --cai:  #8B5CF6;             /* 荥数才 · 人才紫 */
 
-  /* ---------- 空间尺度（4px 系）---------- */
+  /* ---------- 背景层次（浅色为主 · Infosys 白底哲学）---------- */
+  --bg:            #FFFFFF;     /* 页面主底 · 纯白 */
+  --bg-1:          #F5F7FA;     /* 一级面板 · 极浅灰 · section 间隔 */
+  --bg-2:          #FFFFFF;     /* 卡片 · 白 with border/shadow */
+  --bg-3:          #EEF2F7;     /* hover / 高亮浅灰 */
+  --bg-dark:       #0F1E33;     /* 深色 hero · footer · 少量使用 */
+  --bg-dark-1:     #1A2942;
+  --bg-line:       #E5E9F0;     /* 分隔线 · 浅灰 */
+  --bg-line-soft:  #F0F3F7;
+  --bg-overlay:    rgba(15,30,51,.85);
+
+  /* ---------- 文字层次（深色系 · 高对比）---------- */
+  --text:          #1A2942;     /* 主文字 · 深蓝黑 (Infosys 用 #212121) */
+  --text-1:        #2D3E5C;     /* 次要文字 */
+  --text-2:        #5C6E85;     /* 描述文字 · 中灰 */
+  --text-3:        #8996A8;     /* 辅助/占位 */
+  --text-4:        #B0B9C8;     /* 极弱文字 */
+  --text-invert:   #FFFFFF;     /* 深底反色 */
+  --text-brand:    var(--brand);
+
+  /* ---------- 空间尺度（4px 系 · Infosys 用得更宽松）---------- */
   --sp-1:   4px;
   --sp-2:   8px;
   --sp-3:   12px;
@@ -52,22 +61,23 @@
   --sp-16:  64px;
   --sp-20:  80px;
   --sp-24:  96px;
+  --sp-32:  128px;
 
-  /* ---------- 圆角 ---------- */
-  --radius-sm:  4px;
-  --radius:     8px;
-  --radius-md:  12px;
-  --radius-lg:  16px;
-  --radius-xl:  24px;
+  /* ---------- 圆角（Infosys 用得少 · 更 sharp）---------- */
+  --radius-sm:   2px;
+  --radius:      4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
   --radius-pill: 999px;
 
-  /* ---------- 字体 ---------- */
-  --font-sans: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB",
-               -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, sans-serif;
+  /* ---------- 字体 · Infosys 用 clean sans-serif ---------- */
+  --font-sans: "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei",
+               "Hiragino Sans GB", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Arial, sans-serif;
   --font-mono: "SF Mono", "Menlo", "Consolas", "Courier New", monospace;
 
-  /* ---------- 字号层次 ---------- */
+  /* ---------- 字号（Infosys 用大对比 · hero 特别大）---------- */
   --fs-xs:   12px;
   --fs-sm:   14px;
   --fs-base: 16px;
@@ -77,23 +87,22 @@
   --fs-2xl:  36px;
   --fs-3xl:  48px;
   --fs-4xl:  64px;
-  --fs-hero: 80px;
+  --fs-hero: 88px;
 
   /* ---------- 行高 ---------- */
-  --lh-tight:   1.2;
-  --lh-normal:  1.5;
+  --lh-tight:   1.15;
+  --lh-normal:  1.55;
   --lh-relaxed: 1.75;
 
-  /* ---------- 阴影 ---------- */
-  --shadow-sm:  0 2px 4px rgba(0,0,0,.2);
-  --shadow:     0 4px 12px rgba(0,0,0,.3);
-  --shadow-md:  0 8px 24px rgba(0,0,0,.35);
-  --shadow-lg:  0 16px 48px rgba(0,0,0,.4);
-  --shadow-glow-gov: 0 0 24px rgba(184,16,46,.35);
-  --shadow-glow-ent: 0 0 24px rgba(56,189,248,.35);
+  /* ---------- 阴影（浅色主题 · 需要更明显的阴影建立层次）---------- */
+  --shadow-sm:   0 1px 2px rgba(15,30,51,.06);
+  --shadow:      0 2px 8px rgba(15,30,51,.08);
+  --shadow-md:   0 4px 16px rgba(15,30,51,.10);
+  --shadow-lg:   0 12px 32px rgba(15,30,51,.12);
+  --shadow-xl:   0 24px 64px rgba(15,30,51,.15);
 
-  /* ---------- 容器最大宽 ---------- */
-  --container:      1280px;
+  /* ---------- 容器最大宽（Infosys 用 1440 常见）---------- */
+  --container:      1200px;
   --container-wide: 1440px;
   --container-max:  1600px;
 
@@ -105,7 +114,7 @@
   --ease-in:    cubic-bezier(.4,0,1,1);
   --ease-out:   cubic-bezier(0,0,.2,1);
 
-  /* ---------- Z-index 层级 ---------- */
+  /* ---------- Z-index ---------- */
   --z-nav:      1000;
   --z-dropdown: 1100;
   --z-modal:    1200;
@@ -126,294 +135,357 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-a { color: inherit; text-decoration: none; transition: color var(--dur-fast) var(--ease); }
-a:hover { color: var(--enterprise-hover); }
+a { color: var(--brand); text-decoration: none; transition: color var(--dur-fast) var(--ease); }
+a:hover { color: var(--brand-hover); }
 img { max-width: 100%; display: block; }
 button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
 
 /* ==========================================================================
-   全局组件（跨页复用）
+   全局组件
    ========================================================================== */
 
-/* --- 顶部全局导航栏 --- */
+/* --- 顶部全局导航栏（Infosys 白色 nav）--- */
 .nav-global {
   position: sticky; top: 0; z-index: var(--z-nav);
-  background: rgba(10,14,26,.92);
+  background: rgba(255,255,255,.96);
   backdrop-filter: saturate(140%) blur(14px);
   border-bottom: 1px solid var(--bg-line);
+  box-shadow: var(--shadow-sm);
 }
 .nav-global-inner {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--sp-6);
-  height: 64px;
+  padding: 0 var(--sp-8);
+  height: 72px;
   display: flex; align-items: center; gap: var(--sp-8);
 }
 .nav-brand {
   display: flex; align-items: center; gap: var(--sp-3);
   font-weight: 700; font-size: var(--fs-md);
   white-space: nowrap;
+  color: var(--text);
 }
+.nav-brand:hover { color: var(--text); }
 .nav-brand-mark {
-  width: 32px; height: 32px; border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--gov), var(--gov-hover));
+  width: 36px; height: 36px; border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
   display: grid; place-items: center;
   color: #fff; font-weight: 900;
+  font-size: var(--fs-md);
+  box-shadow: var(--shadow-sm);
 }
 .nav-items {
-  display: flex; align-items: center; gap: var(--sp-2);
-  margin-left: var(--sp-6);
+  display: flex; align-items: center; gap: var(--sp-1);
+  margin-left: var(--sp-4);
   flex: 1;
 }
 .nav-items > a {
   padding: var(--sp-2) var(--sp-4);
   border-radius: var(--radius);
-  font-size: var(--fs-sm); color: var(--text-1);
-  transition: background var(--dur-fast) var(--ease);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-1);
+  transition: color var(--dur-fast) var(--ease);
+  position: relative;
 }
-.nav-items > a:hover,
-.nav-items > a.active {
-  background: var(--bg-3); color: var(--text);
+.nav-items > a:hover { color: var(--brand); }
+.nav-items > a.active { color: var(--brand); }
+.nav-items > a.active::after {
+  content: ""; position: absolute; left: var(--sp-4); right: var(--sp-4);
+  bottom: -2px; height: 2px; background: var(--brand);
 }
 .nav-cta {
-  padding: var(--sp-2) var(--sp-5);
-  background: var(--gov); color: #fff;
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--brand); color: #fff;
   border-radius: var(--radius);
   font-size: var(--fs-sm); font-weight: 600;
   transition: background var(--dur-fast) var(--ease);
+  white-space: nowrap;
 }
-.nav-cta:hover { background: var(--gov-hover); }
+.nav-cta:hover { background: var(--brand-hover); color: #fff; }
 
-/* --- 子导航（Board / Platform / Service 内页统一 5-tab）--- */
+/* --- 子导航 --- */
 .subnav {
-  position: sticky; top: 64px; z-index: calc(var(--z-nav) - 10);
+  position: sticky; top: 72px; z-index: calc(var(--z-nav) - 10);
   background: var(--bg-1); border-bottom: 1px solid var(--bg-line);
 }
 .subnav-inner {
   max-width: var(--container-max); margin: 0 auto;
-  padding: 0 var(--sp-6);
+  padding: 0 var(--sp-8);
   display: flex; align-items: center; gap: var(--sp-6);
-  height: 52px; overflow-x: auto;
+  height: 56px; overflow-x: auto;
 }
 .subnav a {
-  padding: var(--sp-2) var(--sp-2);
+  padding: var(--sp-2) var(--sp-1);
   font-size: var(--fs-sm); color: var(--text-2);
+  font-weight: 500;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
   transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
 .subnav a:hover { color: var(--text); }
-.subnav a.active { color: var(--text); border-bottom-color: var(--gov); }
+.subnav a.active { color: var(--brand); border-bottom-color: var(--brand); }
 .subnav-brand {
   font-weight: 700; margin-right: var(--sp-4);
   font-size: var(--fs-md);
+  color: var(--text);
 }
 
-/* --- 主容器 --- */
-.container      { max-width: var(--container);      margin: 0 auto; padding: 0 var(--sp-6); }
-.container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 var(--sp-6); }
-.container-max  { max-width: var(--container-max);  margin: 0 auto; padding: 0 var(--sp-6); }
+/* --- 容器 --- */
+.container      { max-width: var(--container);      margin: 0 auto; padding: 0 var(--sp-8); }
+.container-wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 var(--sp-8); }
+.container-max  { max-width: var(--container-max);  margin: 0 auto; padding: 0 var(--sp-8); }
 
-/* --- 章节 --- */
-.section       { padding: var(--sp-16) 0; }
-.section-tight { padding: var(--sp-10) 0; }
-.section-hero  { padding: var(--sp-20) 0 var(--sp-16); }
+/* --- 章节（更多留白）--- */
+.section       { padding: var(--sp-24) 0; }
+.section-tight { padding: var(--sp-16) 0; }
+.section-hero  { padding: var(--sp-24) 0 var(--sp-20); }
 .section-title {
-  font-size: var(--fs-2xl); font-weight: 700;
-  margin-bottom: var(--sp-2); line-height: var(--lh-tight);
+  font-size: var(--fs-3xl); font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--sp-3); line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
 }
 .section-kicker {
-  color: var(--gov); font-size: var(--fs-sm); font-weight: 600;
+  color: var(--brand); font-size: var(--fs-sm); font-weight: 600;
   text-transform: uppercase; letter-spacing: .08em;
-  margin-bottom: var(--sp-3);
+  margin-bottom: var(--sp-4);
 }
 .section-lead {
   color: var(--text-2); max-width: 720px;
   font-size: var(--fs-md); line-height: var(--lh-relaxed);
 }
 
-/* --- Hero 通用 --- */
+/* --- Hero 通用 · Infosys 风格 · 白底大留白 --- */
 .hero {
   position: relative; overflow: hidden;
-  min-height: 520px;
+  min-height: 560px;
   display: flex; align-items: center;
-  background:
-    radial-gradient(ellipse at 20% 30%, rgba(184,16,46,.15), transparent 55%),
-    radial-gradient(ellipse at 80% 70%, rgba(56,189,248,.12), transparent 55%),
-    linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+  background: var(--bg);
   border-bottom: 1px solid var(--bg-line);
 }
 .hero-inner {
   max-width: var(--container-max); margin: 0 auto;
-  padding: var(--sp-16) var(--sp-6);
+  padding: var(--sp-24) var(--sp-8);
   position: relative; z-index: 2;
 }
 .hero-kicker {
   display: inline-block;
-  background: var(--gov-soft); color: var(--gov-hover);
-  padding: var(--sp-1) var(--sp-4); border-radius: var(--radius-pill);
+  background: var(--brand-soft); color: var(--brand);
+  padding: var(--sp-2) var(--sp-4); border-radius: var(--radius);
   font-size: var(--fs-sm); font-weight: 600;
   margin-bottom: var(--sp-5);
-  border: 1px solid rgba(184,16,46,.3);
+  letter-spacing: .04em;
 }
 .hero-title {
-  font-size: var(--fs-3xl); font-weight: 800;
+  font-size: var(--fs-3xl); font-weight: 700;
+  color: var(--text);
   line-height: var(--lh-tight);
-  margin-bottom: var(--sp-4);
-  max-width: 800px;
+  margin-bottom: var(--sp-5);
+  max-width: 900px;
+  letter-spacing: -0.02em;
 }
 .hero-lead {
   color: var(--text-2); font-size: var(--fs-lg);
   line-height: var(--lh-relaxed);
-  max-width: 720px;
+  max-width: 760px;
   margin-bottom: var(--sp-8);
 }
 .hero-ctas { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+/* --- Buttons · Infosys 风格 · 极简 --- */
 .btn-primary {
   padding: var(--sp-3) var(--sp-6);
-  background: var(--gov); color: #fff;
+  background: var(--brand); color: #fff;
   border-radius: var(--radius); font-weight: 600;
+  font-size: var(--fs-sm);
   transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
   display: inline-flex; align-items: center; gap: var(--sp-2);
+  border: 1px solid var(--brand);
 }
-.btn-primary:hover { background: var(--gov-hover); transform: translateY(-1px); color: #fff; }
+.btn-primary:hover { background: var(--brand-hover); border-color: var(--brand-hover); transform: translateY(-1px); color: #fff; }
 .btn-ghost {
   padding: var(--sp-3) var(--sp-6);
   background: transparent; color: var(--text);
   border: 1px solid var(--bg-line);
   border-radius: var(--radius); font-weight: 600;
-  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  font-size: var(--fs-sm);
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   display: inline-flex; align-items: center; gap: var(--sp-2);
 }
-.btn-ghost:hover { border-color: var(--enterprise); background: var(--bg-2); color: var(--text); }
+.btn-ghost:hover { border-color: var(--brand); background: var(--brand-soft); color: var(--brand); }
+.btn-gov {
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--gov); color: #fff;
+  border-radius: var(--radius); font-weight: 600;
+  font-size: var(--fs-sm);
+  transition: background var(--dur-fast) var(--ease);
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+}
+.btn-gov:hover { background: var(--gov-hover); color: #fff; }
 
-/* --- Stats banner（Infosys BPM 借鉴：4-5 big numbers）--- */
+/* --- Stats banner · Infosys 风格 · 深底或极浅底 --- */
 .stats-banner {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--sp-8);
-  padding: var(--sp-10) var(--sp-6);
-  background: var(--bg-1); border-radius: var(--radius-lg);
+  gap: var(--sp-10);
+  padding: var(--sp-12) var(--sp-8);
+  background: var(--bg-1);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--bg-line);
 }
 .stat { text-align: center; }
 .stat-num {
   font-size: var(--fs-4xl); font-weight: 800;
-  color: var(--gold); line-height: 1;
+  color: var(--brand); line-height: 1;
   margin-bottom: var(--sp-2);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
 }
-.stat-label { color: var(--text-2); font-size: var(--fs-sm); }
+.stat-label { color: var(--text-2); font-size: var(--fs-sm); font-weight: 500; }
 
-/* --- Cards --- */
+/* --- Cards · Infosys 风格 · 白底轻阴影 --- */
 .card {
   background: var(--bg-2); border: 1px solid var(--bg-line);
-  border-radius: var(--radius-md); padding: var(--sp-6);
-  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  border-radius: var(--radius-lg); padding: var(--sp-8);
+  transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
 }
-.card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-line);
+  box-shadow: var(--shadow-md);
+}
 .card-tag {
-  display: inline-block; padding: 2px var(--sp-2);
+  display: inline-block; padding: 2px var(--sp-3);
   font-size: var(--fs-xs); font-weight: 600;
   border-radius: var(--radius-sm);
   margin-bottom: var(--sp-3);
-  background: var(--enterprise-soft); color: var(--enterprise-hover);
+  background: var(--brand-soft); color: var(--brand);
+  letter-spacing: .04em; text-transform: uppercase;
 }
-.card-tag--gov      { background: var(--gov-soft);        color: #ef4444; }
-.card-tag--case     { background: rgba(52,211,153,.15);   color: #34d399; }
-.card-tag--policy   { background: rgba(251,191,36,.15);   color: #fbbf24; }
-.card-tag--news     { background: rgba(167,139,250,.15);  color: #a78bfa; }
-.card-tag--report   { background: rgba(56,189,248,.15);   color: #38bdf8; }
-.card-title { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); }
+.card-tag--gov      { background: var(--gov-soft);        color: var(--gov); }
+.card-tag--case     { background: #E6F7EF;                color: var(--success); }
+.card-tag--policy   { background: #FEF6E7;                color: #C68A0E; }
+.card-tag--news     { background: #F0E9FE;                color: #6B44C7; }
+.card-tag--report   { background: var(--brand-soft);      color: var(--brand); }
+.card-title { font-size: var(--fs-md); font-weight: 700; color: var(--text); margin-bottom: var(--sp-2); line-height: var(--lh-tight); }
 .card-body  { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
 .card-cta {
   margin-top: var(--sp-4);
-  font-size: var(--fs-sm); color: var(--enterprise);
+  font-size: var(--fs-sm); color: var(--brand); font-weight: 600;
   display: inline-flex; align-items: center; gap: var(--sp-1);
 }
-.card-cta::after { content: "→"; transition: transform var(--dur-fast) var(--ease); }
+.card-cta::after { content: "→"; transition: transform var(--dur-fast) var(--ease); margin-left: var(--sp-1); }
 .card:hover .card-cta::after { transform: translateX(4px); }
 
-/* --- Grid helpers --- */
+/* --- Grid --- */
 .grid { display: grid; gap: var(--sp-6); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
-.grid-auto { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-auto { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 @media (max-width: 900px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 }
 
-/* --- Sticky "May I Help You" 咨询按钮 --- */
+/* --- Sticky 咨询按钮 · Infosys 蓝 --- */
 .help-widget {
   position: fixed; bottom: var(--sp-6); right: var(--sp-6);
   z-index: var(--z-modal);
-  padding: var(--sp-3) var(--sp-5);
-  background: var(--gov); color: #fff;
+  padding: var(--sp-3) var(--sp-6);
+  background: var(--brand); color: #fff;
   border-radius: var(--radius-pill);
-  font-weight: 600; box-shadow: var(--shadow-glow-gov);
+  font-weight: 600; font-size: var(--fs-sm);
+  box-shadow: var(--shadow-lg);
   display: inline-flex; align-items: center; gap: var(--sp-2);
-  transition: transform var(--dur-fast) var(--ease);
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
-.help-widget:hover { transform: translateY(-2px); color: #fff; }
+.help-widget:hover { background: var(--brand-hover); transform: translateY(-2px); color: #fff; }
 
-/* --- Footer with 三方 lock-up（v2.0 关键差异化：loud parent）--- */
+/* --- Footer · Infosys 风格 · 深底白字 · 简洁分栏 --- */
 .footer-global {
-  background: var(--bg-1); border-top: 1px solid var(--bg-line);
-  padding: var(--sp-12) 0 var(--sp-6);
-  margin-top: var(--sp-20);
+  background: var(--bg-dark);
+  color: var(--text-4);
+  padding: var(--sp-16) 0 var(--sp-8);
+  margin-top: var(--sp-24);
 }
 .footer-inner {
   max-width: var(--container-max); margin: 0 auto;
-  padding: 0 var(--sp-6);
+  padding: 0 var(--sp-8);
 }
 .footer-lockup {
-  display: flex; align-items: center; gap: var(--sp-6);
-  padding-bottom: var(--sp-8); margin-bottom: var(--sp-8);
-  border-bottom: 1px solid var(--bg-line);
+  display: flex; align-items: center; gap: var(--sp-4);
+  padding-bottom: var(--sp-8); margin-bottom: var(--sp-10);
+  border-bottom: 1px solid rgba(255,255,255,.1);
   flex-wrap: wrap;
 }
 .footer-lockup-item {
-  padding: var(--sp-3) var(--sp-5);
-  background: var(--bg-2); border: 1px solid var(--bg-line);
+  padding: var(--sp-2) var(--sp-4);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
   border-radius: var(--radius);
   font-size: var(--fs-sm); font-weight: 600;
+  color: #fff;
 }
 .footer-cols {
   display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: var(--sp-8);
-  margin-bottom: var(--sp-8);
+  gap: var(--sp-10);
+  margin-bottom: var(--sp-10);
 }
 .footer-col h5 {
-  color: var(--text); font-size: var(--fs-sm); font-weight: 700;
+  color: #fff; font-size: var(--fs-sm); font-weight: 700;
   text-transform: uppercase; letter-spacing: .08em;
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-5);
 }
 .footer-col a {
-  display: block; color: var(--text-2); font-size: var(--fs-sm);
-  padding: var(--sp-1) 0;
+  display: block; color: rgba(255,255,255,.7); font-size: var(--fs-sm);
+  padding: var(--sp-2) 0;
+  font-weight: 400;
 }
-.footer-col a:hover { color: var(--text); }
+.footer-col a:hover { color: #fff; }
+.footer-col p { color: rgba(255,255,255,.7); }
 .footer-copy {
-  color: var(--text-3); font-size: var(--fs-xs);
-  padding-top: var(--sp-6);
-  border-top: 1px solid var(--bg-line);
+  color: rgba(255,255,255,.5); font-size: var(--fs-xs);
+  padding-top: var(--sp-8);
+  border-top: 1px solid rgba(255,255,255,.1);
+  line-height: var(--lh-relaxed);
 }
 @media (max-width: 900px) {
   .footer-cols { grid-template-columns: 1fr 1fr; }
 }
 
-/* --- 内容 chip 标签（Infosys IKI 借鉴：8 类内容类型）--- */
+/* --- Chip 标签 · 浅色主题版 --- */
 .chip {
-  display: inline-block; padding: 2px var(--sp-2);
+  display: inline-block; padding: 3px var(--sp-3);
   font-size: var(--fs-xs); font-weight: 600;
   border-radius: var(--radius-sm);
-  background: var(--bg-3); color: var(--text-2);
+  background: var(--bg-3); color: var(--text-1);
+  letter-spacing: .04em;
 }
-.chip--policy   { background: rgba(251,191,36,.15);  color: #fbbf24; }
-.chip--case     { background: rgba(52,211,153,.15);  color: #34d399; }
-.chip--report   { background: rgba(56,189,248,.15);  color: #38bdf8; }
-.chip--event    { background: rgba(167,139,250,.15); color: #a78bfa; }
-.chip--insight  { background: rgba(244,114,182,.15); color: #f472b6; }
-.chip--video    { background: rgba(248,113,113,.15); color: #f87171; }
-.chip--whitepaper { background: rgba(45,212,191,.15); color: #2dd4bf; }
-.chip--news     { background: rgba(203,213,225,.15); color: #cbd5e1; }
+.chip--policy     { background: #FEF6E7;  color: #C68A0E; }
+.chip--case       { background: #E6F7EF;  color: var(--success); }
+.chip--report     { background: var(--brand-soft); color: var(--brand); }
+.chip--event      { background: #F0E9FE;  color: #6B44C7; }
+.chip--insight    { background: #FCE7F1;  color: #C2185B; }
+.chip--video      { background: var(--gov-soft); color: var(--gov); }
+.chip--whitepaper { background: #E0F5F3;  color: #00847B; }
+.chip--news       { background: #F0F3F7;  color: var(--text-1); }
+
+/* --- 兼容旧变量（板块页可能仍用）--- */
+/* 老的 --panel/--card/--txt 映射到新体系 */
+:root {
+  --panel: var(--bg-1);
+  --bg-panel: var(--bg-1);
+  --panel2: var(--bg-3);
+  --card: var(--bg-2);
+  --card2: var(--bg-1);
+  --txt: var(--text);
+  --text-soft: var(--text-2);
+  --muted: var(--text-3);
+  --line: var(--bg-line);
+  --enterprise: var(--brand);
+  --enterprise-hover: var(--brand-hover);
+  --enterprise-soft: var(--brand-soft);
+  --ecosystem: var(--success);
+  --gold: var(--warning);
+  --orange: var(--zhi);
+}

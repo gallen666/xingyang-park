@@ -7,7 +7,7 @@
 <meta name="description" content="荥阳数字经济产业园由荥阳市人民政府、荥阳城投、太能控股三方联合运营。40.4 万㎡建面、260 亩用地、52 家已入驻、1553 全景计划、¥30 亿投资。提供 8 大运营服务、4 大数字子品牌、DTSI/X-Flow/PDTMM/OpenX@X 平台级 IP。">
 <link rel="stylesheet" href="./assets/css/tokens.css">
 <style>
-  /* --- Hero (index-specific) --- */
+  /* --- Hero (Infosys 风格 · 白底大留白 · 极简 CTA) --- */
   .hero-index {
     position: relative;
     min-height: 640px;
@@ -15,140 +15,171 @@
     align-items: center;
     overflow: hidden;
     background:
-      radial-gradient(ellipse at 15% 25%, rgba(184,16,46,.28), transparent 50%),
-      radial-gradient(ellipse at 85% 60%, rgba(56,189,248,.22), transparent 50%),
-      radial-gradient(ellipse at 50% 90%, rgba(52,211,153,.18), transparent 55%),
-      linear-gradient(180deg, #0a0e1a 0%, #0f1424 100%);
+      radial-gradient(circle at 85% 30%, var(--brand-soft) 0%, transparent 45%),
+      radial-gradient(circle at 20% 85%, #F0F6FB 0%, transparent 40%),
+      var(--bg);
+    border-bottom: 1px solid var(--bg-line);
   }
   .hero-index-inner {
     max-width: var(--container-max); margin: 0 auto;
-    padding: var(--sp-20) var(--sp-6) var(--sp-16);
+    padding: var(--sp-24) var(--sp-8) var(--sp-20);
     position: relative; z-index: 2;
   }
   .hero-index h1 {
-    font-size: clamp(40px, 6vw, 88px);
-    font-weight: 900; line-height: 1.05;
-    margin: var(--sp-5) 0 var(--sp-6);
-    background: linear-gradient(90deg, #fff 0%, #38bdf8 50%, #fbbf24 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: var(--sp-6) 0 var(--sp-6);
+    color: var(--text);
     max-width: 1100px;
   }
+  .hero-index h1 .accent {
+    color: var(--brand);
+  }
   .hero-index .hero-lead {
-    font-size: var(--fs-lg); max-width: 780px;
-    color: var(--text-1); line-height: var(--lh-relaxed);
+    font-size: var(--fs-lg); max-width: 820px;
+    color: var(--text-2); line-height: var(--lh-relaxed);
   }
   .hero-slogan {
-    font-size: var(--fs-md); color: var(--gold);
-    font-weight: 700; letter-spacing: .05em;
-    margin-top: var(--sp-8);
-    padding: var(--sp-3) var(--sp-5);
-    background: rgba(251,191,36,.08);
-    border-left: 3px solid var(--gold);
+    font-size: var(--fs-md); color: var(--brand-dark);
+    font-weight: 600; letter-spacing: .02em;
+    margin-top: var(--sp-10);
+    padding: var(--sp-3) var(--sp-6);
+    background: var(--brand-soft);
+    border-left: 3px solid var(--brand);
     display: inline-block;
     border-radius: 0 var(--radius) var(--radius) 0;
   }
 
   /* --- Trust lockup 三方 hero-bottom --- */
   .lockup-hero {
-    display: flex; gap: var(--sp-4); flex-wrap: wrap;
-    margin-top: var(--sp-8); align-items: center;
+    display: flex; gap: var(--sp-3); flex-wrap: wrap;
+    margin-top: var(--sp-10); align-items: center;
     color: var(--text-3); font-size: var(--fs-sm);
   }
   .lockup-hero-item {
     padding: var(--sp-2) var(--sp-4);
-    background: rgba(255,255,255,.04);
+    background: var(--bg-2);
     border: 1px solid var(--bg-line);
     border-radius: var(--radius);
-    color: var(--text-2);
+    color: var(--text);
     font-weight: 600;
+    box-shadow: var(--shadow-sm);
   }
 
-  /* --- Stats hero (5 大关键数字) --- */
+  /* --- Stats hero · 深蓝底白字 · Infosys 大字号 --- */
   .stats-hero {
-    padding: var(--sp-12) 0;
-    background: linear-gradient(180deg, #0f1424 0%, #0a0e1a 100%);
-    border-top: 1px solid var(--bg-line);
-    border-bottom: 1px solid var(--bg-line);
+    padding: var(--sp-16) 0;
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #002544 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .stats-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(0,124,195,.25) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(0,166,156,.15) 0%, transparent 40%);
   }
   .stats-hero-inner {
     max-width: var(--container-max); margin: 0 auto;
-    padding: 0 var(--sp-6);
+    padding: 0 var(--sp-8);
     display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: var(--sp-4);
+    gap: var(--sp-6);
     text-align: center;
+    position: relative; z-index: 2;
   }
   .stats-hero-item .stat-num {
-    background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: clamp(32px, 4.5vw, 64px);
+    color: #fff;
+    font-size: clamp(36px, 5vw, 68px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: var(--sp-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .stats-hero-item .stat-label {
+    color: rgba(255,255,255,.75);
+    font-size: var(--fs-sm);
+    font-weight: 500;
   }
   @media (max-width: 900px) {
     .stats-hero-inner { grid-template-columns: repeat(2, 1fr); gap: var(--sp-8); }
   }
 
-  /* --- Section headings --- */
-  .h-block { text-align: center; margin-bottom: var(--sp-12); }
-  .h-block .section-lead { margin: var(--sp-3) auto 0; }
+  /* --- Section headings · Infosys 风格 --- */
+  .h-block { text-align: center; margin-bottom: var(--sp-16); }
+  .h-block .section-lead { margin: var(--sp-4) auto 0; }
   .kicker-line {
-    color: var(--gov); font-size: var(--fs-sm); font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase;
-    display: inline-flex; align-items: center; gap: var(--sp-2);
+    color: var(--brand); font-size: var(--fs-sm); font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: var(--sp-3);
   }
   .kicker-line::before {
     content: ""; width: 32px; height: 2px;
-    background: var(--gov);
+    background: var(--brand);
   }
 
-  /* --- Platform cards (4) --- */
-  .plat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
+  /* --- Platform cards (4) · Infosys 卡片 · 白底轻阴影 --- */
+  .plat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
   @media (max-width: 1100px) { .plat-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px)  { .plat-grid { grid-template-columns: 1fr; } }
   .plat-card {
-    padding: var(--sp-6);
-    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    padding: var(--sp-8);
+    background: var(--bg-2);
     border: 1px solid var(--bg-line);
     border-radius: var(--radius-lg);
     display: flex; flex-direction: column;
-    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
     position: relative;
+    color: var(--text);
   }
-  .plat-card:hover { transform: translateY(-4px); border-color: var(--gov); }
+  .plat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-line);
+    box-shadow: var(--shadow-md);
+    color: var(--text);
+  }
   .plat-mark {
-    font-size: var(--fs-xl); font-weight: 900;
-    background: linear-gradient(90deg, var(--enterprise), var(--gold));
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: var(--sp-1);
+    font-size: var(--fs-xl); font-weight: 800;
+    color: var(--brand);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--sp-2);
   }
-  .plat-tagline { color: var(--text-2); font-size: var(--fs-sm); margin-bottom: var(--sp-4); }
-  .plat-lead { color: var(--text-1); flex: 1; margin-bottom: var(--sp-5); line-height: var(--lh-relaxed); }
-  .plat-cta { color: var(--gov-hover); font-weight: 600; font-size: var(--fs-sm); }
-  .plat-cta::after { content: " →"; }
+  .plat-tagline { color: var(--text-2); font-size: var(--fs-sm); font-weight: 500; margin-bottom: var(--sp-4); }
+  .plat-lead { color: var(--text-1); flex: 1; margin-bottom: var(--sp-6); line-height: var(--lh-relaxed); font-size: var(--fs-sm); }
+  .plat-cta { color: var(--brand); font-weight: 600; font-size: var(--fs-sm); }
+  .plat-cta::after { content: " →"; margin-left: var(--sp-1); transition: transform var(--dur-fast) var(--ease); display: inline-block; }
+  .plat-card:hover .plat-cta::after { transform: translateX(4px); }
 
-  /* --- Service matrix (8) --- */
-  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  /* --- Service matrix (8) · Infosys 极简卡片 --- */
+  .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
   @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 500px) { .svc-grid { grid-template-columns: 1fr; } }
   .svc-card {
-    padding: var(--sp-5);
+    padding: var(--sp-6);
     background: var(--bg-2); border: 1px solid var(--bg-line);
-    border-radius: var(--radius);
-    transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
-    display: flex; flex-direction: column; gap: var(--sp-2);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    color: var(--text);
   }
-  .svc-card:hover { border-color: var(--enterprise); transform: translateY(-2px); }
+  .svc-card:hover {
+    border-color: var(--brand-line);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    color: var(--text);
+  }
   .svc-icon {
-    width: 40px; height: 40px; border-radius: var(--radius);
-    background: rgba(184,16,46,.12); color: var(--gov-hover);
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--brand-soft); color: var(--brand);
     display: grid; place-items: center;
     margin-bottom: var(--sp-2);
   }
-  .svc-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
-  .svc-title { font-weight: 700; font-size: var(--fs-md); }
+  .svc-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .svc-title { font-weight: 700; font-size: var(--fs-md); color: var(--text); }
   .svc-desc { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
-  .svc-stat { color: var(--gold); font-size: var(--fs-xs); font-weight: 600; margin-top: var(--sp-2); }
+  .svc-stat { color: var(--brand); font-size: var(--fs-xs); font-weight: 700; margin-top: auto; padding-top: var(--sp-3); border-top: 1px solid var(--bg-line-soft); }
 
   /* --- Sub-brand cards (4) --- */
   .brand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
@@ -187,88 +218,113 @@
   .brand-cta::after { content: " →"; }
 
   /* --- Case card row --- */
-  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
   @media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
   .case-card {
-    padding: var(--sp-5);
+    padding: var(--sp-6);
     background: var(--bg-2); border: 1px solid var(--bg-line);
-    border-radius: var(--radius-md);
-    display: flex; flex-direction: column; gap: var(--sp-2);
-    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+    color: var(--text);
   }
-  .case-card:hover { transform: translateY(-2px); border-color: var(--ecosystem); }
-  .case-client { font-size: var(--fs-md); font-weight: 700; }
-  .case-industry { color: var(--text-3); font-size: var(--fs-xs); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
-  .case-metrics { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin: var(--sp-2) 0; }
+  .case-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-line);
+    box-shadow: var(--shadow-md);
+    color: var(--text);
+  }
+  .case-client { font-size: var(--fs-lg); font-weight: 700; color: var(--text); }
+  .case-industry { color: var(--brand); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .case-metrics { display: flex; gap: var(--sp-5); flex-wrap: wrap; margin: var(--sp-3) 0; padding: var(--sp-3) 0; border-top: 1px solid var(--bg-line-soft); border-bottom: 1px solid var(--bg-line-soft); }
   .case-metric { text-align: left; }
-  .case-metric-num { color: var(--ecosystem); font-size: var(--fs-lg); font-weight: 800; }
+  .case-metric-num { color: var(--brand); font-size: var(--fs-lg); font-weight: 800; letter-spacing: -0.02em; }
   .case-metric-label { color: var(--text-3); font-size: var(--fs-xs); }
-  .case-quote { color: var(--text-2); font-size: var(--fs-sm); font-style: italic; border-left: 2px solid var(--bg-line); padding-left: var(--sp-3); margin: var(--sp-2) 0; }
-  .case-cta { color: var(--ecosystem); font-size: var(--fs-sm); font-weight: 600; margin-top: auto; }
+  .case-quote { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); border-left: 3px solid var(--brand); padding-left: var(--sp-4); margin: var(--sp-2) 0; font-style: italic; }
+  .case-cta { color: var(--brand); font-size: var(--fs-sm); font-weight: 600; margin-top: auto; padding-top: var(--sp-3); }
   .case-cta::after { content: " →"; }
 
   /* --- Insights row (4 cards) --- */
-  .insights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  .insights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
   @media (max-width: 900px) { .insights-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 500px) { .insights-grid { grid-template-columns: 1fr; } }
   .insight-card {
-    padding: var(--sp-4);
+    padding: var(--sp-5);
     background: var(--bg-2); border: 1px solid var(--bg-line);
-    border-radius: var(--radius);
-    display: flex; flex-direction: column; gap: var(--sp-2);
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    transition: box-shadow var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+    color: var(--text);
   }
-  .insight-card:hover { border-color: var(--enterprise); }
-  .insight-title { font-weight: 700; font-size: var(--fs-sm); line-height: 1.4; margin: var(--sp-2) 0; }
-  .insight-meta { color: var(--text-3); font-size: var(--fs-xs); }
+  .insight-card:hover { border-color: var(--brand-line); box-shadow: var(--shadow); color: var(--text); }
+  .insight-title { font-weight: 700; font-size: var(--fs-sm); line-height: 1.4; margin: var(--sp-2) 0; color: var(--text); }
+  .insight-meta { color: var(--text-3); font-size: var(--fs-xs); margin-top: auto; }
 
   /* --- Client logo strip --- */
   .logo-strip {
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4);
-    padding: var(--sp-8); background: var(--bg-1);
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-1);
+    padding: var(--sp-6); background: var(--bg-1);
     border-radius: var(--radius-lg); border: 1px solid var(--bg-line);
   }
   @media (max-width: 900px) { .logo-strip { grid-template-columns: repeat(3, 1fr); } }
   .logo-item {
     display: grid; place-items: center;
-    padding: var(--sp-4); background: var(--bg-2);
-    border-radius: var(--radius); color: var(--text-2);
+    padding: var(--sp-5); background: var(--bg-2);
+    border-radius: var(--radius); color: var(--text-1);
     font-weight: 600; font-size: var(--fs-sm);
-    min-height: 72px;
+    min-height: 80px;
     text-align: center;
+    transition: transform var(--dur-fast) var(--ease);
   }
+  .logo-item:hover { transform: scale(1.02); }
 
   /* --- Recognition row --- */
   .reco-strip {
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-3);
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-4);
   }
   @media (max-width: 900px) { .reco-strip { grid-template-columns: repeat(2, 1fr); } }
   .reco-item {
-    padding: var(--sp-4);
-    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-    border: 1px solid var(--bg-line); border-radius: var(--radius);
-    text-align: center; color: var(--text-1);
+    padding: var(--sp-5);
+    background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius-lg);
+    text-align: center; color: var(--text);
     font-size: var(--fs-xs); font-weight: 600;
-    min-height: 88px;
+    min-height: 100px;
     display: flex; align-items: center; justify-content: center;
+    transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
   }
-  .reco-item span { display: block; color: var(--gold); font-size: var(--fs-sm); margin-bottom: 2px; }
+  .reco-item:hover { border-color: var(--brand-line); box-shadow: var(--shadow-sm); }
+  .reco-item span { display: block; color: var(--brand); font-size: var(--fs-sm); font-weight: 700; margin-bottom: 4px; }
 
-  /* --- CTA final banner --- */
+  /* --- CTA final banner · Infosys 深底大字 --- */
   .cta-band {
-    background:
-      linear-gradient(135deg, rgba(184,16,46,.15), rgba(56,189,248,.12)),
-      linear-gradient(180deg, var(--bg-1), var(--bg-2));
-    border: 1px solid var(--bg-line);
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #002544 100%);
     border-radius: var(--radius-lg);
-    padding: var(--sp-12);
+    padding: var(--sp-20) var(--sp-8);
     text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
   }
+  .cta-band::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(0,124,195,.3) 0%, transparent 60%);
+  }
+  .cta-band > * { position: relative; z-index: 2; }
+  .cta-band .kicker-line { color: rgba(255,255,255,.85); }
+  .cta-band .kicker-line::before { background: rgba(255,255,255,.4); }
   .cta-band h2 {
-    font-size: var(--fs-2xl); font-weight: 800;
-    margin-bottom: var(--sp-3);
+    font-size: var(--fs-3xl); font-weight: 700;
+    margin-bottom: var(--sp-4);
+    letter-spacing: -0.02em;
+    color: #fff;
   }
-  .cta-band p { color: var(--text-2); max-width: 640px; margin: 0 auto var(--sp-8); }
+  .cta-band p { color: rgba(255,255,255,.8); max-width: 640px; margin: 0 auto var(--sp-8); font-size: var(--fs-md); }
   .cta-band-ctas { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; }
+  .cta-band .btn-primary { background: #fff; color: var(--brand-dark); border-color: #fff; }
+  .cta-band .btn-primary:hover { background: var(--brand-soft); border-color: var(--brand-soft); color: var(--brand-dark); }
+  .cta-band .btn-ghost { color: #fff; border-color: rgba(255,255,255,.3); }
+  .cta-band .btn-ghost:hover { background: rgba(255,255,255,.1); border-color: #fff; color: #fff; }
 </style>
 </head>
 <body>
@@ -301,7 +357,7 @@
 <section class="hero-index">
   <div class="hero-index-inner">
     <div class="kicker-line">郑西数字经济新高地 · 30 亿元投资 · 40.4 万㎡</div>
-    <h1>数字荥阳，可能无限</h1>
+    <h1>数字荥阳，<span class="accent">可能无限</span></h1>
     <p class="hero-lead">
       荥阳数字经济产业园由 <strong>荥阳市人民政府</strong>、<strong>荥阳城投</strong>、<strong>太能控股</strong> 三方联合建设，
       运营主体：郑州荥泽数链产业发展有限公司。
