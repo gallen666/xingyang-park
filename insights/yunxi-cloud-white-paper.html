@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>荥数云算网脑三部曲 · 8.6 EFLOPS 中原枢纽白皮书 · 洞察 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥数云套用国家算力网络"三部分 + 六特征"叙事：算（生产算力）+ 网（连接算力）+ 脑（编排调度）· 弹性 · 敏捷 · 无损 · 安全 · 感知 · 可视。8.6 EFLOPS 中原枢纽白皮书。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .breadcrumb { padding: var(--sp-4) 0; color: var(--text-3); font-size: var(--fs-sm); }
+  .breadcrumb a { color: var(--text-3); }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb .sep { margin: 0 var(--sp-2); color: var(--text-4); }
+
+  .article-header { padding: var(--sp-8) 0 var(--sp-10); border-bottom: 1px solid var(--bg-line); }
+  .article-header-chips { display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap; margin-bottom: var(--sp-4); }
+  .article-header-chips .meta-date { color: var(--text-3); font-size: var(--fs-sm); margin-left: var(--sp-2); }
+  .article-title { font-size: var(--fs-3xl); font-weight: 800; line-height: var(--lh-tight); margin-bottom: var(--sp-6); max-width: 920px; }
+  .article-meta-row { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; }
+  .author-mini { display: flex; align-items: center; gap: var(--sp-3); }
+  .avatar-svg { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--enterprise), #38bdf8); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: var(--fs-md); flex-shrink: 0; }
+  .author-mini-info { display: flex; flex-direction: column; gap: 2px; }
+  .author-mini-name { font-weight: 700; font-size: var(--fs-sm); color: var(--text); }
+  .author-mini-bio { font-size: var(--fs-xs); color: var(--text-3); }
+  .reading-time { font-size: var(--fs-sm); color: var(--text-3); }
+
+  .tldr { background: rgba(56,189,248,.10); border: 1px solid rgba(56,189,248,.3); border-left: 4px solid #38bdf8; padding: var(--sp-6); border-radius: var(--radius-lg); margin: var(--sp-10) 0; }
+  .tldr-label { color: #38bdf8; font-weight: 700; font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: .08em; margin-bottom: var(--sp-3); }
+  .tldr ul { list-style: none; padding: 0; margin: 0; }
+  .tldr li { padding: var(--sp-2) 0 var(--sp-2) var(--sp-6); position: relative; color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .tldr li::before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 2px; background: #38bdf8; }
+
+  .article-body { max-width: 840px; margin: 0 auto; padding: var(--sp-4) 0 var(--sp-16); }
+  .article-body h2 { font-size: var(--fs-xl); font-weight: 700; margin: var(--sp-10) 0 var(--sp-4); color: var(--text); line-height: var(--lh-tight); }
+  .article-body h3 { font-size: var(--fs-md); font-weight: 600; margin: var(--sp-6) 0 var(--sp-3); color: var(--text-1); }
+  .article-body p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .article-body ul, .article-body ol { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); padding-left: var(--sp-6); margin-bottom: var(--sp-4); }
+  .article-body li { margin-bottom: var(--sp-2); }
+  .article-body b, .article-body strong { color: var(--text); }
+
+  .divider-svg { display: block; margin: var(--sp-10) auto var(--sp-8); max-width: 600px; width: 100%; height: 18px; }
+
+  .pull-quote { border-left: 4px solid #38bdf8; padding: var(--sp-6); margin: var(--sp-8) 0; background: var(--bg-2); border-radius: 0 var(--radius) var(--radius) 0; font-size: var(--fs-lg); color: var(--text-1); font-style: italic; font-family: Georgia, "Songti SC", serif; line-height: var(--lh-relaxed); position: relative; }
+  .pull-quote::before { content: "\201C"; position: absolute; left: var(--sp-3); top: -12px; font-size: 56px; color: #38bdf8; font-family: Georgia, serif; line-height: 1; }
+  .pull-quote cite { display: block; margin-top: var(--sp-4); font-size: var(--fs-sm); color: var(--text-3); font-style: normal; font-family: var(--font-sans); }
+
+  .weight-table { width: 100%; border-collapse: collapse; margin: var(--sp-6) 0; background: var(--bg-1); border-radius: var(--radius); overflow: hidden; font-size: var(--fs-sm); }
+  .weight-table th, .weight-table td { padding: var(--sp-3) var(--sp-4); text-align: left; border-bottom: 1px solid var(--bg-line); }
+  .weight-table th { background: var(--bg-3); color: var(--text); font-weight: 700; }
+  .weight-table td { color: var(--text-2); }
+  .weight-table tr:last-child td { border-bottom: 0; }
+  .weight-table td b { color: var(--gold); font-variant-numeric: tabular-nums; }
+
+  .trait-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4);
+    margin: var(--sp-8) 0;
+  }
+  @media (max-width: 900px) { .trait-grid { grid-template-columns: repeat(2, 1fr); } }
+  .trait-item {
+    padding: var(--sp-5); background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius);
+    border-top: 3px solid #38bdf8;
+  }
+  .trait-title { color: #38bdf8; font-weight: 800; font-size: var(--fs-md); margin-bottom: var(--sp-2); }
+  .trait-body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  .author-card-large { display: flex; gap: var(--sp-6); padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); margin-top: var(--sp-12); }
+  .avatar-large { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, var(--enterprise), #38bdf8); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 28px; flex-shrink: 0; }
+  .author-card-large h4 { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-1); }
+  .author-card-large .role { color: var(--gold); font-size: var(--fs-sm); margin-bottom: var(--sp-3); }
+  .author-card-large p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-2); }
+
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+
+  .tag-row { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-8); }
+  .tag-row .chip { padding: var(--sp-2) var(--sp-3); }
+
+  .subscribe-inline { background: linear-gradient(135deg, rgba(56,189,248,.14), transparent), var(--bg-2); border: 1px solid rgba(56,189,248,.3); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-10); }
+  .subscribe-inline form { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); flex-wrap: wrap; }
+  .subscribe-inline input { flex: 1; min-width: 240px; padding: var(--sp-3) var(--sp-4); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav class="nav-global">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="./" class="active">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#subscribe">订阅洞察</a>
+  </div>
+</nav>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Insights · 洞察中心</span>
+    <a href="./">洞察首页</a>
+    <a href="./#themes">主题分类</a>
+    <a href="./#authors">作者档案</a>
+    <a href="#subscribe">订阅</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a><span class="sep">›</span>
+    <a href="./">洞察</a><span class="sep">›</span>
+    <span>荥数云算网脑三部曲</span>
+  </div>
+
+  <header class="article-header">
+    <div class="article-header-chips">
+      <span class="chip chip--whitepaper">白皮书</span>
+      <span class="chip">算力</span>
+      <span class="chip">荥数云</span>
+      <span class="meta-date">发布 2026-07-29</span>
+    </div>
+    <h1 class="article-title">《荥数云算网脑三部曲》· 8.6 EFLOPS 中原枢纽白皮书</h1>
+    <div class="article-meta-row">
+      <div class="author-mini">
+        <div class="avatar-svg">周</div>
+        <div class="author-mini-info">
+          <span class="author-mini-name">周晓刚</span>
+          <span class="author-mini-bio">荥数云首席架构师 · 前阿里云异构计算团队 · 10 年智算基础设施经验</span>
+        </div>
+      </div>
+      <div class="reading-time">阅读时长 · 20 分钟</div>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <div class="tldr">
+      <div class="tldr-label">TL;DR · 三句话概括</div>
+      <ul>
+        <li>《数字中国建设整体布局规划》把算力网络拆为<b>"算 · 网 · 脑" 三部分 + 六特征（弹性/敏捷/无损/安全/感知/可视）</b>。这是荥数云对齐国家算力网络的技术语言母版。</li>
+        <li>荥数云是荥阳承担"东数西算"<b>中原枢纽支点</b>的核心产品——算侧 8.6 EFLOPS 智算生产、网侧东数西算中原互联 + IPv6 + 5G-A + 万兆网络、脑侧 PDTMM® 五级认证做算力成熟度调度。PUE 1.28 优于国家 1.34 平均水平。</li>
+        <li>三个典型客户场景（AI-native 训练 · 制造 AI 质检 · 跨境电商推荐系统）已跑通 SLA 99.95%，我们正在寻找 5 家有中原枢纽/华北算力对接需求的合作伙伴。</li>
+      </ul>
+    </div>
+
+    <h2>为什么"算 · 网 · 脑"是这场白皮书的母语</h2>
+    <p>2023 年 3 月《数字中国建设整体布局规划》把算力基础设施系统性地拆为三个组成部分——<b>算（生产算力）、网（连接算力）、脑（编排调度）</b>。这是中央文件里第一次用这么明确的三段结构来描绘算力网络。它比业内常见的"云-边-端"更进一步，因为"脑"承担的是编排调度，是让算力从"堆机器"变成"用得起、找得到、算得好"的关键一跃。</p>
+    <p>2026 年 5 月《数字中国发展报告 2025》进一步补充数据：<b>算力设施机架数 1373 万标准机架（全球第二）</b>、<b>智算规模 159 万 PFLOPS（全球第二）</b>、<b>万卡智算集群 42 个</b>、<b>超大型算力 PUE 1.34 平均</b>、<b>4A 级及以上绿色算力设施超 160 个</b>、<b>国家累计绿色算力设施 306 个</b>。这些数字组成了"算 · 网 · 脑"的国家坐标系。</p>
+    <p>紧接着国家 2026 年展望里明确"算力资源部署规模化、集约化、绿色化——<b>一盘棋、一本账、一张网</b>"。这三句话是任何地方算力平台在 2026-2027 年做业务定位时必须直接引用的国家话语。</p>
+
+    <blockquote class="pull-quote">
+      过去 3 年园区算力叙事的最大问题是"用商业语言讲国家事"——把 8.6 EFLOPS 说成"性能高"，而不是说成"荥阳承担中原枢纽支点"。语言换了，客户和市里听到的都是不同的故事。
+      <cite>— 周晓刚，2026 年 7 月内部技术评审</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity="0"/><stop offset=".5" stop-color="#38bdf8"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d1)" stroke-width="1.5"/>
+      <circle cx="300" cy="9" r="4" fill="#38bdf8"/>
+    </svg>
+
+    <h2>荥数云对齐国家算力网络的技术架构</h2>
+    <p>荥数云的整体架构直接套用"算 · 网 · 脑"三部曲——每一层都对应一个可交付的技术底盘、一个国家对齐参照、一个具体动作。</p>
+
+    <table class="weight-table">
+      <thead>
+        <tr><th>层</th><th>荥数云技术底盘</th><th>国家参照</th><th>关键动作</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>算</b>（生产）</td><td>8.6 EFLOPS 智算 + 3 节点</td><td>159 万 PFLOPS · 42 万卡集群</td><td>异构 GPU/NPU 池化</td></tr>
+        <tr><td><b>网</b>（连接）</td><td>东数西算中原互联骨干</td><td>29 骨干直联点 · IPv6 世界首位</td><td>5G-A + 万兆网络双通道</td></tr>
+        <tr><td><b>脑</b>（调度）</td><td>PDTMM® + DTSI® 一本账</td><td>算力"一盘棋一本账一张网"</td><td>X-Flow Dynamics™ 仿真编排</td></tr>
+      </tbody>
+    </table>
+
+    <h3>六特征 · 每一条都写成技术承诺</h3>
+    <div class="trait-grid">
+      <div class="trait-item">
+        <div class="trait-title">弹性 · Elastic</div>
+        <div class="trait-body">1 卡 → 1000 卡 15 分钟弹性 · Spot 五折 · Kubernetes GPU 编排 · 支持突发训练 8 倍扩容</div>
+      </div>
+      <div class="trait-item">
+        <div class="trait-title">敏捷 · Agile</div>
+        <div class="trait-body">15 分钟起算 · 训练任务 6 分钟内启动 · 830 款 AI 应用一键部署 · 与 Hugging Face 镜像同步</div>
+      </div>
+      <div class="trait-item">
+        <div class="trait-title">无损 · Lossless</div>
+        <div class="trait-body">RDMA + 200Gbps 无损网络 · 参数同步 &lt; 1 ms · 混合精度 + 通信压缩 · 训练吞吐 1.8×</div>
+      </div>
+      <div class="trait-item">
+        <div class="trait-title">安全 · Secure</div>
+        <div class="trait-body">信通院 TSCS Level-3 · 等保三级 · 对齐 AI 安全治理框架 2.0 · 数据分级 · 网络数据条例</div>
+      </div>
+      <div class="trait-item">
+        <div class="trait-title">感知 · Aware</div>
+        <div class="trait-body">DTSI® 生成算力"一本账"实时热力图 · 算力/能耗/成本三维监控 · 分钟级异常告警</div>
+      </div>
+      <div class="trait-item">
+        <div class="trait-title">可视 · Visible</div>
+        <div class="trait-body">算力/能耗/成本三大看板 · 每笔调用可追溯 · 客户账单粒度到秒 · 与国家算力"一张网"对接</div>
+      </div>
+    </div>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#34d399" stop-opacity="0"/><stop offset=".5" stop-color="#34d399"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d2)" stroke-width="1.5"/>
+      <rect x="290" y="4" width="20" height="10" fill="#34d399" rx="2"/>
+    </svg>
+
+    <h2>"算"侧 · 8.6 EFLOPS 智算生产 · PUE 1.28</h2>
+    <p>荥数云"算"侧的关键数字是三个：<b>8.6 EFLOPS 智算总规模</b>、<b>3 个算力节点</b>（荥阳本地 + 郑州航空港 + 中原云谷备份）、<b>PUE 1.28</b>。这三个数字全部对齐国家算力网络的"生产算力"要求。</p>
+    <p>PUE 1.28 意味着什么？<b>国家超大型算力平均 PUE 1.34</b>——荥数云低 0.06，等价于每 1 度 IT 用电节省 0.045 度总耗电。按 2026 年年化 12,000 万度 IT 耗电计，年节电 540 万度、节碳约 3200 吨。这些数据是荥数云申报<b>国家 4A 级绿色算力设施</b>的核心凭据。国家目前累计 306 个绿色算力设施，超过 160 个已达到 4A 级——荥阳的目标是 2027 年前进入 4A 级梯队。</p>
+
+    <p>算侧的技术选型有三条根本原则：</p>
+    <ol>
+      <li><b>异构统一调度</b>——A100 / H800 / 昇腾 910B 混部，客户任务通过统一 API 提交，调度器根据模型特征选择最优硬件。避免"锁死 NVIDIA"的地缘风险。</li>
+      <li><b>能效优先</b>——每台服务器都有单独能耗监控，PUE 分区计算。荥阳本地节点在冬季利用自然冷源，可实现瞬时 PUE 1.14。</li>
+      <li><b>可信可控</b>——通过信通院 TSCS Level-3 认证，具备"可信数据空间对接"能力。数据加密、密钥托管、审计日志三层落实。</li>
+    </ol>
+
+    <blockquote class="pull-quote">
+      算力不是越多越好，是"匹配得越准越好"。8.6 EFLOPS 里有多少是浪费在拿 H800 跑 CPU 密集任务？这才是"脑"层要解决的核心问题。
+      <cite>— 周晓刚，某科技媒体访谈</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbbf24" stop-opacity="0"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d3)" stroke-width="1.5"/>
+      <polygon points="295,3 305,3 300,14" fill="#fbbf24"/>
+    </svg>
+
+    <h2>"网"侧 · 东数西算中原互联 + IPv6 + 5G-A + 万兆网络</h2>
+    <p>"网"侧承担的是"连接算力"——把生产算力和调用算力的两端拉在一起。中国的网络底盘目前是全球最完备的：<b>光缆线路 7499 万公里</b>、<b>5G 基站 483.8 万个（每万人 34.4 个）</b>、<b>10G PON 端口 3162 万个</b>、<b>5G-A 覆盖超 330 个城市</b>、<b>万兆网络试点 168 个小区/工厂/园区</b>、<b>IPv6 网络/用户/流量世界首位</b>、<b>国家互联网骨干直联点 29 个 · 带宽 87T</b>、<b>移动物联网终端 28.88 亿户（净增 2.32 亿）</b>。</p>
+
+    <p>荥数云"网"侧的四条通道：</p>
+
+    <h3>通道一 · 东数西算中原互联骨干</h3>
+    <p>荥阳位于"东数西算"中原枢纽的东部支点。中原枢纽向东连长三角、京津冀，向西连宁夏、内蒙古、甘肃、贵州、川渝算力集群。荥数云在这条骨干上承担"缓存 + 就近推理"角色——训练任务西调，推理任务留在中原。</p>
+
+    <h3>通道二 · IPv6 规模部署</h3>
+    <p>荥阳产业园内所有企业接入 IPv6，与国家"网络/用户/流量世界首位"体系直接对齐。企业无需自建 IPv6 通道，直接使用园区骨干网络，实现"入园即 IPv6"。</p>
+
+    <h3>通道三 · 5G-A 双域网络</h3>
+    <p>与郑州联通、河南移动共建 5G-A 试点，覆盖园区 260 亩用地内 40.4 万㎡ 全部建筑。工业客户可在车间直接使用 5G-A 内网切片跑数据采集，无需拉专线。</p>
+
+    <h3>通道四 · 万兆网络先行先试</h3>
+    <p>荥阳产业园申报<b>国家万兆网络先行先试试点</b>——目前 168 个国家试点单位主要是一线城市小区/工厂。中原地区若入选，将是首例园区级万兆网络样板。</p>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a78bfa" stop-opacity="0"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="#f472b6" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d4)" stroke-width="1.5"/>
+      <circle cx="270" cy="9" r="3" fill="#a78bfa"/><circle cx="300" cy="9" r="3" fill="#a78bfa"/><circle cx="330" cy="9" r="3" fill="#a78bfa"/>
+    </svg>
+
+    <h2>"脑"侧 · PDTMM® 五级认证做调度</h2>
+    <p>"脑"是荥数云真正的差异化——用 PDTMM® 五级认证把"算力成熟度"变成一个可调度信号。传统云平台调度算力靠的是 CPU/GPU 利用率、内存占用、网络流量——三个物理指标。但荥数云的调度器多了一个业务维度：<b>客户企业的 PDTMM® 认证等级</b>。</p>
+    <p>这带来三个直接好处：</p>
+    <ol>
+      <li><b>L4/L5 企业获得优先算力保障</b>——具备成熟数字化能力的企业，训练任务优先调度到最优 GPU 集群。这不是"卖高级 SLA"，而是让能用得好算力的人先用。</li>
+      <li><b>L1/L2 企业配套认证陪跑</b>——用了荥数云的低段位企业，自动获得 CPA-PDTMM 认证师上门评估机会，用 8-12 个月推到 L3。算力用得越多、认证越高、下次调度越优先。</li>
+      <li><b>算力成本按认证阶梯定价</b>——L4/L5 企业专属折扣、L1/L2 企业专属补贴通道（对接"郑聚英才"与"石榴籽人才计划"算力券），把 CAPEX 与政策补贴串联。</li>
+    </ol>
+
+    <p>"脑"侧的调度算法背后是 <b>X-Flow Dynamics™</b>：一个基于系统动力学的仿真编排引擎。它接收算力"一本账"的实时热力图、PDTMM® 认证矩阵、政策补贴规则、企业业务优先级——四个输入合成一个"最优调度决策"，60 秒刷新一次。这是荥阳承担国家"算力资源一盘棋、算力监测一本账、算力调度一张网"新格局的具体落地路径。</p>
+
+    <blockquote class="pull-quote">
+      算力网络的终极竞争，不在硬件，在调度。硬件比谁都比 NVIDIA、比谁都比北上广，怎么比？调度是唯一还没定型的战场——这才是"脑"侧的价值。
+      <cite>— 周晓刚，2026 年郑州算力峰会主题演讲</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f472b6" stop-opacity="0"/><stop offset=".5" stop-color="#f472b6"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d5)" stroke-width="1.5"/>
+      <polygon points="295,3 305,3 300,14" fill="#f472b6"/>
+    </svg>
+
+    <h2>三个客户场景与技术合作邀请</h2>
+
+    <h3>场景 A · AI-native 训练</h3>
+    <p>某郑州本土大模型公司使用荥数云 512 卡 H800 跑 Llama-70B 微调，端到端吞吐 1.8×、SLA 99.95%、算力成本节省 38%。目标客户画像：融资到 A 轮以上、每月训练预算 ¥50 万-¥500 万、有郑州办公需求。</p>
+
+    <h3>场景 B · 制造 AI 质检</h3>
+    <p>某电梯零部件厂商在荥数云部署 AI 视觉质检模型，日均推理 49,000 次、端到端延时下降 62%、缺陷检出率提升 3.4 个百分点。目标客户画像：豫西五大产业带内制造企业、已建 5G 内网切片、有 3-5 条产线待改造。</p>
+
+    <h3>场景 C · 跨境电商推荐系统</h3>
+    <p>某跨境电商推荐引擎从上海阿里云迁移至荥数云，算力总成本降 38%、跨境响应延时降 30 ms、日均推理 3200 万次。目标客户画像：GMV 破 ¥5 亿的跨境电商、需要低延时、荥数链已在通国家名单。</p>
+
+    <p><b>技术合作邀请</b>：荥数云 2026 下半年寻找 5 家<b>中原枢纽/华北算力对接</b>合作伙伴——包括算力互联互通节点共建、可信数据空间试点联合申报、绿色算力设施 4A 级认证经验共享。也欢迎信通院、国家算力互联互通推进委员会、河南省通信管理局、郑州航空港区管委会等机构参与技术评审。</p>
+
+    <p>联系方式：cloud@xingyang-park.gov.cn · 电话 0371-6425-8899 · 荥阳数字经济产业园 A 座 8 层。</p>
+
+    <div class="author-card-large">
+      <div class="avatar-large">周</div>
+      <div>
+        <h4>周晓刚</h4>
+        <div class="role">荥数云首席架构师</div>
+        <p>前阿里云异构计算团队 · 10 年智算基础设施与调度器经验 · 主导过 3 座万卡智算集群从 0 到 1 部署。</p>
+        <p>本白皮书主编，参与"算 · 网 · 脑"架构设计、六特征技术承诺量化、三客户场景 SLA 复盘。</p>
+        <p>联系：<a href="mailto:xiaogang.zhou@xingyang-park.gov.cn" style="color:var(--enterprise);">xiaogang.zhou@xingyang-park.gov.cn</a></p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:var(--sp-12);">相关文章</h2>
+    <div class="related-grid">
+      <a href="./national-2522-map.html" class="card">
+        <span class="chip chip--report">报告</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">荥阳 2522 落地图谱</h4>
+        <p class="card-body">一张图看懂数字中国如何在中原扎根 · 4 大子品牌 + 4 大平台 + 8 大服务对齐 2522。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./xingyang-digital-china-index.html" class="card">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">荥阳数字中国指数首发</h4>
+        <p class="card-body">对标国家 170.1 的园区版测算：基础 · 数据 · 融合 · 能力 · 环境 五分项。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./pdtmm-level-guide.html" class="card">
+        <span class="chip chip--whitepaper">实操指南</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">PDTMM 五级认证</h4>
+        <p class="card-body">L1 到 L5 每一级的典型企业画像、认证材料与政策红利。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+    </div>
+
+    <div class="tag-row">
+      <span class="chip chip--whitepaper">#算网脑</span>
+      <span class="chip">#荥数云</span>
+      <span class="chip">#8.6EFLOPS</span>
+      <span class="chip">#东数西算</span>
+      <span class="chip">#PUE1.28</span>
+      <span class="chip">#PDTMM</span>
+      <span class="chip">#周晓刚</span>
+    </div>
+
+    <div class="subscribe-inline" id="subscribe">
+      <span class="section-kicker">SUBSCRIBE · 订阅洞察月刊</span>
+      <h3 class="section-title" style="font-size:var(--fs-lg);">追踪荥数云算力网络每一次演进</h3>
+      <p style="color:var(--text-2);font-size:var(--fs-sm);">每月 1 期，把最新洞察与政策窗口送到您邮箱。</p>
+      <form action="#" method="post">
+        <input type="email" placeholder="您的工作邮箱" required>
+        <button type="submit" class="btn-primary">订阅</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<a class="help-widget" href="#subscribe">
+  <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+  订阅
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>洞察</h5>
+        <a href="./national-2522-map.html">2522 落地图谱</a>
+        <a href="./xingyang-digital-china-index.html">数字中国指数</a>
+        <a href="./yunxi-cloud-white-paper.html">算网脑三部曲</a>
+        <a href="./openxx-methodology-primer.html">OpenX@X 方法论</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../newsroom/">新闻中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="#subscribe">订阅月刊</a>
+        <a href="mailto:insights@xingyang-park.gov.cn">insights@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

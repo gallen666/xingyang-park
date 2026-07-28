@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>荥阳 2522 落地图谱 · 一张图看懂数字中国如何在中原扎根 · 洞察 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳 2522 落地图谱：把《数字中国建设整体布局规划》2 大基础 + 5 大融合 + 2 大能力 + 2 大环境的国家框架，与荥阳 4 大平台 + 8 大服务 + 4 大子品牌一格一格对齐。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .breadcrumb { padding: var(--sp-4) 0; color: var(--text-3); font-size: var(--fs-sm); }
+  .breadcrumb a { color: var(--text-3); }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb .sep { margin: 0 var(--sp-2); color: var(--text-4); }
+
+  .article-header { padding: var(--sp-8) 0 var(--sp-10); border-bottom: 1px solid var(--bg-line); }
+  .article-header-chips { display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap; margin-bottom: var(--sp-4); }
+  .article-header-chips .meta-date { color: var(--text-3); font-size: var(--fs-sm); margin-left: var(--sp-2); }
+  .article-title { font-size: var(--fs-3xl); font-weight: 800; line-height: var(--lh-tight); margin-bottom: var(--sp-6); max-width: 920px; }
+  .article-meta-row { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; }
+  .author-mini { display: flex; align-items: center; gap: var(--sp-3); }
+  .avatar-svg { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: var(--fs-md); flex-shrink: 0; }
+  .author-mini-info { display: flex; flex-direction: column; gap: 2px; }
+  .author-mini-name { font-weight: 700; font-size: var(--fs-sm); color: var(--text); }
+  .author-mini-bio { font-size: var(--fs-xs); color: var(--text-3); }
+  .reading-time { font-size: var(--fs-sm); color: var(--text-3); }
+
+  .tldr { background: var(--gov-soft); border: 1px solid rgba(184,16,46,.3); border-left: 4px solid var(--gov); padding: var(--sp-6); border-radius: var(--radius-lg); margin: var(--sp-10) 0; }
+  .tldr-label { color: var(--gov-hover); font-weight: 700; font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: .08em; margin-bottom: var(--sp-3); }
+  .tldr ul { list-style: none; padding: 0; margin: 0; }
+  .tldr li { padding: var(--sp-2) 0 var(--sp-2) var(--sp-6); position: relative; color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .tldr li::before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 2px; background: var(--gov); }
+
+  .article-body { max-width: 840px; margin: 0 auto; padding: var(--sp-4) 0 var(--sp-16); }
+  .article-body h2 { font-size: var(--fs-xl); font-weight: 700; margin: var(--sp-10) 0 var(--sp-4); color: var(--text); line-height: var(--lh-tight); }
+  .article-body h3 { font-size: var(--fs-md); font-weight: 600; margin: var(--sp-6) 0 var(--sp-3); color: var(--text-1); }
+  .article-body p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .article-body ul, .article-body ol { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); padding-left: var(--sp-6); margin-bottom: var(--sp-4); }
+  .article-body li { margin-bottom: var(--sp-2); }
+  .article-body b, .article-body strong { color: var(--text); }
+
+  .divider-svg { display: block; margin: var(--sp-10) auto var(--sp-8); max-width: 600px; width: 100%; height: 18px; }
+
+  .pull-quote { border-left: 4px solid var(--gov); padding: var(--sp-6); margin: var(--sp-8) 0; background: var(--bg-2); border-radius: 0 var(--radius) var(--radius) 0; font-size: var(--fs-lg); color: var(--text-1); font-style: italic; font-family: Georgia, "Songti SC", serif; line-height: var(--lh-relaxed); position: relative; }
+  .pull-quote::before { content: "\201C"; position: absolute; left: var(--sp-3); top: -12px; font-size: 56px; color: var(--gov); font-family: Georgia, serif; line-height: 1; }
+  .pull-quote cite { display: block; margin-top: var(--sp-4); font-size: var(--fs-sm); color: var(--text-3); font-style: normal; font-family: var(--font-sans); }
+
+  .weight-table { width: 100%; border-collapse: collapse; margin: var(--sp-6) 0; background: var(--bg-1); border-radius: var(--radius); overflow: hidden; font-size: var(--fs-sm); }
+  .weight-table th, .weight-table td { padding: var(--sp-3) var(--sp-4); text-align: left; border-bottom: 1px solid var(--bg-line); }
+  .weight-table th { background: var(--bg-3); color: var(--text); font-weight: 700; }
+  .weight-table td { color: var(--text-2); }
+  .weight-table tr:last-child td { border-bottom: 0; }
+  .weight-table td b { color: var(--gold); font-variant-numeric: tabular-nums; }
+
+  .author-card-large { display: flex; gap: var(--sp-6); padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); margin-top: var(--sp-12); }
+  .avatar-large { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, var(--gov), var(--enterprise)); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 28px; flex-shrink: 0; }
+  .author-card-large h4 { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-1); }
+  .author-card-large .role { color: var(--gold); font-size: var(--fs-sm); margin-bottom: var(--sp-3); }
+  .author-card-large p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-2); }
+
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+
+  .tag-row { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-8); }
+  .tag-row .chip { padding: var(--sp-2) var(--sp-3); }
+
+  .subscribe-inline { background: linear-gradient(135deg, var(--gov-soft), transparent), var(--bg-2); border: 1px solid rgba(184,16,46,.3); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-10); }
+  .subscribe-inline form { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); flex-wrap: wrap; }
+  .subscribe-inline input { flex: 1; min-width: 240px; padding: var(--sp-3) var(--sp-4); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav class="nav-global">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="./" class="active">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#subscribe">订阅洞察</a>
+  </div>
+</nav>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Insights · 洞察中心</span>
+    <a href="./">洞察首页</a>
+    <a href="./#themes">主题分类</a>
+    <a href="./#authors">作者档案</a>
+    <a href="#subscribe">订阅</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a><span class="sep">›</span>
+    <a href="./">洞察</a><span class="sep">›</span>
+    <span>荥阳 2522 落地图谱</span>
+  </div>
+
+  <header class="article-header">
+    <div class="article-header-chips">
+      <span class="chip chip--report">报告</span>
+      <span class="chip">数字中国</span>
+      <span class="chip">2522 框架</span>
+      <span class="meta-date">发布 2026-07-29</span>
+    </div>
+    <h1 class="article-title">《荥阳 2522 落地图谱》· 一张图看懂数字中国如何在中原扎根</h1>
+    <div class="article-meta-row">
+      <div class="author-mini">
+        <div class="avatar-svg">戴</div>
+        <div class="author-mini-info">
+          <span class="author-mini-name">戴继涛 博士</span>
+          <span class="author-mini-bio">DTSI / OpenX@X 方法论奠基人 · 荥阳数字经济产业园首席方法论专家</span>
+        </div>
+      </div>
+      <div class="reading-time">阅读时长 · 15 分钟</div>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <div class="tldr">
+      <div class="tldr-label">TL;DR · 三句话概括</div>
+      <ul>
+        <li>"2522" 是中共中央、国务院印发的《数字中国建设整体布局规划》顶层框架 —— <b>2 大基础 + 5 大融合 + 2 大能力 + 2 大环境</b>。这套语言由 2023 年 3 月定型，是所有地方政府"深入推进数字中国建设"考核的通用坐标系。</li>
+        <li>荥阳的落地路径是<b>用 4 大子品牌 + 4 大平台 + 8 大服务</b>逐格对齐 2522 每一个方框：荥数云管 2 大基础、荥智造管数实融合、荥数才管数字素养、荥数链管数据要素三权分置示范、PDTMM® 管技术创新体系、AI 合规监测管安全屏障。</li>
+        <li>到 2027 年，荥阳的三大 KPI 是——<b>荥阳数字中国指数 ≥ 55</b>（对应 PDTMM L4）、<b>培育 1 家本地领航级智能工厂</b>（对齐国家 15 家梯度）、<b>申报省级数字中国研究基地</b>（对齐国家保障体系"人才支撑"要求）。</li>
+      </ul>
+    </div>
+
+    <h2>什么是"2522"整体框架</h2>
+    <p>2023 年 3 月，中共中央、国务院印发《数字中国建设整体布局规划》，把"深入推进数字中国建设"从各部委分头行动，收敛为一张顶层图。这张图有两条时间线、四个组成部分——统称"2522"。两条时间线：<b>2025 年基本形成"横向打通、纵向贯通、协调有力"的一体化推进格局</b>；<b>2035 年数字化发展水平进入世界前列</b>。四个组成部分：</p>
+    <ul>
+      <li><b>2 大基础</b>：数字基础设施"大动脉" + 数据资源"大循环"</li>
+      <li><b>5 大融合</b>：数字技术与经济、政务、文化、社会、生态文明五位一体深度融合</li>
+      <li><b>2 大能力</b>：数字技术创新体系 + 数字安全屏障</li>
+      <li><b>2 大环境</b>：国内公平规范的数字治理生态 + 国际开放共赢的合作格局</li>
+    </ul>
+    <p>为什么把它当作战略手册的"母语"？因为它同时被三条战线共同使用——中央网信委统筹的年度评价工作、党政领导干部考核评价的参考项、国家发改委与国家数据局的下拨预算参照。凡是不能用 2522 语言说清楚的地方项目，都会失去与国家资源直接对话的入场券。</p>
+
+    <blockquote class="pull-quote">
+      2522 不是四个孤立的方框，而是四组彼此咬合的齿轮：基础推动融合、融合牵引能力、能力反哺基础、环境是保护罩。地方园区落地时最容易踩的坑，是把它当成"选一个方框写报告"，而不是整套齿轮同步转动。
+      <cite>— 戴继涛，2026 年 7 月内部战略研讨</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8102e" stop-opacity="0"/><stop offset=".5" stop-color="#b8102e"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d1)" stroke-width="1.5"/>
+      <circle cx="300" cy="9" r="4" fill="#b8102e"/>
+    </svg>
+
+    <h2>荥阳版 2522 落地地图 · 一张对齐表</h2>
+    <p>把 2522 每一个方框映射到荥阳资产、关键数字与 2027 里程碑，得到下面这张全景对齐表。它同时可以作为向市委汇报的一页 PPT 素材，也可以作为投资人尽调时的"能级图"。</p>
+
+    <table class="weight-table">
+      <thead>
+        <tr><th>数字中国 2522</th><th>荥阳资产</th><th>关键数字（对齐国家）</th><th>2027 里程碑</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>基础一 · 数字基础设施</td><td><b>荥数云®</b></td><td>对齐 <b>159 万 PFLOPS</b> 智算 + <b>1373 万</b>标准机架</td><td>PUE 1.28 → 申报国家 4A 级绿色算力</td></tr>
+        <tr><td>基础二 · 数据资源</td><td><b>荥数链®</b></td><td>河南跨省流通 <b>2949 EB</b> 全国前五</td><td>可信数据空间国家试点第三批</td></tr>
+        <tr><td>融合 1 · 数字经济（数实）</td><td><b>荥智造®</b></td><td>对齐 <b>8000+</b> 5G 工厂、15 家领航级</td><td>培育 1 家本地领航级智能工厂</td></tr>
+        <tr><td>融合 2 · 数字政务</td><td>8 大服务 · policy</td><td>对齐 <b>92.5%</b> 最多跑一次 · 政务大模型指引</td><td>承接省市"高效办成一件事"节点</td></tr>
+        <tr><td>融合 3 · 数字文化</td><td>Insights + Newsroom</td><td>对齐数字中国建设峰会体系</td><td>承办年度 AI + 云峰会</td></tr>
+        <tr><td>融合 4 · 数字社会</td><td>8 大服务 · 融资/招引/空间</td><td>对齐 <b>10.8 亿</b>政务实名 · <b>13.3 亿</b>医保</td><td>52 → 200 家入驻企业</td></tr>
+        <tr><td>融合 5 · 数字生态文明</td><td>荥数云 · PUE 1.28 · 绿建二星</td><td>对齐 <b>306 个</b>国家绿色算力设施</td><td>园区绿电占比 &gt; 40%</td></tr>
+        <tr><td>能力一 · 技术创新体系</td><td><b>PDTMM® 五级认证</b></td><td>对齐"新型举国体制关键核心技术攻关"</td><td>PDTMM® L4 认证企业 ≥ 15 家</td></tr>
+        <tr><td>能力二 · 数字安全屏障</td><td>8 大服务 · legal + AI 合规监测</td><td>对齐 AI 安全治理框架 2.0 · 数据分级</td><td>AI 合规监测覆盖 100% 在驻企业</td></tr>
+        <tr><td>环境 · 国内治理生态</td><td><b>三方共治</b>（政府/城投/太能）</td><td>DTSI® 七方权重 · CR=0.0283</td><td>输出荥阳共治模板至周边园区</td></tr>
+        <tr><td>环境 · 国际合作格局</td><td>国际招商 · 中东欧通道</td><td>对齐数字丝绸之路 <b>36 个</b>伙伴国</td><td>与 3 个"一带一路"国家签数字合作 MoU</td></tr>
+      </tbody>
+    </table>
+
+    <p>这张表让"数字中国 = 荥阳"从一句口号，变成 11 组可核算的方框。每个方框都必须能被拆到 DTSI® 的 35 指标中的至少 3 个——这也是我们 2026 年内部的一次自检准绳：如果某个方框没有可拆的指标，就说明这块落地是"空拍片"。</p>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity="0"/><stop offset=".5" stop-color="#38bdf8"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d2)" stroke-width="1.5"/>
+      <rect x="290" y="4" width="20" height="10" fill="#38bdf8" rx="2"/>
+    </svg>
+
+    <h2>拆解 5 大融合中的"数实融合" · 荥智造承担什么</h2>
+    <p>5 大融合中，第 1 条"数字经济与实体经济深度融合"（简称"数实融合"）是国家最看重、地方最容易"抓在手里"的一块。国家的量化目标同样清晰：<b>数字经济核心产业占 GDP 10.5%+</b>、<b>数字产业收入 39.6 万亿元</b>、<b>AI 核心产业规模超 1.2 万亿元</b>、<b>集成电路出口超 2000 亿美元</b>、<b>工业机器人首次净出口</b>。</p>
+
+    <p>荥智造在这块承担的具体动作：</p>
+    <ol>
+      <li><b>5G + 工业互联网荥阳节点</b>——对齐国家<b>覆盖全部 41 个工业大类</b>的 5G+工业互联网体系。荥智造现有 148 个改造项目、63 个 AI 样板车间，覆盖电梯、汽车零部件、装备制造、化工与食品加工五大产业带。</li>
+      <li><b>智能工厂梯度体系</b>——按国家 15 家领航级 · 500+ 卓越级 · 8200+ 先进级 · 35000+ 基础级的梯度，荥智造把入驻企业按 PDTMM® L1 → L5 建立一一对应关系。目标是 2027 年培育出至少 1 家本地领航级。</li>
+      <li><b>数字产业收入前十省份跟进</b>——2025 年前十为广东、江苏、北京、浙江、上海、山东、四川、福建、安徽、湖北。河南尚未入围，荥智造的定位是"荥阳版数实融合"的样板动作，配合河南省进入前十的两个通道之一——即通过智能制造改造把产业带整体升级。</li>
+      <li><b>河南省数据产业投资基金落地</b>——2025 年国家数据产业投资基金明确 6 个省份（江苏、安徽、福建、河南、湖北、贵州）优先落地。荥智造是荥阳争取该基金落地的具体承接主体。</li>
+      <li><b>数据要素×大赛（数字经济方向）</b>——2025 年参赛 11.7 万人，其中公共数据项目占 53%。荥智造与荥数才联合承担荥阳赛区培育，2027 年争取本地企业进入国赛决赛。</li>
+    </ol>
+
+    <blockquote class="pull-quote">
+      数实融合不是"给制造企业上系统"，而是"让制造企业用系统去重新组织生产要素"。前者是 IT 部门的项目，后者是 CEO 的战略。荥智造的价值在于用 PDTMM® 五级给 CEO 装上标尺。
+      <cite>— 张明，DTSI® 首席方法论专家</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbbf24" stop-opacity="0"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#b8102e" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d3)" stroke-width="1.5"/>
+      <polygon points="295,3 305,3 300,14" fill="#fbbf24"/>
+    </svg>
+
+    <h2>2027 年前的路线图 · 三条 KPI 主轴</h2>
+    <p>把上述 2522 对齐表压缩为 2027 年可考核的 KPI，只保留三条最重要的：</p>
+
+    <h3>KPI 1 · 荥阳数字中国指数 ≥ 55（园区版对齐国家 170.1）</h3>
+    <p>2025 年国家数字中国发展指数 170.1（同比 +12.99%），5 个分项：数字基础（86.4）+ 数据资源（32.0）+ 数字经济（127.2）+ 数字社会（68.7）+ 数字生态（92.8）。荥阳版是"园区尺寸"的对齐——用 DTSI® 5 分项打分，2026 上半年基线约为 42.3。到 2027 年推到 55 分，年均涨幅约 6.4 分——高于全国 12.99% 的百分点增长（因为园区更小、更聚焦、更快）。</p>
+
+    <h3>KPI 2 · 培育 1 家本地领航级智能工厂 + 5 家卓越级</h3>
+    <p>国家智能工厂梯度共 15 家领航级、500+ 卓越级、8200+ 先进级、35000+ 基础级。荥阳作为郑州都市圈西部核心、GDP 已破 900 亿，理应承担"至少 1 家领航级"的产业带责任。荥智造陪跑路径是——从 63 个现有 AI 样板车间中筛出 5 家有 PDTMM® L4 潜力的企业，用 24 个月推到国家领航级申报门槛。</p>
+
+    <h3>KPI 3 · 申报省级数字中国研究基地</h3>
+    <p>《数字中国建设整体布局规划》"保障"章节明确"建立一批数字中国研究基地"。目前全国国家级基地约 12 家，省级基地不足 40 家，中原地区尚未布局。荥阳产业园具备三个申报优势：三方共治的治理架构、4 大平台级 IP 的方法论沉淀、40.4 万㎡ 与 8.6 EFLOPS 算力的物理承载力。2027 年目标：与郑州大学、中原工学院联合申报<b>河南省数字中国研究基地（荥阳分中心）</b>，作为地方"深入推进数字中国建设"的常设研究抓手。</p>
+
+    <p>三条 KPI 之外，其他配套动作——包括承办年度 AI + 云峰会、发布《荥阳数字中国指数》年报、组织 CPA-PDTMM 认证师团队等——都是三条主轴的支持项，不作为独立 KPI 考核。这样做的好处是资源集中、口径统一，避免年终"20 个 KPI 全线 70 分"的常见指标疲劳症。</p>
+
+    <blockquote class="pull-quote">
+      2027 年当我们对着市委汇报"荥阳如何深入推进数字中国建设"时，如果只能带一张纸——那就是这张 2522 落地图谱，以及三条 KPI 的年终对账。其他都是脚注。
+      <cite>— 戴继涛，2026 年 7 月致运营团队公开信</cite>
+    </blockquote>
+
+    <div class="author-card-large">
+      <div class="avatar-large">戴</div>
+      <div>
+        <h4>戴继涛 博士</h4>
+        <div class="role">DTSI / OpenX@X 方法论奠基人</div>
+        <p>某大学 DBA · 前 IBM 咨询 · 荥阳数字经济产业园首席方法论专家。</p>
+        <p>主持 5 家国家级园区 DTSI 完整建模落地，累计输出 242 页 DBA 论文与 4 项已注册商标方法论。</p>
+        <p>联系：<a href="mailto:jitao.dai@xingyang-park.gov.cn" style="color:var(--enterprise);">jitao.dai@xingyang-park.gov.cn</a></p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:var(--sp-12);">相关文章</h2>
+    <div class="related-grid">
+      <a href="./xingyang-digital-china-index.html" class="card">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">荥阳数字中国指数首发</h4>
+        <p class="card-body">对标国家 170.1 的园区版测算：基础 · 数据 · 融合 · 能力 · 环境 五分项。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./yunxi-cloud-white-paper.html" class="card">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">荥数云算网脑三部曲</h4>
+        <p class="card-body">8.6 EFLOPS 中原枢纽白皮书 —— 算 · 网 · 脑 + 六特征完整拆解。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./openxx-methodology-primer.html" class="card">
+        <span class="chip chip--insight">洞察文</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">OpenX@X 方法论快速入门</h4>
+        <p class="card-body">识别 → 目标 → 指数 → 仿真 → 调整 · 5 步法闭环。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+    </div>
+
+    <div class="tag-row">
+      <span class="chip chip--report">#数字中国</span>
+      <span class="chip">#2522</span>
+      <span class="chip">#战略对齐</span>
+      <span class="chip">#十五五</span>
+      <span class="chip">#荥阳</span>
+      <span class="chip">#PDTMM</span>
+      <span class="chip">#戴继涛</span>
+    </div>
+
+    <div class="subscribe-inline" id="subscribe">
+      <span class="section-kicker">SUBSCRIBE · 订阅洞察月刊</span>
+      <h3 class="section-title" style="font-size:var(--fs-lg);">追踪荥阳 2522 落地每一格进展</h3>
+      <p style="color:var(--text-2);font-size:var(--fs-sm);">每月 1 期，把最新洞察与政策窗口送到您邮箱。</p>
+      <form action="#" method="post">
+        <input type="email" placeholder="您的工作邮箱" required>
+        <button type="submit" class="btn-primary">订阅</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<a class="help-widget" href="#subscribe">
+  <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+  订阅
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>洞察</h5>
+        <a href="./national-2522-map.html">2522 落地图谱</a>
+        <a href="./xingyang-digital-china-index.html">数字中国指数</a>
+        <a href="./yunxi-cloud-white-paper.html">算网脑三部曲</a>
+        <a href="./openxx-methodology-primer.html">OpenX@X 方法论</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../newsroom/">新闻中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="#subscribe">订阅月刊</a>
+        <a href="mailto:insights@xingyang-park.gov.cn">insights@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>
