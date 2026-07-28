@@ -317,13 +317,28 @@
   </div>
 </section>
 
-<!-- ============ In the News 6-卡片 ============ -->
+<!-- ============ In the News 卡片 ============ -->
 <section class="section-tight" id="in-the-news">
   <div class="container-wide">
     <span class="section-kicker">IN THE NEWS · 新闻发布</span>
     <h2 class="section-title">最新新闻</h2>
-    <p class="section-lead">按发布时间倒序展示——涵盖签约动态、政策解读、荣誉认证、活动纪要与第三方媒体报道。</p>
-    <div class="grid grid-3" style="margin-top: var(--sp-8);">
+    <p class="section-lead">
+      按发布时间倒序展示——涵盖签约动态、政策解读、荣誉认证、活动纪要与第三方媒体报道。
+      公众号文章点击后跳转到微信原文（阅读量继续在公众号累积）。
+    </p>
+
+    <!-- 新闻卡片生成器入口 · 供运营团队使用 -->
+    <div style="margin: var(--sp-6) 0; padding: var(--sp-4) var(--sp-6); background: var(--brand-soft); border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4); flex-wrap: wrap;">
+      <div style="color: var(--brand-dark); font-size: var(--fs-sm);">
+        📰 <strong>新闻编辑：</strong>用<a href="./news-generator.html" style="color: var(--brand); font-weight: 600;">新闻卡片生成器</a>把公众号文章一键转成卡片代码，然后粘贴到本页
+      </div>
+      <a href="./news-generator.html" class="btn-primary" style="padding: 6px 16px; font-size: 13px;">打开生成器 →</a>
+    </div>
+
+    <div class="grid grid-3" style="margin-top: var(--sp-6);">
+
+      <!-- NEWS-CARDS-START --><!-- 新卡片粘贴在下面一行 · 按日期倒序 -->
+
 
       <a href="./press-release-example.html" class="card news-card">
         <div class="news-card__head">
@@ -409,6 +424,65 @@
         <span class="card-cta">阅读全文</span>
       </a>
 
+      <!-- ================================================================
+           ↓ 历史公众号文章搬运（占位 URL · 请把公众号原文 URL 填进来）
+           从 2024 年往回按时间倒序展示三方合作的重要节点
+           ================================================================ -->
+
+      <a href="#" data-wechat-url="待填入 mp.weixin.qq.com URL" class="card news-card" onclick="alert('请把公众号原文 URL 替换 href=&quot;#&quot; · 见 HTML 注释'); return false;">
+        <div class="news-card__head">
+          <span class="chip chip--case">运营承接</span>
+          <span>·</span>
+          <span>2024-05-08</span>
+        </div>
+        <h4 class="news-card__title">太能控股正式承接荥阳数字经济产业园综合运营</h4>
+        <p class="news-card__excerpt">
+          经三方联席会议决议，太能控股旗下郑州荥泽数链产业发展有限公司
+          正式承接园区综合运营，覆盖招商、政策、人才、空间、IT 云、法律、供应链、产业撮合 8 大服务。
+          原运营架构升级为三方共治模式。
+        </p>
+        <span class="card-cta">阅读全文 (公众号原文)</span>
+      </a>
+
+      <a href="#" data-wechat-url="待填入 mp.weixin.qq.com URL" class="card news-card" onclick="alert('请把公众号原文 URL 替换 href=&quot;#&quot; · 见 HTML 注释'); return false;">
+        <div class="news-card__head">
+          <span class="chip chip--policy">三方合作</span>
+          <span>·</span>
+          <span>2023-02-25</span>
+        </div>
+        <h4 class="news-card__title">荥阳市政府 · 荥阳城投 · 太能控股 三方战略合作签约</h4>
+        <p class="news-card__excerpt">
+          三方于 2023 年 2 月 25 日签署《荥阳数字经济产业园三方战略合作框架协议》，
+          确立"政府主导 + 国资平台 + 民营运营"的三方共治机制，
+          共同推进 40.4 万㎡ 建面、260 亩用地、¥30 亿总投资的数字经济新高地建设。
+        </p>
+        <span class="card-cta">阅读全文 (公众号原文)</span>
+      </a>
+
+      <a href="#" data-wechat-url="待填入 mp.weixin.qq.com URL" class="card news-card" onclick="alert('请把公众号原文 URL 替换 href=&quot;#&quot; · 见 HTML 注释'); return false;">
+        <div class="news-card__head">
+          <span class="chip chip--event">首期开建</span>
+          <span>·</span>
+          <span>2021-11-29</span>
+        </div>
+        <h4 class="news-card__title">荥阳数字经济产业园首期开工奠基仪式在郑上路举行</h4>
+        <p class="news-card__excerpt">
+          2021 年 11 月 29 日，园区首期 8.5 万㎡ 主体工程在郑上路与淇源路交叉口东北角奠基开工。
+          时任荥阳市委、市政府主要领导出席仪式，标志着郑西数字经济新高地建设正式启动。
+        </p>
+        <span class="card-cta">阅读全文 (公众号原文)</span>
+      </a>
+
+      <!-- NEWS-CARDS-END -->
+
+    </div>
+
+    <!-- 使用说明：把 href="#" 换成实际的 https://mp.weixin.qq.com/s/xxxxx URL -->
+    <div style="margin-top: var(--sp-8); padding: var(--sp-4); background: #FEF6E7; border-radius: var(--radius); color: #8B5F15; font-size: var(--fs-sm);">
+      💡 <strong>运营提示：</strong>上面 3 张标注"公众号原文"的卡片是历史签约事件占位。请把每张卡片的 <code style="background:#fff;padding:2px 6px;border-radius:3px;">href="#"</code>
+      换成实际的微信公众号文章 URL（比如 <code style="background:#fff;padding:2px 6px;border-radius:3px;">https://mp.weixin.qq.com/s/abc123</code>），
+      同时移除 <code style="background:#fff;padding:2px 6px;border-radius:3px;">onclick="alert(...)"</code>。
+      未来新增文章请用<a href="./news-generator.html" style="color:var(--brand);font-weight:600;">新闻卡片生成器</a>。
     </div>
   </div>
 </section>

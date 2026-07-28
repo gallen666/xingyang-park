@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>荥阳新闻卡片生成器 · 一键把公众号文章变成网站新闻</title>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  body { padding: var(--sp-8); background: var(--bg-1); }
+  .wrap { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
+  @media (max-width: 1000px) { .wrap { grid-template-columns: 1fr; } }
+  .panel { background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); }
+  h1 { font-size: var(--fs-2xl); margin-bottom: var(--sp-6); color: var(--brand-dark); letter-spacing: -0.02em; }
+  h2 { font-size: var(--fs-lg); margin-bottom: var(--sp-4); color: var(--brand); }
+  label { display: block; font-weight: 600; font-size: var(--fs-sm); color: var(--text); margin: var(--sp-4) 0 var(--sp-2); }
+  input[type="text"], input[type="url"], input[type="date"], select, textarea {
+    width: 100%; padding: var(--sp-3) var(--sp-4);
+    background: #fff; border: 1px solid var(--bg-line);
+    border-radius: var(--radius); font: inherit; color: var(--text);
+    font-size: var(--fs-sm);
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  textarea { min-height: 100px; resize: vertical; line-height: var(--lh-relaxed); }
+  .hint { color: var(--text-3); font-size: var(--fs-xs); margin-top: var(--sp-1); }
+  .btns { display: flex; gap: var(--sp-3); margin-top: var(--sp-6); flex-wrap: wrap; }
+  .btn { padding: var(--sp-3) var(--sp-6); border-radius: var(--radius); font-weight: 600; cursor: pointer; font-size: var(--fs-sm); }
+  .btn-primary { background: var(--brand); color: #fff; }
+  .btn-primary:hover { background: var(--brand-hover); }
+  .btn-ghost { background: transparent; border: 1px solid var(--bg-line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+  .btn-danger { background: transparent; border: 1px solid var(--gov); color: var(--gov); }
+  .output {
+    background: #0F1E33; color: #E5E9F0;
+    padding: var(--sp-5); border-radius: var(--radius);
+    font-family: var(--font-mono); font-size: 13px;
+    line-height: 1.6; overflow-x: auto;
+    max-height: 400px; overflow-y: auto;
+    white-space: pre-wrap; word-break: break-all;
+  }
+  .preview {
+    background: #fff; padding: var(--sp-6);
+    border-radius: var(--radius-lg); border: 1px solid var(--bg-line);
+    box-shadow: var(--shadow-sm);
+  }
+  .step {
+    background: var(--brand-soft); padding: var(--sp-4) var(--sp-5);
+    border-radius: var(--radius); font-size: var(--fs-sm);
+    color: var(--brand-dark); margin-bottom: var(--sp-4);
+  }
+  .step b { color: var(--brand); }
+  .step ol { margin: var(--sp-2) 0 0 var(--sp-5); }
+  .step li { padding: 2px 0; }
+  .stack { display: flex; flex-direction: column; gap: var(--sp-6); }
+  .toast {
+    position: fixed; bottom: var(--sp-6); right: var(--sp-6);
+    background: var(--success); color: #fff;
+    padding: var(--sp-3) var(--sp-6); border-radius: var(--radius);
+    box-shadow: var(--shadow-lg); font-weight: 600; font-size: var(--fs-sm);
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* --- Preview 卡片使用 Insight 卡样式 --- */
+  .insight-card {
+    padding: var(--sp-5);
+    background: #fff; border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    color: var(--text); text-decoration: none;
+  }
+  .chip {
+    display: inline-block; padding: 3px var(--sp-3);
+    font-size: var(--fs-xs); font-weight: 600;
+    border-radius: var(--radius-sm);
+    letter-spacing: .04em;
+    align-self: flex-start;
+  }
+  .chip--news    { background: #F0F3F7;  color: #2D3E5C; }
+  .chip--policy  { background: #FEF6E7;  color: #C68A0E; }
+  .chip--case    { background: #E6F7EF;  color: var(--success); }
+  .chip--report  { background: var(--brand-soft); color: var(--brand); }
+  .chip--event   { background: #F0E9FE;  color: #6B44C7; }
+  .chip--honor   { background: #FCE7F1;  color: #C2185B; }
+  .chip--media   { background: #E0F5F3;  color: #00847B; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- 左：表单 -->
+  <div class="panel">
+    <h1>📰 新闻卡片生成器</h1>
+    <div class="step">
+      <b>3 步搬运公众号新闻到网站：</b>
+      <ol>
+        <li>在微信打开公众号文章 → 右上角"..." → 复制链接</li>
+        <li>把标题/日期/摘要/链接填进下面 → 点"生成"</li>
+        <li>把右侧代码粘贴到 <code>newsroom/index.html</code> 的 <code>&lt;div class="news-list"&gt;</code> 里 → git push 上线</li>
+      </ol>
+    </div>
+
+    <label>📌 分类（决定卡片颜色 chip）</label>
+    <select id="f-category">
+      <option value="news">📰 签约 / 一般新闻</option>
+      <option value="policy">📋 政策 / 政府文件</option>
+      <option value="case">🏆 客户案例 / 成功故事</option>
+      <option value="report">📊 报告 / 数据发布</option>
+      <option value="event">🎯 活动 / 峰会</option>
+      <option value="honor">🏅 荣誉 / 获奖</option>
+      <option value="media">📺 媒体报道 / 转载</option>
+    </select>
+
+    <label>📝 标题（必填）<span class="hint">建议 15-25 字，重点前置</span></label>
+    <input type="text" id="f-title" placeholder="例：大华股份郑州总部签约荥阳数字经济产业园">
+
+    <label>📅 发布日期（必填）</label>
+    <input type="date" id="f-date">
+
+    <label>🔗 微信公众号文章 URL（必填）<span class="hint">格式：https://mp.weixin.qq.com/s/xxxxx</span></label>
+    <input type="url" id="f-url" placeholder="https://mp.weixin.qq.com/s/...">
+
+    <label>💬 摘要（80-150 字 · 必填）<span class="hint">用户在网站上先看到这段，决定是否点击去公众号</span></label>
+    <textarea id="f-summary" placeholder="例：7 月 20 日，浙江大华技术股份有限公司与荥阳数字经济产业园签约仪式在园区管委会举行。大华郑州总部将入驻园区 A 座，首期租赁 5000 ㎡，预计 3 年内引进研发人员 200+ 人..."></textarea>
+
+    <label>🖼 封面图 URL（可选）<span class="hint">留空则显示灰色占位。可用公众号文章的封面图链接。</span></label>
+    <input type="url" id="f-cover" placeholder="https://mmbiz.qpic.cn/...">
+
+    <label>👤 阅读时长或来源标签（可选）<span class="hint">默认显示"荥阳数字经济产业园官方公众号"</span></label>
+    <input type="text" id="f-meta" placeholder="荥阳数字经济产业园官方公众号 · 3 分钟阅读">
+
+    <div class="btns">
+      <button class="btn btn-primary" onclick="generate()">🎯 生成卡片代码</button>
+      <button class="btn btn-ghost" onclick="fillExample()">📌 填示例数据</button>
+      <button class="btn btn-danger" onclick="clearForm()">🗑 清空表单</button>
+    </div>
+  </div>
+
+  <!-- 右：预览 + 代码 -->
+  <div class="panel">
+    <div class="stack">
+      <div>
+        <h2>1. 卡片预览</h2>
+        <div class="preview" id="preview">
+          <p style="color: var(--text-3); text-align:center; padding: var(--sp-16) 0;">
+            填左侧表单 → 点"生成"<br>预览会显示在这里
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h2>2. 复制这段代码 → 粘贴到 newsroom/index.html</h2>
+        <div class="output" id="output-card" onclick="copyCode('output-card')"
+             style="cursor:pointer;">
+点上方"生成卡片代码"按钮
+        </div>
+        <div class="hint">👆 点击代码框自动复制到剪贴板</div>
+      </div>
+
+      <div>
+        <h2>3. 定位：粘贴到哪一行？</h2>
+        <div class="step" style="background:#FEF6E7;color:#8B5F15;">
+          打开 <b>newsroom/index.html</b> → 搜 <code style="background:#fff;padding:2px 6px;border-radius:3px;">&lt;!-- NEWS-CARDS-START --&gt;</code>
+          → 粘贴在这个注释<b>下面一行</b>（新的会自动排到最新）
+        </div>
+      </div>
+
+      <div>
+        <h2>4. 一键生成 3 种交付</h2>
+        <button class="btn btn-ghost" onclick="downloadJSON()" style="width:100%;">
+          📥 下载 news-item.json（供未来 JSON-driven 方案 B 用）
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">已复制</div>
+
+<script>
+const CATEGORY_LABELS = {
+  news:   { chip: 'chip--news',   label: '签约' },
+  policy: { chip: 'chip--policy', label: '政策' },
+  case:   { chip: 'chip--case',   label: '案例' },
+  report: { chip: 'chip--report', label: '报告' },
+  event:  { chip: 'chip--event',  label: '活动' },
+  honor:  { chip: 'chip--honor',  label: '荣誉' },
+  media:  { chip: 'chip--media',  label: '媒体' },
+};
+
+function fillExample() {
+  document.getElementById('f-category').value = 'news';
+  document.getElementById('f-title').value = '大华股份郑州总部签约荥阳数字经济产业园 · 首期 5000㎡';
+  document.getElementById('f-date').value = '2026-07-20';
+  document.getElementById('f-url').value = 'https://mp.weixin.qq.com/s/example-dahua-signing';
+  document.getElementById('f-summary').value = '7 月 20 日，浙江大华技术股份有限公司与荥阳数字经济产业园签约仪式在园区管委会举行。大华郑州总部将入驻园区 A 座，首期租赁 5000 ㎡，预计 3 年内引进研发人员 200+ 人，与荥阳共建"安防 AI + 数字文创"融合创新中心。';
+  document.getElementById('f-cover').value = '';
+  document.getElementById('f-meta').value = '荥阳数字经济产业园官方公众号 · 3 分钟阅读';
+  generate();
+}
+
+function clearForm() {
+  ['f-title','f-date','f-url','f-summary','f-cover','f-meta'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('preview').innerHTML = '<p style="color: var(--text-3); text-align:center; padding: var(--sp-16) 0;">填左侧表单 → 点"生成"<br>预览会显示在这里</p>';
+  document.getElementById('output-card').textContent = '点上方"生成卡片代码"按钮';
+}
+
+function escapeHTML(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function generate() {
+  const category = document.getElementById('f-category').value;
+  const title = document.getElementById('f-title').value.trim();
+  const date = document.getElementById('f-date').value.trim();
+  const url = document.getElementById('f-url').value.trim();
+  const summary = document.getElementById('f-summary').value.trim();
+  const cover = document.getElementById('f-cover').value.trim();
+  const meta = (document.getElementById('f-meta').value.trim() || '荥阳数字经济产业园官方公众号');
+
+  if (!title || !date || !url || !summary) {
+    alert('❌ 标题、日期、URL、摘要都是必填');
+    return;
+  }
+
+  const c = CATEGORY_LABELS[category];
+  const dateFmt = formatDate(date);
+
+  // 卡片 HTML（用于粘到 newsroom/index.html）
+  const cardHTML = `<a href="${escapeHTML(url)}" target="_blank" rel="noopener" class="insight-card" data-date="${date}" data-category="${category}">
+  <span class="chip ${c.chip}">${c.label}</span>${cover ? `
+  <div style="height:180px;background:url('${escapeHTML(cover)}') center/cover;border-radius:var(--radius);margin:var(--sp-2) 0;"></div>` : ''}
+  <div class="insight-title">${escapeHTML(title)}</div>
+  <p style="color:var(--text-2);font-size:var(--fs-sm);line-height:var(--lh-relaxed);margin:var(--sp-2) 0;">${escapeHTML(summary)}</p>
+  <div class="insight-meta">${dateFmt} · ${escapeHTML(meta)} · 阅读原文 →</div>
+</a>`;
+
+  document.getElementById('output-card').textContent = cardHTML;
+  document.getElementById('preview').innerHTML = cardHTML;
+
+  // JSON entry
+  window._lastJSON = {
+    date, title, category, url, summary,
+    cover: cover || null,
+    source: meta
+  };
+}
+
+function formatDate(iso) {
+  if (!iso) return '';
+  const [y,m,d] = iso.split('-');
+  return `${y}-${m}-${d}`;
+}
+
+function copyCode(id) {
+  const text = document.getElementById(id).textContent;
+  if (!text || text.startsWith('点上方')) return;
+  navigator.clipboard.writeText(text).then(() => {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1500);
+  });
+}
+
+function downloadJSON() {
+  if (!window._lastJSON) {
+    alert('❌ 请先生成卡片');
+    return;
+  }
+  const blob = new Blob([JSON.stringify(window._lastJSON, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `news-${window._lastJSON.date}-${window._lastJSON.category}.json`;
+  a.click();
+}
+
+// 今天日期默认
+document.getElementById('f-date').valueAsDate = new Date();
+</script>
+
+</body>
+</html>
