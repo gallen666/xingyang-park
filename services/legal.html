@@ -129,6 +129,14 @@
   .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; font-size: var(--fs-sm); }
   .form-inline input:focus, .form-inline textarea:focus, .form-inline select:focus { outline: none; border-color: var(--enterprise); }
   .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+
+  /* --- Related services card --- */
+  .svc-card { position: relative; padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); display: flex; flex-direction: column; transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); color: var(--text); text-decoration: none; }
+  .svc-card:hover { transform: translateY(-3px); border-color: var(--gov); color: var(--text); }
+  .svc-card__name { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); color: var(--text); }
+  .svc-card__pitch { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); flex: 1; }
+  .svc-card__cta { margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--enterprise); font-weight: 600; }
+  .svc-card__cta::after { content: " →"; }
 </style>
 </head>
 <body>
@@ -175,7 +183,7 @@
         累计服务 <b>210 家次</b>，合同审查 <b>800+</b>，商标注册代办 <b>68 件</b>，涉外案件 <b>24 件</b>，客户续约率 <b>88%</b>。<b>不是外部律所，是常驻法务部</b>。
       </p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="#offerings">查看法律咨询服务清单
+        <a class="btn-primary" href="#offerings">阅读跨境法务保障案例
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a class="btn-ghost" href="#rfs">免费法务体检</a>
@@ -206,8 +214,9 @@
 <section class="section" id="overview">
   <div class="container-wide">
     <span class="section-kicker">OVERVIEW · 法律咨询</span>
-    <h2 class="section-title">郑洁 15 国代理协调 · 节省 ¥180 万预算——不是外部律所，是常驻法务部</h2>
+    <h2 class="section-title">关于跨境法务</h2>
     <p class="section-lead">
+      <b>郑洁 15 国代理协调 · 节省 ¥180 万预算——不是外部律所，是常驻法务部。</b>
       荥泽 <b>AI 合同审核 + 合规监测</b>是园区 AI + 云一站式服务矩阵中的一环，由 AI 驱动，覆盖<b>合规审查 · 合同管理 · 知识产权 · 劳动争议 · 涉外法律 · 数据合规</b>六大方向，
       服务覆盖 <b>52 家已服务企业 · 40.4 万㎡运营空间</b> 内所有主体。
       我们不做"出事后打官司"这种被动动作，我们做"AI 事前建规、事中督审、事后调解"——从 AI 合同模板库到季度合规监测全流程 SOP。
@@ -221,8 +230,8 @@
 <section class="section" style="background: var(--bg-1);" id="proof">
   <div class="container-wide">
     <span class="section-kicker">PROOF · 7 层证据栈</span>
-    <h2 class="section-title">每一句承诺，同时用 7 种方式证明</h2>
-    <p class="section-lead">15 国代理协调 · 32 项风险审计——每一份法律意见书都有中国司法部登记律师签字。以下 7 层证据栈同框展开，凡数字均可对号入座。</p>
+    <h2 class="section-title">证据栈</h2>
+    <p class="section-lead">15 国代理协调 · 32 项风险审计——每一份法律意见书都有中国司法部登记律师签字。</p>
     <div class="proof-stack">
       <div class="proof-row">
         <div class="proof-layer">Layer 1 · 绝对数字</div>
@@ -253,8 +262,8 @@
   <div class="container-wide">
     <div class="mid-cta">
       <div>
-        <div class="mid-cta__title">30 分钟识别你合同里的 3 个高风险条款——郑洁出书面建议</div>
-        <div class="mid-cta__body">告诉我们你的合同库存 / 用工规模 / 数据类型 / 出海计划，我们给你一张"你今年最该修补的 5 处法务风险清单"。<b>不签约也免费。</b></div>
+        <div class="mid-cta__title">30 分钟出具"5 处法务风险修补清单"书面建议</div>
+        <div class="mid-cta__body">告诉我们你的合同库存 / 用工规模 / 数据类型 / 出海计划，郑洁团队快速识别高风险条款并回复书面清单。<b>体检无费用。</b></div>
       </div>
       <a class="btn-primary" href="mailto:zhengjie@xingyang-park.gov.cn?subject=咨询-法律咨询免费法务体检&amp;body=请留下：企业名称 · 联系人 · 电话 · 员工数 · 主营业务 · 主要法务痛点。24 小时内郑洁顾问团队回复。">
         免费体检 · 发邮件
@@ -268,7 +277,7 @@
 <section class="section" id="offerings" style="background: var(--bg-1);">
   <div class="container-wide">
     <span class="section-kicker">OFFERINGS · 8 项法务服务清单</span>
-    <h2 class="section-title">从合规到涉外，一张清单看完</h2>
+    <h2 class="section-title">法务清单</h2>
     <p class="section-lead">每项服务包含"风险预审 · 方案设计 · 律师出具 · 后期复盘"完整链路，由郑洁首席顾问带 4 位持证律师直接负责，必要时联动金杜郑州办、中伦河南办、北京炜衡（郑州）3 家红圈所升级出手。</p>
     <div class="offer-grid">
       <div class="offer-card">
@@ -359,7 +368,7 @@
 <section class="section" id="blog" style="background: var(--bg-1);">
   <div class="container-wide">
     <span class="section-kicker">FAQ · 常见问题</span>
-    <h2 class="section-title">法律咨询 · 5 个我们最常被问到的问题</h2>
+    <h2 class="section-title">常见问题</h2>
     <div class="faq">
       <details open>
         <summary>Q1. 荥泽的法务和我自己请律师有什么区别？</summary>
@@ -407,11 +416,31 @@
   </div>
 </section>
 
+<!-- 相关服务 -->
+<section class="section" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">RELATED · 相关服务</span>
+    <h2 class="section-title">相关服务</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);margin-top:var(--sp-6);">
+      <a class="svc-card" href="./investment.html">
+        <div class="svc-card__name">AI 招商画像</div>
+        <div class="svc-card__pitch">500 强招引 · 政府对接，已签约 52 家 · ¥30 亿到位。</div>
+        <span class="svc-card__cta">查看详情</span>
+      </a>
+      <a class="svc-card" href="./policy.html">
+        <div class="svc-card__name">AI 政策匹配</div>
+        <div class="svc-card__pitch">12 类政策一站办理，320 份申报 · 一次过审率 92%。</div>
+        <span class="svc-card__cta">查看详情</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- 12. SPOC + 13. RFS Form -->
 <section class="section" id="rfs">
   <div class="container-wide">
     <span class="section-kicker">RFS · 请求服务</span>
-    <h2 class="section-title">郑洁 · 每周一 / 周四 14:00-16:00 排队 · 30 分钟出书面建议</h2>
+    <h2 class="section-title">预约咨询</h2>
 
     <!-- SPOC -->
     <div class="spoc-card">

@@ -129,6 +129,14 @@
   .form-inline input, .form-inline select, .form-inline textarea { padding: var(--sp-3); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); font-family: inherit; font-size: var(--fs-sm); }
   .form-inline input:focus, .form-inline textarea:focus, .form-inline select:focus { outline: none; border-color: var(--enterprise); }
   .form-inline .btn-primary { grid-column: 1 / -1; justify-self: start; }
+
+  /* --- Related services card --- */
+  .svc-card { position: relative; padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); display: flex; flex-direction: column; transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease); color: var(--text); text-decoration: none; }
+  .svc-card:hover { transform: translateY(-3px); border-color: var(--gov); color: var(--text); }
+  .svc-card__name { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-2); color: var(--text); }
+  .svc-card__pitch { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); flex: 1; }
+  .svc-card__cta { margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--enterprise); font-weight: 600; }
+  .svc-card__cta::after { content: " →"; }
 </style>
 </head>
 <body>
@@ -175,7 +183,7 @@
         7 段做成同一条闭环——已促成 <b>52 家</b> 签约、<b>¥30 亿</b> 到位、项目落地率 <b>78%</b>、老客户带新 <b>1.8 家/年</b>。
       </p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="#offerings">看 3 家 500 强的落地路径
+        <a class="btn-primary" href="#offerings">阅读招商合作落地路径
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a class="btn-ghost" href="#rfs">申请项目对接</a>
@@ -183,7 +191,7 @@
     </div>
     <div class="hero-slide">
       <span class="hero-tag hero-tag--press">PRESS · 政府认可</span>
-      <h1 class="hero-title">郑州市 187 家园区参评 · 荥泽同时拿下"到位金额""落地率""500 强招引"三项子奖</h1>
+      <h1 class="hero-title">郑州 187 家园区参评 · 荥阳同时拿下"到位金额" "落地率" "500 强招引" 三项子奖</h1>
       <p class="hero-lead">
         荥泽招商中心已获<b>河南省商务厅"县域招商创新单位"</b>命名、<b>郑州市投资促进局 2025 年度招商金奖</b>，
         并入选<b>河南省招商联盟</b>常任理事席位。四级政府关系、五张招商许可、一张服务通道——
@@ -206,8 +214,9 @@
 <section class="section" id="overview">
   <div class="container-wide">
     <span class="section-kicker">OVERVIEW · 招商合作</span>
-    <h2 class="section-title">3 家 500 强 · 52 家签约 · ¥30 亿到位——每一家背后是赵鸿飞团队的 17 次跨部委协调</h2>
+    <h2 class="section-title">关于招商合作</h2>
     <p class="section-lead">
+      <b>3 家 500 强 · 52 家签约 · ¥30 亿到位——每一家背后是赵鸿飞团队的 17 次跨部委协调。</b>
       荥泽 <b>AI 招商画像 + 项目撮合</b>是园区 AI + 云一站式服务矩阵中的核心枢纽，即<b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>的 AI-First 升级版。
       由 AI 驱动，覆盖 <b>500 强招引 · 政府/园区对接 · 沙龙路演 · AI 项目撮合 · 招商情报 · 招商代理 · 引荐佣金 · 长期陪跑</b> 8 大模块。
       过去 3 年累计签约 <b>52 家</b>（含 500 强 <b>3 家</b>、上市公司 <b>7 家</b>、港资内迁 <b>5 家</b>），到位投资 <b>¥30 亿</b>，项目落地率 <b>78%</b>——是郑州县域园区平均值 <b>2.6 倍</b>。
@@ -221,8 +230,8 @@
 <section class="section" style="background: var(--bg-1);" id="proof">
   <div class="container-wide">
     <span class="section-kicker">PROOF · 7 层证据栈</span>
-    <h2 class="section-title">每一句招商承诺，同时用 7 种方式证明</h2>
-    <p class="section-lead">52 家签约 · ¥30 亿到位 · 3 家 500 强——每一份《项目落地承诺书》都在市投促局归档。以下 7 层证据栈同框展开，凡数字均可对号入座。</p>
+    <h2 class="section-title">证据栈</h2>
+    <p class="section-lead">52 家签约 · ¥30 亿到位 · 3 家 500 强——每一份《项目落地承诺书》都在市投促局归档。</p>
     <div class="proof-stack">
       <div class="proof-row">
         <div class="proof-layer">Layer 1 · 绝对数字</div>
@@ -253,8 +262,8 @@
   <div class="container-wide">
     <div class="mid-cta">
       <div>
-        <div class="mid-cta__title">45 分钟评估你能拿到的招商政策组合——赵鸿飞对接跨部委</div>
-        <div class="mid-cta__body">告诉我们你的行业 · 投资规模 · 期望落地节奏，赵鸿飞团队 30 分钟内给你一张"荥泽是否合适 + 需要哪些政府资源"的判断表。<b>不签约也免费。</b></div>
+        <div class="mid-cta__title">45 分钟出具"荥泽是否合适 + 政府资源清单"书面判断表</div>
+        <div class="mid-cta__body">告诉我们你的行业 · 投资规模 · 期望落地节奏，赵鸿飞团队 30 分钟内完成跨部委资源盘点并回复书面建议。<b>评估无费用。</b></div>
       </div>
       <a class="btn-primary" href="mailto:zhaohongfei@xingyang-park.gov.cn?subject=咨询-招商合作项目对接&amp;body=请留下：企业名称 · 行业 · 投资规模 · 期望落地节奏 · 联系人 · 电话。24 小时内赵鸿飞招商总经理团队回复。">
         项目对接 · 发邮件
@@ -268,7 +277,7 @@
 <section class="section" id="offerings" style="background: var(--bg-1);">
   <div class="container-wide">
     <span class="section-kicker">OFFERINGS · 8 项招商服务清单</span>
-    <h2 class="section-title">从 500 强招引到 3 年陪跑，一张清单看完</h2>
+    <h2 class="section-title">招商清单</h2>
     <p class="section-lead">每一项都是荥泽招商飞轮<sup class="tm">®</sup>的一段闭环，全部由赵鸿飞招商总经理团队直接负责，含首谈、方案、路演、政府协调、法务撮合、落地陪跑完整链路。</p>
     <div class="offer-grid">
       <div class="offer-card">
@@ -359,7 +368,7 @@
 <section class="section" id="blog" style="background: var(--bg-1);">
   <div class="container-wide">
     <span class="section-kicker">FAQ · 常见问题</span>
-    <h2 class="section-title">招商合作 · 5 个我们最常被问到的问题</h2>
+    <h2 class="section-title">常见问题</h2>
     <div class="faq">
       <details open>
         <summary>Q1. 你们的项目落地率 78% 是怎么算的？和郑州县域平均怎么比？</summary>
@@ -405,11 +414,31 @@
   </div>
 </section>
 
+<!-- 相关服务 -->
+<section class="section" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">RELATED · 相关服务</span>
+    <h2 class="section-title">相关服务</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);margin-top:var(--sp-6);">
+      <a class="svc-card" href="./policy.html">
+        <div class="svc-card__name">AI 政策匹配</div>
+        <div class="svc-card__pitch">12 类政策一站办理，320 份申报 · 一次过审率 92%。</div>
+        <span class="svc-card__cta">查看详情</span>
+      </a>
+      <a class="svc-card" href="./supply-chain.html">
+        <div class="svc-card__name">AI 供应链神经中枢</div>
+        <div class="svc-card__pitch">覆盖 6 大产业方向 · 42 家企业互通 · 订单撮合 ¥6.2 亿。</div>
+        <span class="svc-card__cta">查看详情</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- 12. SPOC + 13. RFS Form -->
 <section class="section" id="rfs">
   <div class="container-wide">
     <span class="section-kicker">RFS · 请求服务</span>
-    <h2 class="section-title">赵鸿飞 · 每周一 / 周四 15:00-17:00 排队 · 45 分钟评估政策组合</h2>
+    <h2 class="section-title">预约咨询</h2>
 
     <!-- SPOC -->
     <div class="spoc-card">
