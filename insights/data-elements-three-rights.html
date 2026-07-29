@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>数据要素三权分置 · 荥阳版微观实验 · 洞察 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳深度学习孟天广教授第 4 讲"数据要素治理" —— 三权分置 + 数据资产入表 + 开放数林四维度 + 数据安全四层组织架构，为兄弟园区提供县级数据要素治理示范平台可复制模板。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .breadcrumb { padding: var(--sp-4) 0; color: var(--text-3); font-size: var(--fs-sm); }
+  .breadcrumb a { color: var(--text-3); }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb .sep { margin: 0 var(--sp-2); color: var(--text-4); }
+
+  .article-header { padding: var(--sp-8) 0 var(--sp-10); border-bottom: 1px solid var(--bg-line); }
+  .article-header-chips { display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap; margin-bottom: var(--sp-4); }
+  .article-header-chips .meta-date { color: var(--text-3); font-size: var(--fs-sm); margin-left: var(--sp-2); }
+  .article-title { font-size: var(--fs-3xl); font-weight: 800; line-height: var(--lh-tight); margin-bottom: var(--sp-6); max-width: 920px; }
+  .article-meta-row { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-6); align-items: center; }
+  .author-mini { display: flex; align-items: center; gap: var(--sp-3); }
+  .avatar-svg { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gov)); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: var(--fs-md); flex-shrink: 0; }
+  .author-mini-info { display: flex; flex-direction: column; gap: 2px; }
+  .author-mini-name { font-weight: 700; font-size: var(--fs-sm); color: var(--text); }
+  .author-mini-bio { font-size: var(--fs-xs); color: var(--text-3); }
+  .reading-time { font-size: var(--fs-sm); color: var(--text-3); }
+
+  .tldr { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.3); border-left: 4px solid var(--gold); padding: var(--sp-6); border-radius: var(--radius-lg); margin: var(--sp-10) 0; }
+  .tldr-label { color: var(--gold); font-weight: 700; font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: .08em; margin-bottom: var(--sp-3); }
+  .tldr ul { list-style: none; padding: 0; margin: 0; }
+  .tldr li { padding: var(--sp-2) 0 var(--sp-2) var(--sp-6); position: relative; color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .tldr li::before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 2px; background: var(--gold); }
+
+  .article-body { max-width: 840px; margin: 0 auto; padding: var(--sp-4) 0 var(--sp-16); }
+  .article-body h2 { font-size: var(--fs-xl); font-weight: 700; margin: var(--sp-10) 0 var(--sp-4); color: var(--text); line-height: var(--lh-tight); }
+  .article-body h3 { font-size: var(--fs-md); font-weight: 600; margin: var(--sp-6) 0 var(--sp-3); color: var(--text-1); }
+  .article-body p { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .article-body ul, .article-body ol { color: var(--text-2); font-size: var(--fs-md); line-height: var(--lh-relaxed); padding-left: var(--sp-6); margin-bottom: var(--sp-4); }
+  .article-body li { margin-bottom: var(--sp-2); }
+  .article-body b, .article-body strong { color: var(--text); }
+
+  .divider-svg { display: block; margin: var(--sp-10) auto var(--sp-8); max-width: 600px; width: 100%; height: 18px; }
+
+  .pull-quote { border-left: 4px solid var(--gold); padding: var(--sp-6); margin: var(--sp-8) 0; background: var(--bg-2); border-radius: 0 var(--radius) var(--radius) 0; font-size: var(--fs-lg); color: var(--text-1); font-style: italic; font-family: Georgia, "Songti SC", serif; line-height: var(--lh-relaxed); position: relative; }
+  .pull-quote::before { content: "\201C"; position: absolute; left: var(--sp-3); top: -12px; font-size: 56px; color: var(--gold); font-family: Georgia, serif; line-height: 1; }
+  .pull-quote cite { display: block; margin-top: var(--sp-4); font-size: var(--fs-sm); color: var(--text-3); font-style: normal; font-family: var(--font-sans); }
+
+  .weight-table { width: 100%; border-collapse: collapse; margin: var(--sp-6) 0; background: var(--bg-1); border-radius: var(--radius); overflow: hidden; font-size: var(--fs-sm); }
+  .weight-table th, .weight-table td { padding: var(--sp-3) var(--sp-4); text-align: left; border-bottom: 1px solid var(--bg-line); vertical-align: top; }
+  .weight-table th { background: var(--bg-3); color: var(--text); font-weight: 700; }
+  .weight-table td { color: var(--text-2); }
+  .weight-table tr:last-child td { border-bottom: 0; }
+  .weight-table td b { color: var(--gold); font-variant-numeric: tabular-nums; }
+
+  .author-card-large { display: flex; gap: var(--sp-6); padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); margin-top: var(--sp-12); }
+  .avatar-large { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gov)); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 28px; flex-shrink: 0; }
+  .author-card-large h4 { font-size: var(--fs-md); font-weight: 700; margin-bottom: var(--sp-1); }
+  .author-card-large .role { color: var(--gold); font-size: var(--fs-sm); margin-bottom: var(--sp-3); }
+  .author-card-large p { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-2); }
+
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-6); }
+  @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } }
+
+  .tag-row { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-8); }
+  .tag-row .chip { padding: var(--sp-2) var(--sp-3); }
+
+  .subscribe-inline { background: linear-gradient(135deg, rgba(251,191,36,.08), transparent), var(--bg-2); border: 1px solid rgba(251,191,36,.3); border-radius: var(--radius-lg); padding: var(--sp-8); margin-top: var(--sp-10); }
+  .subscribe-inline form { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); flex-wrap: wrap; }
+  .subscribe-inline input { flex: 1; min-width: 240px; padding: var(--sp-3) var(--sp-4); border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav class="nav-global">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html">
+      <span class="nav-brand-mark">荥</span>
+      <span>荥阳数字经济产业园</span>
+    </a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="./" class="active">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../model-city/">样板</a>
+      <a href="../about/">关于我们</a>
+    </div>
+    <a class="nav-cta" href="#subscribe">订阅洞察</a>
+  </div>
+</nav>
+
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">Insights · 洞察中心</span>
+    <a href="./">洞察首页</a>
+    <a href="./#themes">主题分类</a>
+    <a href="./#authors">作者档案</a>
+    <a href="#subscribe">订阅</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="breadcrumb">
+    <a href="../index.html">首页</a><span class="sep">›</span>
+    <a href="./">洞察</a><span class="sep">›</span>
+    <span>数据要素三权分置 · 荥阳版微观实验</span>
+  </div>
+
+  <header class="article-header">
+    <div class="article-header-chips">
+      <span class="chip chip--whitepaper">白皮书</span>
+      <span class="chip">数据要素</span>
+      <span class="chip">三权分置</span>
+      <span class="chip">v5.0 样板</span>
+      <span class="meta-date">发布 2026-07-29</span>
+    </div>
+    <h1 class="article-title">《数据要素三权分置》· 荥阳版微观实验 —— 从资源化到资本化</h1>
+    <div class="article-meta-row">
+      <div class="author-mini">
+        <div class="avatar-svg">李</div>
+        <div class="author-mini-info">
+          <span class="author-mini-name">李岩</span>
+          <span class="author-mini-bio">荥阳数字经济产业园 · 数据要素与合规首席专家</span>
+        </div>
+      </div>
+      <div class="reading-time">阅读时长 · 15 分钟</div>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <div class="tldr">
+      <div class="tldr-label">TL;DR · 三句话概括</div>
+      <ul>
+        <li>2020 年中共中央、国务院明确"数据是新型生产要素"，2023 年国家数据局成立，2024 年数据资产入表成为可执行会计动作。<strong>清华大学孟天广教授</strong>在《数字政府与治理现代化》第 4 讲中给出了数据要素治理的完整蓝图——数据类型二维矩阵、数据产权归属、政府数据开放八项标准、"开放数林"四维度、数据安全四层组织架构。</li>
+        <li>荥数链®升级为"<strong>县级数据要素治理示范平台</strong>"——三权分置（数据持有权/加工使用权/经营权）+ 数据资产入表咨询 + 开放数林四维度评估 + 数据安全四层组织架构，一个县级园区可执行的完整模板。</li>
+        <li>荥阳承诺八项政府数据开放标准（完整、一手、及时、可获取、可机读、非歧视性、非私有、免于授权）全部满足；发布"荥阳数据安全治理架构模板"作为对外授权产品；牵头"数据要素价值化三阶段（资源化 → 资产化 → 资本化）"完整流程可视化 SOP。</li>
+      </ul>
+    </div>
+
+    <h2>为什么"三权分置"是数据要素治理的核心命题</h2>
+    <p>数据成为生产要素，最难的不是技术，而是<strong>产权</strong>。土地生产要素解决了三权分置（所有权 · 承包权 · 经营权）用了 30 多年；数据生产要素的三权分置——<strong>数据资源持有权 · 数据加工使用权 · 数据产品经营权</strong>——被 2022 年 12 月《中共中央、国务院关于构建数据基础制度更好发挥数据要素作用的意见》（"数据二十条"）明确后，正在成为全国数据要素市场化的最基本坐标系。</p>
+    <p>孟天广教授在第 4 讲中，用一张"<strong>数据类型二维矩阵</strong>"把这套复杂的产权关系讲得干净利落——按"数据持有者（政府/企业）× 数据生成方式（自有/用户授权/用户使用/加工创造）"划分为 8 个格子：</p>
+
+    <table class="weight-table">
+      <thead>
+        <tr><th>数据生成方式</th><th>政府持有</th><th>企业持有</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>自有数据</td><td>政务数据（国家所有 · 对社会公开）</td><td>企业经营数据（企业所有）</td></tr>
+        <tr><td>用户授权</td><td>个人信息（个人所有）</td><td>个人信息（个人所有）</td></tr>
+        <tr><td>用户使用</td><td>数字痕迹（政府与个人共有）</td><td>数字痕迹（企业与个人共有）</td></tr>
+        <tr><td>加工创造</td><td>衍生数据（政府所有）</td><td>衍生数据（企业所有）</td></tr>
+      </tbody>
+    </table>
+
+    <p>荥阳作为县级数字经济园区，覆盖场景最完整——园区管委会持有政务数据、入驻企业持有经营数据、员工/居民持有个人信息、跨企业协作产生衍生数据。<strong>这是一个天然的数据要素治理微观实验室</strong>。</p>
+
+    <blockquote class="pull-quote">
+      政务数据 = 国家所有；企业经营数据 = 企业所有；用户个人信息 = 个人所有（人格权路径 + 财产权路径）；用户数字痕迹 = 政府/企业与个人共有；衍生数据 = 政府/企业所有。
+      <cite>— 清华大学孟天广教授，《数字政府与治理现代化》第 4 讲</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbbf24" stop-opacity="0"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#b8102e" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d1)" stroke-width="1.5"/>
+      <circle cx="300" cy="9" r="4" fill="#fbbf24"/>
+    </svg>
+
+    <h2>荥阳版三权分置微观实验 · 三阶段路径</h2>
+    <p>荥阳把"数据二十条"三权分置在县级园区做微观实验，分为三个阶段：</p>
+
+    <h3>阶段 1 · 数据资源化（Data Resource-ization）</h3>
+    <p>面向园区所有数据源，先做"资源化"——即把散落在各处的数据变成可发现、可访问、可治理的数据资产目录。三项核心动作：</p>
+    <ul>
+      <li>建立<strong>园区数据资源目录</strong>：52 家已入驻企业逐一登记数据资产（数据类型、体量、更新频率、敏感级别）。</li>
+      <li>按孟教授"数据类型二维矩阵"八格分类，明确每个数据集的<strong>持有权归属</strong>。</li>
+      <li>建立<strong>数据全生命周期九环节 SOP</strong>（采集 → 传输 → 存储 → 备份与恢复 → 使用 → 处理环境 → 内部共享 → 外部共享 → 销毁）。</li>
+    </ul>
+
+    <h3>阶段 2 · 数据资产化（Data Asset-ization）</h3>
+    <p>2024 年 1 月《企业数据资源相关会计处理暂行规定》正式实施，数据资产入表成为财务合规动作。荥阳在这一阶段做三件事：</p>
+    <ul>
+      <li>为入驻企业提供<strong>数据资产入表咨询</strong>——8 大服务中的 financing 服务扩展"数据要素价值化路径"，帮企业把数据资源转化为资产负债表上的无形资产。</li>
+      <li>建立<strong>数据加工使用权授权流程</strong>——企业可以在保留持有权的前提下，向第三方授权数据加工使用（比如：某电梯厂授权其运行数据给保险公司做保费定价）。</li>
+      <li>建立<strong>荥阳数据资产估值模型</strong>——参照资产评估协会《数据资产评估指导意见》，为入驻企业提供数据资产评估服务。</li>
+    </ul>
+
+    <h3>阶段 3 · 数据资本化（Data Capital-ization）</h3>
+    <p>数据资本化是最难的一环——把数据变成可流通、可交易、可融资的资本。荥阳在这一阶段：</p>
+    <ul>
+      <li>对接<strong>河南省数据交易所</strong>与郑州数据要素合规流通平台，为入驻企业提供数据产品上架服务。</li>
+      <li>与银行合作试点<strong>数据资产质押融资</strong>——把入驻企业已入表的数据资产作为质押物获得授信。</li>
+      <li>推动<strong>数据资产证券化</strong>试点——把稳定收益的数据产品（如订阅制数据服务）打包做 ABS。</li>
+    </ul>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#34d399" stop-opacity="0"/><stop offset=".5" stop-color="#34d399"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d2)" stroke-width="1.5"/>
+      <rect x="290" y="4" width="20" height="10" fill="#34d399" rx="2"/>
+    </svg>
+
+    <h2>政府数据开放八项标准 · 荥阳全部承诺</h2>
+    <p>孟教授在第 4 讲援引国际公认的"政府数据开放八项标准"：完整 · 一手 · 及时 · 可获取 · 可机读 · 非歧视性 · 非私有 · 免于授权。这是衡量政府数据开放是否合格的国际"底线"。</p>
+    <p>荥阳作为县级园区，承诺 <strong>八项标准全部满足</strong>——首年公开发布的政务数据集（如园区能耗、算力使用率、企业入驻明细、招商政策目录等），必须逐项达标。这在<strong>县级市中是首创</strong>——省市级政府数据开放常常在"及时"、"可机读"、"非歧视性"三项打折扣。</p>
+
+    <h3>"开放数林"四维度评估 · 荥阳自评</h3>
+    <p>孟教授还介绍了"开放数林指数"（复旦大学数字与移动治理实验室发布，参照国际"五棵树"评价体系）四维度：</p>
+    <ol>
+      <li><b>数根（准备度）</b>——制度、组织、投入的准备水平。</li>
+      <li><b>数干（平台层）</b>——数据开放平台的功能完备度。</li>
+      <li><b>数叶（数据层）</b>——数据集的数量、质量、覆盖度。</li>
+      <li><b>数果（利用层）</b>——数据被利用产生的社会经济价值。</li>
+    </ol>
+    <p>荥阳承诺每年公开发布《<strong>荥阳开放数林自评报告</strong>》，接受兄弟园区、学术界、媒体的监督。这份自评报告本身，也是对外样板复制的授权产品——其他县级园区可以直接购买"荥阳开放数林自评模板"。</p>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8" stop-opacity="0"/><stop offset=".5" stop-color="#38bdf8"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d3)" stroke-width="1.5"/>
+      <polygon points="290,3 310,3 300,14" fill="#38bdf8"/>
+    </svg>
+
+    <h2>数据安全 · 四层组织架构模板</h2>
+    <p>孟教授在第 4 讲最后专门强调了数据安全的组织架构——<strong>决策层 + 管理层 + 执行层 + 监督层</strong>四层，缺一不可。这是荥阳数据要素治理示范平台的第二个可对外授权模板：</p>
+
+    <table class="weight-table">
+      <thead>
+        <tr><th>层级</th><th>荥阳落地主体</th><th>核心职责</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>决策层</b>（一把手负责制）</td><td>园区数据安全领导小组（园区管委会主任任组长）</td><td>数据安全战略、重大事件决策、年度合规审议</td></tr>
+        <tr><td><b>管理层</b></td><td>荥泽数链数据安全管理办公室</td><td>制度制定、流程管控、跨部门协调</td></tr>
+        <tr><td><b>执行层</b></td><td>各入驻企业数据安全执行团队</td><td>日常数据处理、访问控制、日志留存</td></tr>
+        <tr><td><b>监督层</b></td><td>独立数据安全监督小组（第三方审计 + 员工代表 + 律所代表）</td><td>合规审计、事件问责、投诉受理</td></tr>
+      </tbody>
+    </table>
+
+    <p>数据安全的三大基本特征——机密性、完整性、可用性；三大技术——数字水印（隐藏）+ 网络防火墙（访问控制）+ 加密技术。荥阳将这些国际公认的最佳实践，全部嵌入到园区级数据安全 SOP 中。</p>
+
+    <blockquote class="pull-quote">
+      数据安全不是技术产品，是组织能力。四层架构中最容易被忽略的是"监督层"——很多园区只有决策、管理、执行三层，缺了独立监督，就等于"运动员兼裁判"。荥阳明确设立独立数据安全监督小组，是我们最重要的差异化。
+      <cite>— 李岩，荥阳数字经济产业园数据合规首席专家</cite>
+    </blockquote>
+
+    <svg class="divider-svg" viewBox="0 0 600 18">
+      <defs><linearGradient id="d4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a78bfa" stop-opacity="0"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient></defs>
+      <line x1="0" y1="9" x2="600" y2="9" stroke="url(#d4)" stroke-width="1.5"/>
+      <circle cx="300" cy="9" r="4" fill="#a78bfa"/>
+    </svg>
+
+    <h2>对外样板复制 · 三类可授权产品</h2>
+    <p>把这套微观实验的成果沉淀为可对外授权的产品，主要有三类：</p>
+    <ul>
+      <li><strong>《荥阳数据要素治理白皮书 v1.0》</strong>——单份 ¥15-30 万，包含三权分置操作手册、三阶段路径、SOP 模板。</li>
+      <li><strong>县级园区数据要素治理诊断服务</strong>——¥50-150 万一次性，3-5 周交付，包含数据资源目录、数据资产估值、数据安全组织架构诊断。</li>
+      <li><strong>联合共建"XX 版荥数链"</strong>——对愿意深度合作的县级园区，联合共建对方版本的县级数据要素治理平台，初始投资 ¥2000-5000 万，运营分成 5-15%。</li>
+    </ul>
+
+    <h2>孟教授对荥阳的三条前瞻建议</h2>
+    <p>在与孟教授团队的多次交流中，孟教授对荥阳数据要素治理提出三条前瞻建议：</p>
+    <ol>
+      <li><b>"数字税"前瞻研究</b>——即使短期难征收，荥阳应发布《数字税前瞻研究 · 河南视角》，占领县级研究话语权高地。数字税五种类型（数据资源税/数字服务流转税/数字福利税/数字消费税/数字创作知识产权税）与 OECD 双支柱方案（征税权重新划定 + 全球最低税 GloBE），都值得县级园区先做前瞻性研究。</li>
+      <li><b>对接国家数据局</b>——荥阳定位"河南省 · 国家数据局政策落地首个县级样板"，争取试点资源。</li>
+      <li><b>与欧盟 GDPR 做对标</b>——欧盟 GDPR 七项权利（知情权、访问权、修正权、被遗忘权、限制处理权、可携带权、拒绝权）虽然是欧盟标准，但很多入驻企业若涉及跨境业务必须合规。荥阳可以做"县级园区 GDPR 合规辅导中心"，成为差异化服务。</li>
+    </ol>
+
+    <h2>结语 · 数据要素治理的"县级样板"意义</h2>
+    <p>数据要素治理的国家话语，长期由省级/地级市主导——上海数据交易所、深圳数据交易所、北京国际大数据交易所、贵阳大数据交易所。但县级园区作为"最后一公里"，才是数据要素市场化真正落地的场域——因为大部分企业注册地在县市，员工与用户也生活在县市。</p>
+    <p>荥阳做数据要素治理的县级样板，本质是补全"国家 → 省 → 市 → 县"数据要素治理链条的最后一环。孟教授在授课中曾强调"要素市场必须能穿透到微观场景，否则就是空中楼阁"——荥阳的微观实验，正是在把三权分置从法律条文落到<strong>52 家企业的每一次数据授权交易</strong>上。这才是真正的知行合一。</p>
+
+    <div class="author-card-large">
+      <div class="avatar-large">李</div>
+      <div>
+        <h4>李岩</h4>
+        <div class="role">数据要素与合规首席专家</div>
+        <p>中国人民大学法学院硕士 · 前德勤数据治理咨询高级经理 · 荥阳数字经济产业园数据合规负责人。</p>
+        <p>主导荥数链®"县级数据要素治理示范平台"整体架构、数据资产入表咨询产品、荥阳数据安全四层组织架构模板。</p>
+        <p>联系：<a href="mailto:liyan@xingyang-park.gov.cn" style="color:var(--enterprise);">liyan@xingyang-park.gov.cn</a></p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:var(--sp-12);">相关文章</h2>
+    <div class="related-grid">
+      <a href="./mengtianguang-5-lectures-notes.html" class="card">
+        <span class="chip chip--report">报告</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">清华孟天广 5 讲学习笔记</h4>
+        <p class="card-body">v5.0 样板战略的理论中轴。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./dual-sense-city.html" class="card">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">物感 + 人感城市 · 荥阳双感园区实践</h4>
+        <p class="card-body">中国首个县级双感园区 · 数据是"脉"。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+      <a href="./cim-city-os.html" class="card">
+        <span class="chip chip--whitepaper">白皮书</span>
+        <h4 class="card-title" style="margin-top:var(--sp-3);">城市操作系统 · 荥阳 CIM 建设路径</h4>
+        <p class="card-body">CIM 定义 + 5 年建设 roadmap · 数据要素承载。</p>
+        <span class="card-cta">阅读</span>
+      </a>
+    </div>
+
+    <div class="tag-row">
+      <span class="chip chip--whitepaper">#数据要素</span>
+      <span class="chip">#三权分置</span>
+      <span class="chip">#数据入表</span>
+      <span class="chip">#开放数林</span>
+      <span class="chip">#数据安全</span>
+      <span class="chip">#荥数链</span>
+      <span class="chip">#孟天广</span>
+      <span class="chip">#李岩</span>
+    </div>
+
+    <div class="subscribe-inline" id="subscribe">
+      <span class="section-kicker">SUBSCRIBE · 订阅洞察月刊</span>
+      <h3 class="section-title" style="font-size:var(--fs-lg);">追踪荥阳数据要素治理微观实验</h3>
+      <p style="color:var(--text-2);font-size:var(--fs-sm);">每月 1 期，把最新洞察与政策窗口送到您邮箱。</p>
+      <form action="#" method="post">
+        <input type="email" placeholder="您的工作邮箱" required>
+        <button type="submit" class="btn-primary">订阅</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<a class="help-widget" href="#subscribe">
+  <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+  订阅
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>洞察 · v5.0 样板系列</h5>
+        <a href="./mengtianguang-5-lectures-notes.html">孟天广 5 讲学习笔记</a>
+        <a href="./dual-sense-city.html">双感城市</a>
+        <a href="./data-elements-three-rights.html">数据要素三权分置</a>
+        <a href="./ai-in-government.html">AI + 政府</a>
+        <a href="./cim-city-os.html">CIM 城市操作系统</a>
+      </div>
+      <div class="footer-col">
+        <h5>快速导航</h5>
+        <a href="../platforms/">4 大平台</a>
+        <a href="../services/">服务矩阵</a>
+        <a href="../model-city/">样板专区</a>
+        <a href="../newsroom/">新闻中心</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="#subscribe">订阅月刊</a>
+        <a href="mailto:insights@xingyang-park.gov.cn">insights@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

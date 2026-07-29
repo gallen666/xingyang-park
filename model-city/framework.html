@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>理论框架 · 清华孟天广教授 5 讲综合与荥阳解读 · 智慧城市样板专区</title>
+<meta name="description" content="荥阳样板的理论根基：清华大学孟天广教授《数字政府与治理现代化》5 讲综合解读 · 从 eGov → dGov → iGov 三阶段跃迁到智能-智治-智效未来图景 · 荥阳"3D 立方体"叙事 · 五大属性对标 · 五主体生态构建。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--warning); font-weight: 700; }
+
+  /* 论文长文样式 */
+  .article { max-width: 880px; margin: 0 auto; }
+  .article h2 {
+    font-size: var(--fs-xl); font-weight: 700; color: var(--text);
+    margin: var(--sp-16) 0 var(--sp-4); line-height: var(--lh-tight);
+    letter-spacing: -.02em; padding-top: var(--sp-4);
+    border-top: 3px solid var(--brand);
+  }
+  .article h3 {
+    font-size: var(--fs-lg); font-weight: 700; color: var(--text);
+    margin: var(--sp-10) 0 var(--sp-3); line-height: var(--lh-tight);
+  }
+  .article h4 {
+    font-size: var(--fs-md); font-weight: 700; color: var(--brand-dark);
+    margin: var(--sp-6) 0 var(--sp-2);
+  }
+  .article p { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .article ul, .article ol { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin: 0 0 var(--sp-4) var(--sp-6); }
+  .article li { margin-bottom: var(--sp-2); }
+  .article b { color: var(--text); }
+  .article blockquote {
+    margin: var(--sp-6) 0; padding: var(--sp-5) var(--sp-6);
+    background: var(--brand-soft); border-left: 3px solid var(--brand);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--brand-dark); font-size: var(--fs-md); line-height: var(--lh-relaxed);
+  }
+  .article blockquote cite { display: block; margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--text-2); font-style: normal; }
+
+  /* 5 讲 timeline */
+  .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-4); margin: var(--sp-8) 0; }
+  @media (max-width: 900px) { .timeline { grid-template-columns: 1fr; } }
+  .timeline-card {
+    padding: var(--sp-6); background: var(--bg-2);
+    border: 1px solid var(--bg-line); border-radius: var(--radius-lg);
+    border-top: 4px solid var(--brand);
+  }
+  .timeline-card .num { color: var(--brand); font-weight: 800; font-size: var(--fs-lg); }
+  .timeline-card h5 { font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin: var(--sp-2) 0 var(--sp-2); line-height: 1.3; }
+  .timeline-card p { color: var(--text-2); font-size: var(--fs-xs); line-height: var(--lh-normal); }
+
+  /* 3D 立方体三横六纵 */
+  .cube-wrap { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); margin: var(--sp-6) 0; }
+  .cube-wrap svg { width: 100%; height: auto; }
+
+  /* 5属性表 */
+  .attr-table { width: 100%; border-collapse: collapse; margin: var(--sp-6) 0; background: var(--bg-2); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .attr-table th, .attr-table td { padding: var(--sp-3) var(--sp-4); text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--bg-line); }
+  .attr-table th { background: var(--brand-soft); color: var(--brand-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-xs); }
+  .attr-table td.attr { font-weight: 700; color: var(--brand); }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+      <a href="./" class="active">样板</a>
+    </div>
+    <a class="nav-cta" href="./output.html">申请样板复制</a>
+  </div>
+</nav>
+
+<!-- 子导航 -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">MODEL CITY · 荥阳样板</span>
+    <a href="./index.html">总览</a>
+    <a href="./framework.html" class="active">理论框架</a>
+    <a href="./use-cases/dual-sense-city.html">5 大场景</a>
+    <a href="./methodology.html">方法论</a>
+    <a href="./benchmarks.html">标杆</a>
+    <a href="./output.html">输出模式</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">FRAMEWORK · 5 讲综合理论 · 荥阳解读</span>
+    <h1 class="hero-title">从 eGov 到 iGov · 从"数字政府五大属性"到"智能-智治-智效"—— 荥阳如何把清华 5 讲装进 3D 立方体</h1>
+    <p class="hero-lead">
+      本篇 3000 字方法论文档基于<b>清华大学孟天广教授</b>《数字政府与治理现代化》5 讲课程综合，
+      结合荥阳数字经济产业园 v3 定位手册、v4 国家战略对标、v5 智慧城市样板战略三层叠加，
+      呈现荥阳作为<b>县级市数字治理样板</b>的完整理论基座。凡是要"照着荥阳做"的兄弟城市，
+      本页是最短路径。
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="article">
+
+      <!-- ============ 1. 5 讲脉络 ============ -->
+      <h2>一 · 5 讲脉络：从 eGov 到 iGov 的完整时间轴</h2>
+
+      <p>孟天广教授把中国数字政府建设放在一条清晰的国家治理时间轴上：从 <b>2015 年《促进大数据发展行动纲要》</b>建立大数据部级联席会议开始，历经国家大数据战略（十三五）、数字中国战略（十九大）、"数据是重要生产要素"（十九届四中全会），到 <b>2022 年《国务院关于加强数字政府建设的指导意见》（国发[2022]14 号）</b>形成顶层设计。这一时间轴对应了 <b>eGov（电子政务） → dGov（数字政府） → iGov（智能政府）</b> 的三阶段跃迁。</p>
+
+      <p>相应地，数据治理经历了三个能力层级的爬升：<b>1.0 办公电子化 / 文件数据化 / 联通网络化 / 服务便利化</b>（对标 eGov）；<b>2.0 数据系统化 / 决策数科化 / 施策精准化</b>（对标 dGov）；<b>3.0 智慧数控 / 整体智治 / 众智共治</b>（对标 iGov）。孟教授特别指出，国家治理的三大机制中，<b>信息（数据）机制</b>已经成为科学决策、政策执行、社会沟通、监督问责、风险预警、舆论引导的核心机制。</p>
+
+      <div class="timeline">
+        <div class="timeline-card">
+          <span class="num">第 1 讲</span>
+          <h5>数字政府概论</h5>
+          <p>三阶段跃迁 · 四梁八柱 · 五大属性 · 九大创新体系 · 数字化国家能力六项 · 数字治理生态五主体。</p>
+        </div>
+        <div class="timeline-card">
+          <span class="num">第 2 讲</span>
+          <h5>数字经济治理与数字规制</h5>
+          <p>数字经济四维度 · 五路径赋能 · 平台经济四特征 · 中国监管六阶段 · 国家数据局（2023）。</p>
+        </div>
+        <div class="timeline-card">
+          <span class="num">第 3 讲</span>
+          <h5>新型智慧城市建设</h5>
+          <p>眼-脉-脑架构 · 智慧城市四特征 · <b>物感+人感双感城市</b> · 海淀 1+1+2+N · 福州鼓楼智脑 · 北京接诉即办。</p>
+        </div>
+        <div class="timeline-card">
+          <span class="num">第 4 讲</span>
+          <h5>数据要素治理</h5>
+          <p>数据类型二维矩阵 · 数据要素价值化三阶段 · 政府数据开放八项标准 · 开放数林四维度 · 数据安全组织架构四层。</p>
+        </div>
+        <div class="timeline-card">
+          <span class="num">第 5 讲</span>
+          <h5>智能政府与未来治理</h5>
+          <p>AI 四类型 · 智能政府眼-手-脑-耳 · 中国 AI 治理八原则 · 算法治理四目标 · <b>智能-智治-智效</b>三段体系。</p>
+        </div>
+      </div>
+
+      <p>五讲之间不是并列关系，而是<b>层层递进的螺旋</b>——第 1 讲奠基（"什么是数字政府"），第 2 讲扩展到经济治理，第 3 讲落地到城市空间，第 4 讲下钻到数据要素这一新型生产要素，第 5 讲上升到 AI 与未来治理。荥阳作为一个县级园区，横切五讲全部主题——这是"县级样板"能立得住的关键：<b>不是缺一角，而是浓缩五讲于 40.4 万平方米建面的园区内。</b></p>
+
+      <!-- ============ 2. 荥阳 3D 立方体 ============ -->
+      <h2>二 · 荥阳"3D 立方体"叙事：三横六纵</h2>
+
+      <p>孟教授在第 1 讲提出中国数字政府九大创新体系是<b>"三横六纵"</b>：三横为<b>数据资源体系（挖掘数据资源价值）+ 开放创新体系（用开放促创新）+ 一大基础设施</b>；六纵为<b>政策法规体系 · 组织领导体系 · 标准规范体系 · 数据治理体系 · 安全保障体系 · 建设运营体系</b>。荥阳把这一"三横六纵"直接映射为自身资产的<b>3D 立方体</b>——横轴对应"数据/开放/基础设施"三大动力源，纵轴对应"制度/组织/标准/数据/安全/运营"六大支柱，深度轴对应荥阳自身四大资产层（4 平台 + 8 服务 + 4 子品牌 + 1 联盟）。</p>
+
+      <div class="cube-wrap">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥阳 3D 立方体叙事">
+          <defs>
+            <linearGradient id="cg1" x1="0" x2="1"><stop offset="0" stop-color="#007CC3"/><stop offset="1" stop-color="#003D69"/></linearGradient>
+            <linearGradient id="cg2" x1="0" x2="1"><stop offset="0" stop-color="#00A65A"/><stop offset="1" stop-color="#008147"/></linearGradient>
+            <linearGradient id="cg3" x1="0" x2="1"><stop offset="0" stop-color="#F5A623"/><stop offset="1" stop-color="#C68A0E"/></linearGradient>
+          </defs>
+          <text x="400" y="30" text-anchor="middle" fill="#1A2942" font-size="16" font-weight="700">荥阳 3D 立方体：三横 × 六纵 × 四层资产</text>
+          <!-- 三横 -->
+          <rect x="50" y="60" width="700" height="50" rx="6" fill="url(#cg1)" opacity="0.9"/>
+          <text x="400" y="90" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">三横 · 数据资源 · 开放创新 · 一大基础设施</text>
+          <!-- 六纵 -->
+          <g font-family="sans-serif">
+            <rect x="50" y="130" width="110" height="200" rx="6" fill="url(#cg2)" opacity="0.85"/>
+            <text x="105" y="230" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">政策法规</text>
+            <rect x="170" y="130" width="110" height="200" rx="6" fill="url(#cg2)" opacity="0.85"/>
+            <text x="225" y="230" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">组织领导</text>
+            <rect x="290" y="130" width="110" height="200" rx="6" fill="url(#cg2)" opacity="0.85"/>
+            <text x="345" y="230" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">标准规范</text>
+            <rect x="410" y="130" width="110" height="200" rx="6" fill="url(#cg2)" opacity="0.85"/>
+            <text x="465" y="230" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">数据治理</text>
+            <rect x="530" y="130" width="110" height="200" rx="6" fill="url(#cg2)" opacity="0.85"/>
+            <text x="585" y="230" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">安全保障</text>
+            <rect x="650" y="130" width="100" height="200" rx="6" fill="url(#cg2)" opacity="0.85"/>
+            <text x="700" y="230" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">建设运营</text>
+          </g>
+          <!-- 深度 -->
+          <rect x="50" y="345" width="700" height="40" rx="6" fill="url(#cg3)"/>
+          <text x="400" y="370" text-anchor="middle" fill="#0a0e1a" font-size="13" font-weight="700">深度轴 · 4 平台 (DTSI/X-Flow/PDTMM/OpenX@X) + 8 服务 + 4 子品牌 + 1 数字生态联盟</text>
+        </svg>
+      </div>
+
+      <p>这个立方体的每一个交叉格都是荥阳一个具体资产的"坐标"。例如"数据资源 × 数据治理 × 4 子品牌"这个格子里放的是<b>荥数链</b>；"开放创新 × 组织领导 × 4 平台"这个格子里放的是<b>OpenX@X™</b>；"一大基础设施 × 安全保障 × 8 服务"这个格子里放的是<b>荥数云 + IT&云服务</b>。整个立方体既是荥阳资产地图，也是<b>兄弟城市自诊的坐标系</b>——用荥阳立方体的坐标去照自己的园区，缺的格子一目了然。</p>
+
+      <!-- ============ 3. 五大属性对标 ============ -->
+      <h2>三 · 荥阳版数字政府五大属性对标</h2>
+
+      <p>孟教授在第 1 讲提出<b>数字政府 2035 长期目标五大属性</b>：<b>整体协同 · 敏捷高效 · 智能精准 · 开放透明 · 公平普惠</b>。这五大属性不是抽象概念，而是可以直接映射为荥阳的可验证承诺。荥阳把每一属性对应到具体的平台/服务/子品牌，让兄弟城市能够按图索骥。</p>
+
+      <table class="attr-table">
+        <thead>
+          <tr><th>数字政府五大属性</th><th>荥阳映射资产</th><th>可验证证据</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="attr">整体协同</td><td>1+1+2+N 治理架构 · 荥泽数链 · 三方共治</td><td>管委会 + 运营公司 + 云链双平台 + N 企业生态，垂直贯通</td></tr>
+          <tr><td class="attr">敏捷高效</td><td>接企即办 · 7×24 企业诉求响应 · 吹哨报到</td><td>企业热线 24 小时首响 · 跨部门协同 SOP · 报告体系日周月季年</td></tr>
+          <tr><td class="attr">智能精准</td><td>荥数云 8.6 EFLOPS · AI 四类型服务标签 · PDTMM® 五级</td><td>算力网络中原节点 · 每项服务标注 AI 能力 · 五级成熟度模型</td></tr>
+          <tr><td class="attr">开放透明</td><td>荥数链公共数据开放 · OpenX@X™ 开发者社区</td><td>八项开放标准 · 开放数林四维度评估 · 开源代码贡献</td></tr>
+          <tr><td class="attr">公平普惠</td><td>荥数才集体赋智 · 数字素养认证 · "一个都不能少"</td><td>算法素养培训 · 数字治理者培养 · 员工/居民/科研包容</td></tr>
+        </tbody>
+      </table>
+
+      <p>孟教授特别强调"五大属性"不是简单加总，而是<b>互相约束、互相成就</b>——只有整体协同，敏捷高效才有支撑；只有开放透明，智能精准才不至于"黑箱"；只有公平普惠，前四项才不至于"技术精英俘获"。荥阳把这一"约束-成就"关系写进 <b>PDTMM® 五级成熟度模型</b>：每上升一级，五大属性必须同频进化。</p>
+
+      <!-- ============ 4. 五主体生态 ============ -->
+      <h2>四 · 荥阳版数字治理生态五主体</h2>
+
+      <p>孟教授在第 1 讲结尾指出："数字政府建设是一项系统性工程，需要构建<b>包容协同的数字治理生态</b>"——这个生态由 <b>党委政府（主导与引领）+ 科技企业（创新与科技支撑）+ 科技社群 + 社会组织/专业组织（专业主义、链接资源）+ 公众 + 媒体/自媒体（公共空间、监督作用）</b> 五主体构成。荥阳把这五主体一一对应到自身生态：</p>
+
+      <ol>
+        <li><b>党委政府（主导）</b>——荥阳市人民政府 + 郑州市政府 + 河南省数据局。荥阳战略叙事的第一议价方，任何样板输出必须先经政府同频。</li>
+        <li><b>科技企业（支撑）</b>——荥数云 + 荥智造 + 华为/百度/科大讯飞等入园合作方。构成荥阳智脑的"腿"。</li>
+        <li><b>科技社群 + 社会组织</b>——OpenX@X™ 开发者社区 + 4 家国家级学术合作机构（中国信通院 · 河南省发改委 · 工信部 · CCID）+ 清华孟天广教授团队学术顾问。构成荥阳的"脑"。</li>
+        <li><b>公众</b>——园区入驻企业员工、周边居民、访客。DTSI® 7 主体中的第 6、7 位（员工 9.3% + 居民 9.0%）就是公众入席治理的直接证据。</li>
+        <li><b>媒体/自媒体</b>——荥阳 Newsroom + Insights + 河南主流媒体 + 智慧城市行业自媒体。构成荥阳样板对外传播的"嘴"。</li>
+      </ol>
+
+      <p>荥阳的样板输出方案对每一类型的兄弟城市有<b>对应的入席模板</b>：如果对方是主导型（比如东部沿海县级市），荥阳输出"政企协同 SOP + 数字治理生态五主体入席流程"；如果对方是支撑型（比如中西部县级园区），荥阳输出"科技企业招引 + 4 平台落地清单"；如果对方是需求型（比如生态位空缺城市），荥阳输出"数字治理生态五主体从零构建 12 步法"。</p>
+
+      <!-- ============ 5. 与国家 2522 关系 ============ -->
+      <h2>五 · 与国家"2522"框架的关系</h2>
+
+      <p>v4.0 战略把荥阳全面对标 <b>数字中国"2522"整体布局</b>——两个基础（数字基础设施 + 数据资源体系）+ 五位一体（数字经济 / 数字政治 / 数字文化 / 数字社会 / 数字生态文明）+ 两大能力（技术创新 + 安全屏障）+ 两个环境（国内制度 + 国际合作）。v5.0 智慧城市样板战略不替代 v4，而是<b>把 v4 的国家关键词翻译成"县级样板复制手册"</b>。</p>
+
+      <blockquote>
+        v3 让荥阳"有产品"（中国 Infosys · AI + 云一站式服务）。<br>
+        v4 让荥阳"上台面"（数字中国 2522 落地样板）。<br>
+        v5 让荥阳"能复制"（智慧城市建设样板 · 对外可输出）。
+        <cite>—— 荥阳数字经济产业园战略跃迁三层楼</cite>
+      </blockquote>
+
+      <p>具体而言，v5 与 2522 的映射有三条主线：</p>
+
+      <p><b>主线 1 · 从"两个基础"到"荥阳双底座"</b>：v4 已把荥数云对齐"数字基础设施"、荥数链对齐"数据资源体系"。v5 进一步把两者升级为对外输出的"荥阳双底座"—— <b>荥感通（物感底座）+ 荥商通（人感底座 · 营商）+ 荥企通（人感底座 · 企业）</b> 三通产品线，成为兄弟城市可以"整体订购"的数字底座组合包。</p>
+
+      <p><b>主线 2 · 从"五位一体"到"五大场景"</b>：v4 的"数字经济 / 政治 / 文化 / 社会 / 生态文明"五位一体在县级园区语境下压缩为 v5 的 <b>5 大可复制场景</b>——数字政府 · 数字规制 · 双感城市 · 数据要素 · AI 治理。每个场景对应清华 5 讲一讲，也对应 2522 一至两个位。这是"国家框架 → 县级操作"的关键翻译层。</p>
+
+      <p><b>主线 3 · 从"两大能力"到"荥阳智效指数"</b>：v4 的"技术创新 + 安全屏障"两大能力在 v5 落地为荥阳智效指数三段——<b>智能（技术能力 30%）+ 智治（治理能力 40%）+ 智效（治理效果 30%）</b>。这个指数是荥阳对外输出的核心评价工具，参照孟教授团队"数字政府发展指数"与"开放数林指数"的设计逻辑，让每一个引入荥阳样板的城市都能<b>照镜子、看差距、跟进度</b>。</p>
+
+      <p>结语：孟天广教授在第一讲结尾指出：<b>"数字政府的中国特色 —— 治理机制：数据赋能、技术赋权、集体赋智；数字政府的分层体系：回应型、枢纽型、战略性；构建数字治理生态：治理主体 + 治理资源"</b>。荥阳作为县级市，明确定位为<b>"回应型 + 枢纽型"混合体</b>——对上响应战略，对下回应需求。样板价值不在"和最大城市比谁大"，而在"给全国 2000+ 县市证明：县级市也能做数字治理"。这才是真正的"知行合一、行胜于言"。</p>
+
+      <blockquote>
+        引自孟天广教授简介：<b>清华大学社会科学学院副院长、政治学系长聘教授、清华大学数据治理研究中心主任、教育部"计算社会科学与国家治理"文科重点实验室副主任</b>。荥阳样板战略所有理论引自其《数字政府与治理现代化》5 讲原文。
+      </blockquote>
+
+    </div>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="./output.html" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  样板咨询
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov-soft);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--brand-soft);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:#B7ECD5;">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:rgba(255,255,255,.7);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>样板专区</h5>
+        <a href="./index.html">样板总览</a>
+        <a href="./framework.html">理论框架</a>
+        <a href="./methodology.html">方法论</a>
+        <a href="./output.html">输出模式</a>
+      </div>
+      <div class="footer-col">
+        <h5>5 大场景</h5>
+        <a href="./use-cases/dual-sense-city.html">双感城市</a>
+        <a href="./use-cases/digital-government.html">数字政府</a>
+        <a href="./use-cases/data-governance.html">数据要素</a>
+        <a href="./use-cases/ai-governance.html">AI 治理</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="./benchmarks.html">对标标杆</a>
+        <a href="mailto:model-city@xingyang-park.gov.cn">model-city@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 理论体系引自清华大学孟天广教授《数字政府与治理现代化》5 讲原文 · 保留所有权利</div>
+  </div>
+</footer>
+
+</body>
+</html>

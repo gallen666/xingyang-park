@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>数字规制场景 · 荥阳样板 · 对应清华孟天广教授第 2 讲</title>
+<meta name="description" content="荥阳"规制沙箱"从合规监测升级 · 平台经济四特征评估工具 · 数字规制 6 大工具箱 · 对接国家数据局政策落地 · 河南省首个县级"数字规制样板"。">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<style>
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--warning); font-weight: 700; }
+  .uc-article { max-width: 960px; margin: 0 auto; }
+  .uc-step { padding: var(--sp-8) 0; border-bottom: 1px solid var(--bg-line); }
+  .uc-step:last-child { border-bottom: 0; }
+  .uc-step-num { display: inline-block; padding: 2px var(--sp-3); background: var(--brand-soft); color: var(--brand); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .1em; border-radius: var(--radius-sm); margin-bottom: var(--sp-3); }
+  .uc-step h2 { font-size: var(--fs-xl); font-weight: 700; color: var(--text); margin-bottom: var(--sp-4); line-height: var(--lh-tight); letter-spacing: -.02em; }
+  .uc-step p { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .uc-step ul, .uc-step ol { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin: 0 0 var(--sp-4) var(--sp-6); }
+  .uc-step li { margin-bottom: var(--sp-2); }
+  .uc-step b { color: var(--text); }
+  .uc-step blockquote { margin: var(--sp-4) 0; padding: var(--sp-5) var(--sp-6); background: var(--brand-soft); border-left: 3px solid var(--brand); border-radius: 0 var(--radius) var(--radius) 0; color: var(--brand-dark); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .uc-step blockquote cite { display: block; margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--text-2); font-style: normal; }
+  .bench-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .bench-grid { grid-template-columns: 1fr; } }
+  .bench-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); border-top: 3px solid var(--accent); }
+  .bench-card h5 { font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin-bottom: var(--sp-2); }
+  .bench-card p { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+  .bench-card .flag { font-size: var(--fs-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--sp-1); }
+  .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .roadmap { grid-template-columns: 1fr; } }
+  .rm-phase { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); border-left: 4px solid var(--brand); }
+  .rm-phase.p2 { border-left-color: var(--warning); }
+  .rm-phase.p3 { border-left-color: var(--success); }
+  .rm-phase .ph { font-size: var(--fs-xs); font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: .1em; }
+  .rm-phase.p2 .ph { color: var(--warning); }
+  .rm-phase.p3 .ph { color: var(--success); }
+  .rm-phase h5 { font-size: var(--fs-md); font-weight: 700; color: var(--text); margin: var(--sp-2) 0; }
+  .rm-phase p { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+  .rm-phase .dur { font-size: var(--fs-xs); color: var(--text-3); margin-top: var(--sp-3); font-family: var(--font-mono); }
+  .kpi-table { width: 100%; border-collapse: collapse; background: var(--bg-2); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); margin: var(--sp-4) 0; }
+  .kpi-table th, .kpi-table td { padding: var(--sp-3) var(--sp-4); text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--bg-line); }
+  .kpi-table th { background: var(--brand-soft); color: var(--brand-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-xs); }
+  .pit-list { list-style: none; padding: 0; margin: var(--sp-4) 0; }
+  .pit-list li { padding: var(--sp-4) var(--sp-5); background: #FDF6EC; border: 1px solid #F5D89E; border-left: 3px solid var(--warning); border-radius: var(--radius); margin-bottom: var(--sp-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .pit-list li b { color: var(--warning); }
+  .cta-triple { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .cta-triple { grid-template-columns: 1fr; } }
+  .cta-triple a { padding: var(--sp-6); text-align: center; background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); color: var(--text); font-weight: 600; transition: border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease); }
+  .cta-triple a:hover { border-color: var(--brand); box-shadow: var(--shadow); color: var(--brand); }
+  .cta-triple a .lead { display: block; font-size: var(--fs-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: var(--sp-2); }
+
+  /* Six-tool grid */
+  .tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-4) 0; }
+  @media (max-width: 900px) { .tool-grid { grid-template-columns: 1fr; } }
+  .tool-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
+  .tool-card .num { font-size: var(--fs-2xl); font-weight: 800; color: var(--brand); line-height: 1; }
+  .tool-card h5 { font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin: var(--sp-2) 0; }
+  .tool-card p { font-size: var(--fs-xs); color: var(--text-2); line-height: var(--lh-relaxed); }
+</style>
+</head>
+<body>
+
+<nav class="nav-global"><div class="nav-global-inner">
+  <a class="nav-brand" href="../../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+  <div class="nav-items">
+    <a href="../../platforms/">平台</a><a href="../../services/">服务</a><a href="../../sub-brands/">数字生态</a>
+    <a href="../../insights/">洞察</a><a href="../../newsroom/">新闻</a><a href="../../about/">关于我们</a>
+    <a href="../" class="active">样板</a>
+  </div>
+  <a class="nav-cta" href="../output.html">申请样板复制</a>
+</div></nav>
+
+<div class="subnav"><div class="subnav-inner">
+  <span class="subnav-brand">MODEL CITY · 荥阳样板</span>
+  <a href="../index.html">总览</a><a href="../framework.html">理论框架</a>
+  <a href="./dual-sense-city.html" class="active">5 大场景</a>
+  <a href="../methodology.html">方法论</a><a href="../benchmarks.html">标杆</a><a href="../output.html">输出模式</a>
+</div></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">USE CASE 02 · 数字规制场景 · 对应第 2 讲</span>
+    <h1 class="hero-title">数字规制场景 · 荥阳样板<br>县级园区级"规制沙箱"—— 让入园平台企业在受控环境测试新型商业模式</h1>
+    <p class="hero-lead">
+      从"AI 合规监测"升级为<b>"数字经济企业规制沙箱服务"</b> · 内嵌<b>平台经济四特征评估工具</b> ·
+      对接 <b>国家数据局（2023 成立）</b> 政策落地首个县级样板 · 覆盖平台反垄断 + AI 伦理 + 数据合规
+      三大规制议题。<b>数字规制 6 大工具箱</b>是荥阳样板最独特的"合规基础设施"。
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="uc-article">
+
+      <div class="uc-step">
+        <span class="uc-step-num">01 · 理论根基</span>
+        <h2>孟天广教授原文引述</h2>
+        <blockquote>
+          "数字经济治理需要构建<b>包容审慎、协同规制</b>的新型监管范式。中国数字监管经历<b>起步→黄金→创新探索→网信办→协调治理→综合治理</b>六阶段演进，2023 年国家数据局成立标志综合治理阶段开启。平台经济四大特征（<b>规模经济、高效连接、网络效应、锁定效应</b>）决定了传统反垄断工具在数字时代必须重构。"
+          <cite>—— 引自清华大学孟天广教授《数字政府与治理现代化》第 2 讲 · 数字经济治理与数字规制</cite>
+        </blockquote>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">02 · 理论框架 1 分钟速览</span>
+        <h2>数字经济四维度 × 平台经济四特征 × 五路径赋能</h2>
+        <p><b>数字经济四维度</b>：要素（数据资源）· 载体（新基建、数字平台）· 技术（数字技术、信息网络）· 系统（全要素数字化转型）。</p>
+        <p><b>平台经济四大特征</b>：规模经济（边际成本趋零）· 高效连接 · 网络效应（外部性）· 锁定效应（转移成本高）。这四特征是荥阳"平台自评工具"的评分维度。</p>
+        <p><b>数字政府赋能数字经济五路径</b>：① 新基建 ② 数字技术迭代 ③ 数据要素流通（确权、分级分类）④ 数据流通处置交易收益分配法律体系 ⑤ 数字反垄断标准。这五路径直接作为荥阳"样板输出"五大工具包。</p>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">03 · 国际标杆</span>
+        <h2>三大国际数字规制参照系</h2>
+        <div class="bench-grid">
+          <div class="bench-card">
+            <div class="flag">EU · 欧盟</div>
+            <h5>《数字市场法案》守门人制度</h5>
+            <p>三判定条件：市场规模 + 是否是重要门户 + 稳固市场地位。首批指定 Alphabet / Amazon / Apple / ByteDance / Meta / Microsoft 六家守门人。</p>
+          </div>
+          <div class="bench-card">
+            <div class="flag">USA · 美国</div>
+            <h5>2020《数字市场竞争状况调查报告》</h5>
+            <p>三大规制工具：结构性分拆 + 非歧视要求 + 数据可移植性和互操作性。美国众议院反垄断小组耗时 16 个月调研 GAFA 四大平台。</p>
+          </div>
+          <div class="bench-card">
+            <div class="flag">CN · 中国</div>
+            <h5>2021《平台经济领域反垄断指南》</h5>
+            <p>阿里案 182.28 亿罚款 + 美团案 34.42 亿罚款 · "二选一"限定交易被明确禁止。指南与《反垄断法》修订形成"1 部法 + 1 个指南"的规制体系。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">04 · 国内标杆</span>
+        <h2>三大中国数字规制实践</h2>
+        <div class="bench-grid">
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">中央 · 国家数据局</div>
+            <h5>2023 综合治理阶段开启</h5>
+            <p>整合发改委数字经济职能 + 网信办数据要素市场化职能 + 工信部部分职能，成立正部级国家数据局。荥阳定位"国家数据局县级样板首发地"。</p>
+          </div>
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">北京 · 沙盒试点</div>
+            <h5>北京金融科技监管沙盒</h5>
+            <p>2019 年首批试点 6 家机构，形成"入盒—测试—退出"三阶段管理。荥阳数字规制沙箱直接借鉴其"沙盒边界 + 消费者保护 + 退出机制"三要素。</p>
+          </div>
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">深圳 · 数据交易</div>
+            <h5>深圳数据交易所合规实践</h5>
+            <p>2022 年成立深圳数据交易所，率先建立"数据资产登记 + 合规评估 + 交易撮合"全流程。荥数链的三权分置模型部分借鉴其登记规则。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">05 · 荥阳做法</span>
+        <h2>荥阳"规制沙箱"从合规监测升级</h2>
+        <p>荥阳把原本 8 大服务中的 <b>legal 服务</b>从"AI 合规监测"升级为"数字经济企业规制沙箱服务"，覆盖三大议题：</p>
+        <ul>
+          <li><b>平台经济反垄断合规</b>——为入园平台型企业提供"四特征自评工具 + 反垄断风险体检 + 事前咨询"三段服务。</li>
+          <li><b>AI 伦理合规</b>——对齐中国 AI 治理八原则 + 荥阳负责任 AI 公约（见 AI 治理场景），提供算法审计与解释权保障工具。</li>
+          <li><b>数据合规</b>——覆盖《数据安全法》《个人信息保护法》两法合规、跨境数据出境评估、数据要素三权分置合规。</li>
+        </ul>
+
+        <p><b>沙箱运行机制</b>：企业申请入盒 → 荥阳数字规制委员会审议（含政府 + 学术 + 企业三方专家）→ 制定"沙箱边界"（试点范围、消费者保护措施、退出机制）→ 6-12 个月受控测试 → 出盒并形成《合规经验白皮书》。这些白皮书成为荥阳对外输出的核心知识产品。</p>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">06 · 可复制模板</span>
+        <h2>数字规制 6 大工具箱</h2>
+        <div class="tool-grid">
+          <div class="tool-card">
+            <span class="num">01</span>
+            <h5>平台经济四特征自评</h5>
+            <p>15 题问卷，10 分钟输出四维度得分（规模/连接/网络/锁定），配套 3 档合规建议。</p>
+          </div>
+          <div class="tool-card">
+            <span class="num">02</span>
+            <h5>沙箱申请与审议 SOP</h5>
+            <p>从入盒申请到出盒复盘的 12 步流程 · 5 类合规文件模板 · 3 层审议机制。</p>
+          </div>
+          <div class="tool-card">
+            <span class="num">03</span>
+            <h5>反垄断风险体检</h5>
+            <p>基于欧盟 DMA + 中国反垄断指南 · 40 项风险清单 · 自动生成体检报告 PDF。</p>
+          </div>
+          <div class="tool-card">
+            <span class="num">04</span>
+            <h5>算法审计工具包</h5>
+            <p>算法透明性 + 可解释性 + 公平性 3 维审计工具 · 支持第三方独立复核。</p>
+          </div>
+          <div class="tool-card">
+            <span class="num">05</span>
+            <h5>数据出境评估表</h5>
+            <p>《个人信息出境标准合同办法》配套 · 8 项评估要素 · 自评估报告模板。</p>
+          </div>
+          <div class="tool-card">
+            <span class="num">06</span>
+            <h5>合规经验白皮书生成</h5>
+            <p>沙箱出盒后自动汇总测试数据 · 3 段合规经验萃取 · 支持公开发布或授权。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">07 · 实施路线图</span>
+        <h2>3 阶段 · 每阶段 3-6 个月</h2>
+        <div class="roadmap">
+          <div class="rm-phase p1">
+            <span class="ph">Phase 1 · 底座</span>
+            <h5>规制委员会组建 + 工具箱部署</h5>
+            <p>成立数字规制委员会 · 招募三方专家 · 部署 6 大工具箱 · 出具沙箱运行细则 · 试招 3 家沙箱企业。</p>
+            <div class="dur">3-6 个月</div>
+          </div>
+          <div class="rm-phase p2">
+            <span class="ph">Phase 2 · 试运</span>
+            <h5>首批沙箱企业入盒测试</h5>
+            <p>3 家企业进入 6-12 个月沙箱测试 · 每月合规复盘 · 中期评估 · 首份《平台经济合规白皮书》发布。</p>
+            <div class="dur">6-12 个月</div>
+          </div>
+          <div class="rm-phase p3">
+            <span class="ph">Phase 3 · 输出</span>
+            <h5>形成规制样板 · 对外授权</h5>
+            <p>6 大工具箱标准化 · 沙箱申请开放至全国 · 承接国家数据局县级试点 · 沙箱经验向兄弟园区授权。</p>
+            <div class="dur">6-12 个月</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">08 · KPI 与评价指标</span>
+        <h2>对齐"智能-智治-智效"三段</h2>
+        <table class="kpi-table">
+          <thead><tr><th>三段</th><th>核心 KPI</th><th>首年目标</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:var(--brand);">智能</b></td><td>工具箱使用率 · 自评工具 API 调用次数 · 算法审计准确率</td><td>≥ 80% · ≥ 500 次 · ≥ 90%</td></tr>
+            <tr><td><b style="color:var(--warning);">智治</b></td><td>沙箱入盒数量 · 合规白皮书数量 · 规制委员会决策效率</td><td>≥ 5 家 · ≥ 3 份 · ≤ 15 日</td></tr>
+            <tr><td><b style="color:var(--success);">智效</b></td><td>企业合规风险下降率 · 沙箱出盒率 · 兄弟园区引用次数</td><td>≥ 40% · ≥ 80% · ≥ 3 次</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">09 · 常见坑与避坑清单</span>
+        <h2>样板复制者最常踩的 4 个坑</h2>
+        <ul class="pit-list">
+          <li><b>坑 1 · 把"沙箱"做成"通行证"</b>——沙箱不是免罪金牌，而是受控实验。必须严格设定"沙箱边界 + 消费者保护 + 退出机制"三要素，出盒前必须复盘。</li>
+          <li><b>坑 2 · 规制委员会缺少学术方</b>——只有政府 + 企业双方容易变成"利益博弈"，必须引入学术专家（如清华孟天广教授团队）做第三方独立视角。</li>
+          <li><b>坑 3 · 工具箱做而不用</b>——很多城市部署了自评工具但没有强制企业使用。荥阳强制新入园平台企业首年必须完成 4 项工具箱评估。</li>
+          <li><b>坑 4 · 忽视与国家数据局对接</b>——2023 年国家数据局成立后，县级规制样板必须主动向省级数据局报备，争取"县级试点"授牌。</li>
+        </ul>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">10 · 可对接的荥阳资源</span>
+        <h2>专家 · 咨询团队 · 数据集</h2>
+        <ul>
+          <li><b>学术顾问</b>：清华孟天广教授团队（数字规制方向）· 中国信通院政策与经济研究所 · 河南省数据局政策处。</li>
+          <li><b>咨询团队</b>：荥泽数链 legal 服务负责人 · 荥阳数字规制委员会（政府 3 席 + 学术 3 席 + 企业 3 席）。</li>
+          <li><b>数据集</b>：《荥阳沙箱运行月报》· 平台经济四特征自评匿名数据 · 反垄断风险体检报告样本库（脱敏）。</li>
+          <li><b>培训</b>：数字规制沙箱管理员上岗培训 · 平台经济合规官认证班 · 数据出境评估实操工作坊。</li>
+        </ul>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">11 · 下一步</span>
+        <h2>三种方式接入荥阳数字规制样板</h2>
+        <div class="cta-triple">
+          <a href="../output.html"><span class="lead">Booking</span>预约荥阳样板对接</a>
+          <a href="../methodology.html"><span class="lead">Download</span>下载 6 大工具箱</a>
+          <a href="../output.html#training"><span class="lead">Training</span>报名规制沙箱训练营</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<a class="help-widget" href="../output.html" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  样板咨询
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov-soft);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--brand-soft);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:#B7ECD5;">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h5>荥阳数字经济产业园</h5><p style="color:rgba(255,255,255,.7);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p></div>
+      <div class="footer-col"><h5>样板专区</h5><a href="../index.html">样板总览</a><a href="../framework.html">理论框架</a><a href="../methodology.html">方法论</a><a href="../output.html">输出模式</a></div>
+      <div class="footer-col"><h5>5 大场景</h5><a href="./dual-sense-city.html">双感城市</a><a href="./digital-government.html">数字政府</a><a href="./data-governance.html">数据要素</a><a href="./ai-governance.html">AI 治理</a></div>
+      <div class="footer-col"><h5>联系我们</h5><a href="../../about/">关于我们</a><a href="../../newsroom/">新闻中心</a><a href="../benchmarks.html">对标标杆</a><a href="mailto:model-city@xingyang-park.gov.cn">model-city@xingyang-park.gov.cn</a></div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 理论体系引自清华大学孟天广教授《数字政府与治理现代化》5 讲</div>
+  </div>
+</footer>
+</body>
+</html>

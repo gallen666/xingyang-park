@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>荥阳样板 · 智慧城市样板专区 · 中国首个县级双感园区数字治理方案对外输出中心</title>
+<meta name="description" content="荥阳样板（Xingyang Model）——中国首个县级双感园区数字治理方案对外输出中心。基于清华大学孟天广教授"数字治理生态"理论 · 5 大可复制场景 · 4 种商业模式（技术授权 / 战略咨询 / 联合建设 / 合作代运营）· 让每一个县市都能照着做。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--warning); font-weight: 700; }
+
+  .hero-mc {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(circle at 85% 30%, var(--brand-soft) 0%, transparent 50%),
+      radial-gradient(circle at 15% 80%, #F0F6FB 0%, transparent 40%),
+      var(--bg);
+    border-bottom: 1px solid var(--bg-line);
+    padding: var(--sp-24) 0 var(--sp-20);
+  }
+  .hero-mc-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--sp-8); }
+  .hero-mc h1 {
+    font-size: clamp(36px, 5.5vw, 72px); line-height: 1.05;
+    letter-spacing: -0.03em; color: var(--text); font-weight: 700;
+    max-width: 1100px; margin: var(--sp-6) 0 var(--sp-6);
+  }
+  .hero-mc h1 .accent { color: var(--brand); }
+  .hero-mc .hero-lead { max-width: 880px; }
+
+  .theory-quote {
+    max-width: 1100px; margin: var(--sp-10) 0 0;
+    padding: var(--sp-8) var(--sp-10);
+    background: var(--bg-2);
+    border-left: 4px solid var(--brand);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .theory-quote p { color: var(--text-1); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .theory-quote cite { display: block; margin-top: var(--sp-4); color: var(--text-3); font-style: normal; font-size: var(--fs-sm); }
+  .theory-quote cite b { color: var(--text); font-weight: 600; }
+
+  /* 5 场景 grid */
+  .uc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-5); margin-top: var(--sp-10); }
+  @media (max-width: 1200px) { .uc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .uc-grid { grid-template-columns: 1fr; } }
+  .uc-card {
+    padding: var(--sp-8) var(--sp-6);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+    color: var(--text); position: relative;
+  }
+  .uc-card:hover { transform: translateY(-4px); border-color: var(--brand-line); box-shadow: var(--shadow-md); color: var(--text); }
+  .uc-num {
+    font-size: var(--fs-sm); color: var(--brand); font-weight: 700; letter-spacing: .1em;
+  }
+  .uc-title { font-size: var(--fs-lg); font-weight: 700; color: var(--text); line-height: 1.25; }
+  .uc-sub { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); flex: 1; margin-bottom: var(--sp-4); }
+  .uc-lecture { font-size: var(--fs-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; }
+  .uc-cta { color: var(--brand); font-weight: 600; font-size: var(--fs-sm); }
+  .uc-cta::after { content: " →"; transition: transform var(--dur-fast) var(--ease); display: inline-block; margin-left: var(--sp-1); }
+  .uc-card:hover .uc-cta::after { transform: translateX(4px); }
+
+  /* 4 输出商业模式 grid */
+  .out-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); margin-top: var(--sp-10); }
+  @media (max-width: 1100px) { .out-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .out-grid { grid-template-columns: 1fr; } }
+  .out-card {
+    padding: var(--sp-8);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    color: var(--text);
+    transition: border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+  }
+  .out-card:hover { border-color: var(--brand-line); box-shadow: var(--shadow-md); }
+  .out-badge {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-size: var(--fs-xs); color: var(--brand); font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: var(--sp-2);
+  }
+  .out-title { font-size: var(--fs-md); font-weight: 700; color: var(--text); }
+  .out-lead { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); flex: 1; }
+  .out-price { color: var(--warning); font-weight: 700; font-size: var(--fs-sm); font-variant-numeric: tabular-nums; }
+
+  /* 三层战略跃迁 */
+  .strat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-10); }
+  @media (max-width: 900px) { .strat-grid { grid-template-columns: 1fr; } }
+  .strat-card {
+    padding: var(--sp-8);
+    background: var(--bg-2); border: 1px solid var(--bg-line);
+    border-top: 4px solid var(--brand);
+    border-radius: var(--radius-lg);
+  }
+  .strat-card.v4 { border-top-color: var(--gov); }
+  .strat-card.v5 { border-top-color: var(--warning); background: linear-gradient(180deg, #FFFCF3 0%, var(--bg-2) 80%); }
+  .strat-ver { font-size: var(--fs-sm); color: var(--brand); font-weight: 700; letter-spacing: .08em; }
+  .strat-card.v4 .strat-ver { color: var(--gov); }
+  .strat-card.v5 .strat-ver { color: var(--warning); }
+  .strat-title { font-size: var(--fs-lg); font-weight: 700; color: var(--text); margin: var(--sp-2) 0 var(--sp-4); }
+  .strat-body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+
+  /* Stats banner v5 special */
+  .stats-mc {
+    padding: var(--sp-12) var(--sp-8);
+    background: var(--brand-dark); color: #fff;
+    border-radius: var(--radius-lg);
+    margin-top: var(--sp-10);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-10);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .stats-mc::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(0,124,195,.3) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(200,16,46,.2) 0%, transparent 40%);
+  }
+  .stats-mc .stat { position: relative; z-index: 1; }
+  .stats-mc .stat-num { color: #fff; font-size: clamp(32px, 4vw, 56px); font-weight: 800; letter-spacing: -.03em; margin-bottom: var(--sp-2); }
+  .stats-mc .stat-label { color: rgba(255,255,255,.75); font-size: var(--fs-sm); }
+  @media (max-width: 900px) { .stats-mc { grid-template-columns: repeat(2, 1fr); gap: var(--sp-8); } }
+
+  /* 底部 CTA */
+  .cta-band {
+    padding: var(--sp-16) var(--sp-8);
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #001E3A 100%);
+    border-radius: var(--radius-lg);
+    color: #fff; text-align: center;
+    margin-top: var(--sp-10);
+  }
+  .cta-band h3 { font-size: var(--fs-2xl); font-weight: 700; color: #fff; margin-bottom: var(--sp-3); letter-spacing: -.02em; }
+  .cta-band p { color: rgba(255,255,255,.75); font-size: var(--fs-md); max-width: 640px; margin: 0 auto var(--sp-8); line-height: var(--lh-relaxed); }
+  .cta-band .cta-row { display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap; }
+  .cta-band .btn-primary { background: #fff; color: var(--brand-dark); border-color: #fff; }
+  .cta-band .btn-primary:hover { background: var(--brand-soft); color: var(--brand-dark); border-color: var(--brand-soft); }
+  .cta-band .btn-ghost { color: #fff; border-color: rgba(255,255,255,.4); }
+  .cta-band .btn-ghost:hover { background: rgba(255,255,255,.1); color: #fff; border-color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- 全局导航 -->
+<nav class="nav-global" role="navigation" aria-label="全站导航">
+  <div class="nav-global-inner">
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+    <div class="nav-items">
+      <a href="../platforms/">平台</a>
+      <a href="../services/">服务</a>
+      <a href="../sub-brands/">数字生态</a>
+      <a href="../insights/">洞察</a>
+      <a href="../newsroom/">新闻</a>
+      <a href="../about/">关于我们</a>
+      <a href="./" class="active">样板</a>
+    </div>
+    <a class="nav-cta" href="#contact">申请样板复制</a>
+  </div>
+</nav>
+
+<!-- 子导航 -->
+<div class="subnav">
+  <div class="subnav-inner">
+    <span class="subnav-brand">MODEL CITY · 荥阳样板</span>
+    <a href="./index.html" class="active">总览</a>
+    <a href="./framework.html">理论框架</a>
+    <a href="./use-cases/dual-sense-city.html">5 大场景</a>
+    <a href="./methodology.html">方法论</a>
+    <a href="./benchmarks.html">标杆</a>
+    <a href="./output.html">输出模式</a>
+  </div>
+</div>
+
+<!-- ============ 1. Hero ============ -->
+<section class="hero-mc">
+  <div class="hero-mc-inner">
+    <span class="hero-kicker">MODEL CITY · 智慧城市样板专区</span>
+    <h1>荥阳样板 · <span class="accent">中国首个县级双感园区</span><br>数字治理方案对外输出中心</h1>
+    <p class="hero-lead">
+      荥阳数字经济产业园深度学习清华大学孟天广教授《数字政府与治理现代化》5 讲课程，
+      形成"<b>物感 + 人感</b>"双感园区治理范式。v5.0 战略把荥阳从"介绍我们做什么"跃迁到"教别人怎么做"——
+      成为<b>可复制、可推广、可输出</b>的县级智慧城市样板。给全国 2000+ 县市证明：<b>县级市也能做数字治理。</b>
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#use-cases">
+        查看 5 大可复制场景
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-ghost" href="./output.html">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        了解 4 种输出模式
+      </a>
+    </div>
+
+    <div class="theory-quote">
+      <p>
+        "数字政府建设是一项<b>系统性工程</b>，需要构建<b>包容协同的数字治理生态</b>——治理主体 + 治理资源。
+        中国数字政府建设的分层体系为回应型、枢纽型、战略性；治理机制则是<b>数据赋能、技术赋权、集体赋智</b>。"
+      </p>
+      <cite>—— 引自 <b>清华大学孟天广教授</b>《数字政府与治理现代化》第一讲结语。孟天广现任 <b>清华大学社会科学学院副院长、政治学系长聘教授、清华大学数据治理研究中心主任、教育部"计算社会科学与国家治理"文科重点实验室副主任</b>。</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. v3 → v4 → v5 三层战略跃迁 ============ -->
+<section class="section" id="strategy">
+  <div class="container-wide">
+    <span class="section-kicker">STRATEGY · 荥阳战略叙事三层楼</span>
+    <h2 class="section-title">v3 有产品 · v4 上台面 · <span style="color:var(--warning);">v5 能复制</span></h2>
+    <p class="section-lead">
+      每一次跃迁都增加一个维度：v3 回答"荥阳做什么"，v4 回答"荥阳与国家战略如何同频"，
+      <b>v5 回答"荥阳如何让别人复制自己"</b>。技术上做 Infosys，政策上对齐数字中国，治理上做样板输出。
+    </p>
+
+    <div class="strat-grid">
+      <div class="strat-card">
+        <span class="strat-ver">v3.0 · 产业侧</span>
+        <h3 class="strat-title">中国的 Infosys · AI + 云一站式数字化转型服务专家</h3>
+        <p class="strat-body">
+          面向<b>企业客户 · 招商对象</b>。核心资产语言：4 平台（DTSI / X-Flow / PDTMM / OpenX@X）+
+          8 大运营服务 + 4 子品牌（荥数云 / 荥智造 / 荥数链 / 荥数才）。
+          解决"荥阳能提供什么"的产品叙事。
+        </p>
+      </div>
+      <div class="strat-card v4">
+        <span class="strat-ver">v4.0 · 国家侧</span>
+        <h3 class="strat-title">数字中国 2522 整体布局的中原落地样板</h3>
+        <p class="strat-body">
+          面向<b>政府领导 · 中央部委 · 媒体</b>。核心资产语言：35 条国家关键词对标，把荥阳资产逐条对齐
+          "两个基础 + 五位一体 + 两大能力 + 两个环境"。解决"荥阳与国家战略如何同频"的政策叙事。
+        </p>
+      </div>
+      <div class="strat-card v5">
+        <span class="strat-ver">v5.0 · 治理侧</span>
+        <h3 class="strat-title">可复制、可推广、可输出的智慧城市建设样板</h3>
+        <p class="strat-body">
+          面向<b>兄弟城市 · 县区政府 · 智慧城市联盟</b>。核心资产语言：清华孟天广 5 讲治理理论 × 荥阳方法论。
+          解决"荥阳如何让别人复制自己"—— <b>样板不是复制园区外形，而是复制园区背后的数字治理生态构建方法。</b>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 5 大可复制场景 ============ -->
+<section class="section" id="use-cases" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">USE CASES · 5 大可复制场景</span>
+    <h2 class="section-title">5 讲理论 · 5 大场景 · 每场景 12 段落地模板</h2>
+    <p class="section-lead">
+      每个场景包含孟天广教授理论原文、国际/国内标杆、荥阳做法、可下载 SOP、3 阶段实施路线图、
+      KPI 与评价指标、常见坑与避坑清单、可对接的荥阳资源 —— <b>对样板复制者最有价值。</b>
+    </p>
+
+    <div class="uc-grid">
+      <a class="uc-card" href="./use-cases/digital-government.html">
+        <span class="uc-num">01</span>
+        <h3 class="uc-title">数字政府应用场景</h3>
+        <span class="uc-lecture">对应第 1 讲 · 数字政府概论</span>
+        <p class="uc-sub">从"整体智治"到"敏捷高效"—— 借鉴浙江"数字化改革五大系统"的园区级实施 · 荥阳版"接企即办"响应机制。</p>
+        <span class="uc-cta">查看数字政府场景</span>
+      </a>
+      <a class="uc-card" href="./use-cases/digital-regulation.html">
+        <span class="uc-num">02</span>
+        <h3 class="uc-title">数字规制场景</h3>
+        <span class="uc-lecture">对应第 2 讲 · 数字经济与规制</span>
+        <p class="uc-sub">平台经济园区级合规沙箱 · 平台四特征自评工具 · 数字规制 6 大工具箱 · 面向入园平台企业。</p>
+        <span class="uc-cta">查看数字规制场景</span>
+      </a>
+      <a class="uc-card" href="./use-cases/dual-sense-city.html">
+        <span class="uc-num">03</span>
+        <h3 class="uc-title">双感城市场景 · 核心</h3>
+        <span class="uc-lecture">对应第 3 讲 · 新型智慧城市</span>
+        <p class="uc-sub">物感 + 人感 · <b>中国首个县级双感园区</b> · 荥阳智脑 1+1+2+N 架构 · 荥感通 / 荥商通 / 荥企通三通产品线。</p>
+        <span class="uc-cta">查看双感城市场景</span>
+      </a>
+      <a class="uc-card" href="./use-cases/data-governance.html">
+        <span class="uc-num">04</span>
+        <h3 class="uc-title">数据要素治理场景</h3>
+        <span class="uc-lecture">对应第 4 讲 · 数据要素治理</span>
+        <p class="uc-sub">三权分置 · 八项开放 · 四层安全 · 数据要素价值化三阶段（资源化 → 资产化 → 资本化）完整 SOP。</p>
+        <span class="uc-cta">查看数据要素场景</span>
+      </a>
+      <a class="uc-card" href="./use-cases/ai-governance.html">
+        <span class="uc-num">05</span>
+        <h3 class="uc-title">AI 政府治理场景</h3>
+        <span class="uc-lecture">对应第 5 讲 · 智能政府与未来治理</span>
+        <p class="uc-sub">负责任 AI · 算法四治理 · 智效评价 · 荥阳版《负责任 AI 公约》对齐中国 AI 治理八原则。</p>
+        <span class="uc-cta">查看 AI 治理场景</span>
+      </a>
+    </div>
+
+    <div class="stats-mc">
+      <div class="stat"><div class="stat-num">5 讲</div><div class="stat-label">清华孟天广教授理论体系全覆盖</div></div>
+      <div class="stat"><div class="stat-num">30 条</div><div class="stat-label">理论概念与荥阳资产精准对标</div></div>
+      <div class="stat"><div class="stat-num">10 篇</div><div class="stat-label">方法论 SOP · 可复制手册</div></div>
+      <div class="stat"><div class="stat-num">4 模式</div><div class="stat-label">对外输出商业模式 · 首年 ¥3700 万</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. 对外输出四种商业模式 ============ -->
+<section class="section" id="output-modes">
+  <div class="container-wide">
+    <span class="section-kicker">OUTPUT MODES · 四种对外输出商业模式</span>
+    <h2 class="section-title">从内容授权到联合建设 · 从轻到重的复制路径</h2>
+    <p class="section-lead">
+      样板一旦形成，输出模式决定杠杆倍率。荥阳设计 4 种模式覆盖不同客户成熟度：
+      县级园区研究者用内容授权入门；主管政府用战略咨询做体检；地级市/大县用联合建设共建"荥阳分中心"；
+      成熟客户用合作代运营 3 年 KPI 分账。
+    </p>
+
+    <div class="out-grid">
+      <div class="out-card">
+        <span class="out-badge">
+          <svg class="icon" style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+          模式 01 · 最轻
+        </span>
+        <h3 class="out-title">技术授权（内容 + 商标）</h3>
+        <p class="out-lead">
+          <b>DTSI® / PDTMM® / X-Flow™ / OpenX@X™</b> 商标授权 + 白皮书 + SOP 模板 + Insights 长期更新推送。
+          面向 100+ 城市研究者与咨询公司。参照 Gartner / IDC / 清华大数据中心报告的会员制模式。
+        </p>
+        <p class="out-price">单城市首年 ¥200-500 万 / 年费会员 ¥100-300 万</p>
+      </div>
+
+      <div class="out-card">
+        <span class="out-badge">
+          <svg class="icon" style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          模式 02 · 主打
+        </span>
+        <h3 class="out-title">战略咨询</h3>
+        <p class="out-lead">
+          孟天广教授团队学术背书 + 荥泽首席咨询团队交付。产品：荥阳智效诊断 3-5 周 · 双感园区规划 2-3 月 ·
+          荥阳样板复制指导 6-12 月。参照麦肯锡 / 埃森哲 / Infosys Consulting 交付节奏。
+        </p>
+        <p class="out-price">¥180-500 万 / 项 · 复制指导 ¥500-2000 万</p>
+      </div>
+
+      <div class="out-card">
+        <span class="out-badge">
+          <svg class="icon" style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          模式 03 · 战略合作
+        </span>
+        <h3 class="out-title">联合建设（荥数链共建）</h3>
+        <p class="out-lead">
+          荥阳与兄弟城市/园区联合共建"荥阳分中心"：技术架构 + 运营 SOP 全部输出。
+          6-18 个月交付周期。参照华为智慧城市联合运营 · 阿里云城市大脑联合运营模式。
+        </p>
+        <p class="out-price">¥800 万-3000 万一次性 + 年度运营分成 5-15%</p>
+      </div>
+
+      <div class="out-card">
+        <span class="out-badge">
+          <svg class="icon" style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          模式 04 · 最重
+        </span>
+        <h3 class="out-title">合作代运营</h3>
+        <p class="out-lead">
+          荥泽数链派驻团队入驻兄弟园区，代为运营 3 年，按 KPI 达成分账（渗透性 / 回应度 / 满意度 三段）。
+          荥阳"荥阳智效指数"作为 KPI 尺子。适合追求成效但缺乏本地团队的县级园区。
+        </p>
+        <p class="out-price">3 年协议 · 按 KPI 分账 20-40%</p>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--sp-10); padding: var(--sp-8); background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg);">
+      <h3 style="font-size: var(--fs-lg); font-weight: 700; color: var(--text); margin-bottom: var(--sp-4);">首年 3700 万营收路径 · 4-6 家客户</h3>
+      <p style="color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed);">
+        技术授权 20 单 × ¥15 万 = ¥300 万 · 战略咨询 5 单 × ¥80 万 = ¥400 万 · 联合建设 1 单 × ¥3000 万 = ¥3000 万 ·
+        <b>首年合计 ¥3700 万</b> · 三年目标：单样板业务营收 ¥1.5-3 亿。
+        <a href="./output.html" style="color: var(--brand); font-weight: 600;">查看完整定价与合作路径 →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. 底部 CTA ============ -->
+<section class="section-tight" id="contact">
+  <div class="container-wide">
+    <div class="cta-band">
+      <h3>准备好把荥阳样板搬到贵市 / 贵园区了吗？</h3>
+      <p>无论您是县级园区管委会、地市数据局、还是智慧城市规划商，荥泽数链都提供从内容授权到联合建设的全谱系合作。3 周内即可完成首轮诊断。</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="./output.html">申请样板复制</a>
+        <a class="btn-ghost" href="./methodology.html">下载方法论手册</a>
+        <a class="btn-ghost" href="mailto:model-city@xingyang-park.gov.cn">联系荥泽数链</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky 咨询 -->
+<a class="help-widget" href="#contact" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  样板咨询
+</a>
+
+<!-- Footer -->
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov-soft);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--brand-soft);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:#B7ECD5;">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>荥阳数字经济产业园</h5>
+        <p style="color:rgba(255,255,255,.7);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+      </div>
+      <div class="footer-col">
+        <h5>样板专区</h5>
+        <a href="./index.html">样板总览</a>
+        <a href="./framework.html">理论框架</a>
+        <a href="./methodology.html">方法论</a>
+        <a href="./output.html">输出模式</a>
+      </div>
+      <div class="footer-col">
+        <h5>5 大场景</h5>
+        <a href="./use-cases/dual-sense-city.html">双感城市</a>
+        <a href="./use-cases/digital-government.html">数字政府</a>
+        <a href="./use-cases/data-governance.html">数据要素</a>
+        <a href="./use-cases/ai-governance.html">AI 治理</a>
+      </div>
+      <div class="footer-col">
+        <h5>联系我们</h5>
+        <a href="../about/">关于我们</a>
+        <a href="../newsroom/">新闻中心</a>
+        <a href="./benchmarks.html">对标标杆</a>
+        <a href="mailto:model-city@xingyang-park.gov.cn">model-city@xingyang-park.gov.cn</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · DTSI® / PDTMM® / X-Flow™ / OpenX@X™ 均已注册商标 · 理论体系引自清华大学孟天广教授《数字政府与治理现代化》5 讲</div>
+  </div>
+</footer>
+
+</body>
+</html>

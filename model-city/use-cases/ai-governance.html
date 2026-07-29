@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 政府治理场景 · 荥阳样板 · 对应清华孟天广教授第 5 讲</title>
+<meta name="description" content="智能政府四大应用场景（眼-手-脑-耳）· 荥阳负责任 AI 公约（对齐中国 AI 治理八原则）· 算法治理四目标（可控/透明/安全/公平）· 智能-智治-智效三段体系 = 荥阳智效指数框架。">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<style>
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--warning); font-weight: 700; }
+  .uc-article { max-width: 960px; margin: 0 auto; }
+  .uc-step { padding: var(--sp-8) 0; border-bottom: 1px solid var(--bg-line); }
+  .uc-step:last-child { border-bottom: 0; }
+  .uc-step-num { display: inline-block; padding: 2px var(--sp-3); background: var(--brand-soft); color: var(--brand); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .1em; border-radius: var(--radius-sm); margin-bottom: var(--sp-3); }
+  .uc-step h2 { font-size: var(--fs-xl); font-weight: 700; color: var(--text); margin-bottom: var(--sp-4); line-height: var(--lh-tight); letter-spacing: -.02em; }
+  .uc-step p { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .uc-step ul, .uc-step ol { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin: 0 0 var(--sp-4) var(--sp-6); }
+  .uc-step li { margin-bottom: var(--sp-2); }
+  .uc-step b { color: var(--text); }
+  .uc-step blockquote { margin: var(--sp-4) 0; padding: var(--sp-5) var(--sp-6); background: var(--brand-soft); border-left: 3px solid var(--brand); border-radius: 0 var(--radius) var(--radius) 0; color: var(--brand-dark); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .uc-step blockquote cite { display: block; margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--text-2); font-style: normal; }
+  .bench-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .bench-grid { grid-template-columns: 1fr; } }
+  .bench-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); border-top: 3px solid var(--accent); }
+  .bench-card h5 { font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin-bottom: var(--sp-2); }
+  .bench-card p { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+  .bench-card .flag { font-size: var(--fs-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--sp-1); }
+  .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .roadmap { grid-template-columns: 1fr; } }
+  .rm-phase { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); border-left: 4px solid var(--brand); }
+  .rm-phase.p2 { border-left-color: var(--warning); }
+  .rm-phase.p3 { border-left-color: var(--success); }
+  .rm-phase .ph { font-size: var(--fs-xs); font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: .1em; }
+  .rm-phase.p2 .ph { color: var(--warning); }
+  .rm-phase.p3 .ph { color: var(--success); }
+  .rm-phase h5 { font-size: var(--fs-md); font-weight: 700; color: var(--text); margin: var(--sp-2) 0; }
+  .rm-phase p { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+  .rm-phase .dur { font-size: var(--fs-xs); color: var(--text-3); margin-top: var(--sp-3); font-family: var(--font-mono); }
+  .kpi-table { width: 100%; border-collapse: collapse; background: var(--bg-2); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); margin: var(--sp-4) 0; }
+  .kpi-table th, .kpi-table td { padding: var(--sp-3) var(--sp-4); text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--bg-line); }
+  .kpi-table th { background: var(--brand-soft); color: var(--brand-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-xs); }
+  .pit-list { list-style: none; padding: 0; margin: var(--sp-4) 0; }
+  .pit-list li { padding: var(--sp-4) var(--sp-5); background: #FDF6EC; border: 1px solid #F5D89E; border-left: 3px solid var(--warning); border-radius: var(--radius); margin-bottom: var(--sp-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .pit-list li b { color: var(--warning); }
+  .cta-triple { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .cta-triple { grid-template-columns: 1fr; } }
+  .cta-triple a { padding: var(--sp-6); text-align: center; background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); color: var(--text); font-weight: 600; transition: border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease); }
+  .cta-triple a:hover { border-color: var(--brand); box-shadow: var(--shadow); color: var(--brand); }
+  .cta-triple a .lead { display: block; font-size: var(--fs-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: var(--sp-2); }
+
+  /* 眼-手-脑-耳 四场景 */
+  .ai-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .ai-4 { grid-template-columns: repeat(2, 1fr); } }
+  .ai-card { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); text-align: center; }
+  .ai-card .part { font-size: var(--fs-2xl); font-weight: 800; color: var(--brand); }
+  .ai-card h5 { font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin: var(--sp-2) 0 var(--sp-1); }
+  .ai-card p { font-size: var(--fs-xs); color: var(--text-2); line-height: var(--lh-relaxed); }
+
+  /* 8 原则 */
+  .principle-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-3); margin: var(--sp-4) 0; }
+  @media (max-width: 900px) { .principle-grid { grid-template-columns: repeat(2, 1fr); } }
+  .pri-card { padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius); border-left: 3px solid var(--gov); }
+  .pri-card .n { font-size: var(--fs-xs); color: var(--gov); font-weight: 700; letter-spacing: .1em; }
+  .pri-card h6 { font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin: var(--sp-1) 0; }
+  .pri-card p { font-size: var(--fs-xs); color: var(--text-2); }
+
+  /* 智能-智治-智效 三段 */
+  .stage-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .stage-3 { grid-template-columns: 1fr; } }
+  .stage-card { padding: var(--sp-8); border-radius: var(--radius-lg); text-align: center; color: #fff; }
+  .stage-1 { background: linear-gradient(135deg, #007CC3 0%, #003D69 100%); }
+  .stage-2 { background: linear-gradient(135deg, #F5A623 0%, #C68A0E 100%); }
+  .stage-3s { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
+  .stage-card .pct { font-size: var(--fs-3xl); font-weight: 800; line-height: 1; letter-spacing: -.03em; }
+  .stage-card h5 { font-size: var(--fs-lg); font-weight: 700; margin: var(--sp-2) 0; color: #fff; }
+  .stage-card p { font-size: var(--fs-sm); color: rgba(255,255,255,.9); line-height: var(--lh-relaxed); }
+</style>
+</head>
+<body>
+
+<nav class="nav-global"><div class="nav-global-inner">
+  <a class="nav-brand" href="../../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+  <div class="nav-items">
+    <a href="../../platforms/">平台</a><a href="../../services/">服务</a><a href="../../sub-brands/">数字生态</a>
+    <a href="../../insights/">洞察</a><a href="../../newsroom/">新闻</a><a href="../../about/">关于我们</a>
+    <a href="../" class="active">样板</a>
+  </div>
+  <a class="nav-cta" href="../output.html">申请样板复制</a>
+</div></nav>
+
+<div class="subnav"><div class="subnav-inner">
+  <span class="subnav-brand">MODEL CITY · 荥阳样板</span>
+  <a href="../index.html">总览</a><a href="../framework.html">理论框架</a>
+  <a href="./dual-sense-city.html" class="active">5 大场景</a>
+  <a href="../methodology.html">方法论</a><a href="../benchmarks.html">标杆</a><a href="../output.html">输出模式</a>
+</div></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">USE CASE 05 · AI 政府治理场景 · 对应第 5 讲</span>
+    <h1 class="hero-title">AI 政府治理场景 · 荥阳样板<br>负责任 AI · 算法四治理 · 智效评价 —— 让 AI 既跑得快又跑得稳</h1>
+    <p class="hero-lead">
+      智能政府四大应用场景（<b>眼-手-脑-耳</b>）+ 荥阳负责任 AI 公约（对齐<b>中国 AI 治理八原则</b>）+
+      算法治理四目标（<b>可控 / 透明 / 安全 / 公平</b>）+ <b>智能-智治-智效</b>三段体系 = <b>荥阳智效指数</b>框架。
+      这套框架既作为荥阳自身 8 大服务的 AI 能力标签，也作为荥阳对外输出的核心评价工具。
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="uc-article">
+
+      <div class="uc-step">
+        <span class="uc-step-num">01 · 理论根基</span>
+        <h2>孟天广教授原文引述</h2>
+        <blockquote>
+          "智能治理的未来图景：<b>智能（主体）→ 智治（过程）→ 智效（效果）</b>三段递进。AI 技术三要素是数据、算力、算法；AI 四大类型是听觉、视觉、自然语言处理、规划决策；智能政府四大应用场景对应<b>眼（监管）· 手（服务）· 脑（决策）· 耳（应急）</b>。面向未来 AI 治理体系需要三位一体：<b>法治（权利视角）+ 监管（产业视角）+ 伦理（专业视角）</b>。"
+          <cite>—— 引自清华大学孟天广教授《数字政府与治理现代化》第 5 讲 · 智能政府与未来治理</cite>
+        </blockquote>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">02 · 理论框架 1 分钟速览</span>
+        <h2>智能政府四大应用场景（眼-手-脑-耳）</h2>
+        <div class="ai-4">
+          <div class="ai-card">
+            <div class="part">眼</div>
+            <h5>智能监管</h5>
+            <p>环境保护 · 公共安全 · 食品认证 · 视觉/图像 AI 应用</p>
+          </div>
+          <div class="ai-card">
+            <div class="part">手</div>
+            <h5>智能政务服务</h5>
+            <p>掌上政务大厅 · 智能办事助手 · 政务服务知识库 · NLP/规划决策</p>
+          </div>
+          <div class="ai-card">
+            <div class="part">脑</div>
+            <h5>智能决策</h5>
+            <p>城市大脑 · 宏观经济调控 · 数据驱动 · 规划决策系统</p>
+          </div>
+          <div class="ai-card">
+            <div class="part">耳</div>
+            <h5>智能应急管理</h5>
+            <p>消防 · 旅游 · 网络舆情 · 听觉/多模态 AI</p>
+          </div>
+        </div>
+        <p><b>AI 伦理五大悖论（谭九生 2020）</b>：秩序 vs 隐私（安全悖论）· 参与 vs 极化（民主悖论）· 优化 vs 依赖（自主悖论）· 治理 vs 迷离（责任悖论）· 增量 vs 减损（公正悖论）。</p>
+        <p><b>算法治理"技术-社群"双向约束</b>：技术路径（算法可控 · 算法透明 · 算法安全 · 算法公平）+ 社群路径（立法与监管 + 行业自律 + 大众算法素养）。</p>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">03 · 国际标杆</span>
+        <h2>三大国际 AI 治理参照系</h2>
+        <div class="bench-grid">
+          <div class="bench-card">
+            <div class="flag">EU · 欧盟</div>
+            <h5>EU AI Act 分级监管</h5>
+            <p>2024 年正式生效 · 按风险等级把 AI 分为不可接受/高/有限/最小四类 · 高风险 AI 系统必须完成合规评估 + 注册。全球首部综合性 AI 立法。</p>
+          </div>
+          <div class="bench-card">
+            <div class="flag">USA · 美国</div>
+            <h5>NIST AI RMF 风险管理框架</h5>
+            <p>美国国家标准与技术研究院发布 · Govern / Map / Measure / Manage 四大功能 · 面向企业和政府的自愿性 AI 风险管理框架。</p>
+          </div>
+          <div class="bench-card">
+            <div class="flag">GLB · 全球</div>
+            <h5>OECD AI 原则</h5>
+            <p>2019 年 42 国签署 · 包容性增长 + 以人为本 + 透明可解释 + 稳健安全 + 问责五原则。中国 AI 治理八原则与之高度对齐。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">04 · 国内标杆</span>
+        <h2>三大国内 AI 治理实践</h2>
+        <div class="bench-grid">
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">中央 · 国家标准</div>
+            <h5>《新一代人工智能治理原则》八条</h5>
+            <p>2019 年科技部发布 · 和谐友好 · 公平公正 · 包容共享 · 尊重隐私 · 安全可控 · 共担责任 · 开放协作 · 敏捷治理。荥阳负责任 AI 公约直接对齐。</p>
+          </div>
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">上海 · 算法审计</div>
+            <h5>上海生成式 AI 算法备案</h5>
+            <p>2023 年起国家网信办要求生成式 AI 完成算法备案 · 上海率先建立地方审计流程 · 荥阳数字规制沙箱的算法审计工具包借鉴其流程。</p>
+          </div>
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">北京 · 大模型</div>
+            <h5>北京大模型示范应用</h5>
+            <p>北京市 2023 年发布《促进通用人工智能创新发展的若干措施》· 政务大模型率先落地 12345 热线智能应答 · 荥阳"接企即办"AI 分诊参考此路径。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">05 · 荥阳做法</span>
+        <h2>荥阳负责任 AI 公约 · 对齐中国 AI 治理八原则</h2>
+        <p>荥阳发布《荥阳负责任 AI 与算法治理自律公约》，全文对齐中国八原则并加入地方补充条款：</p>
+        <div class="principle-grid">
+          <div class="pri-card"><span class="n">01</span><h6>和谐友好</h6><p>AI 服务不得损害社会公序良俗</p></div>
+          <div class="pri-card"><span class="n">02</span><h6>公平公正</h6><p>算法不得基于地域/年龄/性别歧视</p></div>
+          <div class="pri-card"><span class="n">03</span><h6>包容共享</h6><p>老龄化友好 · 无障碍适配</p></div>
+          <div class="pri-card"><span class="n">04</span><h6>尊重隐私</h6><p>最小必要原则 · 数据去标识化</p></div>
+          <div class="pri-card"><span class="n">05</span><h6>安全可控</h6><p>算法可控 · 事故追溯 · 人工兜底</p></div>
+          <div class="pri-card"><span class="n">06</span><h6>共担责任</h6><p>开发方/运营方/使用方三方权责清晰</p></div>
+          <div class="pri-card"><span class="n">07</span><h6>开放协作</h6><p>算法开源 · 学术合作 · 行业协同</p></div>
+          <div class="pri-card"><span class="n">08</span><h6>敏捷治理</h6><p>规则可迭代 · 沙箱可试点</p></div>
+        </div>
+
+        <p><b>算法治理四目标</b>（技术路径）：</p>
+        <ul>
+          <li><b>算法可控（无支配）</b>——保证人对算法的最终决策权 · 关键决策必须人工审核（如接企即办的诉求处理不得完全交给 AI）。</li>
+          <li><b>算法透明（无黑箱）</b>——算法逻辑对被评估方公开 · 支持解释权行使 · 关键场景必须提供算法白皮书。</li>
+          <li><b>算法安全（无危险）</b>——防范对抗攻击 + 防范数据投毒 + 防范隐私泄露 · 定期算法安全测试。</li>
+          <li><b>算法公平（无歧视）</b>——多群体表现均衡 · 定期公平性审计 · 建立算法歧视救济机制。</li>
+        </ul>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">06 · 可复制模板</span>
+        <h2>智能-智治-智效三段 = 荥阳智效指数框架</h2>
+        <div class="stage-3">
+          <div class="stage-card stage-1">
+            <div class="pct">30%</div>
+            <h5>智能 · 技术能力</h5>
+            <p>算力（8.6 EFLOPS）+ 数据（荥数链 500+ 数据集）+ AI 应用（8 大服务 AI 标签）。这是"能不能做"的基础问题。</p>
+          </div>
+          <div class="stage-card stage-2">
+            <div class="pct">40%</div>
+            <h5>智治 · 治理能力</h5>
+            <p>数据治理（四层组织架构）+ 算法治理（四目标）+ 政企协同（1+1+2+N）。这是"做对不对"的过程问题。</p>
+          </div>
+          <div class="stage-card stage-3s">
+            <div class="pct">30%</div>
+            <h5>智效 · 治理效果</h5>
+            <p>渗透性（覆盖率）+ 回应度（首响 + 闭环）+ 满意度（企业 + 员工 + 居民）。这是"做得好不好"的结果问题。</p>
+          </div>
+        </div>
+        <p>三段权重 30/40/30 参照孟教授团队"数字政府发展指数"（15/15/40/30）与"开放数林指数"设计逻辑。首年只评荥阳自己作为基准；次年邀请 3-5 个县级园区自评，形成"荥阳版·县级园区数字治理指数排行榜"。</p>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">07 · 实施路线图</span>
+        <h2>3 阶段 · 每阶段 3-6 个月</h2>
+        <div class="roadmap">
+          <div class="rm-phase p1">
+            <span class="ph">Phase 1 · 智能</span>
+            <h5>AI 能力标签 + 负责任 AI 公约</h5>
+            <p>8 大服务全部标注 AI 四类型能力 · 发布《荥阳负责任 AI 公约》· 组建 AI 伦理委员会 · 算法审计工具包上线。</p>
+            <div class="dur">3-6 个月</div>
+          </div>
+          <div class="rm-phase p2">
+            <span class="ph">Phase 2 · 智治</span>
+            <h5>算法治理四目标全部落地</h5>
+            <p>算法可控/透明/安全/公平四目标验收 · 政务大模型接入接企即办 · 算法歧视救济机制上线 · PDTMM® 五级中新增"负责任 AI 成熟度"。</p>
+            <div class="dur">6-12 个月</div>
+          </div>
+          <div class="rm-phase p3">
+            <span class="ph">Phase 3 · 智效</span>
+            <h5>荥阳智效指数发布 + 对外授权</h5>
+            <p>发布"荥阳智效指数 1.0"首年报告（自评基准）· 邀请 3-5 家兄弟园区自评 · 形成县级园区数字治理指数排行榜。</p>
+            <div class="dur">6-12 个月</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">08 · KPI 与评价指标</span>
+        <h2>荥阳智效指数首年目标</h2>
+        <table class="kpi-table">
+          <thead><tr><th>三段</th><th>核心 KPI</th><th>首年目标</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:var(--brand);">智能</b> 30%</td><td>算力可用率 · 8 服务 AI 标签覆盖率 · 数据集数量</td><td>≥ 99.9% · 100% · ≥ 500</td></tr>
+            <tr><td><b style="color:var(--warning);">智治</b> 40%</td><td>算法四目标验收率 · 算法审计通过率 · AI 事故数</td><td>100% · ≥ 95% · = 0</td></tr>
+            <tr><td><b style="color:var(--success);">智效</b> 30%</td><td>企业渗透率 · 接企即办 24h 回应率 · 满意度</td><td>≥ 90% · ≥ 95% · ≥ 88 分</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">09 · 常见坑与避坑清单</span>
+        <h2>样板复制者最常踩的 4 个坑</h2>
+        <ul class="pit-list">
+          <li><b>坑 1 · 只做"智能"不做"智治"</b>——很多城市引入大模型就宣称"AI 政府建成"，其实缺"智治"层的算法治理。孟教授强调必须走完三段。</li>
+          <li><b>坑 2 · 负责任 AI 公约是"公关文本"</b>——公约发了但没有算法审计和救济机制，就是一纸空文。荥阳强制"公约 + 审计 + 救济"三配套。</li>
+          <li><b>坑 3 · 算法四目标只做透明</b>——透明是最容易做的（发白皮书），但可控/安全/公平更难。四目标是一体的，缺一都会拉低智效指数。</li>
+          <li><b>坑 4 · AI 事故上报机制缺位</b>——很多城市 AI 出问题时选择内部处理不上报，导致行业无法从事故中学习。荥阳强制 AI 事故 24 小时上报 + 季度公开复盘。</li>
+        </ul>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">10 · 可对接的荥阳资源</span>
+        <h2>专家 · 咨询团队 · 数据集</h2>
+        <ul>
+          <li><b>学术顾问</b>：清华孟天广教授团队（AI 治理方向）· 中国信通院 AI 治理研究中心 · 河南省人工智能产业联盟。</li>
+          <li><b>咨询团队</b>：荥阳 AI 伦理委员会（政府 + 学术 + 企业三方）· 算法审计工程师组 · 政务大模型运营组。</li>
+          <li><b>数据集</b>：《荥阳智效指数》首年报告 · 算法审计报告模板 · AI 事故复盘案例库（脱敏）。</li>
+          <li><b>培训</b>：荥阳算法素养认证班 · AI 伦理委员认证 · 算法审计工程师认证 · 负责任 AI 官（CRAO）培训。</li>
+        </ul>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">11 · 下一步</span>
+        <h2>三种方式接入荥阳 AI 治理样板</h2>
+        <div class="cta-triple">
+          <a href="../output.html"><span class="lead">Booking</span>预约荥阳样板对接</a>
+          <a href="../methodology.html"><span class="lead">Download</span>下载负责任 AI 公约 + 算法审计包</a>
+          <a href="../output.html#training"><span class="lead">Training</span>报名 AI 治理训练营</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<a class="help-widget" href="../output.html" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  样板咨询
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov-soft);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--brand-soft);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:#B7ECD5;">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h5>荥阳数字经济产业园</h5><p style="color:rgba(255,255,255,.7);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p></div>
+      <div class="footer-col"><h5>样板专区</h5><a href="../index.html">样板总览</a><a href="../framework.html">理论框架</a><a href="../methodology.html">方法论</a><a href="../output.html">输出模式</a></div>
+      <div class="footer-col"><h5>5 大场景</h5><a href="./dual-sense-city.html">双感城市</a><a href="./digital-government.html">数字政府</a><a href="./data-governance.html">数据要素</a><a href="./ai-governance.html">AI 治理</a></div>
+      <div class="footer-col"><h5>联系我们</h5><a href="../../about/">关于我们</a><a href="../../newsroom/">新闻中心</a><a href="../benchmarks.html">对标标杆</a><a href="mailto:model-city@xingyang-park.gov.cn">model-city@xingyang-park.gov.cn</a></div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 理论体系引自清华大学孟天广教授《数字政府与治理现代化》5 讲</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>双感城市场景 · 中国首个县级双感园区 · 荥阳样板 · 对应清华孟天广教授第 3 讲</title>
+<meta name="description" content="荥阳 = 中国首个县级双感园区（Xingyang Dual-Sense）· 物感层 IoT + 5G + CIM + IOC + 8.6 EFLOPS · 人感层 舆情感知 + 接企即办 + 数字素养平台 · 荥阳智脑 1+1+2+N 架构 · 荥感通 / 荥商通 / 荥企通 三通产品线。">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<style>
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--warning); font-weight: 700; }
+  .uc-article { max-width: 960px; margin: 0 auto; }
+  .uc-step { padding: var(--sp-8) 0; border-bottom: 1px solid var(--bg-line); }
+  .uc-step:last-child { border-bottom: 0; }
+  .uc-step-num { display: inline-block; padding: 2px var(--sp-3); background: var(--brand-soft); color: var(--brand); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .1em; border-radius: var(--radius-sm); margin-bottom: var(--sp-3); }
+  .uc-step h2 { font-size: var(--fs-xl); font-weight: 700; color: var(--text); margin-bottom: var(--sp-4); line-height: var(--lh-tight); letter-spacing: -.02em; }
+  .uc-step p { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .uc-step ul, .uc-step ol { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin: 0 0 var(--sp-4) var(--sp-6); }
+  .uc-step li { margin-bottom: var(--sp-2); }
+  .uc-step b { color: var(--text); }
+  .uc-step blockquote { margin: var(--sp-4) 0; padding: var(--sp-5) var(--sp-6); background: var(--brand-soft); border-left: 3px solid var(--brand); border-radius: 0 var(--radius) var(--radius) 0; color: var(--brand-dark); font-size: var(--fs-md); line-height: var(--lh-relaxed); }
+  .uc-step blockquote cite { display: block; margin-top: var(--sp-3); font-size: var(--fs-sm); color: var(--text-2); font-style: normal; }
+  .bench-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .bench-grid { grid-template-columns: 1fr; } }
+  .bench-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); border-top: 3px solid var(--accent); }
+  .bench-card h5 { font-size: var(--fs-sm); font-weight: 700; color: var(--text); margin-bottom: var(--sp-2); }
+  .bench-card p { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+  .bench-card .flag { font-size: var(--fs-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--sp-1); }
+  .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .roadmap { grid-template-columns: 1fr; } }
+  .rm-phase { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); border-left: 4px solid var(--brand); }
+  .rm-phase.p2 { border-left-color: var(--warning); }
+  .rm-phase.p3 { border-left-color: var(--success); }
+  .rm-phase .ph { font-size: var(--fs-xs); font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: .1em; }
+  .rm-phase.p2 .ph { color: var(--warning); }
+  .rm-phase.p3 .ph { color: var(--success); }
+  .rm-phase h5 { font-size: var(--fs-md); font-weight: 700; color: var(--text); margin: var(--sp-2) 0; }
+  .rm-phase p { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+  .rm-phase .dur { font-size: var(--fs-xs); color: var(--text-3); margin-top: var(--sp-3); font-family: var(--font-mono); }
+  .kpi-table { width: 100%; border-collapse: collapse; background: var(--bg-2); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); margin: var(--sp-4) 0; }
+  .kpi-table th, .kpi-table td { padding: var(--sp-3) var(--sp-4); text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--bg-line); }
+  .kpi-table th { background: var(--brand-soft); color: var(--brand-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-xs); }
+  .pit-list { list-style: none; padding: 0; margin: var(--sp-4) 0; }
+  .pit-list li { padding: var(--sp-4) var(--sp-5); background: #FDF6EC; border: 1px solid #F5D89E; border-left: 3px solid var(--warning); border-radius: var(--radius); margin-bottom: var(--sp-3); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .pit-list li b { color: var(--warning); }
+  .cta-triple { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .cta-triple { grid-template-columns: 1fr; } }
+  .cta-triple a { padding: var(--sp-6); text-align: center; background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); color: var(--text); font-weight: 600; transition: border-color var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease); }
+  .cta-triple a:hover { border-color: var(--brand); box-shadow: var(--shadow); color: var(--brand); }
+  .cta-triple a .lead { display: block; font-size: var(--fs-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: var(--sp-2); }
+
+  /* 双感对比表 · 核心 */
+  .dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .dual-grid { grid-template-columns: 1fr; } }
+  .dual-card { padding: var(--sp-8); border-radius: var(--radius-lg); }
+  .dual-obj { background: linear-gradient(135deg, #E8F5FD 0%, #F4FAFE 100%); border: 1px solid var(--brand-line); }
+  .dual-ppl { background: linear-gradient(135deg, #FCE7EB 0%, #FEF4F6 100%); border: 1px solid #F5B4C0; }
+  .dual-card h4 { font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-4); color: var(--text); }
+  .dual-obj h4 { color: var(--brand-dark); }
+  .dual-ppl h4 { color: var(--gov); }
+  .dual-card ul { margin: 0 0 0 var(--sp-6); font-size: var(--fs-sm); }
+  .dual-card ul li { margin-bottom: var(--sp-2); color: var(--text-1); }
+  .dual-card ul li b { color: var(--text); }
+
+  /* 1+1+2+N 架构图 */
+  .arch-wrap { background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius-lg); padding: var(--sp-8); margin: var(--sp-6) 0; }
+  .arch-wrap svg { width: 100%; height: auto; }
+
+  /* 三通产品 */
+  .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin: var(--sp-6) 0; }
+  @media (max-width: 900px) { .prod-grid { grid-template-columns: 1fr; } }
+  .prod-card { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
+  .prod-card .mark { font-size: var(--fs-xl); font-weight: 800; color: var(--brand); letter-spacing: -.02em; margin-bottom: var(--sp-2); }
+  .prod-card h5 { font-size: var(--fs-md); font-weight: 700; color: var(--text); margin-bottom: var(--sp-2); }
+  .prod-card p { font-size: var(--fs-sm); color: var(--text-2); line-height: var(--lh-relaxed); }
+
+  /* Hero special */
+  .hero-badge {
+    display: inline-block; margin-top: var(--sp-4);
+    padding: var(--sp-3) var(--sp-6);
+    background: linear-gradient(135deg, var(--gov) 0%, #A00B24 100%);
+    color: #fff; font-weight: 700; font-size: var(--fs-sm);
+    border-radius: var(--radius-pill); letter-spacing: .04em;
+    box-shadow: var(--shadow);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav-global"><div class="nav-global-inner">
+  <a class="nav-brand" href="../../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+  <div class="nav-items">
+    <a href="../../platforms/">平台</a><a href="../../services/">服务</a><a href="../../sub-brands/">数字生态</a>
+    <a href="../../insights/">洞察</a><a href="../../newsroom/">新闻</a><a href="../../about/">关于我们</a>
+    <a href="../" class="active">样板</a>
+  </div>
+  <a class="nav-cta" href="../output.html">申请样板复制</a>
+</div></nav>
+
+<div class="subnav"><div class="subnav-inner">
+  <span class="subnav-brand">MODEL CITY · 荥阳样板</span>
+  <a href="../index.html">总览</a><a href="../framework.html">理论框架</a>
+  <a href="./dual-sense-city.html" class="active">5 大场景</a>
+  <a href="../methodology.html">方法论</a><a href="../benchmarks.html">标杆</a><a href="../output.html">输出模式</a>
+</div></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">USE CASE 03 · 双感城市场景 · 对应第 3 讲 · v5 核心</span>
+    <h1 class="hero-title">双感城市场景 · 荥阳样板<br>物感 + 人感 —— 中国首个县级双感园区（Xingyang Dual-Sense）</h1>
+    <p class="hero-lead">
+      孟天广教授在第 3 讲提出<b>"物感城市 + 人感城市"</b>是理解城市复杂系统的解决方案——这是清华学派最独特的理论贡献。
+      荥阳率先在县级层面明确宣称"<b>双感园区</b>"定位，抢占清华学派在县级市的唯一冠名权。
+      物感层由 <b>IoT + 5G + CIM + IOC + 8.6 EFLOPS 算力</b> 组成；人感层由 <b>舆情感知 + 接企即办 + 数字素养平台</b> 组成。
+      两侧通过 <b>荥阳智脑 1+1+2+N 架构</b> 打通，输出 <b>荥感通 · 荥商通 · 荥企通</b> 三通产品线。
+    </p>
+    <span class="hero-badge">Xingyang Dual-Sense · 双感园区 · v5 战略核心</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="uc-article">
+
+      <div class="uc-step">
+        <span class="uc-step-num">01 · 理论根基</span>
+        <h2>孟天广教授原文引述</h2>
+        <blockquote>
+          "面对城市复杂系统，我们提出<b>物感城市 + 人感城市</b>相辅相成的双感理论。物感城市由数字技术、物感数据驱动，聚焦物理系统的高效运行；人感城市由市民诉求、人感数据驱动，聚焦社会系统的意义与情感。二者不是替代，而是<b>互为补集</b>——离开物感谈人感，是无源之水；离开人感谈物感，是无本之木。"
+          <cite>—— 引自清华大学孟天广教授《数字政府与治理现代化》第 3 讲 · 新型智慧城市建设</cite>
+        </blockquote>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">02 · 理论框架 1 分钟速览</span>
+        <h2>物感 vs 人感 · 双感城市理论对比</h2>
+        <div class="dual-grid">
+          <div class="dual-card dual-obj">
+            <h4>物感城市 · Object-Sensing City</h4>
+            <ul>
+              <li><b>驱动来源</b>：数字技术、物感数据</li>
+              <li><b>感知范畴</b>：物理系统、现象与行为</li>
+              <li><b>参与主体</b>：政府、科技企业</li>
+              <li><b>治理结构</b>：中心化、串联式</li>
+              <li><b>优先目标</b>：城市高效运行</li>
+              <li><b>典型应用</b>：城市大脑、数字孪生、CIM</li>
+              <li><b>标杆案例</b>：海淀区城市大脑、福州鼓楼智脑</li>
+            </ul>
+          </div>
+          <div class="dual-card dual-ppl">
+            <h4>人感城市 · People-Sensing City</h4>
+            <ul>
+              <li><b>驱动来源</b>：市民诉求、人感数据</li>
+              <li><b>感知范畴</b>：社会系统、意义与情感</li>
+              <li><b>参与主体</b>：政企社多主体协同</li>
+              <li><b>治理结构</b>：扁平化、并联式</li>
+              <li><b>优先目标</b>：以人民为中心</li>
+              <li><b>典型应用</b>：接诉即办、市长直通车、粤省心</li>
+              <li><b>标杆案例</b>：北京 12345、城感通、社情通</li>
+            </ul>
+          </div>
+        </div>
+        <p>荥阳把这一双感理论落地为<b>"眼-脉-脑"三段架构</b>：<b>眼</b> = 园区物联感知网（碳排、能耗、算力、空间使用率）· <b>脉</b> = 园区智能通勤/物流/供应链动脉 · <b>脑</b> = 荥阳版城市大脑（决策辅助 + 报告体系）。</p>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">03 · 国际标杆</span>
+        <h2>三大国际智慧城市参照系</h2>
+        <div class="bench-grid">
+          <div class="bench-card">
+            <div class="flag">SGP · 新加坡</div>
+            <h5>Smart Nation + One Service</h5>
+            <p>全球首个 Smart Nation 战略。One Service 汇聚 40+ 部门投诉；One Map 提供统一地理底座；Health Hub 打通个人健康数据。物感 + 人感深度融合。</p>
+          </div>
+          <div class="bench-card">
+            <div class="flag">EST · 爱沙尼亚</div>
+            <h5>X-Road 数据交换骨架</h5>
+            <p>全国 900+ 机构通过 X-Road 交换数据 · e-Estonia 电子公民身份 · 全球第一个允许数字远程投票的国家。人感侧数字治理典范。</p>
+          </div>
+          <div class="bench-card">
+            <div class="flag">JPN · 日本</div>
+            <h5>Society 5.0（社会 5.0）</h5>
+            <p>继狩猎社会、农业社会、工业社会、信息社会之后的"超智能社会"。物理空间与网络空间高度融合，AI + IoT + 大数据全面赋能。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">04 · 国内标杆</span>
+        <h2>三大国内双感城市实践</h2>
+        <div class="bench-grid">
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">北京 · 海淀区</div>
+            <h5>海淀城市大脑（1+1+2+N）</h5>
+            <p>1 政府 + 1 区属国企（百度、联通）+ 2 平台（时空一张图 + 大数据）+ N 应用（80+ 场景）。管运协同、"合伙人"机制。<b>荥阳智脑架构直接沿用其 1+1+2+N。</b></p>
+          </div>
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">福建 · 福州鼓楼</div>
+            <h5>鼓楼智脑（一云 + 三一 + 四心）</h5>
+            <p>一云（智脑云）+ 三一（一湖汇数据/一网知全局/一键统指挥）+ 四心（党建/城运/政务/企服）· 30+ 应用子系统 · 15 类数据资源库 · "一线处置"社会治理新模式。</p>
+          </div>
+          <div class="bench-card" style="border-top-color: var(--gov);">
+            <div class="flag">北京 · 12345</div>
+            <h5>北京接诉即办改革</h5>
+            <p>2019-2021 从"吹哨报到"到"接诉即办"到立法。清华城感通产品支撑：物感+人感融合 · 突发事件感知 + 舆论态势感知 + 转办督办工作台。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">05 · 荥阳做法 · 核心</span>
+        <h2>荥阳智脑 1+1+2+N 架构</h2>
+        <p>荥阳把海淀"1+1+2+N"的市级架构降维为县级园区版：</p>
+        <div class="arch-wrap">
+          <svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="荥阳智脑 1+1+2+N 架构">
+            <defs>
+              <linearGradient id="ag1" x1="0" x2="1"><stop offset="0" stop-color="#C8102E"/><stop offset="1" stop-color="#A00B24"/></linearGradient>
+              <linearGradient id="ag2" x1="0" x2="1"><stop offset="0" stop-color="#007CC3"/><stop offset="1" stop-color="#003D69"/></linearGradient>
+              <linearGradient id="ag3" x1="0" x2="1"><stop offset="0" stop-color="#0EA5E9"/><stop offset="1" stop-color="#0284C7"/></linearGradient>
+              <linearGradient id="ag4" x1="0" x2="1"><stop offset="0" stop-color="#10B981"/><stop offset="1" stop-color="#059669"/></linearGradient>
+              <linearGradient id="ag5" x1="0" x2="1"><stop offset="0" stop-color="#F5A623"/><stop offset="1" stop-color="#C68A0E"/></linearGradient>
+            </defs>
+            <text x="400" y="26" text-anchor="middle" fill="#1A2942" font-size="15" font-weight="700">荥阳智脑 · 1 + 1 + 2 + N 治理架构</text>
+            <!-- 1 管委会 -->
+            <rect x="30" y="60" width="140" height="80" rx="8" fill="url(#ag1)"/>
+            <text x="100" y="90" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">1 · 政府主导</text>
+            <text x="100" y="110" text-anchor="middle" fill="#fff" font-size="11">荥阳数字经济</text>
+            <text x="100" y="126" text-anchor="middle" fill="#fff" font-size="11">产业园管委会</text>
+            <!-- 1 荥泽数链 -->
+            <rect x="200" y="60" width="140" height="80" rx="8" fill="url(#ag2)"/>
+            <text x="270" y="90" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">1 · 运营支撑</text>
+            <text x="270" y="110" text-anchor="middle" fill="#fff" font-size="11">郑州荥泽数链</text>
+            <text x="270" y="126" text-anchor="middle" fill="#fff" font-size="11">产业发展有限公司</text>
+            <!-- 2 平台 -->
+            <rect x="370" y="60" width="140" height="80" rx="8" fill="url(#ag3)"/>
+            <text x="440" y="90" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">2 · 双平台</text>
+            <text x="440" y="110" text-anchor="middle" fill="#fff" font-size="11">荥数云（算力）</text>
+            <text x="440" y="126" text-anchor="middle" fill="#fff" font-size="11">荥数链（数据）</text>
+            <!-- N 生态 -->
+            <rect x="540" y="60" width="230" height="80" rx="8" fill="url(#ag4)"/>
+            <text x="655" y="90" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">N · 入园企业生态</text>
+            <text x="655" y="110" text-anchor="middle" fill="#fff" font-size="11">52 家已入驻 + 1553 全景计划</text>
+            <text x="655" y="126" text-anchor="middle" fill="#fff" font-size="11">科技企业 + 学术合作 + 开发者社区</text>
+            <!-- 底层三通 -->
+            <rect x="30" y="180" width="740" height="130" rx="8" fill="none" stroke="#F5A623" stroke-width="2" stroke-dasharray="6 4"/>
+            <text x="400" y="205" text-anchor="middle" fill="#C68A0E" font-size="13" font-weight="700">对外输出层 · 三通产品线</text>
+            <rect x="70" y="220" width="200" height="70" rx="6" fill="url(#ag5)"/>
+            <text x="170" y="248" text-anchor="middle" fill="#0a0e1a" font-size="12" font-weight="700">荥感通</text>
+            <text x="170" y="270" text-anchor="middle" fill="#0a0e1a" font-size="10">物感+人感融合</text>
+            <text x="170" y="284" text-anchor="middle" fill="#0a0e1a" font-size="10">对标清华城感通</text>
+            <rect x="300" y="220" width="200" height="70" rx="6" fill="url(#ag5)"/>
+            <text x="400" y="248" text-anchor="middle" fill="#0a0e1a" font-size="12" font-weight="700">荥商通</text>
+            <text x="400" y="270" text-anchor="middle" fill="#0a0e1a" font-size="10">营商环境三级指标</text>
+            <text x="400" y="284" text-anchor="middle" fill="#0a0e1a" font-size="10">政府治理+市场营造+企业经营</text>
+            <rect x="530" y="220" width="200" height="70" rx="6" fill="url(#ag5)"/>
+            <text x="630" y="248" text-anchor="middle" fill="#0a0e1a" font-size="12" font-weight="700">荥企通</text>
+            <text x="630" y="270" text-anchor="middle" fill="#0a0e1a" font-size="10">企业治理效能五级联动</text>
+            <text x="630" y="284" text-anchor="middle" fill="#0a0e1a" font-size="10">园区-楼宇-企业-团队-个人</text>
+          </svg>
+        </div>
+        <p><b>物感层落地清单</b>：IoT 传感器 5000+ 节点覆盖 40.4 万㎡ · 5G 全覆盖 · CIM 城市信息模型全楼宇建模 · IOC 智能运营中心 24×7 值班 · 荥数云 8.6 EFLOPS 算力网络中原节点。</p>
+        <p><b>人感层落地清单</b>：舆情感知（园区微信 + 微博 + 抖音 + 官方论坛全覆盖）· 接企即办（400 热线 + 官微 + 现场服务窗 4 通道）· 数字素养平台（荥数才承办，覆盖入园企业员工 + 周边社区居民）。</p>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">06 · 可复制模板</span>
+        <h2>三通产品线 · 对外输出的核心资产</h2>
+        <div class="prod-grid">
+          <div class="prod-card">
+            <div class="mark">荥感通</div>
+            <h5>物感 + 人感融合感知平台</h5>
+            <p>对标清华城感通。突发事件感知（物感）+ 舆论态势感知（人感）+ 转办督办工作台（融合层）。适合县级智慧城市统一感知底座。</p>
+          </div>
+          <div class="prod-card">
+            <div class="mark">荥商通</div>
+            <h5>营商环境动态感知平台</h5>
+            <p>对标清华商情通。三级指标：政府治理 + 市场营造 + 企业经营。适合县市营商环境评估与国际化对标（世界银行 EoDB 指标）。</p>
+          </div>
+          <div class="prod-card">
+            <div class="mark">荥企通</div>
+            <h5>基层治理效能提升平台</h5>
+            <p>对标清华社情通。五级联动：园区-楼宇-企业-团队-个人。适合园区精细化治理，作为入园企业服务的"神经末梢"。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">07 · 实施路线图</span>
+        <h2>3 阶段 · 每阶段 3-6 个月</h2>
+        <div class="roadmap">
+          <div class="rm-phase p1">
+            <span class="ph">Phase 1 · 物感先行</span>
+            <h5>眼-脉底座 + IoT 全覆盖</h5>
+            <p>物联感知网部署 · 5G 全覆盖验收 · CIM 楼宇建模 · IOC 上线 · 荥数云算力接入。物感数据先跑起来。</p>
+            <div class="dur">3-6 个月</div>
+          </div>
+          <div class="rm-phase p2">
+            <span class="ph">Phase 2 · 人感搭桥</span>
+            <h5>接企即办 + 舆情感知</h5>
+            <p>接企即办 4 通道上线 · 舆情感知全平台覆盖 · 数字素养平台上线 · 荥感通 1.0 上线（物感+人感初步融合）。</p>
+            <div class="dur">3-6 个月</div>
+          </div>
+          <div class="rm-phase p3">
+            <span class="ph">Phase 3 · 三通输出</span>
+            <h5>荥感通 · 荥商通 · 荥企通全线上市</h5>
+            <p>三通产品线全部上线 · 荥阳智脑 1+1+2+N 全架构验收 · "中国首个县级双感园区"官宣 · 承接首批兄弟园区复制订单。</p>
+            <div class="dur">6-12 个月</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">08 · KPI 与评价指标</span>
+        <h2>对齐"智能-智治-智效"三段</h2>
+        <table class="kpi-table">
+          <thead><tr><th>三段</th><th>核心 KPI</th><th>首年目标</th></tr></thead>
+          <tbody>
+            <tr><td><b style="color:var(--brand);">智能</b></td><td>物联感知覆盖率 · CIM 建模完成度 · 荥数云算力可用率</td><td>≥ 95% · 100% · ≥ 99.9%</td></tr>
+            <tr><td><b style="color:var(--warning);">智治</b></td><td>接企即办 24h 首响率 · 舆情感知响应速度 · 三通调用次数</td><td>≥ 95% · ≤ 30 min · ≥ 1 万次</td></tr>
+            <tr><td><b style="color:var(--success);">智效</b></td><td>企业满意度 · 员工幸福感 · 兄弟园区引用次数</td><td>≥ 88 分 · ≥ 82 分 · ≥ 5 次</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">09 · 常见坑与避坑清单</span>
+        <h2>样板复制者最常踩的 4 个坑</h2>
+        <ul class="pit-list">
+          <li><b>坑 1 · 只做物感、忘了人感</b>——很多城市大脑投资几亿建了漂亮的 IOC 大屏，但企业和市民"没感觉"。孟教授强调二者<b>互为补集</b>，缺一不可。</li>
+          <li><b>坑 2 · 人感只做前端诉求收集</b>——舆情感知平台上线不难，但如果没有"转办督办工作台"闭环，人感就变成了"看别人骂自己"。</li>
+          <li><b>坑 3 · 1+1+2+N 中的第 2 个 1（运营方）缺位</b>——很多城市只有政府 + 甲方 IT，没有独立的运营公司承担"跨部门协调 + 长期陪跑"，最终架构塌陷。荥泽数链正是为此设立。</li>
+          <li><b>坑 4 · CIM/IOC 建成即闲置</b>——CIM 和 IOC 如果不接入决策流程，就是"数字模型 + 视觉大屏"。必须绑定接企即办 + 报告体系形成"感知-决策-执行"闭环。</li>
+        </ul>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">10 · 可对接的荥阳资源</span>
+        <h2>专家 · 咨询团队 · 数据集</h2>
+        <ul>
+          <li><b>学术顾问</b>：清华大学孟天广教授团队（城感通/商情通/社情通产品原创方）· 中国信通院智慧城市中心 · 河南省住建厅 CIM 试点办。</li>
+          <li><b>咨询团队</b>：荥泽数链首席架构师（1+1+2+N 架构落地负责人）· CIM/IOC 建设组 · 接企即办协调专员组。</li>
+          <li><b>数据集</b>：《荥阳双感园区月度感知报告》· 三通产品脱敏调用数据 · 舆情感知语料库 · IoT 传感器实时数据流样本。</li>
+          <li><b>培训</b>：双感园区规划师 5 日集训营 · CIM 建模工程师认证 · 接企即办协调员上岗培训 · 荥感通产品经理认证班。</li>
+        </ul>
+      </div>
+
+      <div class="uc-step">
+        <span class="uc-step-num">11 · 下一步</span>
+        <h2>三种方式接入荥阳双感园区样板</h2>
+        <div class="cta-triple">
+          <a href="../output.html"><span class="lead">Booking</span>预约荥阳样板对接</a>
+          <a href="../methodology.html"><span class="lead">Download</span>下载双感 SOP + 三通白皮书</a>
+          <a href="../output.html#training"><span class="lead">Training</span>报名双感园区训练营</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<a class="help-widget" href="../output.html" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  样板咨询
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov-soft);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--brand-soft);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:#B7ECD5;">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h5>荥阳数字经济产业园</h5><p style="color:rgba(255,255,255,.7);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p></div>
+      <div class="footer-col"><h5>样板专区</h5><a href="../index.html">样板总览</a><a href="../framework.html">理论框架</a><a href="../methodology.html">方法论</a><a href="../output.html">输出模式</a></div>
+      <div class="footer-col"><h5>5 大场景</h5><a href="./dual-sense-city.html">双感城市</a><a href="./digital-government.html">数字政府</a><a href="./data-governance.html">数据要素</a><a href="./ai-governance.html">AI 治理</a></div>
+      <div class="footer-col"><h5>联系我们</h5><a href="../../about/">关于我们</a><a href="../../newsroom/">新闻中心</a><a href="../benchmarks.html">对标标杆</a><a href="mailto:model-city@xingyang-park.gov.cn">model-city@xingyang-park.gov.cn</a></div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 理论体系引自清华大学孟天广教授《数字政府与治理现代化》5 讲 · 双感城市理论为孟教授团队独特贡献</div>
+  </div>
+</footer>
+</body>
+</html>

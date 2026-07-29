@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>对外输出商业模式 · 4 种模式详解 · 首年 3700 万营收路径 · 荥阳样板</title>
+<meta name="description" content="荥阳样板对外输出四种商业模式（技术授权 / 战略咨询 / 联合建设 / 合作代运营）详细定价、交付、目标客户 · 首年 3700 万营收路径 · 三年 1.5-3 亿目标 · 参照 Gartner / 麦肯锡 / 华为 / CMMI 认证。">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  sup.tm { font-size: 0.55em; color: var(--warning); font-weight: 700; }
+
+  /* 4 模式详细卡片 */
+  .mode-section {
+    padding: var(--sp-12) 0;
+    border-bottom: 1px solid var(--bg-line);
+  }
+  .mode-section:last-child { border-bottom: 0; }
+
+  .mode-header {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: var(--sp-6); align-items: center;
+    margin-bottom: var(--sp-8);
+  }
+  .mode-num {
+    font-size: 72px; font-weight: 800; line-height: 1;
+    color: var(--brand); letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+    min-width: 120px;
+  }
+  .mode-section.m2 .mode-num { color: var(--warning); }
+  .mode-section.m3 .mode-num { color: var(--success); }
+  .mode-section.m4 .mode-num { color: #8B5CF6; }
+  .mode-title-block h2 {
+    font-size: var(--fs-2xl); font-weight: 700; color: var(--text);
+    line-height: var(--lh-tight); letter-spacing: -.02em;
+    margin-bottom: var(--sp-2);
+  }
+  .mode-sub { color: var(--text-2); font-size: var(--fs-md); font-weight: 500; }
+  .mode-badge {
+    display: inline-block; padding: 2px var(--sp-3);
+    background: var(--brand-soft); color: var(--brand);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-xs); font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: var(--sp-2);
+  }
+  .mode-section.m2 .mode-badge { background: #FEF6E7; color: var(--warning); }
+  .mode-section.m3 .mode-badge { background: #E6F7EF; color: var(--success); }
+  .mode-section.m4 .mode-badge { background: #F0E9FE; color: #8B5CF6; }
+
+  .mode-content {
+    display: grid; grid-template-columns: 2fr 1fr;
+    gap: var(--sp-8); max-width: 1100px;
+  }
+  @media (max-width: 900px) { .mode-content { grid-template-columns: 1fr; } }
+
+  .mode-detail p { color: var(--text-1); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin-bottom: var(--sp-4); }
+  .mode-detail p b { color: var(--text); }
+  .mode-detail h4 { font-size: var(--fs-md); font-weight: 700; color: var(--text); margin: var(--sp-6) 0 var(--sp-2); }
+  .mode-detail ul { margin: 0 0 var(--sp-4) var(--sp-6); font-size: var(--fs-sm); line-height: var(--lh-relaxed); color: var(--text-1); }
+  .mode-detail ul li { margin-bottom: var(--sp-2); }
+
+  .price-card {
+    padding: var(--sp-6);
+    background: var(--bg-1); border: 1px solid var(--bg-line);
+    border-radius: var(--radius-lg);
+    height: fit-content; position: sticky; top: 150px;
+  }
+  .price-card h5 { font-size: var(--fs-sm); font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: var(--sp-4); }
+  .price-card .price {
+    font-size: var(--fs-2xl); font-weight: 800; color: var(--brand);
+    line-height: 1; letter-spacing: -.02em; margin-bottom: var(--sp-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .mode-section.m2 .price-card .price { color: var(--warning); }
+  .mode-section.m3 .price-card .price { color: var(--success); }
+  .mode-section.m4 .price-card .price { color: #8B5CF6; }
+  .price-card .unit { color: var(--text-2); font-size: var(--fs-sm); margin-bottom: var(--sp-4); }
+  .price-card dl { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-2) var(--sp-4); font-size: var(--fs-sm); }
+  .price-card dt { color: var(--text-3); }
+  .price-card dd { color: var(--text-1); font-weight: 600; }
+
+  /* 定价表 */
+  .price-table { width: 100%; border-collapse: collapse; background: var(--bg-2); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); margin: var(--sp-6) 0; }
+  .price-table th, .price-table td { padding: var(--sp-4) var(--sp-5); text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--bg-line); }
+  .price-table th { background: var(--brand-dark); color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: var(--fs-xs); }
+  .price-table tfoot td { background: var(--brand-soft); font-weight: 700; color: var(--brand-dark); }
+  .price-table .num { color: var(--brand); font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* 底部大 CTA */
+  .cta-final {
+    padding: var(--sp-16) var(--sp-8);
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #001E3A 100%);
+    border-radius: var(--radius-lg);
+    color: #fff; text-align: center;
+    margin-top: var(--sp-10);
+  }
+  .cta-final h3 { font-size: var(--fs-2xl); font-weight: 700; color: #fff; margin-bottom: var(--sp-3); letter-spacing: -.02em; }
+  .cta-final p { color: rgba(255,255,255,.75); font-size: var(--fs-md); max-width: 640px; margin: 0 auto var(--sp-8); line-height: var(--lh-relaxed); }
+  .cta-final .cta-row { display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap; }
+  .cta-final .btn-primary { background: #fff; color: var(--brand-dark); border-color: #fff; }
+  .cta-final .btn-primary:hover { background: var(--brand-soft); color: var(--brand-dark); border-color: var(--brand-soft); }
+  .cta-final .btn-ghost { color: #fff; border-color: rgba(255,255,255,.4); }
+  .cta-final .btn-ghost:hover { background: rgba(255,255,255,.1); color: #fff; border-color: #fff; }
+</style>
+</head>
+<body>
+
+<nav class="nav-global"><div class="nav-global-inner">
+  <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
+  <div class="nav-items">
+    <a href="../platforms/">平台</a><a href="../services/">服务</a><a href="../sub-brands/">数字生态</a>
+    <a href="../insights/">洞察</a><a href="../newsroom/">新闻</a><a href="../about/">关于我们</a>
+    <a href="./" class="active">样板</a>
+  </div>
+  <a class="nav-cta" href="#contact">立即联系荥泽数链</a>
+</div></nav>
+
+<div class="subnav"><div class="subnav-inner">
+  <span class="subnav-brand">MODEL CITY · 荥阳样板</span>
+  <a href="./index.html">总览</a><a href="./framework.html">理论框架</a>
+  <a href="./use-cases/dual-sense-city.html">5 大场景</a>
+  <a href="./methodology.html">方法论</a>
+  <a href="./benchmarks.html">标杆</a>
+  <a href="./output.html" class="active">输出模式</a>
+</div></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">OUTPUT MODES · 对外输出商业模式详解</span>
+    <h1 class="hero-title">4 种商业模式 · 从轻到重的复制路径<br>首年 3700 万营收 · 三年 1.5-3 亿目标</h1>
+    <p class="hero-lead">
+      样板一旦形成，输出模式决定杠杆倍率。荥阳设计 4 种模式覆盖不同客户成熟度：
+      <b>技术授权（最轻 · 起步阶段）</b> · <b>战略咨询（主打模式）</b> · <b>联合建设（战略合作）</b> · <b>合作代运营（最重）</b>。
+      每种模式配套明确定价、交付节奏与参照对象（Gartner / 麦肯锡 / 华为 / CMMI 认证）。
+      本页是所有兄弟城市、县级园区、智慧城市规划商的合作入口。
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+
+    <!-- 模式 1 · 技术授权 -->
+    <div class="mode-section m1">
+      <div class="mode-header">
+        <span class="mode-num">01</span>
+        <div class="mode-title-block">
+          <span class="mode-badge">Mode 1 · 最轻 · 起步阶段</span>
+          <h2>技术授权（内容 + 商标）</h2>
+          <div class="mode-sub">DTSI® / PDTMM® / X-Flow™ / OpenX@X™ 商标授权 · 面向 100+ 城市研究者与咨询公司</div>
+        </div>
+      </div>
+
+      <div class="mode-content">
+        <div class="mode-detail">
+          <p><b>产品</b>：白皮书 · 案例集 · Insights 长期更新推送 · 4 大平台 SOP 模板 · 商标使用许可。适合希望"用荥阳背书 + 内容"做本地咨询的机构，或希望"照着看看"的县级研究者。</p>
+
+          <h4>交付清单</h4>
+          <ul>
+            <li>PDF 白皮书 4 份（对应 4 大平台）· 定期更新推送</li>
+            <li>方法论 SOP 模板 10+ 份（对应 5 大场景）</li>
+            <li>Insights 会员专属阅读权（≥ 30 篇/年）</li>
+            <li>DTSI® / PDTMM® / X-Flow™ / OpenX@X™ 商标使用许可（非独占）</li>
+            <li>年度荥阳峰会 VIP 门票（1-2 张）</li>
+          </ul>
+
+          <h4>目标客户画像</h4>
+          <ul>
+            <li>县市/园区研究者、咨询公司分析师</li>
+            <li>希望"照着看看"再决定是否深度合作的机构</li>
+            <li>需要清华学派数字治理理论落地资料的学术团队</li>
+          </ul>
+
+          <h4>参照对象</h4>
+          <p><b>Gartner / IDC / 清华大数据中心报告</b> 的会员制模式。年费会员制，重内容更新与专家答疑。</p>
+        </div>
+
+        <div class="price-card">
+          <h5>定价</h5>
+          <div class="price">¥200-500 万</div>
+          <div class="unit">单城市首年 · 一次性授权</div>
+          <hr style="border: 0; border-top: 1px solid var(--bg-line); margin: var(--sp-4) 0;">
+          <div class="price" style="font-size: var(--fs-lg);">¥100-300 万</div>
+          <div class="unit">年费会员制 · 续费</div>
+          <hr style="border: 0; border-top: 1px solid var(--bg-line); margin: var(--sp-4) 0;">
+          <dl>
+            <dt>交付周期</dt><dd>1-2 周</dd>
+            <dt>目标客户数（首年）</dt><dd>20 家</dd>
+            <dt>首年收入</dt><dd>¥300 万（保守）</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模式 2 · 战略咨询 -->
+    <div class="mode-section m2">
+      <div class="mode-header">
+        <span class="mode-num">02</span>
+        <div class="mode-title-block">
+          <span class="mode-badge">Mode 2 · 中轻 · 主打模式</span>
+          <h2>战略咨询</h2>
+          <div class="mode-sub">孟天广教授团队背书 · 荥泽首席咨询 · 麦肯锡级交付节奏</div>
+        </div>
+      </div>
+
+      <div class="mode-content">
+        <div class="mode-detail">
+          <p><b>产品</b>：三段式咨询产品，覆盖诊断到规划到复制指导全链路。核心竞争力：<b>清华大学孟天广教授团队学术背书</b>（"物感+人感"双感理论首个县级落地）+ <b>荥泽数链首席咨询团队</b>本地交付。</p>
+
+          <h4>三段式产品</h4>
+          <ul>
+            <li><b>荥阳智效诊断</b>（3-5 周）—— 基于 DTSI® 完成县级园区数字治理阶段自诊 · 输出 100 页诊断报告 + 7 主体分维度雷达图 + 3 年演化建议路径 + 1 场高管答辩会。<b>定价 ¥50-150 万</b></li>
+            <li><b>双感园区规划</b>（2-3 月）—— 基于诊断结果制定"物感 + 人感"完整规划 · 输出 5 大场景落地路线图 + 4 大平台部署方案 + 3 年 KPI 目标体系。<b>定价 ¥180-500 万</b></li>
+            <li><b>荥阳样板复制指导</b>（6-12 月）—— 全流程陪跑至 PDTMM® 三级认证 · 派驻团队 + 每月复盘 + KPI 达成保障。<b>定价 ¥500-2000 万</b></li>
+          </ul>
+
+          <h4>目标客户画像</h4>
+          <ul>
+            <li>县级园区管委会（尤其是中西部）</li>
+            <li>地市数据局 / 数字经济产业园主管部门</li>
+            <li>希望做"体检 + 规划"再决定是否深度共建的政府客户</li>
+          </ul>
+
+          <h4>参照对象</h4>
+          <p><b>麦肯锡 · 埃森哲 · Infosys Consulting</b>。差异化：孟天广教授学术背书 + 县级样板经验 + 中国本土落地能力。</p>
+        </div>
+
+        <div class="price-card">
+          <h5>定价</h5>
+          <div class="price">¥180-500 万</div>
+          <div class="unit">主推：双感园区规划 · 2-3 月</div>
+          <hr style="border: 0; border-top: 1px solid var(--bg-line); margin: var(--sp-4) 0;">
+          <dl>
+            <dt>入门产品</dt><dd>¥50-150 万</dd>
+            <dt>主推产品</dt><dd>¥180-500 万</dd>
+            <dt>深度产品</dt><dd>¥500-2000 万</dd>
+            <dt>目标客户数（首年）</dt><dd>5 家</dd>
+            <dt>首年收入</dt><dd>¥400 万（保守）</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模式 3 · 联合建设 -->
+    <div class="mode-section m3">
+      <div class="mode-header">
+        <span class="mode-num">03</span>
+        <div class="mode-title-block">
+          <span class="mode-badge">Mode 3 · 中重 · 战略合作</span>
+          <h2>联合建设（荥数链共建）</h2>
+          <div class="mode-sub">荥阳分中心 · 技术架构 + 运营 SOP 全部输出 · 6-18 个月交付</div>
+        </div>
+      </div>
+
+      <div class="mode-content">
+        <div class="mode-detail">
+          <p><b>产品</b>：荥阳与兄弟城市/园区<b>联合共建"荥阳分中心"</b>—— 技术架构 + 运营 SOP 全部输出，成立<b>合资公司</b>（荥阳占股 20-40%），派驻团队 3 年陪跑。适合有较强财政承担能力、希望"高速起步"的地级市或副地级市。</p>
+
+          <h4>联合建设核心内容</h4>
+          <ul>
+            <li>荥阳智脑 1+1+2+N 架构完整落地（含定制化）</li>
+            <li>荥感通 · 荥商通 · 荥企通三通产品线本地部署</li>
+            <li>DTSI® / PDTMM® 认证 + X-Flow™ 运行时 + OpenX@X™ 生态</li>
+            <li>联合运营团队组建（荥阳派驻 + 本地招聘）</li>
+            <li>3 年 KPI 陪跑 + 年度审计 + 季度复盘</li>
+          </ul>
+
+          <h4>目标客户画像</h4>
+          <ul>
+            <li>副地级市 · 地市数据局 · 大县（人口 100 万+）</li>
+            <li>有较强财政承担能力（初始投资 ¥800 万以上）</li>
+            <li>希望"高速起步 + 长期陪跑"而非"自己摸索"的政府客户</li>
+          </ul>
+
+          <h4>参照对象</h4>
+          <p><b>华为智慧城市联合运营 · 阿里云城市大脑联合运营</b>。差异化：荥阳的县级样板更贴近中西部县市实际，投入规模比华为/阿里方案低一个数量级。</p>
+        </div>
+
+        <div class="price-card">
+          <h5>定价</h5>
+          <div class="price">¥800 万-3000 万</div>
+          <div class="unit">初始投资 · 6-18 个月交付</div>
+          <hr style="border: 0; border-top: 1px solid var(--bg-line); margin: var(--sp-4) 0;">
+          <dl>
+            <dt>初始投资</dt><dd>¥800 万-3000 万</dd>
+            <dt>年度运营分成</dt><dd>5-15%</dd>
+            <dt>合资公司股权</dt><dd>荥阳 20-40%</dd>
+            <dt>陪跑周期</dt><dd>3 年</dd>
+            <dt>目标客户数（首年）</dt><dd>1 家</dd>
+            <dt>首年收入</dt><dd>¥3000 万</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模式 4 · 合作代运营 -->
+    <div class="mode-section m4">
+      <div class="mode-header">
+        <span class="mode-num">04</span>
+        <div class="mode-title-block">
+          <span class="mode-badge">Mode 4 · 最重 · 面向全国推广</span>
+          <h2>合作代运营</h2>
+          <div class="mode-sub">3 年协议 · 按 KPI 分账 · 缺本地团队的县级园区首选</div>
+        </div>
+      </div>
+
+      <div class="mode-content">
+        <div class="mode-detail">
+          <p><b>产品</b>：荥泽数链派驻团队全面接管兄弟园区数字治理，代为运营 3 年，按 KPI 达成分账（渗透性 / 回应度 / 满意度 三段）。适合追求实效但缺乏本地技术团队的县级园区。</p>
+
+          <h4>代运营核心内容</h4>
+          <ul>
+            <li>荥阳派驻 3-8 人团队（含 CDO + 首席架构师 + 数据治理专员 + 接企即办协调员）</li>
+            <li>4 平台 + 5 大场景全套落地</li>
+            <li>荥阳智效指数作为 KPI 尺子</li>
+            <li>3 年 KPI 分账协议（第 1 年保底 + 第 2-3 年阶梯分账）</li>
+            <li>年度荥阳峰会承办轮值（可争取）</li>
+          </ul>
+
+          <h4>目标客户画像</h4>
+          <ul>
+            <li>追求实效但缺乏本地技术团队的县级园区</li>
+            <li>希望"荥阳全面负责、我只看结果"的政府客户</li>
+            <li>愿意接受 KPI 分账模式（而非固定咨询费）的合作方</li>
+          </ul>
+
+          <h4>参照对象</h4>
+          <p><b>CMMI 认证 + 埃森哲 BPO（业务流程外包）</b>混合模式。差异化：以数字治理成效（智能-智治-智效）作为分账依据，而非以工时或人日数。</p>
+        </div>
+
+        <div class="price-card">
+          <h5>定价</h5>
+          <div class="price">按 KPI 分账</div>
+          <div class="unit">3 年协议 · 20-40% 分账</div>
+          <hr style="border: 0; border-top: 1px solid var(--bg-line); margin: var(--sp-4) 0;">
+          <dl>
+            <dt>年度保底</dt><dd>¥300-800 万</dd>
+            <dt>KPI 分账</dt><dd>20-40%</dd>
+            <dt>协议周期</dt><dd>3 年</dd>
+            <dt>派驻团队</dt><dd>3-8 人</dd>
+            <dt>目标客户数（3 年）</dt><dd>3-5 家</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <!-- 首年 3700 万营收路径 -->
+    <section id="revenue" style="margin-top: var(--sp-16);">
+      <span class="section-kicker">REVENUE PATH · 首年 3700 万营收路径</span>
+      <h2 class="section-title">4-6 家客户 · 组合投产 · 三年 1.5-3 亿目标</h2>
+      <p class="section-lead">首年营收路径以"内容授权入门 + 战略咨询主打 + 联合建设标杆"三线并行为核心，形成组合投产。</p>
+
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>模式</th><th>客户画像</th><th>首单价</th><th>首年客户数</th><th class="num">首年营收</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b style="color:var(--brand);">技术授权</b></td>
+            <td>县市/园区研究者、咨询分析师</td>
+            <td>¥15 万/年</td>
+            <td>20 家</td>
+            <td class="num">¥300 万</td>
+          </tr>
+          <tr>
+            <td><b style="color:var(--warning);">战略咨询（智效诊断）</b></td>
+            <td>县级园区管委会</td>
+            <td>¥80 万</td>
+            <td>5 家</td>
+            <td class="num">¥400 万</td>
+          </tr>
+          <tr>
+            <td><b style="color:var(--success);">联合建设</b></td>
+            <td>副地级市 / 大县</td>
+            <td>¥3000 万</td>
+            <td>1 家</td>
+            <td class="num">¥3000 万</td>
+          </tr>
+          <tr>
+            <td><b style="color:#8B5CF6;">合作代运营</b></td>
+            <td>缺乏本地团队的县级园区</td>
+            <td>¥500 万保底</td>
+            <td>0（次年启动）</td>
+            <td class="num">—</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">首年合计（保守估算 · 26 单）</td>
+            <td class="num">¥3700 万</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p style="color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-top: var(--sp-4);">
+        <b>三年目标</b>：单样板业务营收 ¥1.5-3 亿。第二年内容授权扩至 50 家、战略咨询扩至 15 家、联合建设扩至 3 家、代运营启动 2 家；第三年内容授权扩至 100 家、战略咨询扩至 30 家、联合建设扩至 6 家、代运营扩至 5 家。
+      </p>
+    </section>
+
+    <!-- 底部大 CTA -->
+    <div id="contact" class="cta-final">
+      <h3>准备好把荥阳样板搬到贵市 / 贵园区了吗？</h3>
+      <p>无论您是县级园区管委会、地市数据局、还是智慧城市规划商，荥泽数链都提供从内容授权到联合建设的全谱系合作。3 周内即可完成首轮诊断，1 个月内出具规划建议。</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="mailto:model-city@xingyang-park.gov.cn">邮件联系荥泽数链</a>
+        <a class="btn-ghost" href="./methodology.html">下载方法论手册</a>
+        <a class="btn-ghost" id="training" href="../insights/">阅读 Insights 案例</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<a class="help-widget" href="#contact" aria-label="立即咨询">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  样板咨询
+</a>
+
+<footer class="footer-global">
+  <div class="footer-inner">
+    <div class="footer-lockup">
+      <div class="footer-lockup-item" style="color:var(--gov-soft);">荥阳市人民政府 · 主管</div>
+      <div class="footer-lockup-item" style="color:var(--brand-soft);">荥阳城投 · 资产</div>
+      <div class="footer-lockup-item" style="color:#B7ECD5;">太能控股 · 运营</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h5>荥阳数字经济产业园</h5><p style="color:rgba(255,255,255,.7);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p></div>
+      <div class="footer-col"><h5>样板专区</h5><a href="./index.html">样板总览</a><a href="./framework.html">理论框架</a><a href="./methodology.html">方法论</a><a href="./output.html">输出模式</a></div>
+      <div class="footer-col"><h5>5 大场景</h5><a href="./use-cases/dual-sense-city.html">双感城市</a><a href="./use-cases/digital-government.html">数字政府</a><a href="./use-cases/data-governance.html">数据要素</a><a href="./use-cases/ai-governance.html">AI 治理</a></div>
+      <div class="footer-col"><h5>联系我们</h5><a href="../about/">关于我们</a><a href="../newsroom/">新闻中心</a><a href="./benchmarks.html">对标标杆</a><a href="mailto:model-city@xingyang-park.gov.cn">model-city@xingyang-park.gov.cn</a></div>
+    </div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 定价体系为荥阳原创 · 参照 Gartner / 麦肯锡 / 华为 / CMMI 商业模式 · DTSI® / PDTMM® / X-Flow™ / OpenX@X™ 均已注册商标</div>
+  </div>
+</footer>
+</body>
+</html>
