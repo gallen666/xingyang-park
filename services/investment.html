@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 招商画像 + 项目撮合 · 荥泽 AI + 云一站式服务 · 荥阳数字经济产业园</title>
-<meta name="description" content="AI 招商画像 + 项目撮合：政府/园区对接、沙龙路演、AI 项目撮合、招商情报、招商代理、引荐协作、长期陪跑。公开资料显示，荥阳市数字经济产业园一期总投资 30 亿元，已签约或意向入驻企业 50 余家，具体合作以书面确认为准。">
+<title>企业入驻招商 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园诚邀数字经济企业入驻。项目位于郑上路与棋源路交叉口东北角，总投资 30 亿元，围绕 5G 应用、人工智能、大数据、区块链、云计算、数字孪生等方向建设总部办公、科创孵化、产业展示和智慧园区服务。">
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <style>
   sup.tm { font-size: 0.55em; color: var(--gold); font-weight: 700; }
@@ -50,6 +50,25 @@
   .proof-content { color: var(--text-1); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
   .proof-content b { color: var(--text); }
   .proof-content .num { color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums; }
+  .entry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+  @media (max-width: 1000px) { .entry-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .entry-grid { grid-template-columns: 1fr; } }
+  .entry-card { padding: var(--sp-5); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
+  .entry-card b { display: block; color: var(--gold); font-size: var(--fs-xl); margin-bottom: var(--sp-2); }
+  .entry-card span { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .brand-strip { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-5); }
+  .brand-strip span { display: inline-flex; align-items: center; padding: 6px var(--sp-3); border: 1px solid var(--bg-line); border-radius: var(--radius-pill); background: var(--bg-2); color: var(--text-1); font-size: var(--fs-sm); font-weight: 600; }
+  .timeline-lite { display: grid; gap: var(--sp-4); margin-top: var(--sp-8); }
+  .timeline-lite__item { display: grid; grid-template-columns: 120px 1fr; gap: var(--sp-5); padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
+  @media (max-width: 700px) { .timeline-lite__item { grid-template-columns: 1fr; } }
+  .timeline-lite__date { color: var(--gold); font-weight: 800; font-size: var(--fs-sm); }
+  .timeline-lite__body { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .split-info { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .split-info { grid-template-columns: 1fr; } }
+  .info-panel { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
+  .info-panel h3 { font-size: var(--fs-lg); margin-bottom: var(--sp-3); }
+  .info-panel p, .info-panel li { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .info-panel ul { padding-left: 1.2em; margin: var(--sp-3) 0 0; }
 
   /* --- Testimonial carousel --- */
   .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
@@ -176,29 +195,29 @@
   <input type="radio" name="hero" id="hero-3">
   <div class="hero-slides">
     <div class="hero-slide">
-      <span class="hero-tag">POV · 服务价值</span>
-      <h1 class="hero-title">AI 招商画像 + 项目撮合 · 3 家 500 强 · 52 家签约 · ¥30 亿到位</h1>
+      <span class="hero-tag">INVESTMENT · 企业入驻</span>
+      <h1 class="hero-title">荥阳市数字经济产业园，诚邀企业入驻</h1>
       <p class="hero-lead">
-        很多园区在"引进企业"上做得很热闹，却在"落地"上掉链子。<b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>把线索、对接、路演、撮合、代理、佣金、陪跑
-        7 段做成同一条闭环——已促成 <b>52 家</b> 签约、<b>¥30 亿</b> 到位、项目落地率 <b>78%</b>、老客户带新 <b>1.8 家/年</b>。
+        园区由荥阳市人民政府、荥阳城市发展投资集团有限公司、太能控股有限公司合作打造，
+        以新基建产业为核心，面向 <b>5G 应用、人工智能、大数据、区块链、云计算、数字孪生</b> 等数字经济方向，
+        为企业提供发展、办公、研发、展示和交流空间。
       </p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="#offerings">阅读招商合作落地路径
+        <a class="btn-primary" href="#overview">查看入驻要点
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a class="btn-ghost" href="#rfs">申请项目对接</a>
       </div>
     </div>
     <div class="hero-slide">
-      <span class="hero-tag hero-tag--press">PRESS · 政府认可</span>
-      <h1 class="hero-title">郑州 187 家园区参评 · 荥阳同时拿下"到位金额" "落地率" "500 强招引" 三项子奖</h1>
+      <span class="hero-tag hero-tag--press">LOCATION · 郑西腹心地</span>
+      <h1 class="hero-title">郑上路与棋源路交叉口东北角，连接郑州、洛阳与黄河沿线</h1>
       <p class="hero-lead">
-        荥泽招商中心已获<b>河南省商务厅"县域招商创新单位"</b>命名、<b>郑州市投资促进局 2025 年度招商金奖</b>，
-        并入选<b>河南省招商联盟</b>常任理事席位。四级政府关系、五张招商许可、一张服务通道——
-        为 500 强、上市公司、港资内迁提供<b>"一号响应"</b>。
+        公开工程资料显示，荥阳市数字经济产业园新基础建设项目位于 <b>郑上路与棋源路交叉口东北侧</b>。
+        招商材料显示，园区坐拥郑州地铁 10 号线，距郑州高铁西站约 3.5 公里，面向郑西产业协同和沿黄经济带数字化需求。
       </p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="#proof">查看政府与媒体背书
+        <a class="btn-primary" href="#proof">查看公开核验信息
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -213,15 +232,30 @@
 <!-- 2. 概览 · 3 句 promise -->
 <section class="section" id="overview">
   <div class="container-wide">
-    <span class="section-kicker">OVERVIEW · 招商合作</span>
-    <h2 class="section-title">关于招商合作</h2>
+    <span class="section-kicker">OVERVIEW · 入驻招商</span>
+    <h2 class="section-title">数字经济核心承载区</h2>
     <p class="section-lead">
-      <b>公开资料显示：园区一期总投资 30 亿元，已签约或意向入驻企业 50 余家。</b>
-      荥泽 <b>AI 招商画像 + 项目撮合</b>是园区 AI + 云一站式服务矩阵中的核心枢纽，即<b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>的 AI-First 升级版。
-      由 AI 驱动，覆盖 <b>500 强招引 · 政府/园区对接 · 沙龙路演 · AI 项目撮合 · 招商情报 · 招商代理 · 引荐佣金 · 长期陪跑</b> 8 大模块。
-      后续项目招引、上市公司资源链接、港资或海外项目导入等合作，应以正式招商协议、工商注册、落地载体和政府公开文件为准。
-      网站不展示无法核验的个人负责人、内部协调次数、项目落地率或佣金承诺。
+      公开报道显示，荥阳市数字经济产业园一期总投资 <b>30 亿元</b>，规划建设云链数字经济研究院、数字经济总部中心、
+      科技创新创业中心、产业应用展示展览中心、IDC 大数据中心等板块。招商材料进一步明确，园区围绕
+      <b>IABCDGN</b> 产业生态体系，即物联网、人工智能、区块链、大数据、云计算、5G、数字孪生，重点引入上市公司、龙头企业和高新技术企业。
     </p>
+
+    <div class="entry-grid">
+      <div class="entry-card"><b>30 亿元</b><span>公开报道确认的一期总投资规模；专项资金、建设进度以正式文件为准。</span></div>
+      <div class="entry-card"><b>约 260 亩</b><span>招商材料显示的建筑用地口径；公开报道另有约 300 亩规划口径，需以土地与规划文件为准。</span></div>
+      <div class="entry-card"><b>36.6 万㎡+</b><span>公开工程报道显示项目总建筑面积约 36.6 万平方米；分标段数据以工程公告为准。</span></div>
+      <div class="entry-card"><b>50 余家</b><span>公开报道提及已签约或意向入驻主体 50 余家，后续入驻以工商注册和正式协议为准。</span></div>
+    </div>
+
+    <div class="brand-strip" aria-label="招商材料提及的重点企业">
+      <span>大华股份 002236</span>
+      <span>安恒信息 688023</span>
+      <span>优刻得 688158</span>
+      <span>新开普 300248</span>
+      <span>江森自控</span>
+      <span>杭州码全信息科技有限公司</span>
+      <span>北京五一视界数字孪生科技股份有限公司</span>
+    </div>
 
   </div>
 </section>
@@ -229,29 +263,29 @@
 <!-- 6. 7 层证据栈 -->
 <section class="section" style="background: var(--bg-1);" id="proof">
   <div class="container-wide">
-    <span class="section-kicker">PROOF · 7 层证据栈</span>
-    <h2 class="section-title">证据栈</h2>
-    <p class="section-lead">52 家签约 · ¥30 亿到位 · 3 家 500 强——每一份《项目落地承诺书》都在市投促局归档。</p>
+    <span class="section-kicker">VERIFICATION · 公开核验</span>
+    <h2 class="section-title">招商信息依据</h2>
+    <p class="section-lead">本页采用“公开来源 + 招商材料”双口径：能由公开网页核验的内容直接展示；暂未找到公开文件的内容标注为招商材料口径，并以正式协议、规划和土地文件为准。</p>
     <div class="proof-stack">
       <div class="proof-row">
-        <div class="proof-layer">Layer 1 · 绝对数字</div>
-        <div class="proof-content">累计签约 <b class="num">52</b> 家企业 · 500 强 <b class="num">3</b> 家 · 上市公司 <b class="num">7</b> 家 · 港资内迁 <b class="num">5</b> 家 · 覆盖 <b class="num">40.4 万㎡</b> 运营空间 · 园区占地 <b class="num">260 亩</b>。</div>
+        <div class="proof-layer">公开报道</div>
+        <div class="proof-content">大河财立方公开报道：太能控股与荥阳市政府于 2020 年 3 月合作打造荥阳市数字经济产业园；一期总投资 <b class="num">30 亿元</b>，规划占地约 <b class="num">300 亩</b>，建筑面积约 <b class="num">40 万㎡</b>。</div>
       </div>
       <div class="proof-row">
-        <div class="proof-layer">Layer 2 · 百分比</div>
-        <div class="proof-content">项目落地率 <b class="num">78%</b>（郑州县域园区平均 30%）· 一次谈判成签率 <b class="num">42%</b> · 3 年续租率 <b class="num">94%</b> · 老客户带新 <b class="num">1.8</b> 家/年。</div>
+        <div class="proof-layer">工程位置</div>
+        <div class="proof-content">中国网和阳光招标采购交易平台公开工程信息显示，项目位于 <b>郑上路与棋源路交叉口东北侧</b>；工程分标段建设，公开披露总建筑面积约 <b class="num">36.6 万㎡</b>。</div>
       </div>
       <div class="proof-row">
-        <div class="proof-layer">Layer 3 · 金额</div>
-        <div class="proof-content">累计到位投资 <b class="num">¥30 亿</b> · 单项目最大到位 <b class="num">¥6.8 亿</b> · 引荐佣金池累计发放 <b class="num">¥820 万</b> · 单笔佣金区间 <b class="num">¥3-30 万</b>/项。</div>
+        <div class="proof-layer">招商材料</div>
+        <div class="proof-content">招商材料显示，项目建筑用地约 <b class="num">260 亩</b>，土地性质为商业用地，并面向数字经济上下游企业及多样化商业底商招引。相关土地性质、面积和政策适用应以政府、规划、土地或合同文件为准。</div>
       </div>
       <div class="proof-row">
-        <div class="proof-layer">Layer 6 · 本地权威认可</div>
-        <div class="proof-content"><b>河南省商务厅</b>县域招商创新单位 · <b>郑州市商务局</b>合作园区 · <b>郑州市投资促进局</b> 2025 年度招商金奖 · <b>郑东新区管委会</b>产业协同基地 · <b>河南省招商联盟</b>常任理事 · <b>36 氪河南</b>年度招商案例专题。</div>
+        <div class="proof-layer">产业方向</div>
+        <div class="proof-content">公开报道和招商材料口径一致指向“新基建 + 数字经济”：5G 应用、人工智能、大数据、区块链、云计算、数字孪生、总部经济、科创孵化、产业应用展示等方向。</div>
       </div>
       <div class="proof-row">
-        <div class="proof-layer">Layer 7 · 商标方法论</div>
-        <div class="proof-content"><b>「荥泽招商飞轮<sup class="tm">®</sup>」</b>——已注册商标的园区招商方法论，覆盖"情报 → 触达 → 路演 → 撮合 → 代理 → 佣金 → 陪跑"7 段全流程 SOP，本页所有服务均直接嵌入该方法论。</div>
+        <div class="proof-layer">联系入口</div>
+        <div class="proof-content">当前公开可核验的综合联络入口为荥阳城投官网电话 <b>0371-65000177</b> 与邮箱 <b>xycstz@163.com</b>；项目建设公开联系人见招标成交公告。</div>
       </div>
     </div>
   </div>
@@ -262,8 +296,8 @@
   <div class="container-wide">
     <div class="mid-cta">
       <div>
-        <div class="mid-cta__title">45 分钟出具"荥泽是否合适 + 政府资源清单"书面判断表</div>
-        <div class="mid-cta__body">告诉我们你的行业 · 投资规模 · 期望落地节奏。当前公开可核验的综合联络入口为荥阳城投官网电话/邮箱；项目建设事项可参考公开招标公告联系人。</div>
+        <div class="mid-cta__title">面向数字经济上下游企业和多样化商业底商开放入驻咨询</div>
+        <div class="mid-cta__body">请说明企业名称、产业方向、意向面积、投资规模和期望落地节奏。当前公开可核验的综合联络入口为荥阳城投官网电话/邮箱；项目建设事项可参考公开招标公告联系人。</div>
       </div>
       <a class="btn-primary" href="mailto:xycstz@163.com?subject=咨询-招商合作项目对接&amp;body=请留下：企业名称 · 行业 · 投资规模 · 期望落地节奏 · 联系人 · 电话。">
         项目对接 · 发邮件
@@ -273,52 +307,105 @@
   </div>
 </section>
 
+<!-- 8. Development timeline -->
+<section class="section">
+  <div class="container-wide">
+    <span class="section-kicker">MILESTONES · 建设发展历程</span>
+    <h2 class="section-title">从构想到省重点项目推进</h2>
+    <p class="section-lead">以下为招商材料提供的建设历程摘要；涉及荣誉、协议、签约、投资和高校合作等事项，后续可继续补充政府公告、新闻报道或协议佐证。</p>
+    <div class="timeline-lite">
+      <div class="timeline-lite__item"><div class="timeline-lite__date">2019.09-11</div><div class="timeline-lite__body">太能控股董事长戴继涛携荥阳市相关领导赴上海、杭州等地调研数字经济产业公司，荥阳市数字经济产业园构想逐步形成。</div></div>
+      <div class="timeline-lite__item"><div class="timeline-lite__date">2019.12.02</div><div class="timeline-lite__body">荥阳市政府与太能控股就在荥阳建设数字经济产业园进行沟通并达成共识，全面展开建设工作。</div></div>
+      <div class="timeline-lite__item"><div class="timeline-lite__date">2020.05</div><div class="timeline-lite__body">招商材料显示，荥阳市数字经济产业园被确定为河南省首家经发改委、省财政厅等部门批准的数字经济产业园。</div></div>
+      <div class="timeline-lite__item"><div class="timeline-lite__date">2020.09</div><div class="timeline-lite__body">太能控股与荥阳城投签订项目合作协议；郑州市 2020 年度第三批重点项目集中开工仪式在项目工地设置荥阳分会场，园区正式开工建设。</div></div>
+      <div class="timeline-lite__item"><div class="timeline-lite__date">2021</div><div class="timeline-lite__body">荥阳市将数字经济纳入十四五重点发展板块；园区与郑州大学公共安全研究院签订战略合作协议；荥阳市第六次党代会要求加快推进数字经济产业园建设。</div></div>
+      <div class="timeline-lite__item"><div class="timeline-lite__date">2022</div><div class="timeline-lite__body">招商材料显示，园区被纳入《郑州市新基建建设示范区发展规划（2021-2025）》；参加荥阳市小微产业园招商项目集中签约仪式，并与数字经济企业签订协议。</div></div>
+      <div class="timeline-lite__item"><div class="timeline-lite__date">2023</div><div class="timeline-lite__body">园区举行集中签约仪式，与森赫电梯、络闻管理、城川建筑等企业签订入驻协议；项目建设持续推进，公开报道提及工程建设进展顺利。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Planning and positioning -->
+<section class="section" style="background: var(--bg-1);">
+  <div class="container-wide">
+    <span class="section-kicker">PLANNING · 建设规划与功能定位</span>
+    <h2 class="section-title">总部经济、科创孵化与成果展示交流</h2>
+    <div class="split-info">
+      <article class="info-panel">
+        <h3>建设规划</h3>
+        <p>招商材料显示，园区总投资 30 亿元，建筑用地约 300 亩，总建筑面积 40.4 万平方米，其中地上建筑面积约 30 万平方米、地下建筑面积约 10.4 万平方米；土地性质为商业用地。公开工程信息披露的建设面积与分标段口径存在差异，最终以规划、土地和工程文件为准。</p>
+        <p>园区整体规划以“数字型智慧园区”为切入，围绕 5G 应用、人工智能、大数据、区块链等信息化产业技术方向建设。</p>
+      </article>
+      <article class="info-panel">
+        <h3>功能定位</h3>
+        <ul>
+          <li>数字经济总部中心</li>
+          <li>科技创新创业中心</li>
+          <li>产业应用展示展览中心</li>
+          <li>技术成果转化创新基地</li>
+          <li>专业投资基金、券商、会计事务所、律师事务所等专业服务资源导入</li>
+        </ul>
+      </article>
+      <article class="info-panel">
+        <h3>建设成果与校企融合</h3>
+        <p>招商材料显示，园区已建设成立河南省数字经济研究院，聚焦数字产业化和产业数字化，汇聚技术、人才、资金三大要素。</p>
+        <p>园区积极对接高校和科研资源，推动产学研实训基地、技术成果转换平台和数字经济职业教育资源建设。相关高校合作与学院项目以正式协议和主管部门批复为准。</p>
+      </article>
+      <article class="info-panel">
+        <h3>远景计划</h3>
+        <p>园区提出“1553”全景计划：建设数字经济产业研究院、专家顾问委员会和产业发展基金，引进上市公司或世界 500 强区域总部、数字经济独角兽企业、高铁产业配套企业、高新技术企业和科技型中小企业。</p>
+        <p>该计划体现园区围绕人才、技术、金融、信息等资源共享，打造数字经济产业生态链的长期目标。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- 9. Offering matrix -->
 <section class="section" id="offerings" style="background: var(--bg-1);">
   <div class="container-wide">
-    <span class="section-kicker">OFFERINGS · 8 项招商服务清单</span>
-    <h2 class="section-title">招商清单</h2>
-    <p class="section-lead">以下为网站展示的招商服务方向。涉及具体负责人、政策兑现、空间价格与入驻条件，请以公开主体后续书面确认为准。</p>
+    <span class="section-kicker">SERVICES · 入驻与智慧园区服务</span>
+    <h2 class="section-title">一站式入驻服务</h2>
+    <p class="section-lead">园区招商材料显示，荥阳市数字经济产业园配备企业入驻、运营咨询、扩张升级和智慧园区服务。具体服务范围、费用、响应时限和交付标准，以后续正式协议为准。</p>
     <div class="offer-grid">
       <div class="offer-card">
-        <div class="offer-card__title">500 强招引 · 全国总部/区域中心</div>
-        <div class="offer-card__body">锁定 500 强"中原候选"名单 · 一号响应 · 董事会级方案定制。累计已引 3 家 500 强区域总部落地。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-500强招引">了解更多</a>
+        <div class="offer-card__title">企业入驻与设立支持</div>
+        <div class="offer-card__body">工商注册、资质办理、入驻材料准备、项目落地流程咨询。适用于拟设立区域总部、研发中心、数字化服务公司和配套商业主体。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-企业入驻与设立支持">了解更多</a>
       </div>
       <div class="offer-card">
-        <div class="offer-card__title">政府/园区对接 · 四级通道</div>
-        <div class="offer-card__body">荥阳市 · 郑州市 · 河南省 · 部委四级政府关系一号通道。含跨部委协调、土地摘牌、审批陪审、总部注册"一站办结"。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-政府对接">了解更多</a>
+        <div class="offer-card__title">运营过程专业服务</div>
+        <div class="offer-card__body">财税服务、法律服务、人资服务、知识产权服务、物管服务、媒体宣传服务等，帮助企业完成从入驻到稳定运营的衔接。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-运营专业服务">了解更多</a>
       </div>
       <div class="offer-card">
-        <div class="offer-card__title">沙龙路演 · 月度产业专场</div>
-        <div class="offer-card__body">每月主办 1 场行业沙龙，联合 36 氪河南 · 河南省招商联盟。累计办 32 场，触达潜在企业 1,850 家、意向签约 68 家。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-沙龙路演">了解更多</a>
+        <div class="offer-card__title">企业扩张与升级合作</div>
+        <div class="offer-card__body">投融资服务、上市辅导、资源对接、产业链上下游协同。具体合作主体、资方资源和辅导机构以书面确认为准。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-企业扩张与升级合作">了解更多</a>
       </div>
       <div class="offer-card">
-        <div class="offer-card__title">项目撮合 · 供需两侧配对</div>
-        <div class="offer-card__body">基于 52 家在园企业 + 河南省招商联盟资源池，为已入驻企业撮合上下游、客户、投资人。24 个月累计撮合 210 单。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-项目撮合">了解更多</a>
+        <div class="offer-card__title">5G 专网服务</div>
+        <div class="offer-card__body">招商材料显示，园区可提供 5G 网络覆盖、5G 核心网和 MEC、网络规划建设、维护优化等端到端服务。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-5G专网服务">了解更多</a>
       </div>
       <div class="offer-card">
-        <div class="offer-card__title">招商情报 · 月度报告订阅</div>
-        <div class="offer-card__body">每月 15 日推送《荥泽招商情报》——覆盖产业政策 · 竞品园区 · 500 强动向 · 潜在候选企业。订阅 128 家，续订率 91%。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-招商情报">了解更多</a>
+        <div class="offer-card__title">云端智核与大数据中心</div>
+        <div class="offer-card__body">高性能云计算平台和大数据中心，为企业提供弹性计算资源和数据存储能力，支撑研发、生产、展示和运营场景。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-云计算与大数据中心">了解更多</a>
       </div>
       <div class="offer-card">
-        <div class="offer-card__title">招商代理 · 对外委托</div>
-        <div class="offer-card__body">郑州市、河南省内其他县域园区可对外委托荥泽担任第三方招商代理。已服务 6 个县域园区，签约 18 家企业。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-招商代理">了解更多</a>
+        <div class="offer-card__title">物联网智控园区</div>
+        <div class="offer-card__body">通过物联网平台连接和管理园区智能设备，实现设备互联互通，提升运营效率，支撑智慧物业和园区数字化运营。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-物联网智控园区">了解更多</a>
       </div>
       <div class="offer-card">
-        <div class="offer-card__title">引荐佣金 · ¥3-30 万/项</div>
-        <div class="offer-card__body">明码标价、公开可查的引荐机制：一般项目 ¥3-8 万，重大项目 ¥15-30 万，签约到位即发。累计发放 ¥820 万，128 位引荐人受益。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-引荐佣金">了解更多</a>
+        <div class="offer-card__title">数字化安防系统</div>
+        <div class="offer-card__body">高清视频监控、智能门禁、人脸识别等安防系统，为企业办公、研发、展示和交流环境提供安全保障。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-数字化安防系统">了解更多</a>
       </div>
       <div class="offer-card">
-        <div class="offer-card__title">长期陪跑 · 3 年 QBR</div>
-        <div class="offer-card__body">签约后 3 年内建议建立季度 QBR（业务复盘会）。具体陪跑机制、政策叠加提醒、上下游撮合、二次扩产服务以合同和公开主体确认为准。</div>
-        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-招商合作-长期陪跑">了解更多</a>
+        <div class="offer-card__title">创新项目合作</div>
+        <div class="offer-card__body">欢迎数字经济上下游企业、信息技术企业、新基建场景服务商和多样化商业底商合作，共同丰富产业生态。</div>
+        <a class="offer-card__more" href="mailto:xycstz@163.com?subject=咨询-创新项目合作">了解更多</a>
       </div>
     </div>
   </div>
@@ -327,39 +414,34 @@
 <!-- 10. Insights grid -->
 <section class="section" id="insights">
   <div class="container-wide">
-    <span class="section-kicker">INSIGHTS · 洞察内容</span>
-    <h2 class="section-title">最近的招商解读 · 案例复盘 · 白皮书</h2>
+    <span class="section-kicker">INDUSTRY · 招商业态</span>
+    <h2 class="section-title">主要面向企业</h2>
     <div class="insight-grid">
-      <a class="card" href="../insights/">
-        <span class="chip chip--policy">政策</span>
-        <div class="card-title" style="margin-top:var(--sp-3);">2026 河南省"总部经济"新政 · 荥泽落地版</div>
-        <div class="card-body">总部奖补上限提至 ¥5000 万 · 荥泽承接细则解读 · 附申报清单。</div>
-        <div class="card-cta">阅读全文</div>
-      </a>
-      <a class="card" href="../insights/">
-        <span class="chip chip--whitepaper">白皮书</span>
-        <div class="card-title" style="margin-top:var(--sp-3);">《荥泽招商飞轮® 方法论白皮书 v3》</div>
-        <div class="card-body">7 段闭环 SOP · 96 页 · 与河南省招商联盟联合发布。</div>
-        <div class="card-cta">下载 PDF</div>
-      </a>
-      <a class="card" href="../insights/">
-        <span class="chip chip--report">报告</span>
-        <div class="card-title" style="margin-top:var(--sp-3);">Q2 招商情报 · 中原地区 500 强新增名单</div>
-        <div class="card-body">18 家 500 强中原动向 · 荥泽在跟 6 家 · 附评估矩阵。</div>
-        <div class="card-cta">阅读报告</div>
-      </a>
-      <a class="card" href="../insights/">
-        <span class="chip chip--video">视频</span>
-        <div class="card-title" style="margin-top:var(--sp-3);">县域园区招商方法 · 项目落地与政策协同</div>
-        <div class="card-body">招商 SOP 模板、政府协同清单与项目落地材料示例。</div>
-        <div class="card-cta">观看视频</div>
-      </a>
-      <a class="card" href="../insights/">
-        <span class="chip chip--event">活动</span>
-        <div class="card-title" style="margin-top:var(--sp-3);">2026-09-12 · 荥泽招商开放日 &amp; 引荐人答谢会</div>
-        <div class="card-body">现场发放 Q3 引荐佣金 · 128 位引荐人到场 · 需报名。</div>
-        <div class="card-cta">立即报名</div>
-      </a>
+      <div class="card">
+        <span class="chip chip--policy">IOT</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">物联网与智能设备</div>
+        <div class="card-body">面向设备连接、园区物联、智能感知、工业现场数据采集和智能终端企业。</div>
+      </div>
+      <div class="card">
+        <span class="chip chip--report">AI</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">人工智能与算法应用</div>
+        <div class="card-body">面向 AI 应用开发、视觉识别、智能决策、AIGC 工具、产业智能化解决方案企业。</div>
+      </div>
+      <div class="card">
+        <span class="chip chip--whitepaper">DATA</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">大数据、云计算与安全</div>
+        <div class="card-body">面向云计算、数据治理、网络安全、算力服务、行业数据平台和企业数字化服务商。</div>
+      </div>
+      <div class="card">
+        <span class="chip chip--video">5G</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">5G 与数字孪生</div>
+        <div class="card-body">面向 5G 行业应用、数字孪生、工业互联网、空间计算和展示展览技术企业。</div>
+      </div>
+      <div class="card">
+        <span class="chip chip--event">商业配套</span>
+        <div class="card-title" style="margin-top:var(--sp-3);">多样化商业底商</div>
+        <div class="card-body">面向服务园区企业和人才的办公配套、商务服务、展示体验、餐饮零售等商业业态。</div>
+      </div>
     </div>
   </div>
 </section>
@@ -371,40 +453,37 @@
     <h2 class="section-title">常见问题</h2>
     <div class="faq">
       <details open>
-        <summary>Q1. 你们的项目落地率 78% 是怎么算的？和郑州县域平均怎么比？</summary>
+        <summary>Q1. 园区在哪里？</summary>
         <div>
-          网站不再展示无法公开核验的项目落地率。可确认的公开信息是：荥阳市数字经济产业园一期总投资 30 亿元，
-          公开报道提及已签约或意向入驻企业 50 余家。具体落地数量、工商注册、投资到位和产值税收数据，应以政府公开文件、
-          企业书面确认或审计材料为准。
+          公开工程信息显示，项目位于郑上路与棋源路交叉口东北侧。招商材料描述其坐落于郑州西美新城核心位置，
+          距郑州高铁西站约 3.5 公里，并可连接郑州地铁 10 号线及周边高速、机场交通。
         </div>
       </details>
       <details>
-        <summary>Q2. 引荐佣金 ¥3-30 万一项是怎么发放的？会不会拖欠？</summary>
+        <summary>Q2. 适合哪些企业入驻？</summary>
         <div>
-          网站不展示统一佣金价格或付款承诺。项目引荐、招商代理、服务费和绩效分成应由合作主体另行签署书面协议，
-          并以合法合规的合同、发票、税务处理和付款节点为准。
+          主要面向数字经济产业上下游企业，包括物联网、人工智能、区块链、大数据、云计算、5G、数字孪生、网络安全、
+          工业互联网、数字化服务等方向，也面向服务园区企业和人才的多样化商业底商。
         </div>
       </details>
       <details>
-        <summary>Q3. 招商代理服务对外委托，费用怎么算？</summary>
+        <summary>Q3. 能提供哪些入驻服务？</summary>
         <div>
-          <b>基础服务费 + 按业绩阶梯分成</b>。基础年费 <b>¥30-80 万</b>（视园区规模），负责情报 · 沙龙 · 路演 · 政府对接 4 项。
-          实际费用、绩效口径和付款节点需结合项目类型、服务范围和合规要求单独约定。合作前应签署服务协议、
-          保密协议和验收清单，全流程留痕可审。
+          招商材料列明三类服务：企业入驻与设立支持，包括工商注册、资质办理；运营过程专业服务，包括财税、法律、人资、
+          知识产权、物管、媒体宣传；企业扩张与升级合作，包括投融资服务、上市辅导等。
         </div>
       </details>
       <details>
-        <summary>Q4. 500 强/港资/上市公司这些复杂项目，你们能协调到哪一级政府？</summary>
+        <summary>Q4. 已签约或意向入驻企业有哪些？</summary>
         <div>
-          涉及跨层级协调的项目，应以属地政府、主管部门和招商合作协议的正式安排为准。公开页面仅展示可核验的联络入口，
-          不承诺特定层级、特定领导或特定时限的行政协调结果。
+          公开报道提及园区已签约或意向入驻企业 50 余家。招商材料列举了大华股份、安恒信息、优刻得、新开普、江森自控、
+          杭州码全信息科技有限公司、北京五一视界数字孪生科技股份有限公司等。具体入驻状态以企业工商注册和正式协议为准。
         </div>
       </details>
       <details>
-        <summary>Q5. 签约后的 3 年 QBR 陪跑到底跟其他园区"售后"有什么不同？</summary>
+        <summary>Q5. 如何咨询入驻？</summary>
         <div>
-          可约定定期复盘、政策提示、资源撮合和风险清单，但服务团队、频次、交付物和响应时限应写入合同或服务确认单。
-          对二次扩产、增资、子公司迁入等事项，需按属地政策和企业实际情况重新确认。
+          当前公开可核验的综合联络入口为荥阳城投官网电话 0371-65000177 和邮箱 xycstz@163.com。涉及项目建设事项，可参考公开招标公告中郑州中荥数字产业发展有限公司的建设联系人。
         </div>
       </details>
     </div>
@@ -419,12 +498,12 @@
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);margin-top:var(--sp-6);">
       <a class="svc-card" href="./policy.html">
         <div class="svc-card__name">AI 政策匹配</div>
-        <div class="svc-card__pitch">12 类政策一站办理，320 份申报 · 一次过审率 92%。</div>
+        <div class="svc-card__pitch">政策适用性诊断、申报材料清单、主管部门公开政策解读，具体服务以后续协议为准。</div>
         <span class="svc-card__cta">查看详情</span>
       </a>
       <a class="svc-card" href="./supply-chain.html">
         <div class="svc-card__name">AI 供应链神经中枢</div>
-        <div class="svc-card__pitch">覆盖 6 大产业方向 · 42 家企业互通 · 订单撮合 ¥6.2 亿。</div>
+        <div class="svc-card__pitch">面向入驻企业的上下游协同、场景需求登记和产业链资源对接，具体资源以书面确认为准。</div>
         <span class="svc-card__cta">查看详情</span>
       </a>
     </div>
@@ -441,19 +520,20 @@
     <div class="spoc-card">
       <div class="spoc-avatar">联</div>
       <div>
-        <div class="spoc-name">公开联络入口</div>
-        <div class="spoc-title">荥阳城投公开电话与邮箱</div>
+        <div class="spoc-name">官方招商电话</div>
+        <div class="spoc-title">荥阳市数字经济产业园招商咨询</div>
         <div class="spoc-contact">
-          荥阳城投 · 0371-65000177 · xycstz@163.com<br>
+          官方招商电话 · 400 0371 899<br>
+          城投公开入口 · 0371-65000177 · xycstz@163.com<br>
           项目建设 · 郑州中荥数字产业发展有限公司 · 李先生 · 0371-69000203<br>
-          说明 · 上述信息来自公开网页，非个人微信或私域热线
+          说明 · 400 电话由招商材料提供；城投与建设联系人来自公开网页
         </div>
       </div>
       <div class="spoc-qr">不展示未核验二维码</div>
     </div>
 
-    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">或者填一张 RFS 需求表，由公开联络入口转接</h3>
-    <form class="form-inline" onsubmit="event.preventDefault(); alert('已收到申请，请通过公开电话或邮箱确认。');">
+    <h3 style="font-size:var(--fs-lg);margin-top:var(--sp-10);margin-bottom:var(--sp-2);">或者填一张 RFS 需求表，并通过官方招商电话确认</h3>
+    <form class="form-inline" onsubmit="event.preventDefault(); alert('已收到申请，请通过官方招商电话或公开邮箱确认。');">
       <div class="field">
         <label for="rfs-name">姓名 *</label>
         <input type="text" id="rfs-name" name="name" required placeholder="请填真实姓名">
@@ -472,7 +552,7 @@
       </div>
       <div class="field field--full">
         <label for="rfs-need">项目需求 *</label>
-        <textarea id="rfs-need" name="need" rows="4" required placeholder="例如：我们是智能装备上市公司，计划在中原设区域总部，投资 ¥1.5 亿、员工 300 人，希望了解荥泽的政策叠加、落地节奏和政府协调能力。"></textarea>
+        <textarea id="rfs-need" name="need" rows="4" required placeholder="例如：我们是智能装备企业，计划在中原设区域总部，投资 ¥1.5 亿、员工 300 人，希望了解园区的政策叠加、落地节奏和政府协调能力。"></textarea>
       </div>
       <div class="field">
         <label for="rfs-time">联系时间偏好</label>
@@ -488,7 +568,7 @@
         <label for="rfs-source">如何了解到我们</label>
         <select id="rfs-source" name="source">
           <option>搜索引擎</option>
-          <option>朋友/引荐人推荐</option>
+          <option>合作方推荐</option>
           <option>政府/园区活动</option>
           <option>36 氪 / 媒体报道</option>
           <option>河南省招商联盟</option>
@@ -521,7 +601,7 @@
     <div class="footer-cols">
       <div class="footer-col">
         <h5>荥阳数字经济产业园</h5>
-        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">荥阳市人民政府 · 荥阳城投 · 太能控股合作打造<br>官方招商电话：400 0371 899</p>
       </div>
       <div class="footer-col">
         <h5>8 大运营服务</h5>
@@ -542,10 +622,11 @@
         <a href="../about/">关于我们</a>
         <a href="../newsroom/">新闻中心</a>
         <a href="#rfs">合作咨询</a>
+        <a href="tel:4000371899">400 0371 899</a>
         <a href="mailto:xycstz@163.com">xycstz@163.com</a>
       </div>
     </div>
-    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利 · 荥泽招商飞轮<sup class="tm">®</sup> 已注册商标</div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 企业入驻招商 · 官方招商电话 400 0371 899 · 资料更新日：2026-08-01</div>
   </div>
 </footer>
 

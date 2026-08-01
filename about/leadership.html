@@ -19,11 +19,12 @@
   .fact-table th,.fact-table td{padding:var(--sp-4);border-bottom:1px solid var(--bg-line);vertical-align:top;text-align:left}
   .fact-table th{width:220px;color:var(--gold);font-size:var(--fs-sm)}
   .fact-table td{color:var(--text-2);font-size:var(--fs-sm);line-height:var(--lh-relaxed)}
-  .contact-list{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-top:var(--sp-8)}
+  .contact-list{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-5);margin-top:var(--sp-8)}
   @media(max-width:1000px){.contact-list{grid-template-columns:1fr}}
   .contact-card{padding:var(--sp-6);background:var(--bg-2);border:1px solid var(--bg-line);border-radius:var(--radius-md);border-top:3px solid var(--enterprise)}
   .contact-card.gov{border-top-color:var(--gov)}
   .contact-card.project{border-top-color:var(--gold)}
+  .contact-card.hotline{border-top-color:var(--ecosystem)}
   .contact-card h3{font-size:var(--fs-lg);margin-bottom:var(--sp-3)}
   .contact-card dl{display:grid;gap:var(--sp-2)}
   .contact-card dt{color:var(--text-3);font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.06em}
@@ -78,7 +79,7 @@
     <span class="section-kicker">PRINCIPLE · 核验原则</span>
     <h2 class="section-title">不把推测写成事实</h2>
     <div class="verify-banner">
-      <p><b>更新口径：</b>领导信息只保留公开报道可证明的市级动态；园区经营与项目主体只保留公开来源可证明的单位名称、地址和电话；未找到官方认证公众号时，不展示公众号二维码或公众号名称。</p>
+      <p><b>更新口径：</b>领导信息只保留公开报道可证明的市级动态；园区经营与项目主体只保留公开来源可证明的单位名称、地址和电话；已找到搜狗微信公开索引中的园区相关文章，但公众号认证主体仍以微信端展示为准，网站不展示未经核验的二维码或个人微信。</p>
     </div>
 
     <div class="source-grid">
@@ -111,12 +112,13 @@
       </article>
 
       <article class="source-card">
-        <h3>公众号核验状态</h3>
+        <h3>公众号与公开文章核验状态</h3>
         <ul>
-          <li>截至本页更新日，公开搜索未核验到以“荥阳市数字经济产业园”为主体的官方认证微信公众号主页。</li>
-          <li>网站不展示任何未经认证的公众号名称、二维码或个人微信。</li>
-          <li>后续如运营主体提供公众号认证截图、后台主体信息或政府/城投官网入口，可再补充。</li>
+          <li>搜狗微信公开索引可检索到账号名为“荥阳市数字经济产业园”的招商文章，包括“荥阳市数字经济产业园，诚邀企业入驻！”等内容。</li>
+          <li>原始微信链接可能需要在微信或搜狗验证后打开，公众号认证主体以微信端展示为准。</li>
+          <li>网站不展示任何未经认证的二维码或个人微信；后续如运营主体提供公众号认证截图、后台主体信息或政府/城投官网入口，可再补充。</li>
         </ul>
+        <a class="source-link" href="https://weixin.sogou.com/weixin?type=2&query=%E8%8D%A5%E9%98%B3%E5%B8%82%E6%95%B0%E5%AD%97%E7%BB%8F%E6%B5%8E%E4%BA%A7%E4%B8%9A%E5%9B%AD" target="_blank" rel="noopener">来源：搜狗微信公开索引</a>
       </article>
     </div>
   </div>
@@ -165,10 +167,20 @@
     <span class="section-kicker">CONTACTS · 公开联系方式</span>
     <h2 class="section-title">当前可公开核验的联系信息</h2>
     <p class="section-lead">
-      下列联系方式来自公开网页。实际招商、入驻、采访或项目建设事项，建议先说明诉求并由对应主体转接；本网站不再使用未核验的个人手机号和虚构邮箱。
+      下列联系方式来自公开网页和招商材料。实际招商、入驻、采访或项目建设事项，建议先说明诉求并由对应主体转接；本网站不再使用未核验的个人手机号和虚构邮箱。
     </p>
 
     <div class="contact-list">
+      <article class="contact-card hotline">
+        <h3>官方招商电话</h3>
+        <dl>
+          <dt>电话</dt><dd><a href="tel:4000371899">400 0371 899</a></dd>
+          <dt>用途</dt><dd>企业入驻、招商咨询、实地考察预约</dd>
+          <dt>来源</dt><dd>园区招商材料与“荥阳市数字经济产业园，诚邀企业入驻！”公开招商文章内容</dd>
+          <dt>说明</dt><dd>400 电话暂按招商材料展示；如需正式合同或政策申报，请以园区书面确认为准。</dd>
+        </dl>
+      </article>
+
       <article class="contact-card">
         <h3>荥阳城市发展投资集团有限公司</h3>
         <dl>
@@ -203,7 +215,7 @@
     </div>
 
     <div class="notice">
-      <b>真实性提示：</b>第三方招商平台上出现的招商经理姓名、二维码、客服电话等信息，不等同于园区官方联系方式；本网站只采用可追溯至政府官网、城投官网、公开招标公告或权威媒体报道的信息。
+      <b>真实性提示：</b>第三方招商平台上出现的招商经理姓名、二维码、客服电话等信息，不等同于园区官方联系方式；本网站优先采用可追溯至政府官网、城投官网、公开招标公告、权威媒体报道或园区招商材料的信息。
     </div>
   </div>
 </section>
@@ -220,7 +232,7 @@
     <div class="footer-cols">
       <div class="footer-col">
         <h5>荥阳数字经济产业园</h5>
-        <p style="color:var(--text-2);font-size:var(--fs-sm);">公开信息核验版 · 不展示无法核验的个人联系方式</p>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">公开信息核验版 · 官方招商电话：400 0371 899</p>
       </div>
       <div class="footer-col">
         <h5>关于我们</h5>
@@ -238,6 +250,7 @@
       <div class="footer-col">
         <h5>联系我们</h5>
         <a href="mailto:xycstz@163.com">xycstz@163.com</a>
+        <a href="tel:4000371899">400 0371 899</a>
         <a href="tel:0371-65000177">0371-65000177</a>
       </div>
     </div>
