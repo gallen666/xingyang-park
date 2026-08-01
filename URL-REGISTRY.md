@@ -52,7 +52,7 @@ xingyang-v2/
 │   └── media-kit.html
 ├── about/                              # 三方治理 + 团队
 │   ├── index.html                      # 关于我们（含三方 lock-up）
-│   ├── leadership.html                 # 领导班子（8-12 位 bio）
+│   ├── leadership.html                 # 公开信息核验
 │   ├── governance.html                 # 七方共治
 │   └── timeline.html                   # 里程碑时间线
 ├── boards/                             # 现有 5 个板块页（保持向后兼容）
@@ -83,7 +83,7 @@ xingyang-v2/
 | **案例** | `/cases/` | 命名客户故事 |
 | **洞察** | `/insights/` | 思想领导力 |
 | **新闻** | `/newsroom/` | 动态 · 政策速递 · 媒体 |
-| **关于我们** | `/about/` | 三方治理 · 领导班子 · 里程碑 |
+| **关于我们** | `/about/` | 三方治理 · 公开信息核验 · 里程碑 |
 
 ## 子导航模板
 

@@ -169,7 +169,7 @@
   <div class="subnav-inner">
     <span class="subnav-brand">新闻中心</span>
     <a href="#hero" class="active">新闻首页</a>
-    <a href="#wechat-latest">公众号最新</a>
+    <a href="#wechat-latest">公开来源</a>
     <a href="./announcements.html">全部动态</a>
     <a href="#in-the-news">精选新闻</a>
     <a href="./media-kit.html">媒体素材</a>
@@ -284,25 +284,24 @@
 </section>
 
 <!-- ============================================================
-     微信公众号 · 自动同步块（由 Cloudflare Worker 每天 4 次拉取）
+     公开来源文章 · 自动同步块
      从 wechat-news.json 动态加载最新文章
      ============================================================ -->
 
 <section class="section-tight" id="wechat-latest">
   <div class="container-wide">
     <div class="h-block">
-      <div class="kicker-line">WECHAT · 公众号自动同步</div>
-      <h2 class="section-title">公众号最新文章</h2>
+      <div class="kicker-line">PUBLIC SOURCES · 公开来源文章</div>
+      <h2 class="section-title">公开来源最新文章</h2>
       <p class="section-lead">
-        由官方 API 从荥阳数字经济产业园官方公众号自动同步 ·
-        每 4 小时更新一次 · 点击卡片跳转至微信原文。
+        公开资料未核验到园区官方认证公众号。本模块仅作为公开文章入口，具体来源以原文链接为准。
       </p>
     </div>
 
     <!-- 加载中占位 -->
     <div id="wechat-list" class="grid grid-3" style="margin-top: var(--sp-8);">
       <div class="card" style="text-align: center; padding: var(--sp-12); color: var(--text-3); grid-column: 1 / -1;">
-        微信公众号自动同步 · 首次同步待 Cloudflare Worker 部署后启动
+        公开来源文章待同步 · 不展示未核验认证公众号
       </div>
     </div>
 
@@ -332,7 +331,7 @@
       <a href="${a.url}" target="_blank" rel="noopener" class="card news-card">
         ${a.thumb_url ? `<div style="height:160px;background:url('${a.thumb_url}') center/cover;border-radius:var(--radius);margin-bottom:var(--sp-3);"></div>` : ''}
         <div class="news-card__head">
-          <span class="chip chip--news">公众号</span>
+          <span class="chip chip--news">公开来源</span>
           <span>·</span>
           <span>${a.publish_date}</span>
         </div>
@@ -372,7 +371,7 @@ function escapeHtml(s) {
     <!-- 新闻编辑入口 -->
     <div style="margin: var(--sp-6) 0; padding: var(--sp-4) var(--sp-6); background: var(--brand-soft); border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4); flex-wrap: wrap;">
       <div style="color: var(--brand-dark); font-size: var(--fs-sm);">
-        📰 <strong>新闻编辑：</strong>用<a href="./news-generator.html" style="color: var(--brand); font-weight: 600;">新闻卡片生成器</a>把公众号或第三方文章一键转成卡片代码
+        📰 <strong>新闻编辑：</strong>用<a href="./news-generator.html" style="color: var(--brand); font-weight: 600;">新闻卡片生成器</a>把公开文章一键转成卡片代码
       </div>
       <a href="./news-generator.html" class="btn-primary" style="padding: 6px 16px; font-size: 13px;">打开生成器 →</a>
     </div>
@@ -676,7 +675,7 @@ function escapeHtml(s) {
       本页 18 篇精选 + 档案 84 篇均为 2026-07-28 通过公开搜索抓取的<strong>真实可核实文章</strong>，
       分别来自澎湃新闻、大河财立方、郑州日报、荥阳市人民政府、郑州市工信局、荥阳市公共资源交易中心、搜狐新闻与太能控股官方网站。
       如原链接失效请联系
-      <a href="mailto:media@xingyang-park.gov.cn" style="color: var(--brand);">media@xingyang-park.gov.cn</a>
+      <a href="mailto:xycstz@163.com" style="color: var(--brand);">xycstz@163.com</a>
       更新。未来新增新闻请用<a href="./news-generator.html" style="color: var(--brand); font-weight: 600;">新闻卡片生成器</a>。
     </div>
   </div>
@@ -706,7 +705,7 @@ function escapeHtml(s) {
         <div class="press-tile__icon">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
-        <h4 class="press-tile__title">领导班子 profiles</h4>
+        <h4 class="press-tile__title">公开信息核验 profiles</h4>
         <p class="press-tile__body">园区管委会、太能控股高管、独立董事简历及高清人像，可直接引用。</p>
         <span class="press-tile__link">查看名录</span>
       </a>
@@ -743,7 +742,7 @@ function escapeHtml(s) {
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
         <h4 class="press-tile__title">新闻联系人</h4>
-        <p class="press-tile__body">王思远 · 新闻部负责人 · 24 小时内响应机构记者的采访、素材、事实核查请求。</p>
+        <p class="press-tile__body">公开服务团队 · 新闻部负责人 · 以公开联络入口转接机构记者的采访、素材、事实核查请求。</p>
         <span class="press-tile__link">跳转联系人卡</span>
       </a>
 
@@ -758,47 +757,16 @@ function escapeHtml(s) {
     <h2 class="section-title">直连新闻部</h2>
     <div class="contact-card" style="margin-top: var(--sp-6);">
       <div class="contact-card__info">
-        <div class="contact-card__name">王思远 · 新闻部负责人</div>
+        <div class="contact-card__name">公开媒体联络入口</div>
         <dl>
-          <dt>电话</dt><dd>+86 371 6899 xxxx</dd>
-          <dt>邮箱</dt><dd><a href="mailto:press@xingyang-park.gov.cn" style="color:var(--enterprise);">press@xingyang-park.gov.cn</a></dd>
-          <dt>微信</dt><dd>扫码添加官方新闻部企业微信</dd>
-          <dt>响应时长</dt><dd>工作日 4 小时内 · 周末 24 小时内</dd>
-          <dt>办公地点</dt><dd>郑州市荥阳市数字经济产业园综合服务大厅 3F</dd>
+          <dt>电话</dt><dd>0371-65000177</dd>
+          <dt>邮箱</dt><dd><a href="mailto:xycstz@163.com" style="color:var(--enterprise);">xycstz@163.com</a></dd>
+          <dt>微信</dt><dd>未核验到认证新闻部企业微信，暂不展示</dd>
+          <dt>响应时长</dt><dd>以公开联络入口确认为准</dd>
+          <dt>办公地点</dt><dd>以公开主体书面确认为准</dd>
         </dl>
       </div>
-      <svg class="contact-card__qr" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="新闻部微信二维码占位">
-        <rect width="96" height="96" fill="#ffffff"/>
-        <!-- Position squares -->
-        <rect x="8" y="8" width="22" height="22" fill="none" stroke="#0a0e1a" stroke-width="3"/>
-        <rect x="14" y="14" width="10" height="10" fill="#0a0e1a"/>
-        <rect x="66" y="8" width="22" height="22" fill="none" stroke="#0a0e1a" stroke-width="3"/>
-        <rect x="72" y="14" width="10" height="10" fill="#0a0e1a"/>
-        <rect x="8" y="66" width="22" height="22" fill="none" stroke="#0a0e1a" stroke-width="3"/>
-        <rect x="14" y="72" width="10" height="10" fill="#0a0e1a"/>
-        <!-- Random noise -->
-        <g fill="#0a0e1a">
-          <rect x="38" y="10" width="4" height="4"/>
-          <rect x="44" y="14" width="4" height="4"/>
-          <rect x="52" y="10" width="4" height="4"/>
-          <rect x="38" y="20" width="8" height="4"/>
-          <rect x="52" y="22" width="4" height="8"/>
-          <rect x="60" y="38" width="4" height="4"/>
-          <rect x="70" y="42" width="4" height="4"/>
-          <rect x="78" y="38" width="4" height="4"/>
-          <rect x="38" y="38" width="16" height="4"/>
-          <rect x="40" y="46" width="4" height="12"/>
-          <rect x="48" y="50" width="8" height="4"/>
-          <rect x="56" y="56" width="4" height="10"/>
-          <rect x="66" y="52" width="4" height="8"/>
-          <rect x="78" y="58" width="4" height="4"/>
-          <rect x="42" y="64" width="4" height="4"/>
-          <rect x="52" y="72" width="4" height="4"/>
-          <rect x="62" y="72" width="12" height="4"/>
-          <rect x="80" y="80" width="4" height="4"/>
-          <rect x="36" y="80" width="4" height="4"/>
-        </g>
-      </svg>
+      <div class="contact-card__qr" role="img" aria-label="不展示未核验二维码">未核验二维码不展示</div>
     </div>
   </div>
 </section>
@@ -865,8 +833,8 @@ function escapeHtml(s) {
       <div class="footer-col">
         <h5>联系我们</h5>
         <a href="../about/">关于我们</a>
-        <a href="mailto:press@xingyang-park.gov.cn">press@xingyang-park.gov.cn</a>
-        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
+        <a href="mailto:xycstz@163.com">xycstz@163.com</a>
+        <a href="mailto:xycstz@163.com">xycstz@163.com</a>
         <a href="#subscribe">订阅通讯</a>
       </div>
     </div>

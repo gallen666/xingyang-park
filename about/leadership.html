@@ -3,75 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>领导班子 · AI + 云一站式数字化转型服务专家 · 荥阳数字经济产业园</title>
-<meta name="description" content="荥阳数字经济产业园领导班子 · AI + 云一站式数字化转型服务专家团队。6 位三方治理代表 + 6 位运营总监 + 4 位学术顾问 · 三方共治架构下的完整 AI-First 领导团队。">
+<title>公开信息核验 · 荥阳数字经济产业园</title>
+<meta name="description" content="荥阳数字经济产业园公开信息核验页：基于荥阳市政府官网、荥阳城投官网、公开媒体报道和招标公告整理项目主体、联系方式与领导信息核验原则。">
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <style>
-  /* ===== 分组标题 ===== */
-  .group-head {
-    padding: var(--sp-8) var(--sp-6);
-    border-radius: var(--radius-lg);
-    background: var(--bg-1); border: 1px solid var(--bg-line);
-    margin-bottom: var(--sp-8);
-    display: flex; align-items: center; gap: var(--sp-6);
-  }
-  .group-head--gov     { border-left: 4px solid var(--gov); }
-  .group-head--asset   { border-left: 4px solid var(--enterprise); }
-  .group-head--ops     { border-left: 4px solid var(--ecosystem); }
-  .group-head--advisor { border-left: 4px solid var(--gold); }
-  .group-icon { width: 56px; height: 56px; flex-shrink: 0; }
-  .group-title-wrap { flex: 1; }
-  .group-tag { display: inline-block; padding: 2px var(--sp-2); border-radius: var(--radius-sm); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: var(--sp-2); }
-  .group-tag--gov     { background: var(--gov-soft);           color: #ef4444; }
-  .group-tag--asset   { background: var(--enterprise-soft);    color: #38bdf8; }
-  .group-tag--ops     { background: rgba(52,211,153,.15);      color: #34d399; }
-  .group-tag--advisor { background: rgba(251,191,36,.15);      color: #fbbf24; }
-  .group-title { font-size: var(--fs-xl); font-weight: 800; margin-bottom: var(--sp-2); }
-  .group-desc  { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); max-width: 720px; }
-
-  @media (max-width: 900px) { .group-head { flex-direction: column; align-items: flex-start; } }
-
-  /* ===== bio 卡片 ===== */
-  .bio-card {
-    background: var(--bg-2); border: 1px solid var(--bg-line);
-    border-radius: var(--radius-md); padding: var(--sp-6);
-    display: flex; flex-direction: column;
-    transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
-  }
-  .bio-card:hover { transform: translateY(-2px); border-color: var(--enterprise); }
-  .bio-header { display: flex; align-items: flex-start; gap: var(--sp-4); margin-bottom: var(--sp-4); }
-  .bio-avatar { width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; overflow: hidden; }
-  .bio-heading { flex: 1; min-width: 0; }
-  .bio-name { font-size: var(--fs-lg); font-weight: 800; margin-bottom: var(--sp-1); line-height: 1.2; }
-  .bio-role-chip {
-    display: inline-block; padding: 2px var(--sp-2);
-    border-radius: var(--radius-sm);
-    font-size: var(--fs-xs); font-weight: 700;
-    margin-bottom: var(--sp-2);
-  }
-  .role--gov     { background: var(--gov-soft);         color: #ef4444; }
-  .role--asset   { background: var(--enterprise-soft);  color: #38bdf8; }
-  .role--ops     { background: rgba(52,211,153,.15);    color: #34d399; }
-  .role--advisor { background: rgba(251,191,36,.15);    color: #fbbf24; }
-  .bio-title { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-tight); }
-
-  .bio-para { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--sp-3); }
-  .bio-para:last-child { margin-bottom: 0; }
-  .bio-para b { color: var(--text-1); }
-  .bio-para-label { color: var(--gold); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-right: var(--sp-1); }
-
-  .icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; }
+  .verify-banner{padding:var(--sp-8);border:1px solid rgba(251,191,36,.32);border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(56,189,248,.05));margin-top:var(--sp-8)}
+  .verify-banner b{color:var(--gold)}
+  .source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);margin-top:var(--sp-8)}
+  @media(max-width:900px){.source-grid{grid-template-columns:1fr}}
+  .source-card{padding:var(--sp-6);background:var(--bg-2);border:1px solid var(--bg-line);border-radius:var(--radius-md)}
+  .source-card h3{font-size:var(--fs-lg);margin-bottom:var(--sp-3)}
+  .source-card p,.source-card li{color:var(--text-2);font-size:var(--fs-sm);line-height:var(--lh-relaxed)}
+  .source-card ul{padding-left:1.2em;margin:var(--sp-3) 0 0}
+  .fact-table{width:100%;border-collapse:collapse;margin-top:var(--sp-8);background:var(--bg-2);border:1px solid var(--bg-line);border-radius:var(--radius-md);overflow:hidden}
+  .fact-table th,.fact-table td{padding:var(--sp-4);border-bottom:1px solid var(--bg-line);vertical-align:top;text-align:left}
+  .fact-table th{width:220px;color:var(--gold);font-size:var(--fs-sm)}
+  .fact-table td{color:var(--text-2);font-size:var(--fs-sm);line-height:var(--lh-relaxed)}
+  .contact-list{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-top:var(--sp-8)}
+  @media(max-width:1000px){.contact-list{grid-template-columns:1fr}}
+  .contact-card{padding:var(--sp-6);background:var(--bg-2);border:1px solid var(--bg-line);border-radius:var(--radius-md);border-top:3px solid var(--enterprise)}
+  .contact-card.gov{border-top-color:var(--gov)}
+  .contact-card.project{border-top-color:var(--gold)}
+  .contact-card h3{font-size:var(--fs-lg);margin-bottom:var(--sp-3)}
+  .contact-card dl{display:grid;gap:var(--sp-2)}
+  .contact-card dt{color:var(--text-3);font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.06em}
+  .contact-card dd{color:var(--text-1);font-size:var(--fs-sm);line-height:var(--lh-relaxed)}
+  .source-link{display:inline-block;margin-top:var(--sp-3);color:var(--enterprise);font-size:var(--fs-sm);font-weight:700}
+  .notice{padding:var(--sp-5);background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.22);border-radius:var(--radius-md);color:var(--text-2);font-size:var(--fs-sm);line-height:var(--lh-relaxed);margin-top:var(--sp-8)}
 </style>
 </head>
 <body>
 
-<!-- ============ 全局导航 ============ -->
 <nav class="nav-global" role="navigation" aria-label="全站导航">
   <div class="nav-global-inner">
-    <a class="nav-brand" href="../index.html">
-      <span class="nav-brand-mark">荥</span>
-      <span>荥阳数字经济产业园</span>
-    </a>
+    <a class="nav-brand" href="../index.html"><span class="nav-brand-mark">荥</span><span>荥阳数字经济产业园</span></a>
     <div class="nav-items">
       <a href="../platforms/">平台</a>
       <a href="../services/">服务</a>
@@ -81,528 +46,202 @@
       <a href="../model-city/">样板</a>
       <a href="./" class="active">关于我们</a>
     </div>
-    <a class="nav-cta" href="./#contact">咨询入驻</a>
+    <a class="nav-cta" href="#contacts">公开联系方式</a>
   </div>
 </nav>
 
-<!-- ============ 子导航 ============ -->
 <div class="subnav">
   <div class="subnav-inner">
     <span class="subnav-brand">关于我们</span>
     <a href="./">关于我们</a>
-    <a href="./leadership.html" class="active">领导班子</a>
+    <a href="./leadership.html" class="active">公开信息核验</a>
     <a href="./governance.html">七方共治</a>
     <a href="./timeline.html">里程碑</a>
     <a href="./#contact">联系</a>
   </div>
 </div>
 
-<!-- ============ Hero ============ -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-kicker">LEADERSHIP · AI + 云一站式数字化转型服务专家</span>
-    <h1 class="hero-title">AI-First 数字化转型服务的领导团队</h1>
+    <span class="hero-kicker">VERIFIED PUBLIC INFORMATION · 公开信息核验</span>
+    <h1 class="hero-title">只展示可核验的主体、动态与联系方式</h1>
     <p class="hero-lead">
-      6 位<b style="color:#ef4444;">政府/城投/太能</b>三方代表 · 6 位运营部门总监 · 4 位学术顾问——
-      共同支撑"一站式服务专家"这一战略定位，将 AI-First · Cloud-Native · Learn & Evolve 三大能力主线落地到园区每一天的运营中。
-      本页公开全部 16 位在册核心领导的简历与联系信息。
+      本页替代原“领导班子”展示页。公开资料未发现荥阳数字经济产业园独立发布的完整领导班子名单，
+      因此网站不再展示无法核验的个人履历、手机号、虚构邮箱或社交账号。涉及市级领导、园区主体、
+      项目建设和招商咨询的信息，均以政府官网、城投官网、公开媒体报道、招标公告为准。
     </p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="#governance-reps">
-        查看治理三方代表
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-      <a class="btn-ghost" href="./governance.html">了解七方共治机制</a>
-    </div>
   </div>
 </section>
 
-<!-- ============ 治理三方代表 ============ -->
-<section class="section" id="governance-reps">
+<section class="section">
   <div class="container-wide">
-    <span class="section-kicker">TRIPARTITE REPS · 治理三方代表</span>
-    <h2 class="section-title">政府 · 城投 · 太能 三方代表席位</h2>
-    <p class="section-lead">
-      三方在园区董事会各占 2 席，累计 6 席。日常经营通过双周例会协商，重大事项一票赞成即行、一票反对即停。
-    </p>
-
-    <!-- 政府代表 -->
-    <div class="group-head group-head--gov" style="margin-top: var(--sp-8);">
-      <svg class="group-icon" viewBox="0 0 56 56" fill="none">
-        <path d="M28 4 L50 14 L50 32 Q50 46 28 52 Q6 46 6 32 L6 14 Z" fill="var(--gov-soft)" stroke="var(--gov)" stroke-width="2"/>
-        <path d="M18 24 L28 16 L38 24 L38 36 L18 36 Z" fill="none" stroke="var(--gov-hover)" stroke-width="2"/>
-      </svg>
-      <div class="group-title-wrap">
-        <span class="group-tag group-tag--gov">GOVERNMENT · 政府代表</span>
-        <h3 class="group-title">2 位来自荥阳市人民政府</h3>
-        <p class="group-desc">分管数字经济与工信部门的两位市领导代表政府方，负责政策供给、行政审批绿通、监管边界。</p>
-      </div>
+    <span class="section-kicker">PRINCIPLE · 核验原则</span>
+    <h2 class="section-title">不把推测写成事实</h2>
+    <div class="verify-banner">
+      <p><b>更新口径：</b>领导信息只保留公开报道可证明的市级动态；园区经营与项目主体只保留公开来源可证明的单位名称、地址和电话；未找到官方认证公众号时，不展示公众号二维码或公众号名称。</p>
     </div>
 
-    <div class="grid grid-2">
+    <div class="source-grid">
+      <article class="source-card">
+        <h3>已核验的项目事实</h3>
+        <ul>
+          <li>公开报道显示，2020 年 3 月太能控股与荥阳市政府合作，共同打造荥阳市数字经济产业园。</li>
+          <li>一期总投资 30 亿元，规划占地约 300 亩、建筑面积约 40 万平方米。</li>
+          <li>园区规划包括云链数字经济研究院、数字经济总部中心、科技创新创业中心、产业应用展示展览中心、IDC 大数据中心等板块。</li>
+        </ul>
+        <a class="source-link" href="https://app.dahecube.com/nweb/news/20230116/151728ne431cfd8bfa.htm" target="_blank" rel="noopener">来源：大河财立方专访</a>
+      </article>
 
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-zgq" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8102e"/><stop offset="1" stop-color="#d11a3a"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-zgq)"/>
-            <circle cx="36" cy="28" r="10" fill="#fff" opacity="0.9"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#fff" opacity="0.9"/>
-            <text x="36" y="34" text-anchor="middle" fill="#b8102e" font-size="12" font-weight="800">张</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">张国强</div>
-            <span class="bio-role-chip role--gov">政府代表</span>
-            <div class="bio-title">荥阳市副市长 · 分管数字经济与招商工作</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>作为分管副市长在荥阳市委常委会与市政府常务会中直接分管数字经济、招商引资、工信、大数据管理四大领域，兼任荥阳数字经济产业园园区领导小组组长，主持双周例会。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>任职期间牵头制定《荥阳市数字经济发展三年行动计划（2023-2025）》，推动市财政年度专项投入从 1.2 亿元增至 3.8 亿元；2024 年全市规上数字经济企业营收增长 38.4%。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>清华大学公共管理学院 MPA · 中国人民大学国际关系学院法学学士。曾任郑州市工信局副局长、中原区常务副区长。</p>
-      </div>
+      <article class="source-card">
+        <h3>已核验的城投信息</h3>
+        <ul>
+          <li>荥阳城市发展投资集团有限公司官网公开展示“信息技术产业”板块，提及 2020 年为打造数字经济产业园进行调研。</li>
+          <li>官网公开联系电话、地址、邮箱，可作为本网站当前可核验的总联络信息。</li>
+        </ul>
+        <a class="source-link" href="https://www.xychengtou.com/business_index.html" target="_blank" rel="noopener">来源：荥阳城市发展投资集团有限公司官网</a>
+      </article>
 
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-hxm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8102e"/><stop offset="1" stop-color="#d11a3a"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-hxm)"/>
-            <circle cx="36" cy="28" r="10" fill="#fff" opacity="0.9"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#fff" opacity="0.9"/>
-            <text x="36" y="34" text-anchor="middle" fill="#b8102e" font-size="12" font-weight="800">韩</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">韩雪梅</div>
-            <span class="bio-role-chip role--gov">政府代表</span>
-            <div class="bio-title">荥阳市工信局局长 · 数字化转型专项工作组组长</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>主管全市工业与信息化政策落地，兼任市数字化转型专项工作组组长；作为政府方第二席位常驻园区双周例会，直接对接入驻企业的政策申报、税收减免、专项资金对接。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>2022 年入选河南省"数字工匠"典型人物；主导荥阳市 5G+ 工业互联网示范园区申报成功（2024）；累计为园区入驻企业争取国家 / 省级专项资金 4.6 亿元。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>华中科技大学电子信息工程学士 · 郑州大学 EMBA。曾任中原电子设计研究院工程师、荥阳市大数据管理中心副主任。</p>
-      </div>
+      <article class="source-card">
+        <h3>已核验的项目建设联系人</h3>
+        <ul>
+          <li>“荥阳市数字经济产业园（东地块）新基础建设项目桩基检测”公开成交公告显示，招标人为郑州中荥数字产业发展有限公司。</li>
+          <li>公告公开地址、联系人和电话，但该信息属于项目建设/招标公开联系人，不等同于综合招商热线。</li>
+        </ul>
+        <a class="source-link" href="https://www.sunbidding.com/jszbgg/65602.jhtml" target="_blank" rel="noopener">来源：阳光招标采购交易平台成交公告</a>
+      </article>
 
-    </div>
-
-    <!-- 城投代表 -->
-    <div class="group-head group-head--asset" style="margin-top: var(--sp-12);">
-      <svg class="group-icon" viewBox="0 0 56 56" fill="none">
-        <circle cx="28" cy="28" r="24" fill="var(--enterprise-soft)" stroke="var(--enterprise)" stroke-width="2"/>
-        <rect x="14" y="24" width="6" height="18" fill="var(--enterprise-hover)"/>
-        <rect x="22" y="18" width="6" height="24" fill="var(--enterprise-hover)"/>
-        <rect x="30" y="14" width="6" height="28" fill="var(--enterprise-hover)"/>
-        <rect x="38" y="20" width="6" height="22" fill="var(--enterprise-hover)"/>
-      </svg>
-      <div class="group-title-wrap">
-        <span class="group-tag group-tag--asset">CITY INVEST · 城投代表</span>
-        <h3 class="group-title">2 位来自荥阳城投</h3>
-        <p class="group-desc">代表资产持有方，主持园区资产管理委员会，负责土地/建筑长期资产的价值维护与 REITs 路径规划。</p>
-      </div>
-    </div>
-
-    <div class="grid grid-2">
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-lzp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-lzp)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">刘</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">刘志鹏</div>
-            <span class="bio-role-chip role--asset">城投代表</span>
-            <div class="bio-title">荥阳城投董事长 · 园区资产管理委员会主席</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>掌管荥阳城投主体信用与全部投融资决策；作为资产管理委员会主席主持园区资产估值、REITs 路径规划、长期投资节奏把控，代表城投方在董事会拥有两票之一。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>任内推动荥阳城投主体信用评级由 AA 升至 AA+（2023）；主导公司公开发行企业债 12 亿元、SCP 短融 20 亿元；园区累计资产估值增长 47%（2020-2026）。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>西安交通大学金融学硕士 · 河南财经学院经济学学士。曾任河南省国资委产权处副处长、中原信托副总裁。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-dsr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-dsr)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">董</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">董思睿</div>
-            <span class="bio-role-chip role--asset">城投代表</span>
-            <div class="bio-title">荥阳城投副总经理 · 分管数字经济园区</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>作为分管副总经理，直接对接园区日常事务；主持城投方与运营方（太能控股）的联席工作组，负责空间定制、设施升级、能耗节控等资产层面的日常协同。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>主导园区 A/B/C 三座楼宇的绿建三星认证（2024）· 落地荥阳城投首个楼宇 IoT 数字孪生系统 · 累计降低园区综合能耗 22%、运维成本 15%。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>东南大学建筑学硕士 · 华中科技大学土木工程学士。前万科集团华中区商业地产总监、绿地控股中原区运营总监。</p>
-      </div>
-
-    </div>
-
-    <!-- 太能代表 -->
-    <div class="group-head group-head--ops" style="margin-top: var(--sp-12);">
-      <svg class="group-icon" viewBox="0 0 56 56" fill="none">
-        <path d="M28 4 L52 18 L52 40 L28 52 L4 40 L4 18 Z" fill="rgba(52,211,153,.15)" stroke="var(--ecosystem)" stroke-width="2"/>
-        <circle cx="28" cy="28" r="10" fill="none" stroke="var(--ecosystem)" stroke-width="2"/>
-        <path d="M23 28 L27 32 L34 24" fill="none" stroke="var(--ecosystem)" stroke-width="2.5"/>
-      </svg>
-      <div class="group-title-wrap">
-        <span class="group-tag group-tag--ops">TAIWA HOLDINGS · 太能代表</span>
-        <h3 class="group-title">2 位来自太能控股</h3>
-        <p class="group-desc">代表运营方，主持园区运营公司（郑州荥泽数链），负责 4 大平台 IP 落地、8 大服务矩阵日常交付。</p>
-      </div>
-    </div>
-
-    <div class="grid grid-2">
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-wzy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-wzy)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#34d399" font-size="12" font-weight="800">王</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">王志远</div>
-            <span class="bio-role-chip role--ops">太能代表</span>
-            <div class="bio-title">太能控股董事长 · 郑州荥泽数链董事长</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>作为太能控股集团创始人及董事长，主导集团整体战略与荥阳园区顶层规划；同时兼任园区运营公司郑州荥泽数链董事长，代表运营方在董事会拥有两票之一，主持季度战略会。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>2016 年联合创立太能控股，2019 年主导签署荥阳园区战略框架；累计运营国家级 / 省级园区 5 家；主导太能控股 B 轮融资 3.2 亿元（2024）；2025 年入选"郑州十大创业人物"。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>上海财经大学工商管理硕士 · 郑州大学经济学学士。前普华永道咨询高级经理、前恒大集团河南区总裁助理。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-chm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-chm)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#34d399" font-size="12" font-weight="800">陈</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">陈慧敏</div>
-            <span class="bio-role-chip role--ops">太能代表</span>
-            <div class="bio-title">太能控股 CEO · 荥阳数字经济产业园总经理</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>作为集团 CEO 兼任园区总经理，直接对接三方治理与七方共治的日常执行；主持园区管委会周会、招商大区月会、企业服务季度回顾会，是园区最高日常运营决策者。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>主导 DTSI®/PDTMM® 认证师体系首期落地（2025，210 人毕业）；带队完成多家标杆企业签约；园区综合满意度 NPS 从 2023 年 42 分升至 2026 年 68 分。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>香港中文大学商业分析硕士 · 中山大学经济学学士。前腾讯云政企事业部华中区总经理、前 SAP 大中华区数字化行业顾问。</p>
-      </div>
-
+      <article class="source-card">
+        <h3>公众号核验状态</h3>
+        <ul>
+          <li>截至本页更新日，公开搜索未核验到以“荥阳市数字经济产业园”为主体的官方认证微信公众号主页。</li>
+          <li>网站不展示任何未经认证的公众号名称、二维码或个人微信。</li>
+          <li>后续如运营主体提供公众号认证截图、后台主体信息或政府/城投官网入口，可再补充。</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ============ 运营团队 ============ -->
-<section class="section" id="operations-team">
+<section class="section">
   <div class="container-wide">
-    <span class="section-kicker">OPERATIONS · 运营团队</span>
-    <h2 class="section-title">6 位运营部门总监</h2>
+    <span class="section-kicker">PUBLIC LEADERSHIP CONTEXT · 公开领导动态</span>
+    <h2 class="section-title">市级领导信息以荥阳市政府公开发布为准</h2>
     <p class="section-lead">
-      郑州荥泽数链的核心执行团队——每一位总监的过往履历都对应一条清晰的价值链：董事、总经理、招商、技术、政策、生态。
+      荥阳数字经济产业园不是独立党政机关，本网站不自行编造“园区领导班子”。涉及荥阳市委、市政府领导职务与分工，请以荥阳市人民政府官网“领导之窗”和新闻发布为准。
     </p>
 
-    <div class="group-head group-head--ops" style="margin-top: var(--sp-8);">
-      <svg class="group-icon" viewBox="0 0 56 56" fill="none">
-        <path d="M28 4 L52 18 L52 40 L28 52 L4 40 L4 18 Z" fill="rgba(52,211,153,.15)" stroke="var(--ecosystem)" stroke-width="2"/>
-        <circle cx="18" cy="24" r="4" fill="var(--ecosystem)"/>
-        <circle cx="38" cy="24" r="4" fill="var(--ecosystem)"/>
-        <circle cx="28" cy="38" r="4" fill="var(--ecosystem)"/>
-      </svg>
-      <div class="group-title-wrap">
-        <span class="group-tag group-tag--ops">EXECUTIVE TEAM · 执行团队</span>
-        <h3 class="group-title">郑州荥泽数链核心 6 人</h3>
-        <p class="group-desc">董事长 · 总经理 · 招商总监 · 技术总监 · 政策研究总监 · 生态发展总监——覆盖 8 大服务矩阵所有关键节点。</p>
-      </div>
-    </div>
+    <table class="fact-table">
+      <tr>
+        <th>市级公开动态</th>
+        <td>荥阳市第六届人民代表大会第六次会议于 2026 年 5 月 31 日闭幕，公开报道显示李明刚同志当选荥阳市人民政府市长。</td>
+      </tr>
+      <tr>
+        <th>项目服务机制</th>
+        <td>郑州市工业和信息化局“万人助万企”工作动态提到，荥阳市数字经济产业园是省级重点项目，荥阳市成立工作推进专班，项目首席服务官每周下沉工地一到两次，协调项目建设手续与问题。</td>
+      </tr>
+      <tr>
+        <th>规划审批动态</th>
+        <td>荥阳市自然资源和规划局 2025 年公开动态显示，荥阳市 2025 年第二次城乡规划建设联审联批会议听取了“荥阳市数字经济产业园（东地块）新基础建设项目”等议题。</td>
+      </tr>
+    </table>
 
-    <div class="grid grid-3">
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-swx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-swx)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="800">苏</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">苏文轩</div>
-            <span class="bio-role-chip role--ops">董事长</span>
-            <div class="bio-title">郑州荥泽数链董事长 · 首席运营官</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>作为运营公司董事长，主持董事会与年度经营预算；作为首席运营官全面统筹 8 大服务矩阵与 4 大数字子品牌的资源分配，跨部门协调。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>15 年产业园运营经验，累计运营园区 8 家；在用友时期主导 SaaS 生态运营从 2 亿元收入增至 18 亿元；主导荥阳园区服务标准化体系建设。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>上海交通大学 MBA · 复旦大学管理学院市场营销学士。前用友生态运营副总裁、前万达商管华中区运营总经理。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="36" cy="36" r="34" fill="url(#av-chm)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#34d399" font-size="12" font-weight="800">陈</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">陈慧敏</div>
-            <span class="bio-role-chip role--ops">总经理</span>
-            <div class="bio-title">园区总经理 · 太能控股 CEO</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>兼任园区总经理，同时是太能控股集团 CEO。主持园区管委会周会、招商月会、企业服务季度回顾会，全权负责园区日常运营决策。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>主导 DTSI®/PDTMM® 认证师体系首期落地（2025，210 人毕业）；带队完成多家标杆企业签约；园区 NPS 从 42 分升至 68 分。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>香港中文大学商业分析硕士 · 中山大学经济学学士。前腾讯云政企事业部华中区总经理、前 SAP 大中华区数字化行业顾问。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-zxc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#fbbf24"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-zxc)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="800">周</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">周星辰</div>
-            <span class="bio-role-chip role--ops">招商总监</span>
-            <div class="bio-title">招商大区总监 · 分管招商与投资合作</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>主管园区招商大区，负责重点客户线索、政企对接、招商指标考核；主持季度招商作战会，2026 年主抓 60 家累计入驻目标。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>前万科招商总监期间，负责杭州 3 家产业园招商，累计签约 240 万㎡；加入荥阳后 18 个月内推动累计入驻从 38 家增至 52 家。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>郑州大学商学院 MBA · 河南大学经济学学士。前万科集团招商总监（华东区）、前招商银行郑州分行企业金融部客户经理。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-gzh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-gzh)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">郭</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">郭子豪</div>
-            <span class="bio-role-chip role--ops">技术总监</span>
-            <div class="bio-title">技术总监 · 4 大平台 IP 首席技术架构师</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>主导 4 大平台级 IP（DTSI/X-Flow/PDTMM/OpenX@X）的技术架构与工程落地；主持技术委员会，负责园区数字化基础设施（云 · 数据 · IoT · AI）的规划与运维。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>阿里云 P8 期间主导 5 家国家级园区数字化项目；加入荥阳后主导 X-Flow Dynamics 仿真引擎上线（2024）、OpenX@X API v1 发布（2026）。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>清华大学计算机博士 · 中国科学技术大学软件工程学士。前阿里云工业互联网 P8 首席架构师、前华为 2012 实验室高级研究员。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-wsy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8102e"/><stop offset="1" stop-color="#d11a3a"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-wsy)"/>
-            <circle cx="36" cy="28" r="10" fill="#fff" opacity="0.9"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#fff" opacity="0.9"/>
-            <text x="36" y="34" text-anchor="middle" fill="#b8102e" font-size="12" font-weight="800">王</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">王思远</div>
-            <span class="bio-role-chip role--ops">政策研究总监</span>
-            <div class="bio-title">政策研究总监 · 智库负责人</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>负责园区政策研究与政策申报服务；对接省市工信厅、发改委、大数据管理局等政府部门；主持每季度《荥阳政策白皮书》与《河南数字经济政策速递》两份行业报告。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>前郑州市工信局政策处期间，主导郑州市数字经济 3 项省级政策制定；加入荥阳后累计为入驻企业争取政策资金 6.2 亿元、政策申报成功率 78%。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>中国人民大学公共管理硕士 · 河南财经政法大学公共事业管理学士。前郑州市工信局政策处副处长、前河南省社会科学院经济研究所助理研究员。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-ljq" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#6ee7b7"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-ljq)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#34d399" font-size="12" font-weight="800">林</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">林嘉琪</div>
-            <span class="bio-role-chip role--ops">生态发展总监</span>
-            <div class="bio-title">生态发展总监 · 生态合作伙伴负责人</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>主管园区生态合作，包括高校 · 科研 · 咨询公司 · 行业 ISV · 认证机构等外部合作方；主持 OpenX@X 开发者社区运营、CPA-PDTMM 认证师招募与培养。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>前腾讯期间搭建产业互联网生态合作体系累计接入 400+ 合作伙伴；加入荥阳后主导 OpenX@X 开发者社区上线首年破千人；累计签署 15 家高校 / 科研合作协议。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>河南财经政法大学工商管理硕士 · 郑州大学新闻学学士。前腾讯产业互联网生态合作总监、前浪潮云生态市场高级经理。</p>
-      </div>
-
+    <div class="source-grid">
+      <article class="source-card">
+        <h3>荥阳市政府官网</h3>
+        <p>用于核验市级领导动态、政府工作报告、项目审批与公开联系方式。</p>
+        <a class="source-link" href="https://www.xingyang.gov.cn/" target="_blank" rel="noopener">访问荥阳市人民政府官网</a>
+      </article>
+      <article class="source-card">
+        <h3>项目服务公开报道</h3>
+        <p>用于核验“省级重点项目”“工作推进专班”“首席服务官”等项目推进机制。</p>
+        <a class="source-link" href="https://gxj.zhengzhou.gov.cn/gxdt/6651470.jhtml" target="_blank" rel="noopener">来源：郑州市工业和信息化局</a>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ============ 顾问委员会 ============ -->
-<section class="section" id="advisors">
+<section class="section" id="contacts">
   <div class="container-wide">
-    <span class="section-kicker">ADVISORY BOARD · 顾问委员会</span>
-    <h2 class="section-title">4 位学术顾问 · 方法论奠基者</h2>
+    <span class="section-kicker">CONTACTS · 公开联系方式</span>
+    <h2 class="section-title">当前可公开核验的联系信息</h2>
     <p class="section-lead">
-      顾问委员会独立于运营公司，以年度合约形式参与季度学术评议 · 平台方法论迭代 · 认证师毕业答辩 · CPA-PDTMM 命题。
+      下列联系方式来自公开网页。实际招商、入驻、采访或项目建设事项，建议先说明诉求并由对应主体转接；本网站不再使用未核验的个人手机号和虚构邮箱。
     </p>
 
-    <div class="group-head group-head--advisor" style="margin-top: var(--sp-8);">
-      <svg class="group-icon" viewBox="0 0 56 56" fill="none">
-        <path d="M28 4 L34 20 L52 22 L38 32 L42 50 L28 42 L14 50 L18 32 L4 22 L22 20 Z" fill="rgba(251,191,36,.2)" stroke="var(--gold)" stroke-width="2"/>
-      </svg>
-      <div class="group-title-wrap">
-        <span class="group-tag group-tag--advisor">ACADEMIC ADVISORS · 学术顾问</span>
-        <h3 class="group-title">4 位来自高校 / 智库 / 信通院</h3>
-        <p class="group-desc">对方法论权威性负责，独立于日常经营，年度报告直接呈报董事会与七方治理联席会议。</p>
-      </div>
+    <div class="contact-list">
+      <article class="contact-card">
+        <h3>荥阳城市发展投资集团有限公司</h3>
+        <dl>
+          <dt>电话</dt><dd><a href="tel:0371-65000177">0371-65000177</a></dd>
+          <dt>邮箱</dt><dd><a href="mailto:xycstz@163.com">xycstz@163.com</a></dd>
+          <dt>地址</dt><dd>河南省荥阳市京城路与泽众路交叉口西北侧中原（国际）工程机械产业园 C 栋</dd>
+        </dl>
+        <a class="source-link" href="https://www.xychengtou.com/business_index.html" target="_blank" rel="noopener">来源：荥阳城投官网</a>
+      </article>
+
+      <article class="contact-card project">
+        <h3>项目建设公开联系人</h3>
+        <dl>
+          <dt>招标人</dt><dd>郑州中荥数字产业发展有限公司</dd>
+          <dt>地址</dt><dd>河南省郑州荥阳市文博路 4 号</dd>
+          <dt>联系人</dt><dd>李先生</dd>
+          <dt>电话</dt><dd><a href="tel:0371-69000203">0371-69000203</a></dd>
+        </dl>
+        <a class="source-link" href="https://www.sunbidding.com/jszbgg/65602.jhtml" target="_blank" rel="noopener">来源：公开招标成交公告</a>
+      </article>
+
+      <article class="contact-card gov">
+        <h3>荥阳市人民政府官网公开信息</h3>
+        <dl>
+          <dt>主办单位</dt><dd>荥阳市人民政府办公室</dd>
+          <dt>联系方式</dt><dd><a href="tel:0371-64691666">0371-64691666</a></dd>
+          <dt>地址</dt><dd>荥阳市索河路 71 号</dd>
+          <dt>说明</dt><dd>该联系方式为政府门户网站公开联系方式，不是园区招商专线。</dd>
+        </dl>
+        <a class="source-link" href="https://www.xingyang.gov.cn/" target="_blank" rel="noopener">来源：荥阳市人民政府官网页脚</a>
+      </article>
     </div>
 
-    <div class="grid grid-2">
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-djt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fcd34d"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-djt)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="800">戴</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">戴继涛</div>
-            <span class="bio-role-chip role--advisor">创始人 · 学术委员会主席</span>
-            <div class="bio-title">太能控股董事长 · 荥阳数字经济产业园创始人 · 工商管理博士 · 4 大平台 IP 方法论奠基人</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前身份：</span><b>太能控股董事长</b> · 荥阳数字经济产业园创始人 · 荥阳数字经济产业园学术委员会主席，对 4 大平台级 IP（DTSI / X-Flow / PDTMM / OpenX@X）方法论迭代拥有最终学术裁定权。</p>
-        <p class="bio-para"><span class="bio-para-label">教育：</span><b>清华大学经济管理学院 EMBA · 工商管理博士（DBA）</b> · 深耕数字经济产业运营 20+ 年，将一线经验凝练为可复用的方法论。</p>
-        <p class="bio-para"><span class="bio-para-label">社会兼职（3 级 12 项）：</span><b>全国青联第十二届委员会 委员</b>（2023-04）· 中国青年企业家协会理事 · 中国青年志愿者协会理事 · <b>河南省政协委员</b> · 河南省青联常委副秘书长 · 河南省青年企业家协会副会长 · 郑州市青联副主席 · 清华 EMBA 房地产协会理事 · 清华 EMBA 河南校友会副会长 · 智汇郑州 1125 聚才计划创业紧缺人才 等。</p>
-        <p class="bio-para"><span class="bio-para-label">方法论 · 两代版本：</span><b>第一代（2019-2024）</b> Open Flow One 数字化平台 + "6 个 1 数字工程" · IABCDGN 技术集合（物联网 / 人工智能 / 区块链 / 大数据 / 云计算 / 5G / VR / 数字孪生）；<b>第二代（2025 起）</b> OpenX@X 数字平台 + 数字经济产业园指数评估模型（DEPI，基于 AHP 层次分析法整合七方需求）—— 直接对应荥阳园区 4 大对外品牌 DTSI · X-Flow · PDTMM · OpenX@X。</p>
-        <p class="bio-para"><span class="bio-para-label">出席里程碑：</span>2019 上海杭州调研 · 2019-12-02 荥阳合作意向签约 · 2020-09-23 三方合作协议签约 · 2021 河南省两会政协提案《用数字化推动传统村落保护和文化传承》· 2023 全国青联委员当选 · 2024-05-30 访河南大学经济学院。</p>
-        <p class="bio-para" style="font-style: italic; background: var(--bg-1); padding: var(--sp-3); border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0;">
-          <span class="bio-para-label">引言：</span>"运用大数据、人工智能、云计算、物联网、5G 等 <b>IABCDG 数字化技术</b>，建立新一代数字化思维——重建过去失去的风景。" —— <a href="http://hn.cnr.cn/fz/20210119/t20210119_525394480.shtml" target="_blank" rel="noopener">央广网 · 2021-01-19</a>
-        </p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-zly" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fcd34d"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-zly)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="800">郑</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">郑立言 教授</div>
-            <span class="bio-role-chip role--advisor">学术顾问</span>
-            <div class="bio-title">郑州大学商学院教授 · 河南省产业经济研究基地主任</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>作为区域产业经济领域权威学者，负责 DTSI® 七方权重的地方性校准；每年主持《河南数字经济产业发展报告》编制；对园区招商产业方向具有一票建议权。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>主持国家自然科学基金项目 2 项、河南省社会科学重大项目 5 项；发表 SSCI/CSSCI 论文 62 篇；出版《数字经济与区域产业协同》专著；培养硕博士研究生 120+ 人。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>清华大学经济学博士 · 中国人民大学经济学硕士 · 郑州大学经济学学士。曾任河南省发改委产业发展咨询委员会委员、郑州市政协常委。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-hbh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fcd34d"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-hbh)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="800">何</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">何秉华 教授</div>
-            <span class="bio-role-chip role--advisor">学术顾问</span>
-            <div class="bio-title">河南工业大学信息工程学院院长 · 工业互联网专家</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>主管园区工业互联网技术评审、X-Flow Dynamics 系统动力学模型的技术校验；作为 CPA-PDTMM 认证师课程"数字化技术架构"模块主讲教师。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>主持国家重点研发计划课题 1 项；主持工信部工业互联网创新发展工程项目 3 项；累计培养工业互联网领域硕博士 80+ 人；2023 年入选河南省"中原学者"。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>华中科技大学工学博士 · 西安交通大学工学硕士。前华为杭州研究所高级架构师、前中国信通院工业互联网所访问学者。</p>
-      </div>
-
-      <div class="bio-card">
-        <div class="bio-header">
-          <svg class="bio-avatar" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="av-tby" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fcd34d"/></linearGradient></defs>
-            <circle cx="36" cy="36" r="34" fill="url(#av-tby)"/>
-            <circle cx="36" cy="28" r="10" fill="#0a0e1a" opacity="0.85"/>
-            <path d="M14 62 Q14 46 36 46 Q58 46 58 62 Z" fill="#0a0e1a" opacity="0.85"/>
-            <text x="36" y="34" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="800">唐</text>
-          </svg>
-          <div class="bio-heading">
-            <div class="bio-name">唐博宇 高级研究员</div>
-            <span class="bio-role-chip role--advisor">学术顾问</span>
-            <div class="bio-title">中国信通院工业互联网研究所首席专家</div>
-          </div>
-        </div>
-        <p class="bio-para"><span class="bio-para-label">当前职责：</span>代表国家智库参与园区 PDTMM® 五级认证的对标校准；主持每年"荥阳标准 vs 国家标准 vs 国际标准"对标白皮书；对 PDTMM 与 DCMM/CMMI 融合方向具有权威话语权。</p>
-        <p class="bio-para"><span class="bio-para-label">主要成就：</span>主编中国工业互联网《工业互联网体系架构 3.0》· 参与 3 项国家标准起草 · 累计承担工信部委托项目 15 项；ITU-T Q11 焦点组核心贡献者。</p>
-        <p class="bio-para"><span class="bio-para-label">教育 · 校友：</span>清华大学工学博士 · 北京邮电大学通信工程硕士。前诺基亚贝尔实验室高级研究员、前爱立信中国研究院无线架构专家。</p>
-      </div>
-
+    <div class="notice">
+      <b>真实性提示：</b>第三方招商平台上出现的招商经理姓名、二维码、客服电话等信息，不等同于园区官方联系方式；本网站只采用可追溯至政府官网、城投官网、公开招标公告或权威媒体报道的信息。
     </div>
   </div>
 </section>
 
-<!-- ============ Sticky 咨询 ============ -->
-<a class="help-widget" href="./#contact" aria-label="联系我们">
-  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-  联系
-</a>
+<a class="help-widget" href="#contacts" aria-label="公开联系方式">联系</a>
 
-<!-- ============ Footer ============ -->
 <footer class="footer-global">
   <div class="footer-inner">
     <div class="footer-lockup">
-      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 主管</div>
-      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 资产</div>
-      <div class="footer-lockup-item" style="color:var(--ecosystem);">太能控股 · 运营</div>
+      <div class="footer-lockup-item" style="color:var(--gov);">荥阳市人民政府 · 公开信息来源</div>
+      <div class="footer-lockup-item" style="color:var(--enterprise);">荥阳城投 · 可核验联系方式</div>
+      <div class="footer-lockup-item" style="color:var(--ecosystem);">公开报道 · 项目事实核验</div>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
         <h5>荥阳数字经济产业园</h5>
-        <p style="color:var(--text-2);font-size:var(--fs-sm);">运营主体：郑州荥泽数链产业发展有限公司<br>三方共治 · 平台驱动 · 生态繁荣</p>
+        <p style="color:var(--text-2);font-size:var(--fs-sm);">公开信息核验版 · 不展示无法核验的个人联系方式</p>
       </div>
       <div class="footer-col">
         <h5>关于我们</h5>
         <a href="./">总览</a>
-        <a href="./leadership.html">领导班子</a>
+        <a href="./leadership.html">公开信息核验</a>
         <a href="./governance.html">七方共治</a>
         <a href="./timeline.html">里程碑</a>
       </div>
       <div class="footer-col">
-        <h5>快速导航</h5>
-        <a href="../platforms/">4 大平台</a>
-        <a href="../services/">服务矩阵</a>
-        <a href="../sub-brands/">数字子品牌</a>
+        <h5>公开来源</h5>
+        <a href="https://www.xingyang.gov.cn/" target="_blank" rel="noopener">荥阳市人民政府</a>
+        <a href="https://www.xychengtou.com/business_index.html" target="_blank" rel="noopener">荥阳城投官网</a>
+        <a href="https://app.dahecube.com/nweb/news/20230116/151728ne431cfd8bfa.htm" target="_blank" rel="noopener">大河财立方报道</a>
       </div>
       <div class="footer-col">
         <h5>联系我们</h5>
-        <a href="./#contact">合作咨询</a>
-        <a href="../newsroom/">新闻中心</a>
-        <a href="mailto:contact@xingyang-park.gov.cn">contact@xingyang-park.gov.cn</a>
-        <a href="tel:0371-6425-8899">0371-6425-8899</a>
+        <a href="mailto:xycstz@163.com">xycstz@163.com</a>
+        <a href="tel:0371-65000177">0371-65000177</a>
       </div>
     </div>
-    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 运营主体：郑州荥泽数链产业发展有限公司 · 保留所有权利</div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 公开信息核验页 · 资料更新日：2026-08-01</div>
   </div>
 </footer>
 

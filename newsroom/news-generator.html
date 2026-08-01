@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>荥阳新闻卡片生成器 · 一键把公众号文章变成网站新闻</title>
+<title>荥阳新闻卡片生成器 · 一键把公开文章变成网站新闻</title>
 <link rel="stylesheet" href="../assets/css/tokens.css">
 <style>
   body { padding: var(--sp-8); background: var(--bg-1); }
@@ -94,9 +94,9 @@
   <div class="panel">
     <h1>📰 新闻卡片生成器</h1>
     <div class="step">
-      <b>3 步搬运公众号新闻到网站：</b>
+      <b>3 步搬运公开文章到网站：</b>
       <ol>
-        <li>在微信打开公众号文章 → 右上角"..." → 复制链接</li>
+        <li>打开公开文章 → 右上角"..." → 复制链接</li>
         <li>把标题/日期/摘要/链接填进下面 → 点"生成"</li>
         <li>把右侧代码粘贴到 <code>newsroom/index.html</code> 的 <code>&lt;div class="news-list"&gt;</code> 里 → git push 上线</li>
       </ol>
@@ -119,17 +119,17 @@
     <label>📅 发布日期（必填）</label>
     <input type="date" id="f-date">
 
-    <label>🔗 微信公众号文章 URL（必填）<span class="hint">格式：https://mp.weixin.qq.com/s/xxxxx</span></label>
+    <label>🔗 公开文章 URL（必填）<span class="hint">格式：https://公开文章链接</span></label>
     <input type="url" id="f-url" placeholder="https://mp.weixin.qq.com/s/...">
 
-    <label>💬 摘要（80-150 字 · 必填）<span class="hint">用户在网站上先看到这段，决定是否点击去公众号</span></label>
+    <label>💬 摘要（80-150 字 · 必填）<span class="hint">用户在网站上先看到这段，决定是否点击查看来源</span></label>
     <textarea id="f-summary" placeholder="例：7 月 20 日，浙江大华技术股份有限公司与荥阳数字经济产业园签约仪式在园区管委会举行。大华郑州总部将入驻园区 A 座，首期租赁 5000 ㎡，预计 3 年内引进研发人员 200+ 人..."></textarea>
 
-    <label>🖼 封面图 URL（可选）<span class="hint">留空则显示灰色占位。可用公众号文章的封面图链接。</span></label>
+    <label>🖼 封面图 URL（可选）<span class="hint">留空则显示灰色占位。可用公开文章的封面图链接。</span></label>
     <input type="url" id="f-cover" placeholder="https://mmbiz.qpic.cn/...">
 
-    <label>👤 阅读时长或来源标签（可选）<span class="hint">默认显示"荥阳数字经济产业园官方公众号"</span></label>
-    <input type="text" id="f-meta" placeholder="荥阳数字经济产业园官方公众号 · 3 分钟阅读">
+    <label>👤 阅读时长或来源标签（可选）<span class="hint">默认显示"公开来源"</span></label>
+    <input type="text" id="f-meta" placeholder="公开来源 · 3 分钟阅读">
 
     <div class="btns">
       <button class="btn btn-primary" onclick="generate()">🎯 生成卡片代码</button>
@@ -197,7 +197,7 @@ function fillExample() {
   document.getElementById('f-url').value = 'https://mp.weixin.qq.com/s/example-dahua-signing';
   document.getElementById('f-summary').value = '7 月 20 日，浙江大华技术股份有限公司与荥阳数字经济产业园签约仪式在园区管委会举行。大华郑州总部将入驻园区 A 座，首期租赁 5000 ㎡，预计 3 年内引进研发人员 200+ 人，与荥阳共建"安防 AI + 数字文创"融合创新中心。';
   document.getElementById('f-cover').value = '';
-  document.getElementById('f-meta').value = '荥阳数字经济产业园官方公众号 · 3 分钟阅读';
+  document.getElementById('f-meta').value = '公开来源 · 3 分钟阅读';
   generate();
 }
 
@@ -218,7 +218,7 @@ function generate() {
   const url = document.getElementById('f-url').value.trim();
   const summary = document.getElementById('f-summary').value.trim();
   const cover = document.getElementById('f-cover').value.trim();
-  const meta = (document.getElementById('f-meta').value.trim() || '荥阳数字经济产业园官方公众号');
+  const meta = (document.getElementById('f-meta').value.trim() || '公开来源');
 
   if (!title || !date || !url || !summary) {
     alert('❌ 标题、日期、URL、摘要都是必填');
