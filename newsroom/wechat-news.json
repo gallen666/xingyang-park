@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-02T18:40:00+08:00",
-  "source_note": "公众号主页由已登录 Mac 微信客户端直连核验；官方索引来自搜狗微信公开索引中来源显示为“荥阳市数字经济产业园”的条目；已取得微信原文 HTML 的文章在站内全文呈现。",
+  "updated_at": "2026-08-02T19:45:00+08:00",
+  "source_note": "公众号主页由已登录 Mac 微信客户端直连核验；官方索引来自搜狗微信公开索引中来源显示为“荥阳市数字经济产业园”的条目；已取得微信原文 HTML 的文章在站内全文呈现，图片已下载为本站本地资源。",
   "archive_url": "./wechat-archive.html",
   "official_index_count": 62,
   "articles": [
@@ -65,6 +65,18 @@
       "id": "行业前沿-APEC成员经济体应携手抢抓数字和人工智能发展机遇"
     },
     {
+      "title": "专家解读 | 夯实数据基础，激活智能跃迁——《关于推进行业高质量数据集建设行动的实施方案》解读",
+      "source": "荥阳市数字经济产业园",
+      "publish_date": "2026-06-16",
+      "digest": "文 | 上海市数据局副局长 钱晓 人工智能发展范式正经历从“拼算力”“拼算法”向“拼数据”的关键跃迁，高质量数据已成为决定AI高度的战略性资源。日前，国家印发《关于推进行业高质量数据集建设行动的实施方案》（以下简称《方案》），以全链条思维系统部署了强基扩容、标注攻坚、提质增效、应用赋能、管理服务、价值释放六大行动，标志着我国数据要素市场化改革迈入“高质量供给”与“深度价值释放”并重的新阶段。上海作为全国数字经济与人工智能发展的前沿阵地，…",
+      "thumb_url": "../assets/img/wechat/archive/data-foundation-expert-01.png",
+      "url": "wechat/data-foundation-expert.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
+      "category": "行业观察",
+      "fulltext": true,
+      "id": "专家解读-夯实数据基础-激活智能跃迁-关于推进行业高质量数据集建设行动的实施方案-解读"
+    },
+    {
       "title": "要闻 | 工业和信息化部召开高质量行业数据集建设工作座谈会",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-05-15",
@@ -89,16 +101,16 @@
       "id": "济南爽朗信息科技有限公司与荥阳市数字经济产业园开展线上合作洽谈"
     },
     {
-      "title": "政策解读 |《人工智能+制造》专项行动实施意见",
+      "title": "政策解读 |《“人工智能+制造”专项行动实施意见》",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-05-13",
-      "digest": "微信客户端公众号主页滚动列表可见的政策解读条目。",
-      "thumb_url": "",
-      "url": "wechat-archive.html#政策解读-人工智能-制造-专项行动实施意见",
-      "verification": "微信客户端主页直连核验",
+      "digest": "公众号原文以《“人工智能+制造”专项行动实施意见》政策解读长图为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "thumb_url": "../assets/img/wechat/archive/ai-manufacturing-policy-01.png",
+      "url": "wechat/ai-manufacturing-policy.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "政策与荣誉",
-      "fulltext": false,
-      "id": "政策解读-人工智能-制造-专项行动实施意见"
+      "fulltext": true,
+      "id": "政策解读-人工智能+制造-专项行动实施意见"
     },
     {
       "title": "专家解读 | 加强高质量数据供给 释放人工智能应用价值",
@@ -116,73 +128,73 @@
       "title": "园区动态 | 园区与河南新商景信息咨询服务有限公司交流合作新机遇",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-03-25",
-      "digest": "2026 年 3 月 24 日,河南新商景信息咨询服务有限公司与荥阳市数字经济产业园举行线上合作洽谈会,双方围绕短视频精准投流、AI ...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibo5GG7E8wgOsDiaPT0dqnyyE8ia8dZBhd7Mm55BSV0un3jhgnpDDGX46icqBfTYSUNuoAGfk6X0l1sGDjzhRte2aAuSsuuCQabV8z62T2ic2r7M/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#园区动态-园区与河南新商景信息咨询服务有限公司交流合作新机遇",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "2026 年 3 月 24 日，河南新商景信息咨询服务有限公司与荥阳市数字经济产业园举行线上合作洽谈会，双方围绕短视频精准投流、AI 模型内容展示、产业资源对接、信息化服务落地等领域深入交流，共商协同发展路径。 河南新商景信息咨询服务有限公司商务经理臧爽、荥阳市数字经济产业园招商经理韩姗出席洽谈会。双方就业务契合方向、合作落地模式、服务配套保障等议题充分沟通，交换发展思路与合作诉求，明确后续对接重点，为推进务实合作奠定坚实基础。 河南新…",
+      "thumb_url": "../assets/img/wechat/archive/xingshangjing-cooperation-01.png",
+      "url": "wechat/xingshangjing-cooperation.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "招商与合作",
-      "fulltext": false,
+      "fulltext": true,
       "id": "园区动态-园区与河南新商景信息咨询服务有限公司交流合作新机遇"
     },
     {
       "title": "致敬天下每一位女性 | 荥阳市数字经济产业园",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-03-08",
-      "digest": "搜狗微信公开索引收录的公众号原发条目；原文需通过微信客户端或搜狗验证打开。",
-      "thumb_url": "https://mmbiz.qpic.cn/mmbiz_jpg/ibo5GG7E8wgNh7eFL16hZibSR2VMSYoSWENjcePcoBsibBDibeBgia2iagNWXJlxEicq2ibwjRuicqwicdkAkJ5qoC519s1kBAQUe9bKgCiaia9TiaN5e6L4/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#致敬天下每一位女性-荥阳市数字经济产业园",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "致敬天下每一位女性。公众号原文以节日海报图片为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "thumb_url": "../assets/img/wechat/archive/womens-day-tribute-01.png",
+      "url": "wechat/womens-day-tribute.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "品牌文化",
-      "fulltext": false,
+      "fulltext": true,
       "id": "致敬天下每一位女性-荥阳市数字经济产业园"
     },
     {
-      "title": "瑞马踏雪来，岁岁常欢愉，年年皆胜意|荥阳市数字经济产业园",
+      "title": "瑞马踏雪来，岁岁常欢愉，年年皆胜意｜荥阳市数字经济产业园",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-02-17",
-      "digest": "搜狗微信公开索引收录的公众号原发条目；原文需通过微信客户端或搜狗验证打开。",
-      "thumb_url": "https://mmbiz.qpic.cn/mmbiz_jpg/ibo5GG7E8wgM1gxR2vv1AkLxsopnCSmGgyfEicAIuN8oWFlyTp30S0cRm4bHiajAmPtDzU3goyHibjvIEsy15qicBGNL0nhs8ghelcOVxZepX2u8/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#瑞马踏雪来-岁岁常欢愉-年年皆胜意-荥阳市数字经济产业园",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "瑞马踏雪来，岁岁常欢愉，年年皆胜意。公众号原文以新春海报图片为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "thumb_url": "../assets/img/wechat/archive/spring-greeting-2026-01.png",
+      "url": "wechat/spring-greeting-2026.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "品牌文化",
-      "fulltext": false,
+      "fulltext": true,
       "id": "瑞马踏雪来-岁岁常欢愉-年年皆胜意-荥阳市数字经济产业园"
     },
     {
       "title": "园区动态 | 园区与郑州捷音通讯科技有限公司交流合作新机遇",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-02-06",
-      "digest": "2026年2月5日,荥阳市数字经济产业园与国家级高新技术企业郑州捷音通讯科技有限公司通过线上会议形式展开深度交流,双方围绕...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibo5GG7E8wgNvs88usf4qmaTXUefhlVbEh3VMzWbGatZp8s0ib990XKCUIxyMHBxsfr1HEosJxGicRzJjKcY0ZwLV8cVO3KnPKCmE7Q1rar6zY/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#园区动态-园区与郑州捷音通讯科技有限公司交流合作新机遇",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "2026年2月5日，荥阳市数字经济产业园与国家级高新技术企业郑州捷音通讯科技有限公司通过线上会议形式展开深度交流，双方围绕数字技术赋能中小企业发展、AI+产业生态共建等议题达成合作共识。荥阳市数字经济产业园招商经理韩姗、郑州捷音项目经理刘博参与会议。 作为腾讯、用友、中信等头部机构战略投资的科技企业，郑州捷音通讯科技有限公司打造了行业领先的智能客户关系管理系统——EC CRM。其自主研发的SixBot平台通过构建营销、销售、客服等场景的…",
+      "thumb_url": "../assets/img/wechat/archive/jieyin-communications-cooperation-01.webp",
+      "url": "wechat/jieyin-communications-cooperation.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "招商与合作",
-      "fulltext": false,
+      "fulltext": true,
       "id": "园区动态-园区与郑州捷音通讯科技有限公司交流合作新机遇"
     },
     {
-      "title": "【荥园观察】荥阳市数字经济产业园1月工作月报，请查阅!",
+      "title": "【荥园观察】来了！荥阳市数字经济产业园工作周报速递",
       "source": "荥阳市数字经济产业园",
-      "publish_date": "2026-02-05",
-      "digest": "荥阳市数字经济产业园招商经理韩姗作为园区代表郑重签约.卢耀书在仪式上表示,我们非常高兴能与荥阳市数字经济产业园达成战略...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9PnrrD0s2pEJFGRGDo48pEkbcWibiaUdxSoME6sULDpichNMu0hn5n6BYdrIia6rEJksiaCE2gHBNJfUKEOA8I3t82Q/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#荥园观察-荥阳市数字经济产业园1月工作月报-请查阅",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
-      "category": "招商与合作",
-      "fulltext": false,
-      "id": "荥园观察-荥阳市数字经济产业园1月工作月报-请查阅"
+      "publish_date": "2026-02-06",
+      "digest": "荥园观察 荥阳市数字经济产业园以周报的形式，定期为您传递园区最新资讯及动态。本期周报为您带来2月2日-2月6日园区招商情况、运营动态和数字经济产业相关资讯速览。 本期目录 园区动态 园区与郑州捷音通讯科技有限公司交流合作新机遇 行业前沿 1.工信部：突破算力芯片、工业大模型等关键技术 做优应用生态 2.湖南全面启动“数据要素价值释放年”攻坚行动 3.《广东省加快数字社会高质量建设实施意见》印发 4.广西将投入450亿元以人工智能促产业升…",
+      "thumb_url": "../assets/img/wechat/archive/weekly-report-february-6-01.png",
+      "url": "wechat/weekly-report-february-6.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
+      "category": "园区动态",
+      "fulltext": true,
+      "id": "荥园观察-来了-荥阳市数字经济产业园工作周报速递"
     },
     {
-      "title": "【荥园观察】来了!荥阳市数字经济产业园工作周报速递",
+      "title": "【荥园观察】荥阳市数字经济产业园1月工作月报，请查阅！",
       "source": "荥阳市数字经济产业园",
-      "publish_date": "2026-01-30",
-      "digest": "荥园观察荥阳市数字经济产业园以周报的形式,定期为您传递园区最新资讯及动态.本期周报为您带来1月26日-1月30日园区招商情况...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9PnrrD0s2pGRNWHfbEVvY2PCpPswl4O21rWHymW1D8EzBIjd81BGOCaBKGlgYOzptXYmHJS6RQBnlA7g3A7gicw/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#荥园观察-来了-荥阳市数字经济产业园工作周报速递",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
-      "category": "招商与合作",
-      "fulltext": false,
-      "id": "荥园观察-来了-荥阳市数字经济产业园工作周报速递"
+      "publish_date": "2026-02-05",
+      "digest": "荥园观察 一月新程启幕时 交流合作开新局，互利共赢谱新篇 企业入驻添活力，产业生态更繁荣 平台搭建引贤才，创新驱动强引擎 项目引进促转型，高质量发展迈新阶 战略合作签约 1月21日 格行技术有限公司与荥阳市数字经济产业园达成战略合作 2026年1月21日，格行技术有限公司与荥阳市数字经济产业园战略合作签约仪式通过线上方式成功举行。双方正式确立合作伙伴关系，将共同致力于推进产业园区的数字化、智能化转型升级。格行技术有限公司市场部经理卢耀书…",
+      "thumb_url": "../assets/img/wechat/archive/january-monthly-report-01.webp",
+      "url": "wechat/january-monthly-report.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
+      "category": "园区动态",
+      "fulltext": true,
+      "id": "荥园观察-荥阳市数字经济产业园1月工作月报-请查阅"
     },
     {
       "title": "园区动态 | 荥阳市数字经济产业园与河南丰图美晟电子科技共探数字存储合作新路径",
@@ -869,5 +881,5 @@
       "id": "公司董事长戴继涛一行至中科创新园考察交流"
     }
   ],
-  "fulltext_count": 8
+  "fulltext_count": 16
 }

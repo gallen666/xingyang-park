@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-02T18:40:00+08:00",
+  "updated_at": "2026-08-02T19:45:00+08:00",
   "account": "荥阳市数字经济产业园",
   "official_index_count": 62,
   "wechat_profile_visible_original_count": 30,
-  "articles_count": 72,
-  "fulltext_count": 8,
-  "source_note": "公众号主页由已登录 Mac 微信客户端直连核验；官方索引来自搜狗微信公开索引中来源显示为“荥阳市数字经济产业园”的条目；已取得微信原文 HTML 的文章在站内全文呈现。",
+  "articles_count": 73,
+  "fulltext_count": 16,
+  "source_note": "公众号主页由已登录 Mac 微信客户端直连核验；官方索引来自搜狗微信公开索引中来源显示为“荥阳市数字经济产业园”的条目；已取得微信原文 HTML 的文章在站内全文呈现，图片已下载为本站本地资源。",
   "articles": [
     {
       "title": "盛世烟火安稳，感恩千里戍边人",
@@ -68,6 +68,18 @@
       "id": "行业前沿-APEC成员经济体应携手抢抓数字和人工智能发展机遇"
     },
     {
+      "title": "专家解读 | 夯实数据基础，激活智能跃迁——《关于推进行业高质量数据集建设行动的实施方案》解读",
+      "source": "荥阳市数字经济产业园",
+      "publish_date": "2026-06-16",
+      "digest": "文 | 上海市数据局副局长 钱晓 人工智能发展范式正经历从“拼算力”“拼算法”向“拼数据”的关键跃迁，高质量数据已成为决定AI高度的战略性资源。日前，国家印发《关于推进行业高质量数据集建设行动的实施方案》（以下简称《方案》），以全链条思维系统部署了强基扩容、标注攻坚、提质增效、应用赋能、管理服务、价值释放六大行动，标志着我国数据要素市场化改革迈入“高质量供给”与“深度价值释放”并重的新阶段。上海作为全国数字经济与人工智能发展的前沿阵地，…",
+      "thumb_url": "../assets/img/wechat/archive/data-foundation-expert-01.png",
+      "url": "wechat/data-foundation-expert.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
+      "category": "行业观察",
+      "fulltext": true,
+      "id": "专家解读-夯实数据基础-激活智能跃迁-关于推进行业高质量数据集建设行动的实施方案-解读"
+    },
+    {
       "title": "要闻 | 工业和信息化部召开高质量行业数据集建设工作座谈会",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-05-15",
@@ -92,16 +104,16 @@
       "id": "济南爽朗信息科技有限公司与荥阳市数字经济产业园开展线上合作洽谈"
     },
     {
-      "title": "政策解读 |《人工智能+制造》专项行动实施意见",
+      "title": "政策解读 |《“人工智能+制造”专项行动实施意见》",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-05-13",
-      "digest": "微信客户端公众号主页滚动列表可见的政策解读条目。",
-      "thumb_url": "",
-      "url": "wechat-archive.html#政策解读-人工智能-制造-专项行动实施意见",
-      "verification": "微信客户端主页直连核验",
+      "digest": "公众号原文以《“人工智能+制造”专项行动实施意见》政策解读长图为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "thumb_url": "../assets/img/wechat/archive/ai-manufacturing-policy-01.png",
+      "url": "wechat/ai-manufacturing-policy.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "政策与荣誉",
-      "fulltext": false,
-      "id": "政策解读-人工智能-制造-专项行动实施意见"
+      "fulltext": true,
+      "id": "政策解读-人工智能+制造-专项行动实施意见"
     },
     {
       "title": "专家解读 | 加强高质量数据供给 释放人工智能应用价值",
@@ -119,73 +131,73 @@
       "title": "园区动态 | 园区与河南新商景信息咨询服务有限公司交流合作新机遇",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-03-25",
-      "digest": "2026 年 3 月 24 日,河南新商景信息咨询服务有限公司与荥阳市数字经济产业园举行线上合作洽谈会,双方围绕短视频精准投流、AI ...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibo5GG7E8wgOsDiaPT0dqnyyE8ia8dZBhd7Mm55BSV0un3jhgnpDDGX46icqBfTYSUNuoAGfk6X0l1sGDjzhRte2aAuSsuuCQabV8z62T2ic2r7M/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#园区动态-园区与河南新商景信息咨询服务有限公司交流合作新机遇",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "2026 年 3 月 24 日，河南新商景信息咨询服务有限公司与荥阳市数字经济产业园举行线上合作洽谈会，双方围绕短视频精准投流、AI 模型内容展示、产业资源对接、信息化服务落地等领域深入交流，共商协同发展路径。 河南新商景信息咨询服务有限公司商务经理臧爽、荥阳市数字经济产业园招商经理韩姗出席洽谈会。双方就业务契合方向、合作落地模式、服务配套保障等议题充分沟通，交换发展思路与合作诉求，明确后续对接重点，为推进务实合作奠定坚实基础。 河南新…",
+      "thumb_url": "../assets/img/wechat/archive/xingshangjing-cooperation-01.png",
+      "url": "wechat/xingshangjing-cooperation.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "招商与合作",
-      "fulltext": false,
+      "fulltext": true,
       "id": "园区动态-园区与河南新商景信息咨询服务有限公司交流合作新机遇"
     },
     {
       "title": "致敬天下每一位女性 | 荥阳市数字经济产业园",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-03-08",
-      "digest": "搜狗微信公开索引收录的公众号原发条目；原文需通过微信客户端或搜狗验证打开。",
-      "thumb_url": "https://mmbiz.qpic.cn/mmbiz_jpg/ibo5GG7E8wgNh7eFL16hZibSR2VMSYoSWENjcePcoBsibBDibeBgia2iagNWXJlxEicq2ibwjRuicqwicdkAkJ5qoC519s1kBAQUe9bKgCiaia9TiaN5e6L4/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#致敬天下每一位女性-荥阳市数字经济产业园",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "致敬天下每一位女性。公众号原文以节日海报图片为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "thumb_url": "../assets/img/wechat/archive/womens-day-tribute-01.png",
+      "url": "wechat/womens-day-tribute.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "品牌文化",
-      "fulltext": false,
+      "fulltext": true,
       "id": "致敬天下每一位女性-荥阳市数字经济产业园"
     },
     {
-      "title": "瑞马踏雪来，岁岁常欢愉，年年皆胜意|荥阳市数字经济产业园",
+      "title": "瑞马踏雪来，岁岁常欢愉，年年皆胜意｜荥阳市数字经济产业园",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-02-17",
-      "digest": "搜狗微信公开索引收录的公众号原发条目；原文需通过微信客户端或搜狗验证打开。",
-      "thumb_url": "https://mmbiz.qpic.cn/mmbiz_jpg/ibo5GG7E8wgM1gxR2vv1AkLxsopnCSmGgyfEicAIuN8oWFlyTp30S0cRm4bHiajAmPtDzU3goyHibjvIEsy15qicBGNL0nhs8ghelcOVxZepX2u8/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#瑞马踏雪来-岁岁常欢愉-年年皆胜意-荥阳市数字经济产业园",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "瑞马踏雪来，岁岁常欢愉，年年皆胜意。公众号原文以新春海报图片为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "thumb_url": "../assets/img/wechat/archive/spring-greeting-2026-01.png",
+      "url": "wechat/spring-greeting-2026.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "品牌文化",
-      "fulltext": false,
+      "fulltext": true,
       "id": "瑞马踏雪来-岁岁常欢愉-年年皆胜意-荥阳市数字经济产业园"
     },
     {
       "title": "园区动态 | 园区与郑州捷音通讯科技有限公司交流合作新机遇",
       "source": "荥阳市数字经济产业园",
       "publish_date": "2026-02-06",
-      "digest": "2026年2月5日,荥阳市数字经济产业园与国家级高新技术企业郑州捷音通讯科技有限公司通过线上会议形式展开深度交流,双方围绕...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibo5GG7E8wgNvs88usf4qmaTXUefhlVbEh3VMzWbGatZp8s0ib990XKCUIxyMHBxsfr1HEosJxGicRzJjKcY0ZwLV8cVO3KnPKCmE7Q1rar6zY/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#园区动态-园区与郑州捷音通讯科技有限公司交流合作新机遇",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
+      "digest": "2026年2月5日，荥阳市数字经济产业园与国家级高新技术企业郑州捷音通讯科技有限公司通过线上会议形式展开深度交流，双方围绕数字技术赋能中小企业发展、AI+产业生态共建等议题达成合作共识。荥阳市数字经济产业园招商经理韩姗、郑州捷音项目经理刘博参与会议。 作为腾讯、用友、中信等头部机构战略投资的科技企业，郑州捷音通讯科技有限公司打造了行业领先的智能客户关系管理系统——EC CRM。其自主研发的SixBot平台通过构建营销、销售、客服等场景的…",
+      "thumb_url": "../assets/img/wechat/archive/jieyin-communications-cooperation-01.webp",
+      "url": "wechat/jieyin-communications-cooperation.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
       "category": "招商与合作",
-      "fulltext": false,
+      "fulltext": true,
       "id": "园区动态-园区与郑州捷音通讯科技有限公司交流合作新机遇"
     },
     {
-      "title": "【荥园观察】荥阳市数字经济产业园1月工作月报，请查阅!",
+      "title": "【荥园观察】来了！荥阳市数字经济产业园工作周报速递",
       "source": "荥阳市数字经济产业园",
-      "publish_date": "2026-02-05",
-      "digest": "荥阳市数字经济产业园招商经理韩姗作为园区代表郑重签约.卢耀书在仪式上表示,我们非常高兴能与荥阳市数字经济产业园达成战略...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9PnrrD0s2pEJFGRGDo48pEkbcWibiaUdxSoME6sULDpichNMu0hn5n6BYdrIia6rEJksiaCE2gHBNJfUKEOA8I3t82Q/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#荥园观察-荥阳市数字经济产业园1月工作月报-请查阅",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
-      "category": "招商与合作",
-      "fulltext": false,
-      "id": "荥园观察-荥阳市数字经济产业园1月工作月报-请查阅"
+      "publish_date": "2026-02-06",
+      "digest": "荥园观察 荥阳市数字经济产业园以周报的形式，定期为您传递园区最新资讯及动态。本期周报为您带来2月2日-2月6日园区招商情况、运营动态和数字经济产业相关资讯速览。 本期目录 园区动态 园区与郑州捷音通讯科技有限公司交流合作新机遇 行业前沿 1.工信部：突破算力芯片、工业大模型等关键技术 做优应用生态 2.湖南全面启动“数据要素价值释放年”攻坚行动 3.《广东省加快数字社会高质量建设实施意见》印发 4.广西将投入450亿元以人工智能促产业升…",
+      "thumb_url": "../assets/img/wechat/archive/weekly-report-february-6-01.png",
+      "url": "wechat/weekly-report-february-6.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
+      "category": "园区动态",
+      "fulltext": true,
+      "id": "荥园观察-来了-荥阳市数字经济产业园工作周报速递"
     },
     {
-      "title": "【荥园观察】来了!荥阳市数字经济产业园工作周报速递",
+      "title": "【荥园观察】荥阳市数字经济产业园1月工作月报，请查阅！",
       "source": "荥阳市数字经济产业园",
-      "publish_date": "2026-01-30",
-      "digest": "荥园观察荥阳市数字经济产业园以周报的形式,定期为您传递园区最新资讯及动态.本期周报为您带来1月26日-1月30日园区招商情况...",
-      "thumb_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/9PnrrD0s2pGRNWHfbEVvY2PCpPswl4O21rWHymW1D8EzBIjd81BGOCaBKGlgYOzptXYmHJS6RQBnlA7g3A7gicw/0?wx_fmt=jpeg",
-      "url": "wechat-archive.html#荥园观察-来了-荥阳市数字经济产业园工作周报速递",
-      "verification": "搜狗微信公开索引：来源显示为“荥阳市数字经济产业园”",
-      "category": "招商与合作",
-      "fulltext": false,
-      "id": "荥园观察-来了-荥阳市数字经济产业园工作周报速递"
+      "publish_date": "2026-02-05",
+      "digest": "荥园观察 一月新程启幕时 交流合作开新局，互利共赢谱新篇 企业入驻添活力，产业生态更繁荣 平台搭建引贤才，创新驱动强引擎 项目引进促转型，高质量发展迈新阶 战略合作签约 1月21日 格行技术有限公司与荥阳市数字经济产业园达成战略合作 2026年1月21日，格行技术有限公司与荥阳市数字经济产业园战略合作签约仪式通过线上方式成功举行。双方正式确立合作伙伴关系，将共同致力于推进产业园区的数字化、智能化转型升级。格行技术有限公司市场部经理卢耀书…",
+      "thumb_url": "../assets/img/wechat/archive/january-monthly-report-01.webp",
+      "url": "wechat/january-monthly-report.html",
+      "verification": "微信客户端缓存原文解析；公众号运营方授权搬运全文",
+      "category": "园区动态",
+      "fulltext": true,
+      "id": "荥园观察-荥阳市数字经济产业园1月工作月报-请查阅"
     },
     {
       "title": "园区动态 | 荥阳市数字经济产业园与河南丰图美晟电子科技共探数字存储合作新路径",
@@ -874,6 +886,229 @@
   ],
   "full_articles": [
     {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
+      "title": "盛世烟火安稳，感恩千里戍边人",
+      "date": "2026-08-01",
+      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
+      "url": "wechat/august-first-tribute.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247514046&idx=1&sn=5f8d99d1732a395df467918f67141dc7",
+      "slug": "august-first-tribute",
+      "digest": "盛世烟火安稳，感恩千里戍边人。公众号原文以图片内容为主体，已按运营方授权迁移图片至本站本地资源。",
+      "images": [
+        "../assets/img/wechat/archive/august-first-tribute-01.jpg",
+        "../assets/img/wechat/archive/august-first-tribute-02.jpg"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
+      "title": "逐光而行，不负骄阳 | 荥阳市数字经济产业园",
+      "date": "2026-07-23",
+      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
+      "url": "wechat/summer-dashu.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247514016&idx=1&sn=c347248384ff6b7e06f8ebf30d7e95f1",
+      "slug": "summer-dashu",
+      "digest": "逐光而行，不负骄阳。公众号原文以图片内容为主体，已按运营方授权迁移图片至本站本地资源。",
+      "images": [
+        "../assets/img/wechat/archive/summer-dashu-01.jpg",
+        "../assets/img/wechat/archive/summer-dashu-02.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
+      "title": "行业前沿丨APEC成员经济体应携手抢抓数字和人工智能发展机遇",
+      "date": "2026-07-10",
+      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
+      "url": "wechat/apec-ai-digital.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247514003&idx=1&sn=de45b6332b992a0c86ea0bc419f28947",
+      "slug": "apec-ai-digital",
+      "digest": "当前，全球数字化转型加速演进，包括人工智能在内的数字技术正在引领新一轮科技革命和产业变革，深刻重塑亚太地区经济社会发展格局。“亚太地区是全球经济增长的重要引擎。APEC成员经济体应当携手抢抓数字和人工智能发展机遇，共同开展数字赋能务实合作。”工业和信息化部副部长熊继军在工业和信息化部举行的亚太经合组织（APEC）2026年数字和人工智能部…",
+      "images": [
+        "../assets/img/wechat/archive/apec-ai-digital-01.jpg",
+        "../assets/img/wechat/archive/apec-ai-digital-02.jpg",
+        "../assets/img/wechat/archive/apec-ai-digital-03.png",
+        "../assets/img/wechat/archive/apec-ai-digital-04.png",
+        "../assets/img/wechat/archive/apec-ai-digital-05.png",
+        "../assets/img/wechat/archive/apec-ai-digital-06.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/9b438adf1319c5d6_0",
+      "title": "专家解读 | 夯实数据基础，激活智能跃迁——《关于推进行业高质量数据集建设行动的实施方案》解读",
+      "date": "2026-06-16",
+      "source_date_note": "微信原文页面显示 2026年6月16日 21:00；微信客户端缓存 HTML 解析",
+      "url": "wechat/data-foundation-expert.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513940&idx=1&sn=38a048f98473bb4fb12567a93563a6b0",
+      "slug": "data-foundation-expert",
+      "digest": "文 | 上海市数据局副局长 钱晓 人工智能发展范式正经历从“拼算力”“拼算法”向“拼数据”的关键跃迁，高质量数据已成为决定AI高度的战略性资源。日前，国家印发《关于推进行业高质量数据集建设行动的实施方案》（以下简称《方案》），以全链条思维系统部署了强基扩容、标注攻坚、提质增效、应用赋能、管理服务、价值释放六大行动，标志着我国数据要素市场化改革迈入“高质量供给”与“深度价值释放”并重的新阶段。上海作为全国数字经济与人工智能发展的前沿阵地，…",
+      "images": [
+        "../assets/img/wechat/archive/data-foundation-expert-01.png",
+        "../assets/img/wechat/archive/data-foundation-expert-02.gif",
+        "../assets/img/wechat/archive/data-foundation-expert-03.png",
+        "../assets/img/wechat/archive/data-foundation-expert-04.jpg",
+        "../assets/img/wechat/archive/data-foundation-expert-05.png",
+        "../assets/img/wechat/archive/data-foundation-expert-06.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
+      "title": "要闻 | 工业和信息化部召开高质量行业数据集建设工作座谈会",
+      "date": "2026-05-15",
+      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
+      "url": "wechat/industry-dataset-meeting.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513865&idx=1&sn=ccb40900d651e81f4a3525c79964cd84",
+      "slug": "industry-dataset-meeting",
+      "digest": "5月13日，工业和信息化部在重庆市召开高质量行业数据集建设工作座谈会。会议深入学习贯彻习近平总书记关于数据发展和安全的重要论述，总结前期工作，交流先行先试阶段性进展，部署下一阶段重点工作，动员各地方、各行业全面推动工业数据开发利用，助力制造业数字化智能化转型。工业和信息化部副部长熊继军、重庆市副市长郑向东出席会议并讲话。…",
+      "images": [
+        "../assets/img/wechat/archive/industry-dataset-meeting-01.jpg",
+        "../assets/img/wechat/archive/industry-dataset-meeting-02.jpg",
+        "../assets/img/wechat/archive/industry-dataset-meeting-03.png",
+        "../assets/img/wechat/archive/industry-dataset-meeting-04.png",
+        "../assets/img/wechat/archive/industry-dataset-meeting-05.png",
+        "../assets/img/wechat/archive/industry-dataset-meeting-06.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
+      "title": "济南爽朗信息科技有限公司与荥阳市数字经济产业园开展线上合作洽谈",
+      "date": "2026-05-14",
+      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
+      "url": "wechat/jinan-shuanglang-cooperation.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513861&idx=1&sn=aee104211840e91a5074f2b5b2a67b97",
+      "slug": "jinan-shuanglang-cooperation",
+      "digest": "2026年5月14日，济南爽朗信息科技有限公司与荥阳市数字经济产业园以线上会议形式召开合作洽谈会，聚焦数字技术赋能、产业生态共建等核心议题。济南爽朗信息科技有限公司客户经理刘乐、荥阳市数字经济产业园招商经理韩姗出席会议，双方就资源互补、业务协同、数字化升级等方向达成共识，为后续深度合作奠定坚实基础。…",
+      "images": [
+        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-01.jpg",
+        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-02.jpg",
+        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-03.png",
+        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-04.png",
+        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-05.png",
+        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-06.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/a9f2485a78fee8c9_0",
+      "title": "政策解读 |《“人工智能+制造”专项行动实施意见》",
+      "date": "2026-05-13",
+      "source_date_note": "微信原文页面显示 2026年5月13日 21:00；微信客户端缓存 HTML 解析",
+      "url": "wechat/ai-manufacturing-policy.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513855&idx=1&sn=c54e8715157f793b4d04377f1d2713d8",
+      "slug": "ai-manufacturing-policy",
+      "digest": "公众号原文以《“人工智能+制造”专项行动实施意见》政策解读长图为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "images": [
+        "../assets/img/wechat/archive/ai-manufacturing-policy-01.png",
+        "../assets/img/wechat/archive/ai-manufacturing-policy-02.png",
+        "../assets/img/wechat/archive/ai-manufacturing-policy-03.gif",
+        "../assets/img/wechat/archive/ai-manufacturing-policy-04.png",
+        "../assets/img/wechat/archive/ai-manufacturing-policy-05.jpg",
+        "../assets/img/wechat/archive/ai-manufacturing-policy-06.png",
+        "../assets/img/wechat/archive/ai-manufacturing-policy-07.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/484d8e24f588c5b4_0",
+      "title": "园区动态 | 园区与河南新商景信息咨询服务有限公司交流合作新机遇",
+      "date": "2026-03-25",
+      "source_date_note": "微信原文页面显示 2026年3月25日 21:00；微信客户端缓存 HTML 解析",
+      "url": "wechat/xingshangjing-cooperation.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513678&idx=2&sn=175cfb574e1481b0ea4266e11d79f21a",
+      "slug": "xingshangjing-cooperation",
+      "digest": "2026 年 3 月 24 日，河南新商景信息咨询服务有限公司与荥阳市数字经济产业园举行线上合作洽谈会，双方围绕短视频精准投流、AI 模型内容展示、产业资源对接、信息化服务落地等领域深入交流，共商协同发展路径。 河南新商景信息咨询服务有限公司商务经理臧爽、荥阳市数字经济产业园招商经理韩姗出席洽谈会。双方就业务契合方向、合作落地模式、服务配套保障等议题充分沟通，交换发展思路与合作诉求，明确后续对接重点，为推进务实合作奠定坚实基础。 河南新…",
+      "images": [
+        "../assets/img/wechat/archive/xingshangjing-cooperation-01.png",
+        "../assets/img/wechat/archive/xingshangjing-cooperation-02.gif",
+        "../assets/img/wechat/archive/xingshangjing-cooperation-03.png",
+        "../assets/img/wechat/archive/xingshangjing-cooperation-04.jpg",
+        "../assets/img/wechat/archive/xingshangjing-cooperation-05.png",
+        "../assets/img/wechat/archive/xingshangjing-cooperation-06.png",
+        "../assets/img/wechat/archive/xingshangjing-cooperation-07.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/e6062e6752909efe_0",
+      "title": "致敬天下每一位女性 | 荥阳市数字经济产业园",
+      "date": "2026-03-08",
+      "source_date_note": "微信原文页面显示 2026年3月8日 07:30；微信客户端缓存 HTML 解析",
+      "url": "wechat/womens-day-tribute.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513631&idx=1&sn=dac34f3ae76926a75f5c5d8d37486acf",
+      "slug": "womens-day-tribute",
+      "digest": "致敬天下每一位女性。公众号原文以节日海报图片为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "images": [
+        "../assets/img/wechat/archive/womens-day-tribute-01.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/1057c10389e64a00_0",
+      "title": "瑞马踏雪来，岁岁常欢愉，年年皆胜意｜荥阳市数字经济产业园",
+      "date": "2026-02-17",
+      "source_date_note": "微信原文页面显示 2026年2月17日 07:30；微信客户端缓存 HTML 解析",
+      "url": "wechat/spring-greeting-2026.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513572&idx=1&sn=f1f9a3c96fc11fcaaa8a05e8398eb95d",
+      "slug": "spring-greeting-2026",
+      "digest": "瑞马踏雪来，岁岁常欢愉，年年皆胜意。公众号原文以新春海报图片为主体，已按运营方授权迁移图片内容至本站本地资源。",
+      "images": [
+        "../assets/img/wechat/archive/spring-greeting-2026-01.png"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/8d8b5dab972f1511_0",
+      "title": "园区动态 | 园区与郑州捷音通讯科技有限公司交流合作新机遇",
+      "date": "2026-02-06",
+      "source_date_note": "微信原文页面显示 2026年2月6日 21:00；微信客户端缓存 HTML 解析",
+      "url": "wechat/jieyin-communications-cooperation.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513560&idx=2&sn=1ae6bb1a95168656aad742258627cda0",
+      "slug": "jieyin-communications-cooperation",
+      "digest": "2026年2月5日，荥阳市数字经济产业园与国家级高新技术企业郑州捷音通讯科技有限公司通过线上会议形式展开深度交流，双方围绕数字技术赋能中小企业发展、AI+产业生态共建等议题达成合作共识。荥阳市数字经济产业园招商经理韩姗、郑州捷音项目经理刘博参与会议。 作为腾讯、用友、中信等头部机构战略投资的科技企业，郑州捷音通讯科技有限公司打造了行业领先的智能客户关系管理系统——EC CRM。其自主研发的SixBot平台通过构建营销、销售、客服等场景的…",
+      "images": [
+        "../assets/img/wechat/archive/jieyin-communications-cooperation-01.webp",
+        "../assets/img/wechat/archive/jieyin-communications-cooperation-02.gif",
+        "../assets/img/wechat/archive/jieyin-communications-cooperation-03.webp",
+        "../assets/img/wechat/archive/jieyin-communications-cooperation-04.webp",
+        "../assets/img/wechat/archive/jieyin-communications-cooperation-05.webp",
+        "../assets/img/wechat/archive/jieyin-communications-cooperation-06.webp",
+        "../assets/img/wechat/archive/jieyin-communications-cooperation-07.webp"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/c27faeb70079518d_0",
+      "title": "【荥园观察】来了！荥阳市数字经济产业园工作周报速递",
+      "date": "2026-02-06",
+      "source_date_note": "微信原文页面显示 2026年2月6日 21:00；微信客户端缓存 HTML 解析",
+      "url": "wechat/weekly-report-february-6.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513560&idx=1&sn=448917f38549dbdccf61cc177c442337",
+      "slug": "weekly-report-february-6",
+      "digest": "荥园观察 荥阳市数字经济产业园以周报的形式，定期为您传递园区最新资讯及动态。本期周报为您带来2月2日-2月6日园区招商情况、运营动态和数字经济产业相关资讯速览。 本期目录 园区动态 园区与郑州捷音通讯科技有限公司交流合作新机遇 行业前沿 1.工信部：突破算力芯片、工业大模型等关键技术 做优应用生态 2.湖南全面启动“数据要素价值释放年”攻坚行动 3.《广东省加快数字社会高质量建设实施意见》印发 4.广西将投入450亿元以人工智能促产业升…",
+      "images": [
+        "../assets/img/wechat/archive/weekly-report-february-6-01.png",
+        "../assets/img/wechat/archive/weekly-report-february-6-02.webp",
+        "../assets/img/wechat/archive/weekly-report-february-6-03.gif",
+        "../assets/img/wechat/archive/weekly-report-february-6-04.webp",
+        "../assets/img/wechat/archive/weekly-report-february-6-05.webp",
+        "../assets/img/wechat/archive/weekly-report-february-6-06.webp",
+        "../assets/img/wechat/archive/weekly-report-february-6-07.webp",
+        "../assets/img/wechat/archive/weekly-report-february-6-08.webp"
+      ]
+    },
+    {
+      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Cache/Cache_Data/f28cf826d5d62bea_0",
+      "title": "【荥园观察】荥阳市数字经济产业园1月工作月报，请查阅！",
+      "date": "2026-02-05",
+      "source_date_note": "微信原文页面显示 2026年2月5日 21:00；微信客户端缓存 HTML 解析",
+      "url": "wechat/january-monthly-report.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513554&idx=1&sn=e4e04ba4a05416e716979411a1be9186",
+      "slug": "january-monthly-report",
+      "digest": "荥园观察 一月新程启幕时 交流合作开新局，互利共赢谱新篇 企业入驻添活力，产业生态更繁荣 平台搭建引贤才，创新驱动强引擎 项目引进促转型，高质量发展迈新阶 战略合作签约 1月21日 格行技术有限公司与荥阳市数字经济产业园达成战略合作 2026年1月21日，格行技术有限公司与荥阳市数字经济产业园战略合作签约仪式通过线上方式成功举行。双方正式确立合作伙伴关系，将共同致力于推进产业园区的数字化、智能化转型升级。格行技术有限公司市场部经理卢耀书…",
+      "images": [
+        "../assets/img/wechat/archive/january-monthly-report-01.webp",
+        "../assets/img/wechat/archive/january-monthly-report-02.webp",
+        "../assets/img/wechat/archive/january-monthly-report-03.gif",
+        "../assets/img/wechat/archive/january-monthly-report-04.webp",
+        "../assets/img/wechat/archive/january-monthly-report-05.webp",
+        "../assets/img/wechat/archive/january-monthly-report-06.webp",
+        "../assets/img/wechat/archive/january-monthly-report-07.webp",
+        "../assets/img/wechat/archive/january-monthly-report-08.webp"
+      ]
+    },
+    {
       "file": "/tmp/xingyang-mp-full-2247505208.html",
       "title": "荥阳市数字经济产业园，诚邀企业入驻！",
       "date": "2024-05-08",
@@ -932,88 +1167,6 @@
         "../assets/img/wechat/archive/culture-03.png",
         "../assets/img/wechat/archive/culture-04.gif",
         "../assets/img/wechat/archive/culture-05.png"
-      ]
-    },
-    {
-      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
-      "title": "盛世烟火安稳，感恩千里戍边人",
-      "date": "2026-08-01",
-      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
-      "url": "wechat/august-first-tribute.html",
-      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247514046&idx=1&sn=5f8d99d1732a395df467918f67141dc7",
-      "slug": "august-first-tribute",
-      "digest": "盛世烟火安稳，感恩千里戍边人。公众号原文以图片内容为主体，已按运营方授权迁移图片至本站本地资源。",
-      "images": [
-        "../assets/img/wechat/archive/august-first-tribute-01.jpg",
-        "../assets/img/wechat/archive/august-first-tribute-02.jpg"
-      ]
-    },
-    {
-      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
-      "title": "逐光而行，不负骄阳 | 荥阳市数字经济产业园",
-      "date": "2026-07-23",
-      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
-      "url": "wechat/summer-dashu.html",
-      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247514016&idx=1&sn=c347248384ff6b7e06f8ebf30d7e95f1",
-      "slug": "summer-dashu",
-      "digest": "逐光而行，不负骄阳。公众号原文以图片内容为主体，已按运营方授权迁移图片至本站本地资源。",
-      "images": [
-        "../assets/img/wechat/archive/summer-dashu-01.jpg",
-        "../assets/img/wechat/archive/summer-dashu-02.png"
-      ]
-    },
-    {
-      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
-      "title": "行业前沿丨APEC成员经济体应携手抢抓数字和人工智能发展机遇",
-      "date": "2026-07-10",
-      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
-      "url": "wechat/apec-ai-digital.html",
-      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247514003&idx=1&sn=de45b6332b992a0c86ea0bc419f28947",
-      "slug": "apec-ai-digital",
-      "digest": "当前，全球数字化转型加速演进，包括人工智能在内的数字技术正在引领新一轮科技革命和产业变革，深刻重塑亚太地区经济社会发展格局。“亚太地区是全球经济增长的重要引擎。APEC成员经济体应当携手抢抓数字和人工智能发展机遇，共同开展数字赋能务实合作。”工业和信息化部副部长熊继军在工业和信息化部举行的亚太经合组织（APEC）2026年数字和人工智能部…",
-      "images": [
-        "../assets/img/wechat/archive/apec-ai-digital-01.jpg",
-        "../assets/img/wechat/archive/apec-ai-digital-02.jpg",
-        "../assets/img/wechat/archive/apec-ai-digital-03.png",
-        "../assets/img/wechat/archive/apec-ai-digital-04.png",
-        "../assets/img/wechat/archive/apec-ai-digital-05.png",
-        "../assets/img/wechat/archive/apec-ai-digital-06.png"
-      ]
-    },
-    {
-      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
-      "title": "要闻 | 工业和信息化部召开高质量行业数据集建设工作座谈会",
-      "date": "2026-05-15",
-      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
-      "url": "wechat/industry-dataset-meeting.html",
-      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513865&idx=1&sn=ccb40900d651e81f4a3525c79964cd84",
-      "slug": "industry-dataset-meeting",
-      "digest": "5月13日，工业和信息化部在重庆市召开高质量行业数据集建设工作座谈会。会议深入学习贯彻习近平总书记关于数据发展和安全的重要论述，总结前期工作，交流先行先试阶段性进展，部署下一阶段重点工作，动员各地方、各行业全面推动工业数据开发利用，助力制造业数字化智能化转型。工业和信息化部副部长熊继军、重庆市副市长郑向东出席会议并讲话。…",
-      "images": [
-        "../assets/img/wechat/archive/industry-dataset-meeting-01.jpg",
-        "../assets/img/wechat/archive/industry-dataset-meeting-02.jpg",
-        "../assets/img/wechat/archive/industry-dataset-meeting-03.png",
-        "../assets/img/wechat/archive/industry-dataset-meeting-04.png",
-        "../assets/img/wechat/archive/industry-dataset-meeting-05.png",
-        "../assets/img/wechat/archive/industry-dataset-meeting-06.png"
-      ]
-    },
-    {
-      "file": "/Users/gallendai/Library/Containers/com.tencent.xinWeChat/Data/Documents/app_data/radium/web/profiles/multitab_d5c91076a75b74230d41917750623d32/Share Data",
-      "title": "济南爽朗信息科技有限公司与荥阳市数字经济产业园开展线上合作洽谈",
-      "date": "2026-05-14",
-      "source_date_note": "微信客户端公众号主页与缓存分享元数据核验",
-      "url": "wechat/jinan-shuanglang-cooperation.html",
-      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247513861&idx=1&sn=aee104211840e91a5074f2b5b2a67b97",
-      "slug": "jinan-shuanglang-cooperation",
-      "digest": "2026年5月14日，济南爽朗信息科技有限公司与荥阳市数字经济产业园以线上会议形式召开合作洽谈会，聚焦数字技术赋能、产业生态共建等核心议题。济南爽朗信息科技有限公司客户经理刘乐、荥阳市数字经济产业园招商经理韩姗出席会议，双方就资源互补、业务协同、数字化升级等方向达成共识，为后续深度合作奠定坚实基础。…",
-      "images": [
-        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-01.jpg",
-        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-02.jpg",
-        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-03.png",
-        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-04.png",
-        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-05.png",
-        "../assets/img/wechat/archive/jinan-shuanglang-cooperation-06.png"
       ]
     }
   ]

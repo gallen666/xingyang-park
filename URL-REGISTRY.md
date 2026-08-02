@@ -59,7 +59,15 @@ xingyang-v2/
 │   │   ├── summer-dashu.html           # 逐光而行，不负骄阳
 │   │   ├── apec-ai-digital.html        # APEC 数字和人工智能发展机遇
 │   │   ├── industry-dataset-meeting.html # 高质量行业数据集建设工作座谈会
-│   │   └── jinan-shuanglang-cooperation.html # 济南爽朗线上合作洽谈
+│   │   ├── jinan-shuanglang-cooperation.html # 济南爽朗线上合作洽谈
+│   │   ├── ai-manufacturing-policy.html             # 政策解读 |《“人工智能+制造”专项行动实施意见》
+│   │   ├── data-foundation-expert.html             # 专家解读 | 夯实数据基础，激活智能跃迁——《关于推进行
+│   │   ├── xingshangjing-cooperation.html             # 园区动态 | 园区与河南新商景信息咨询服务有限公司交流合
+│   │   ├── womens-day-tribute.html             # 致敬天下每一位女性 | 荥阳市数字经济产业园
+│   │   ├── spring-greeting-2026.html             # 瑞马踏雪来，岁岁常欢愉，年年皆胜意｜荥阳市数字经济产业园
+│   │   ├── jieyin-communications-cooperation.html             # 园区动态 | 园区与郑州捷音通讯科技有限公司交流合作新机
+│   │   ├── january-monthly-report.html             # 【荥园观察】荥阳市数字经济产业园1月工作月报，请查阅！
+│   │   └── weekly-report-february-6.html             # 【荥园观察】来了！荥阳市数字经济产业园工作周报速递
 │   ├── press-releases/
 │   └── media-kit.html
 ├── about/                              # 三方治理 + 团队
