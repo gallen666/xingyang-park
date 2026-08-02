@@ -54,7 +54,12 @@ xingyang-v2/
 │   ├── wechat/
 │   │   ├── investment.html             # 公众号招商原文全文
 │   │   ├── zhengxi-new-highland.html   # 郑西数字经济新高地全文
-│   │   └── corporate-culture.html      # 企业文化全文
+│   │   ├── corporate-culture.html      # 企业文化全文
+│   │   ├── august-first-tribute.html   # 盛世烟火安稳，感恩千里戍边人
+│   │   ├── summer-dashu.html           # 逐光而行，不负骄阳
+│   │   ├── apec-ai-digital.html        # APEC 数字和人工智能发展机遇
+│   │   ├── industry-dataset-meeting.html # 高质量行业数据集建设工作座谈会
+│   │   └── jinan-shuanglang-cooperation.html # 济南爽朗线上合作洽谈
 │   ├── press-releases/
 │   └── media-kit.html
 ├── about/                              # 三方治理 + 团队
