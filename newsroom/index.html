@@ -77,53 +77,6 @@
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .wechat-proof {
-    display: grid; grid-template-columns: 1.05fr .95fr; gap: var(--sp-6);
-    margin-top: var(--sp-8);
-  }
-  @media (max-width: 900px) { .wechat-proof { grid-template-columns: 1fr; } }
-  .wechat-proof__panel {
-    padding: var(--sp-6);
-    border: 1px solid var(--bg-line);
-    border-radius: var(--radius-md);
-    background: var(--bg-2);
-  }
-  .wechat-proof__panel p,
-  .wechat-proof__panel li {
-    color: var(--text-2);
-    font-size: var(--fs-sm);
-    line-height: var(--lh-relaxed);
-  }
-  .wechat-proof__panel ul { padding-left: 1.2em; margin: var(--sp-4) 0 0; }
-  .wechat-proof__stats {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3);
-    margin-top: var(--sp-5);
-  }
-  @media (max-width: 640px) { .wechat-proof__stats { grid-template-columns: 1fr; } }
-  .wechat-proof__stat {
-    padding: var(--sp-4);
-    background: var(--bg-1);
-    border: 1px solid var(--bg-line);
-    border-radius: var(--radius);
-  }
-  .wechat-proof__stat b {
-    display: block;
-    color: var(--gold);
-    font-size: var(--fs-xl);
-    font-variant-numeric: tabular-nums;
-    margin-bottom: var(--sp-1);
-  }
-  .wechat-proof__stat span { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
-  .wechat-proof__gallery { display: grid; gap: var(--sp-3); }
-  .wechat-proof__gallery img {
-    width: 100%;
-    display: block;
-    border-radius: var(--radius);
-    border: 1px solid var(--bg-line);
-    background: var(--bg-1);
-  }
-  .wechat-proof__caption { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
-
   /* --- 记者资源集群 --- */
   .press-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-8); }
   @media (max-width: 900px) { .press-tiles { grid-template-columns: 1fr; } }
@@ -215,7 +168,6 @@
   <div class="subnav-inner">
     <span class="subnav-brand">新闻中心</span>
     <a href="#hero" class="active">新闻首页</a>
-    <a href="#wechat-verified">微信核验</a>
     <a href="./wechat-archive.html">公众号内容库</a>
     <a href="./announcements.html">全部动态</a>
     <a href="#in-the-news">精选新闻</a>
@@ -330,50 +282,6 @@
   </div>
 </section>
 
-<!-- ============ 微信公众号直连核验 ============ -->
-<section class="section-tight" id="wechat-verified">
-  <div class="container-wide">
-    <span class="section-kicker">WECHAT VERIFIED · 微信公众号直连核验</span>
-    <h2 class="section-title">已在微信客户端核验园区公众号与置顶招商文章</h2>
-    <p class="section-lead">
-      2026 年 8 月 2 日，本站在已登录的 Mac 微信客户端直接进入“荥阳市数字经济产业园”公众号主页核验。
-      公众号主页显示 30 篇原创内容，当前账号为已关注并星标；置顶招商文章为“荥阳市数字经济产业园，诚邀企业入驻！”。
-    </p>
-    <div class="wechat-proof">
-      <article class="wechat-proof__panel">
-        <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3);">置顶招商文章核验结果</h3>
-        <p>
-          微信文章页显示发布时间为 <b>2024-05-08 21:00</b>，文章底部显示 <b>阅读 1148</b>、
-          <b>修改于 2026-01-16</b>。正文确认园区由荥阳市人民政府、荥阳城市发展投资集团有限公司、
-          太能控股有限公司共同合作打造，项目位于郑上路与淇源路交叉口东北角，总投资 30 亿元，
-          建筑用地约 260 亩，土地性质为 100% 商业用地。
-        </p>
-        <ul>
-          <li>公众号名称：荥阳市数字经济产业园</li>
-          <li>公众号主页可见：30 篇原创内容、214 个朋友关注</li>
-          <li>置顶文章：荥阳市数字经济产业园，诚邀企业入驻！</li>
-          <li>招商电话：400 0371 899，来自园区运营方提供的官方招商电话口径；微信正文内未检索到 400/0371 文本。</li>
-        </ul>
-        <div class="wechat-proof__stats">
-          <div class="wechat-proof__stat"><b>2024-05-08</b><span>微信原文发布时间</span></div>
-          <div class="wechat-proof__stat"><b>2026-01-16</b><span>微信底部显示修改时间</span></div>
-          <div class="wechat-proof__stat"><b>1148</b><span>微信文章阅读数</span></div>
-        </div>
-      </article>
-      <aside class="wechat-proof__panel">
-        <div class="wechat-proof__gallery">
-          <img src="../assets/img/wechat/wechat-investment-article-header.jpg" alt="荥阳市数字经济产业园微信公众号招商文章标题与发布时间截图">
-          <img src="../assets/img/wechat/wechat-project-rendering.jpg" alt="荥阳市数字经济产业园微信公众号文章中的项目效果图">
-        </div>
-        <p class="wechat-proof__caption">
-          图片来自“荥阳市数字经济产业园”微信公众号招商文章，已获公众号运营方授权用于本站内容更新。
-          原始微信链接可能仍需在微信客户端内打开或经搜狗微信验证后访问。
-        </p>
-      </aside>
-    </div>
-  </div>
-</section>
-
 <!-- ============================================================
      公开来源文章 · 自动同步块
      从 wechat-news.json 动态加载最新文章
@@ -385,15 +293,15 @@
       <div class="kicker-line">WECHAT ARCHIVE · 公众号内容库</div>
       <h2 class="section-title">公众号最新内容</h2>
       <p class="section-lead">
-        已通过微信客户端直连核验“荥阳市数字经济产业园”公众号，并将公众号主页可见目录、搜狗微信公开索引官方条目、
-        已取得原文 HTML 的全文文章和本地图片统一搬入站内内容库。
+        公众号主页可见目录、公开索引官方条目、已取得原文 HTML 的全文文章和本地图片，
+        已统一搬入站内内容库。
       </p>
     </div>
 
     <!-- 加载中占位 -->
     <div id="wechat-list" class="grid grid-3" style="margin-top: var(--sp-8);">
       <div class="card" style="text-align: center; padding: var(--sp-12); color: var(--text-3); grid-column: 1 / -1;">
-        公众号内容库待同步 · 认证主体以微信端展示为准
+        公众号内容库正在加载
       </div>
     </div>
 
