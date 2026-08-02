@@ -216,7 +216,7 @@
     <span class="subnav-brand">新闻中心</span>
     <a href="#hero" class="active">新闻首页</a>
     <a href="#wechat-verified">微信核验</a>
-    <a href="#wechat-latest">公开来源</a>
+    <a href="./wechat-archive.html">公众号内容库</a>
     <a href="./announcements.html">全部动态</a>
     <a href="#in-the-news">精选新闻</a>
     <a href="./media-kit.html">媒体素材</a>
@@ -382,25 +382,25 @@
 <section class="section-tight" id="wechat-latest">
   <div class="container-wide">
     <div class="h-block">
-      <div class="kicker-line">PUBLIC SOURCES · 公开来源文章</div>
-      <h2 class="section-title">公开来源最新文章</h2>
+      <div class="kicker-line">WECHAT ARCHIVE · 公众号内容库</div>
+      <h2 class="section-title">公众号最新内容</h2>
       <p class="section-lead">
-        已通过微信客户端直连核验“荥阳市数字经济产业园”公众号，并补充搜狗微信公开索引、政府公开动态与省级政策入口。
-        原始微信链接可能仍需在微信或搜狗验证后打开，认证主体以微信端展示为准。
+        已通过微信客户端直连核验“荥阳市数字经济产业园”公众号，并将公众号主页可见目录、搜狗微信公开索引官方条目、
+        已取得原文 HTML 的全文文章和本地图片统一搬入站内内容库。
       </p>
     </div>
 
     <!-- 加载中占位 -->
     <div id="wechat-list" class="grid grid-3" style="margin-top: var(--sp-8);">
       <div class="card" style="text-align: center; padding: var(--sp-12); color: var(--text-3); grid-column: 1 / -1;">
-        公开来源文章待同步 · 认证主体以原始页面展示为准
+        公众号内容库待同步 · 认证主体以微信端展示为准
       </div>
     </div>
 
     <div style="text-align: center; margin-top: var(--sp-6); color: var(--text-3); font-size: var(--fs-xs);">
       <span id="wechat-updated">更新时间：待同步</span>
       &nbsp;·&nbsp;
-      <a href="./announcements.html" style="color: var(--brand);">查看全部动态 →</a>
+      <a href="./wechat-archive.html" style="color: var(--brand);">查看公众号内容库 →</a>
     </div>
   </div>
 </section>
@@ -423,14 +423,14 @@
       <a href="${a.url}" target="_blank" rel="noopener" class="card news-card">
         ${a.thumb_url ? `<div style="height:160px;background:url('${a.thumb_url}') center/cover;border-radius:var(--radius);margin-bottom:var(--sp-3);"></div>` : ''}
         <div class="news-card__head">
-          <span class="chip chip--news">公开来源</span>
+          <span class="chip chip--news">${a.fulltext ? '站内全文' : '公众号归档'}</span>
           <span>·</span>
           <span>${escapeHtml(a.publish_date)}${a.updated_date ? ` · 更新 ${escapeHtml(a.updated_date)}` : ''}</span>
         </div>
         <h4 class="news-card__title">${escapeHtml(a.title)}</h4>
         <p class="news-card__excerpt">${escapeHtml(a.digest)}</p>
         <div style="margin-top:var(--sp-3);color:var(--brand);font-size:var(--fs-sm);font-weight:600;">
-          阅读原文 →
+          ${a.fulltext ? '阅读站内全文' : '查看归档'} →
         </div>
       </a>
     `).join('');

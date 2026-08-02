@@ -1,8 +1,11 @@
 {
   "updated_at": "2026-08-02T11:30:00+08:00",
-  "source_note": "公众号主页由已登录 Mac 微信客户端直连核验；官方索引来自搜狗微信公开索引中来源显示为“荥阳市数字经济产业园”的条目；已取得微信原文 HTML 的文章在站内全文呈现。",
-  "archive_url": "./wechat-archive.html",
+  "account": "荥阳市数字经济产业园",
   "official_index_count": 62,
+  "wechat_profile_visible_original_count": 30,
+  "articles_count": 72,
+  "fulltext_count": 3,
+  "source_note": "公众号主页由已登录 Mac 微信客户端直连核验；官方索引来自搜狗微信公开索引中来源显示为“荥阳市数字经济产业园”的条目；已取得微信原文 HTML 的文章在站内全文呈现。",
   "articles": [
     {
       "title": "盛世烟火安稳，感恩千里戎边人",
@@ -867,6 +870,69 @@
       "category": "招商与合作",
       "fulltext": false,
       "id": "公司董事长戴继涛一行至中科创新园考察交流"
+    }
+  ],
+  "full_articles": [
+    {
+      "file": "/tmp/xingyang-mp-full-2247505208.html",
+      "title": "荥阳市数字经济产业园，诚邀企业入驻！",
+      "date": "2024-05-08",
+      "source_date_note": "微信文章页显示 2024年5月8日 21:00；底部显示修改于 2026-01-16",
+      "url": "wechat/investment.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247505208&idx=1&sn=8d5d4c534014fd364bdddfa636b13057",
+      "slug": "investment",
+      "digest": "荥阳市数字经济产业园是荥阳市人民政府、荥阳城市发展投资集团有限公司、太能控股有限公司共同合作打造的新型数字化、信息化产业聚集地，项目以“新基建”产业为核心，以5G应用、人工智能、大数据、区块链等信息化技术为方向，高效搭建云链数字经济研究院、数字经济总部中心、科技创新创业中心，产业应用展示展览中心，为企业提供安全、高端、国际化的发展、办公、研发和交流环境，全…",
+      "images": [
+        "../assets/img/wechat/archive/investment-01.webp",
+        "../assets/img/wechat/archive/investment-02.jpg",
+        "../assets/img/wechat/archive/investment-03.png",
+        "../assets/img/wechat/archive/investment-04.jpg",
+        "../assets/img/wechat/archive/investment-05.jpg",
+        "../assets/img/wechat/archive/investment-06.png",
+        "../assets/img/wechat/archive/investment-07.webp",
+        "../assets/img/wechat/archive/investment-08.png",
+        "../assets/img/wechat/archive/investment-09.png",
+        "../assets/img/wechat/archive/investment-10.webp"
+      ]
+    },
+    {
+      "file": "/tmp/xingyang-mp-full-2247499057.html",
+      "title": "荥阳市数字经济产业园 | 郑西数字经济新高地",
+      "date": "2023-02-25",
+      "source_date_note": "微信原文时间戳 ct=1677330000，对应 2023-02-25；公开索引同日收录",
+      "url": "wechat/zhengxi-new-highland.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=2247499057&idx=1&sn=75ebf6b7fabfef2e146094fbcd8b67da",
+      "slug": "new-highland",
+      "digest": "荥阳市数字经济产业园是由荥阳市人民政府、荥阳城市发展投资集团有限公司、太能控股有限公司合作打造的新型数字经济产业聚集中心。项目位于荥阳市中心城区核心位置，依托“一心、三点、五轴、五区”的规划布局，高效搭建数字经济总部中心、企业创新孵化中心、成果展示交流中心，为企业提供安全、高端、国际化的发展、办公、研发和交流环境。 作为河南省重点建设项目，园区以“新基建”…",
+      "images": [
+        "../assets/img/wechat/archive/new-highland-01.png",
+        "../assets/img/wechat/archive/new-highland-02.jpg",
+        "../assets/img/wechat/archive/new-highland-03.png",
+        "../assets/img/wechat/archive/new-highland-04.png",
+        "../assets/img/wechat/archive/new-highland-05.png",
+        "../assets/img/wechat/archive/new-highland-06.jpg",
+        "../assets/img/wechat/archive/new-highland-07.jpg",
+        "../assets/img/wechat/archive/new-highland-08.png",
+        "../assets/img/wechat/archive/new-highland-09.gif",
+        "../assets/img/wechat/archive/new-highland-10.png"
+      ]
+    },
+    {
+      "file": "/tmp/xingyang-mp-full-100005569.html",
+      "title": "企业文化",
+      "date": "2021-11-29",
+      "source_date_note": "微信原文时间戳 ct=1638153249，对应 2021-11-29",
+      "url": "wechat/corporate-culture.html",
+      "canonical": "https://mp.weixin.qq.com/s?__biz=MzAxMzYxMzUzMQ==&mid=100005569&idx=1&sn=aba282b5a9224aae9a9a6e8241fce481",
+      "slug": "culture",
+      "digest": "1 公司发展理念 不忘坚守初心 响应国家战略 科学精准定位 创建数字园区 携手行业龙头 数字赋能产业 创新校企合作 保障数字人才 引领技术进步 把握时代机遇 2 企业使命 赋能数字产业 贡献数字中国 影响数字世界 3 核心价值观 爱国、敬业、诚信、友善 4 企业愿景 打造全国数字经济产业示范区， 用数字产业化和产业数字化服务沿黄经济带； 助力郑州建设国家中…",
+      "images": [
+        "../assets/img/wechat/archive/culture-01.png",
+        "../assets/img/wechat/archive/culture-02.gif",
+        "../assets/img/wechat/archive/culture-03.png",
+        "../assets/img/wechat/archive/culture-04.gif",
+        "../assets/img/wechat/archive/culture-05.png"
+      ]
     }
   ]
 }

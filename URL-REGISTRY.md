@@ -48,6 +48,13 @@ xingyang-v2/
 │   └── dbappsecurity.html              # 安恒
 ├── newsroom/                           # 新闻室 + 记者素材
 │   ├── index.html
+│   ├── wechat-archive.html             # 微信公众号内容库
+│   ├── wechat-archive.json             # 公众号内容库结构化数据
+│   ├── wechat-news.json                # 新闻页最新公众号内容数据
+│   ├── wechat/
+│   │   ├── investment.html             # 公众号招商原文全文
+│   │   ├── zhengxi-new-highland.html   # 郑西数字经济新高地全文
+│   │   └── corporate-culture.html      # 企业文化全文
 │   ├── press-releases/
 │   └── media-kit.html
 ├── about/                              # 三方治理 + 团队
