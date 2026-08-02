@@ -58,6 +58,23 @@
   .entry-card span { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
   .brand-strip { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-5); }
   .brand-strip span { display: inline-flex; align-items: center; padding: 6px var(--sp-3); border: 1px solid var(--bg-line); border-radius: var(--radius-pill); background: var(--bg-2); color: var(--text-1); font-size: var(--fs-sm); font-weight: 600; }
+  .wechat-source { display: grid; grid-template-columns: 1.08fr .92fr; gap: var(--sp-6); margin-top: var(--sp-8); }
+  @media (max-width: 900px) { .wechat-source { grid-template-columns: 1fr; } }
+  .wechat-source__copy,
+  .wechat-source__media { padding: var(--sp-6); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
+  .wechat-source__copy h3 { font-size: var(--fs-lg); margin: var(--sp-5) 0 var(--sp-3); }
+  .wechat-source__copy h3:first-child { margin-top: 0; }
+  .wechat-source__copy p,
+  .wechat-source__copy li { color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-relaxed); }
+  .wechat-source__copy ul { padding-left: 1.2em; margin: var(--sp-3) 0 0; }
+  .wechat-source__facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); margin: var(--sp-5) 0; }
+  @media (max-width: 640px) { .wechat-source__facts { grid-template-columns: 1fr; } }
+  .wechat-source__fact { padding: var(--sp-4); background: var(--bg-1); border: 1px solid var(--bg-line); border-radius: var(--radius); }
+  .wechat-source__fact b { display: block; color: var(--gold); font-size: var(--fs-xl); font-variant-numeric: tabular-nums; margin-bottom: var(--sp-1); }
+  .wechat-source__fact span { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
+  .wechat-source__media { display: grid; gap: var(--sp-3); align-content: start; }
+  .wechat-source__media img { width: 100%; display: block; border-radius: var(--radius); border: 1px solid var(--bg-line); background: var(--bg-1); }
+  .wechat-source__caption { color: var(--text-3); font-size: var(--fs-xs); line-height: var(--lh-relaxed); }
   .timeline-lite { display: grid; gap: var(--sp-4); margin-top: var(--sp-8); }
   .timeline-lite__item { display: grid; grid-template-columns: 120px 1fr; gap: var(--sp-5); padding: var(--sp-4); background: var(--bg-2); border: 1px solid var(--bg-line); border-radius: var(--radius-md); }
   @media (max-width: 700px) { .timeline-lite__item { grid-template-columns: 1fr; } }
@@ -260,6 +277,67 @@
   </div>
 </section>
 
+<!-- 3. 微信公众号招商原文搬运 -->
+<section class="section-tight" id="wechat-source">
+  <div class="container-wide">
+    <span class="section-kicker">WECHAT SOURCE · 公众号招商原文</span>
+    <h2 class="section-title">荥阳市数字经济产业园，诚邀企业入驻</h2>
+    <p class="section-lead">
+      经“荥阳市数字经济产业园”公众号运营方授权，本站收录公众号置顶招商文章的核心正文、项目图片与招商口径。
+      微信客户端核验显示，原文发布于 2024 年 5 月 8 日 21:00，文章底部显示阅读 1148、修改于 2026 年 1 月 16 日。
+    </p>
+    <div class="wechat-source">
+      <article class="wechat-source__copy">
+        <h3>原文项目介绍</h3>
+        <p>
+          荥阳市数字经济产业园是荥阳市人民政府、荥阳城市发展投资集团有限公司、太能控股有限公司共同合作打造的新型数字化、信息化产业聚集地。
+          项目以“新基建”产业为核心，以 5G 应用、人工智能、大数据、区块链等信息化技术为方向，高效搭建云链数字经济研究院、
+          数字经济总部中心、科技创新创业中心、产业应用展示展览中心，为企业提供安全、高端、国际化的发展、办公、研发和交流环境。
+        </p>
+        <div class="wechat-source__facts">
+          <div class="wechat-source__fact"><b>30 亿元</b><span>微信招商文章披露的项目总投资</span></div>
+          <div class="wechat-source__fact"><b>约 260 亩</b><span>微信招商文章披露的建筑用地口径</span></div>
+          <div class="wechat-source__fact"><b>100%</b><span>招商材料披露土地性质为商业用地</span></div>
+        </div>
+
+        <h3>产业集聚方向</h3>
+        <p>
+          园区围绕 IABCDGN 产业生态体系，即物联网、人工智能、区块链、大数据、云计算、5G、数字孪生，重点引入上市公司、龙头企业，
+          吸引相关产业集聚。公众号招商文章列举大华股份、安恒信息、优刻得、新开普、江森自控、杭州码全信息科技有限公司、
+          北京五一视界数字孪生科技股份有限公司等数字经济领域龙头企业及高新技术企业。
+        </p>
+
+        <h3>区位与发展空间</h3>
+        <p>
+          微信招商文章口径显示，项目位于荥阳郑上路与淇源路交叉口东北角；公开工程信息中亦见“棋源路”写法，后续以规划和道路正式名称为准。
+          园区坐拥郑州地铁 10 号线，南侧约 3.5 公里为郑州高铁西站，东侧约 5 公里为郑州绕城高速豫龙站上下口，面向郑西产业协同和沿黄经济带数字化需求。
+        </p>
+
+        <h3>一站式入驻与智慧园区服务</h3>
+        <ul>
+          <li>企业入驻与设立支持：工商注册、资质办理等服务。</li>
+          <li>运营过程专业服务：财税、法律、人资、知识产权、物管、媒体宣传等服务。</li>
+          <li>企业扩张与升级合作：投融资服务、上市辅导等服务。</li>
+          <li>智慧园区能力：5G 专网、云计算与大数据中心、物联网智控园区、数字化安防系统。</li>
+        </ul>
+
+        <h3>合作需求与招商业态</h3>
+        <p>
+          园区欢迎多种创新型项目前来合作，合作方式可根据项目特点灵活调整。主要面向数字经济产业上下游企业、相关产业企业以及多样化商业底商，
+          通过引入数字经济产业上下游创新型项目，丰富园区产业生态，提高园区创新竞争力，打造数字经济产业示范区。
+        </p>
+      </article>
+      <aside class="wechat-source__media">
+        <img src="../assets/img/wechat/wechat-investment-article-header.jpg" alt="荥阳市数字经济产业园微信公众号招商文章标题和发布时间">
+        <img src="../assets/img/wechat/wechat-project-rendering.jpg" alt="荥阳市数字经济产业园微信公众号文章项目效果图">
+        <p class="wechat-source__caption">
+          图片来自公众号置顶招商文章。公众号主页与文章页已在微信客户端直接核验；原始微信链接可能需在微信客户端内打开或通过搜狗微信验证访问。
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <!-- 6. 7 层证据栈 -->
 <section class="section" style="background: var(--bg-1);" id="proof">
   <div class="container-wide">
@@ -267,6 +345,10 @@
     <h2 class="section-title">招商信息依据</h2>
     <p class="section-lead">本页采用“公开来源 + 招商材料”双口径：能由公开网页核验的内容直接展示；暂未找到公开文件的内容标注为招商材料口径，并以正式协议、规划和土地文件为准。</p>
     <div class="proof-stack">
+      <div class="proof-row">
+        <div class="proof-layer">微信直连</div>
+        <div class="proof-content">已在微信客户端核验“荥阳市数字经济产业园”公众号置顶招商文章。原文发布于 <b>2024-05-08 21:00</b>，底部显示阅读 <b class="num">1148</b>、修改于 <b>2026-01-16</b>；公众号主页显示 <b class="num">30</b> 篇原创内容。</div>
+      </div>
       <div class="proof-row">
         <div class="proof-layer">公开报道</div>
         <div class="proof-content">大河财立方公开报道：太能控股与荥阳市政府于 2020 年 3 月合作打造荥阳市数字经济产业园；一期总投资 <b class="num">30 亿元</b>，规划占地约 <b class="num">300 亩</b>，建筑面积约 <b class="num">40 万㎡</b>。</div>
@@ -277,7 +359,7 @@
       </div>
       <div class="proof-row">
         <div class="proof-layer">招商材料</div>
-        <div class="proof-content">招商材料显示，项目建筑用地约 <b class="num">260 亩</b>，土地性质为商业用地，并面向数字经济上下游企业及多样化商业底商招引。相关土地性质、面积和政策适用应以政府、规划、土地或合同文件为准。</div>
+        <div class="proof-content">公众号招商文章与招商材料显示，项目建筑用地约 <b class="num">260 亩</b>，土地性质为商业用地，并面向数字经济上下游企业及多样化商业底商招引。相关土地性质、面积和政策适用应以政府、规划、土地或合同文件为准。</div>
       </div>
       <div class="proof-row">
         <div class="proof-layer">产业方向</div>
@@ -626,7 +708,7 @@
         <a href="mailto:xycstz@163.com">xycstz@163.com</a>
       </div>
     </div>
-    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 企业入驻招商 · 官方招商电话 400 0371 899 · 资料更新日：2026-08-01</div>
+    <div class="footer-copy">© 2026 荥阳数字经济产业园 · 企业入驻招商 · 官方招商电话 400 0371 899 · 资料更新日：2026-08-02</div>
   </div>
 </footer>
 
